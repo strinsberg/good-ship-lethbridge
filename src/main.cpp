@@ -1,7 +1,6 @@
 #include <iostream>
 
-int main()
-{
+int main() {
    std::cout << "Adventure Game" << std::endl;
    return 0;
 }

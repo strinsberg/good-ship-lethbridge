@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++0x -g -Wall
+CXXFLAGS = -std=c++11 -g -Wall
 
 TEST_LINKFLAGS = -lgtest
 
@@ -13,8 +13,8 @@ STATIC_ANALYSIS = cppcheck
 
 STYLE_CHECK = cpplint.py
 
-PROGRAM = adventure
-PROGRAM_TEST = testGame
+PROGRAM = adventureGame
+PROGRAM_TEST = testAdventure
 
 
 .PHONY: all
@@ -30,7 +30,7 @@ clean:
 	$(SRC_DIR)/*.o $(TEST_SRC)/*.o \
 	$(PROGRAM_TEST) $(PROGRAM) \
 	docs/code/html docs/code/doxygen.log obj bin \
-	*.bak
+	*.bak *.temp
 
 compile: $(SRC_DIR)
 	$(CXX) $(CXXFLAGS) -o $(PROGRAM) $(INCLUDE) \
@@ -43,6 +43,8 @@ tests: $(TEST_DIR) $(SRC_DIR)
 	$(PROGRAM_TEST)
 
 #need coverage target
+$(PROGRAM): compile
+	$(PROGRAM)
 
 memory: compile
 	valgrind --tool=memcheck --leak-check=yes $(PROGRAM)
