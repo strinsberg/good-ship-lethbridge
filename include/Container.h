@@ -4,14 +4,15 @@
 #include "Entity.h"
 #include <map>
 
+
 class Container: public Entity
 {
   public:
     Container();
     virtual ~Container();
-    virtual void describe();
-    virtual void use(Entity&) = 0;
-    virtual void serialize(fstream&) = 0;
+    void describe();
+    void use(Entity&);
+    void serialize(fstream&);
 
     Entity& search(string);
     void addEntity(Entity*);

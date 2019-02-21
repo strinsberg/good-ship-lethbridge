@@ -5,14 +5,29 @@
 #include "EntityState.h"
 #include <iostream>
 
-
+/**
+  * Interface for a base game entity.
+  */
 class Entity {
 public:
-  Entity();
-  virtual ~Entity();
+
+  /**
+    * Display a description of the entity to the
+    * entity's output stream.
+    */
   virtual void describe() = 0;
-  virtual void use(Entity&) = 0;
-  virtual void serialize(fstream&) = 0;
+
+  /**
+    * Use the entity.
+    * @param user The user of the entity.
+    */
+  virtual void use(Entity& user) = 0;
+
+  /**
+    * Write the entities details to a file.
+    * @param fout The file stream to write to.
+    */
+  virtual void serialize(fstream& fout) = 0;
 
   EntitySpec& getSpec();
   void setSpec(EntitySpec*);
@@ -26,11 +41,6 @@ protected:
   ostream& out;  // default to cout
 
 private:
-  // Declare these private so that we won't have to worry about
-  // Copy assignment with pointers in our objects Unless we want to
-  // add it in the future. Should be same in all classes.
-  Entity(const Entity&);
-  Entity& operator=(const Entity&);
 
 };
 

@@ -6,14 +6,15 @@
 #include "Atmosphere.h"
 #include "Event.h"
 
+
 class Room : public Container
 {
   public:
     Room();
     virtual ~Room();
-    virtual void describe();
-    virtual void use(Entity&);
-    virtual void serialize(fstream&);
+    void describe();
+    void use(Entity&);
+    void serialize(fstream&);
 
     virtual void enter(Entity&);
     virtual void exit(Entity&);

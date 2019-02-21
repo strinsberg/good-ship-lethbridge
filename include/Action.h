@@ -10,7 +10,6 @@ class Action : public Command
   public:
     Action();
     virtual ~Action();
-    virtual void execute() = 0;
 
     virtual void SetEntity(Entity&);
 
