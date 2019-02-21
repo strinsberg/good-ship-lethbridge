@@ -1,0 +1,11 @@
+#ifndef CALRISSIEN_2720_ATMOSPHERE_H
+#define CALRISSIEN_2720_ATMOSPHERE_H
+
+enum Atmosphere
+{
+  OXYGEN;
+  SPACE;
+  RADIATION;
+};
+
+#endif // ATMOSPHERE_H

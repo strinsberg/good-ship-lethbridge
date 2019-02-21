@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Game">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -31,7 +33,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Action.h" />
+		<Unit filename="include/Atmosphere.h" />
+		<Unit filename="include/Command.h" />
+		<Unit filename="include/Container.h" />
+		<Unit filename="include/Door.h" />
 		<Unit filename="include/Entity.h" />
+		<Unit filename="include/EntitySpec.h" />
+		<Unit filename="include/EntityState.h" />
+		<Unit filename="include/Event.h" />
+		<Unit filename="include/Exit.h" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/Parser.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/Room.h" />
 		<Unit filename="src/TestClass.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />

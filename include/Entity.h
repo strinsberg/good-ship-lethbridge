@@ -3,19 +3,27 @@
 
 #include "EntitySpec.h"
 #include "EntityState.h"
+#include <iostream>
 
 
 class Entity {
 public:
   Entity();
   virtual ~Entity();
-  setSpec(EntitySpec*);
-  setOutput(ostream&=cout);
+  virtual void describe() = 0;
+  virtual void use(Entity&) = 0;
+  virtual void serialize(fstream&) = 0;
+
+  EntitySpec& getSpec();
+  void setSpec(EntitySpec*);
+  EntityState& getState();
+  void setState(EntityState*);
+  void setOutput(ostream&);
 
 protected:
   EntitySpec spec;
   EntityState state;
-  ostream& out;
+  ostream& out;  // default to cout
 
 private:
   // Declare these private so that we won't have to worry about
