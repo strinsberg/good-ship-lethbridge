@@ -5,6 +5,9 @@
 #include <map>
 
 
+/**
+  * Base class for all entities that can contain other entities
+  */
 class Container: public Entity
 {
   public:
@@ -14,12 +17,28 @@ class Container: public Entity
     void use(Entity&);
     void serialize(fstream&);
 
-    Entity& search(string);
-    void addEntity(Entity*);
-    Entity* removeEntity(Entity&);
+    /**
+      * See if an entity with the given name is in the container.
+      * Does not transfer ownership.
+      * @param name the name of the entity to search for
+      * @return a pointer to the entity or nullptr
+      */
+    Entity* search(string name);
+
+    /**
+      * Add an entity to the container. Transfers ownership to this container.
+      * @param entity the entity to add
+      */
+    void addEntity(Entity* entity);
+
+    /**
+      * Remove an entity from the container. Transfers ownership to caller.
+      * @param entity the entity to remove
+      */
+    Entity* removeEntity(Entity& entity);
 
   protected:
-    map<string, Entity*> inventory;
+    map<string, Entity*> inventory;  // owns the entities it contains
 
   private:
     Container(const Container&);

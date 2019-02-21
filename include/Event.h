@@ -2,6 +2,9 @@
 #define CALRISSIEN_2720_EVENT_H
 
 
+/**
+  * An interface for game events
+  */
 class Event
 {
   public:
@@ -9,8 +12,16 @@ class Event
     virtual ~Event();
     virtual void execute() = 0;
 
-    void setMessage(string);
-    void setOutput(ostream&);
+    /**
+      * Set the message to be displayed when the event is executed
+      * @param m the message
+      */
+    void setMessage(string m);
+
+    /**
+      * @param os the new output stream
+      */
+    void setOutput(ostream& os);
 
   protected:
     string message;

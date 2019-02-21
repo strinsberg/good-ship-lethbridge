@@ -4,6 +4,10 @@
 #include "Action.h"
 
 
+/**
+  * The Action for when the user wants to try moving the player to
+  * another room
+  */
 class Exit : public Action
 {
   public:
@@ -11,8 +15,6 @@ class Exit : public Action
     virtual ~Exit() {}
 
     void execute();
-
-  protected:
 
   private:
     Exit(const Exit&);

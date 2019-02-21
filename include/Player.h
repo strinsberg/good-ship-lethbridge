@@ -5,6 +5,9 @@
 #include "Room.h"
 
 
+/**
+  * The player character
+  */
 class Player : public Container
 {
   public:
@@ -14,13 +17,20 @@ class Player : public Container
     void use(Entity&);
     void serialize(fstream&);
 
+    /**
+      * @return the room the player is in
+      */
     Room& getCurrentRoom();
+
+    /**
+      * @param room the room the player is now in
+      */
     void setCurrentRoom(Room&);
 
   protected:
 
   private:
-    Room& currentRoom;
+    Room& currentRoom;  // does not own the room
 
     Player(const Player&);
     Player& operator=(const Player&);

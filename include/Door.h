@@ -5,6 +5,9 @@
 #include "Room.h"
 
 
+/**
+  * A doorway to another room
+  */
 class Door : public Entity
 {
   public:
@@ -14,7 +17,11 @@ class Door : public Entity
     void use(Entity&);
     void serialize(fstream&);
 
-    void setDestination(Room&);
+    /**
+      * Set the room the door leads to
+      * @param room the new destination
+      */
+    void setDestination(Room& room);
 
   protected:
 

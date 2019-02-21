@@ -7,6 +7,9 @@
 #include "Event.h"
 
 
+/**
+  * Base class for all areas of the game
+  */
 class Room : public Container
 {
   public:
@@ -16,15 +19,35 @@ class Room : public Container
     void use(Entity&);
     void serialize(fstream&);
 
-    virtual void enter(Entity&);
-    virtual void exit(Entity&);
+    /**
+      * Take action when an entity enters the room
+      * @param entity the entity entering the room
+      */
+    virtual void enter(Entity& entity);
 
-    void setEnter(Event*);
+    /**
+      * Take action when an entity leaves the room
+      * @param entity the entity leaving the room
+      */
+    virtual void exit(Entity& entity);
+
+    /**
+      * Set an event to execute when the room is entered. Transfers ownership
+      * to this room.
+      * @param event the event
+      */
+    void setEnter(Event* event);
+
+    /**
+      * Set an event to execute when the room is exited. Transfers ownership
+      * to this room.
+      * @param event the event
+      */
     void setExit(Event*);
 
   protected:
     Atmosphere atmosphere;
-    Event* enterEvent;
+    Event* enterEvent;  // owns these events
     Event* exitEvent;
 
   private:

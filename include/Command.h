@@ -4,14 +4,24 @@
 #include <iostream>
 
 
+/**
+  * An interface for all user issued commands
+  */
 class Command
 {
   public:
     Command();
     virtual ~Command();
+
+    /**
+      * Execute the command
+      */
     virtual void execute() = 0;
 
-    virtual void setOutput(ostream&);
+    /**
+      * @param os the new output stream
+      */
+    virtual void setOutput(ostream& os);
 
   protected:
     ostream& out;
