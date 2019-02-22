@@ -17,7 +17,7 @@
   */
 class Entity {
  public:
-  Entity(std::ostream& os = std::cout);
+  Entity() : out(nullptr) {}
   virtual ~Entity();
 
   /**
@@ -59,11 +59,17 @@ class Entity {
     * @param s the new state
     */
   void setState(EntityState* s);
+  
+  /**
+    * Set the output stream for writing game text.
+    * @param s the new state
+    */
+  void setOutput(std::ostream* os);
 
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  std::ostream& out;  // default to cout in constructor
+  std::ostream* out;  // does not own
 
  private:
   Entity(const Entity&);
