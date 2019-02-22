@@ -27,9 +27,10 @@ class Game {
   void run();
 
   /**
+    * Does not Transfer ownership
     * @return the player
     */
-  Player& getPlayer() const;
+  Player* getPlayer() const;
 
   /**
     * Set the player for the game. Transfers ownership to this game.
@@ -51,6 +52,11 @@ class Game {
     * already stored
     */
   void addRoom(Room* room);
+
+  /**
+    * @return the number of rooms
+    */
+  int numRooms();
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms

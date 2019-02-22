@@ -8,22 +8,27 @@
 #include "Player.h"
 #include "Room.h"
 #include <string>
+#include <map>
 
+using std::map;
+using std::string;
 
-Game::Game() {
+Game::Game() : rooms(map<string, Room*>()), player(nullptr) {
 
 }
 
 Game::~Game() {
-
+  delete player;
+  for (auto r : rooms)
+    delete r.second;
 }
 
 void Game::run() {
 
 }
 
-Player& Game::getPlayer() const {
-  return *player;
+Player* Game::getPlayer() const {
+  return player;
 }
 
 void Game::setPlayer(Player* p) {
@@ -31,10 +36,13 @@ void Game::setPlayer(Player* p) {
 }
 
 Room* Game::getRoom(std::string name) const {
-  Room* r;
-  return r;
+  return nullptr;
 }
 
 void Game::addRoom(Room* room) {
 
+}
+
+int Game::numRooms() {
+  return rooms.size();
 }
