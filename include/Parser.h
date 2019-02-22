@@ -17,7 +17,7 @@ class Parser {
     * Create a new parser object to parse given input
     * @param in the input to parse
     */
-  Parser(string in);
+  Parser(std::string in);
   virtual ~Parser();
 
   /**
@@ -28,7 +28,7 @@ class Parser {
   Command* parse() const;
 
  private:
-  string input;
+  std::string input;
 
   Parser(const Parser&);
   Parser& operator=(const Parser&);

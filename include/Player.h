@@ -20,7 +20,7 @@ class Player : public Container {
   virtual ~Player();
   void describe();
   void use(Entity&);
-  void serialize(fstream&);
+  void serialize(std::fstream&);
 
   /**
     * @return the room the player is in

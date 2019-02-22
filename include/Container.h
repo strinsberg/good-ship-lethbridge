@@ -20,7 +20,7 @@ class Container: public Entity {
   virtual ~Container();
   void describe() const;
   void use(Entity&);
-  void serialize(fstream&) const;
+  void serialize(std::fstream&) const;
 
   /**
     * See if an entity with the given name is in the container.
@@ -28,7 +28,7 @@ class Container: public Entity {
     * @param name the name of the entity to search for
     * @return a pointer to the entity or nullptr
     */
-  Entity* search(string name) const;
+  Entity* search(std::string name) const;
 
   /**
     * Add an entity to the container. Transfers ownership to this container.
@@ -43,7 +43,7 @@ class Container: public Entity {
   Entity* removeEntity(Entity& entity);
 
  protected:
-  map<string, Entity*> inventory;  // owns the entities it contains
+  std::map<std::string, Entity*> inventory;  // owns the entities it contains
 
  private:
   Container(const Container&);

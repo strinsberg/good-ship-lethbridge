@@ -21,7 +21,7 @@ class Event {
     * Set the message to be displayed when the event is executed
     * @param m the message
     */
-  void setMessage(string m);
+  void setMessage(std::string m);
 
   /**
     * @param os the new output stream
@@ -29,8 +29,8 @@ class Event {
   void setOutput(ostream& os);
 
  protected:
-  string message;
-  ostream& out;
+  std::string message;
+  std::ostream& out;
 
  private:
   Event(const Event&);

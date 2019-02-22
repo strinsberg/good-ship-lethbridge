@@ -41,7 +41,7 @@ class Game {
     * @param name the name of the room
     * @return the room with given name or nullptr
     */
-  Room* getRoom(string name) const;
+  Room* getRoom(std::string name) const;
 
   /**
     * Add a room to the game. Transfers ownership to this game.
@@ -52,7 +52,7 @@ class Game {
   void addRoom(Room* room);
 
  private:
-  map<string, Room*> rooms;  // owns rooms
+  std::map<std::string, Room*> rooms;  // owns rooms
   Player* player;  // owns player
 
   Game(const Game&);
