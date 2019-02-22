@@ -63,7 +63,9 @@ class Entity {
   /**
     * @param os the new output stream
     */
-  void setOutput(std::ostream* os) {out = os;};
+  void setOutput(std::ostream* os) {
+    out = os;
+  };
 
  protected:
   EntitySpec* spec;  // owns this

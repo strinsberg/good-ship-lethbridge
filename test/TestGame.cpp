@@ -5,9 +5,17 @@
  */
 
 #include "Game.h"
+#include "Player.h"
 #include "gtest/gtest.h"
+#include <iostream>
+#include <sstream>
 
-
+/*class FakePlayer : public Player {
+public:
+  FakePlayer(std::ostream* o) {setOutput(o);}
+  void describe() {*out << "test";}
+};
+*/
 TEST(GameTests, constructor) {
   Game g;
   EXPECT_EQ(g.getPlayer(), nullptr);
@@ -15,7 +23,12 @@ TEST(GameTests, constructor) {
 }
 
 TEST(GameTests, get_set_player) {
+  /*
   Game g;
+  std::stringstream ss;
+  FakePlayer p(&ss);
+  g.getPlayer()->describe();
+  EXPECT_EQ(ss.str(), "test");*/
   FAIL();
 }
 
@@ -26,3 +39,8 @@ TEST(GameTests, get_room) {
 TEST(GameTests, add_room) {
   FAIL();
 }
+
+TEST(GameTests, add_room_throws) {
+  FAIL();
+}
+

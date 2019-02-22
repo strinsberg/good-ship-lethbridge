@@ -26,7 +26,9 @@ class Command {
   /**
     * @param os the new output stream
     */
-  virtual void setOutput(std::ostream* os) {out = os;};
+  virtual void setOutput(std::ostream* os) {
+    out = os;
+  };
 
  protected:
   std::ostream* out;

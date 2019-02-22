@@ -7,6 +7,7 @@
 #ifndef CALRISSIEN_2720_PARSER_H
 #define CALRISSIEN_2720_PARSER_H
 
+#include "Command.h"
 #include <string>
 
 
@@ -23,7 +24,7 @@ class Parser {
   virtual ~Parser();
 
   /**
-    * Parse the input. Transfers ownership to the caller.
+    * Parse the input. Transfers ownership of command to the caller.
     * @return a command object for a user input command
     * @throws invalid_input_error if the input does not make sense
     */
