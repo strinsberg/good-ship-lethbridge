@@ -20,7 +20,7 @@ class Door : public Entity {
   virtual ~Door();
   void describe() const;
   void use(Entity&);
-  void serialize(fstream&) const;
+  void serialize(std::fstream&) const;
 
   /**
     * Set the room the door leads to
@@ -31,8 +31,8 @@ class Door : public Entity {
  private:
   Room& destination;
 
-  Door(const Door& other);
-  Door& operator=(const Door& other);
+  Door(const Door&);
+  Door& operator=(const Door&);
 };
 
 #endif // DOOR_H

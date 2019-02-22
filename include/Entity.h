@@ -33,7 +33,7 @@ class Entity {
     * Write the entities details to a file.
     * @param fout The file stream to write to.
     */
-  virtual void serialize(fstream& fout) const = 0;
+  virtual void serialize(std::fstream& fout) const = 0;
 
   /**
     * @return the spec
@@ -60,12 +60,12 @@ class Entity {
   /**
     * @param os the new output stream
     */
-  void setOutput(ostream& os);
+  void setOutput(std::ostream& os);
 
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  ostream& out;  // default to cout in constructor
+  std::ostream& out;  // default to cout in constructor
 
 };
 

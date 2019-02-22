@@ -22,7 +22,7 @@ class Room : public Container {
   virtual ~Room();
   void describe();
   void use(Entity&);
-  void serialize(fstream&);
+  void serialize(std::fstream&);
 
   /**
     * Take action when an entity enters the room

@@ -21,33 +21,33 @@ class EntitySpec {
     * @param n the name to check
     * @return true if it is a match, otherwise false
     */
-  bool matches(string) const;
+  bool matches(std::string) const;
 
   /**
     * @return the name
     */
-  string getName() const;
+  std::string getName() const;
 
   /**
     * Set the name
     * @param n the new name
     */
-  void setName(string);
+  void setName(std::string);
 
   /**
     * @return the description
     */
-  string getDescription() const;
+  std::string getDescription() const;
 
   /**
     * set the description
     * @param d the new description
     */
-  void setDescription(string);
+  void setDescription(std::string);
 
  private:
-  string name;
-  string description;
+  std::string name;
+  std::string description;
 
   EntitySpec(const EntitySpec&);
   EntitySpec& operator=(const EntitySpec&);

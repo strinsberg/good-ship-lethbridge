@@ -26,10 +26,10 @@ class Command {
   /**
     * @param os the new output stream
     */
-  virtual void setOutput(ostream& os);
+  virtual void setOutput(std::ostream& os);
 
  protected:
-  ostream& out;
+  std::ostream& out;
 
  private:
   Command(const Command&);
