@@ -7,6 +7,8 @@
 #ifndef CALRISSIEN_2720_ENTITYSPEC_H
 #define CALRISSIEN_2720_ENTITYSPEC_H
 
+#include <string>
+
 
 /**
   * Holds information about an entity

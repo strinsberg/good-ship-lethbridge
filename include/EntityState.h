@@ -7,6 +7,8 @@
 #ifndef CALRISSIEN_2720_ENTITYSTATE_H
 #define CALRISSIEN_2720_ENTITYSTATE_H
 
+#include <string>
+
 
 /**
   * Holds the state of an entity
