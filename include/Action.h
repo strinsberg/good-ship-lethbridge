@@ -1,3 +1,9 @@
+/*
+ * CPSC2720 Group Project Spring 2019
+ * Steven Deutekom <deutekom@uleth.ca>
+ * Max Niu <max.niu@uleth.ca>
+ */
+
 #ifndef CALRISSIEN_2720_ACTION_H
 #define CALRISSIEN_2720_ACTION_H
 
@@ -8,24 +14,23 @@
 /**
   * Base class for actions the user wants the player to take.
   */
-class Action : public Command
-{
-  public:
-    Action();
-    virtual ~Action();
+class Action : public Command {
+ public:
+  Action();
+  virtual ~Action();
 
-    /**
-      * Set the entity that is responsible for the action
-      * @param entity the entity taking the action
-      */
-    virtual void SetEntity(Entity&);
+  /**
+    * Set the entity that is responsible for the action
+    * @param entity the entity taking the action
+    */
+  virtual void SetEntity(Entity&);
 
-  protected:
-    Entity& entity;  // does not own the entity
+ protected:
+  Entity& entity;  // does not own the entity
 
-  private:
-    Action(const Action&);
-    Action& operator=(const Action&);
+ private:
+  Action(const Action&);
+  Action& operator=(const Action&);
 };
 
 #endif // ACTION_H

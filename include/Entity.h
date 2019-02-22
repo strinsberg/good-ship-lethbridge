@@ -1,3 +1,9 @@
+/*
+ * CPSC2720 Group Project Spring 2019
+ * Steven Deutekom <deutekom@uleth.ca>
+ * Max Niu <max.niu@uleth.ca>
+ */
+
 #ifndef CALRISSIEN_2720_ENTITY_H
 #define CALRISSIEN_2720_ENTITY_H
 
@@ -10,12 +16,12 @@
   * Interface for a base game entity.
   */
 class Entity {
-public:
+ public:
   /**
     * Display a description of the entity to the
     * entity's output stream.
     */
-  virtual void describe() = 0;
+  virtual void describe() const = 0;
 
   /**
     * Use the entity.
@@ -27,12 +33,12 @@ public:
     * Write the entities details to a file.
     * @param fout The file stream to write to.
     */
-  virtual void serialize(fstream& fout) = 0;
+  virtual void serialize(fstream& fout) const = 0;
 
   /**
     * @return the spec
     */
-  EntitySpec& getSpec();
+  EntitySpec& getSpec() const;
 
   /**
     * Transfers ownership of state to the entity.
@@ -43,7 +49,7 @@ public:
   /**
     * @return the state
     */
-  EntityState& getState();
+  EntityState& getState() const;
 
   /**
     * Transfers ownership of state to the entity.
@@ -56,12 +62,10 @@ public:
     */
   void setOutput(ostream& os);
 
-protected:
+ protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
   ostream& out;  // default to cout in constructor
-
-private:
 
 };
 

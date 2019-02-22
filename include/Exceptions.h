@@ -1,10 +1,11 @@
 /*
-* CPSC 2720 Spring 2019: invalid_parameter_error
-* Copyright 2019 Dr. Anvik <john.anvik@uleth.ca>
-*
-* Adapted for 2720 group project to Spring 2019
-* Steven Deutekom <deutekom@uleth.ca>
-*/
+ * CPSC 2720 Spring 2019: invalid_parameter_error
+ * Copyright 2019 Dr. Anvik <john.anvik@uleth.ca>
+ *
+ * Adapted CPSC2720 Group Project Spring 2019
+ * Steven Deutekom <deutekom@uleth.ca>
+ * Max Niu <max.niu@uleth.ca>
+ */
 #ifndef CALRISSIEN_2720_EXCEPTIONS_H_
 #define CALRISSIEN_2720_EXCEPTIONS_H_
 
@@ -15,12 +16,12 @@
 */
 class invalid_parameter_error: public std::runtime_error {
  public:
-    /**
-    * @param errMessage An error message.
-    */
-    explicit invalid_parameter_error(const char* errMessage) :
-        std::runtime_error(errMessage) {
-    }
+  /**
+  * @param errMessage An error message.
+  */
+  explicit invalid_parameter_error(const char* errMessage) :
+    std::runtime_error(errMessage) {
+  }
 };
 
 /**
@@ -28,12 +29,12 @@ class invalid_parameter_error: public std::runtime_error {
 */
 class invalid_input_error: public std::runtime_error {
  public:
-    /**
-    * @param errMessage An error message.
-    */
-    explicit invalid_input_error(const char* errMessage) :
-        std::runtime_error(errMessage) {
-    }
+  /**
+  * @param errMessage An error message.
+  */
+  explicit invalid_input_error(const char* errMessage) :
+    std::runtime_error(errMessage) {
+  }
 };
 
 #endif  // INCLUDE_EXCEPTIONS_H_

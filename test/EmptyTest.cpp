@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
 
 TEST(EmptyTests, fail) {
-   FAIL()  << "just to test setup";
+  FAIL()  << "just to test setup";
 }
