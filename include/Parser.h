@@ -7,6 +7,8 @@
 #ifndef CALRISSIEN_2720_PARSER_H
 #define CALRISSIEN_2720_PARSER_H
 
+#include <string>
+
 
 /**
   * Object responsible for parsing user inputs

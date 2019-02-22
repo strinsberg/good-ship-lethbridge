@@ -7,6 +7,8 @@
 #ifndef CALRISSIEN_2720_EVENT_H
 #define CALRISSIEN_2720_EVENT_H
 
+#include <string>
+
 
 /**
   * An interface for game events

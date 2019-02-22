@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_CONTAINER_H
 
 #include "Entity.h"
+#include <string>
 #include <map>
 
 
