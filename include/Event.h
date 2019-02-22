@@ -28,11 +28,11 @@ class Event {
   /**
     * @param os the new output stream
     */
-  void setOutput(std::ostream& os);
+  void setOutput(std::ostream* os) {out = os;};
 
  protected:
   std::string message;
-  std::ostream& out;
+  std::ostream* out;
 
  private:
   Event(const Event&);
