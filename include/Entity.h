@@ -63,12 +63,12 @@ class Entity {
   /**
     * @param os the new output stream
     */
-  void setOutput(std::ostream& os);
+  void setOutput(std::ostream* os) {out = os;};
 
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  std::ostream& out;  // default to cout in constructor
+  std::ostream* out;  // default to cout in constructor
 
  private:
   Entity(const Entity&);
