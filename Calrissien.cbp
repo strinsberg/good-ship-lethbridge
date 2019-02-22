@@ -54,9 +54,6 @@
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
 		</Unit>
-		<Unit filename="test/EmptyTest.cpp">
-			<Option target="Test" />
-		</Unit>
 		<Unit filename="test/TestGame.cpp">
 			<Option target="Test" />
 		</Unit>
