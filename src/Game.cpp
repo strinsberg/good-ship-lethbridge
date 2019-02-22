@@ -7,13 +7,14 @@
 #include "Game.h"
 #include "Player.h"
 #include "Room.h"
+#include <string>
 
 
 Game::Game() {
 
 }
 
-virtual Game::~Game() {
+Game::~Game() {
 
 }
 
@@ -29,7 +30,7 @@ void Game::setPlayer(Player* p) {
 
 }
 
-Room* Game::getRoom(string name) const {
+Room* Game::getRoom(std::string name) const {
   Room* r;
   return r;
 }

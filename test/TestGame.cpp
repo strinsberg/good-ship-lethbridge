@@ -5,6 +5,7 @@
  */
 
  #include "Game.h"
+ #include "gtest/gtest.h"
 
 
  TEST(GameTests, constructor) {

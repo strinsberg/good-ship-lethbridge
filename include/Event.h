@@ -28,7 +28,7 @@ class Event {
   /**
     * @param os the new output stream
     */
-  void setOutput(ostream& os);
+  void setOutput(std::ostream& os);
 
  protected:
   std::string message;
