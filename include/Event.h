@@ -15,7 +15,7 @@
   */
 class Event {
  public:
-  Event();
+  Event(std::ostream& os = std::cout) : out(os) {}
   virtual ~Event();
   virtual void execute() = 0;
 
@@ -25,16 +25,9 @@ class Event {
     */
   void setMessage(std::string m);
 
-  /**
-    * @param os the new output stream
-    */
-  void setOutput(std::ostream* os) {
-    out = os;
-  };
-
  protected:
   std::string message;
-  std::ostream* out;
+  std::ostream& out;
 
  private:
   Event(const Event&);

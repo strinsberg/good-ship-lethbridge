@@ -16,8 +16,8 @@
   */
 class Exit : public Action {
  public:
-  Exit();
-  virtual ~Exit();
+  Exit() {}
+  virtual ~Exit() {}
 
   void execute();
 

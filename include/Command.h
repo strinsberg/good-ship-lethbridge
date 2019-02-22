@@ -15,8 +15,8 @@
   */
 class Command {
  public:
-  Command();
-  virtual ~Command();
+  Command() : out(nullptr) {}
+  virtual ~Command() {}
 
   /**
     * Execute the command
@@ -24,13 +24,21 @@ class Command {
   virtual void execute() = 0;
 
   /**
-    * @param os the new output stream
-    */
-  virtual void setOutput(std::ostream* os) {
+   * @param n the target of the command
+   */
+  void setNoun(std::string n) {
+    noun = n;
+  }
+
+  /**
+   * @param os the output stream for the command to write to
+   */
+  void setOutput(std::ostream* os) {
     out = os;
-  };
+  }
 
  protected:
+  std::string noun;
   std::ostream* out;
 
  private:

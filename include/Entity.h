@@ -17,7 +17,7 @@
   */
 class Entity {
  public:
-  Entity();
+  Entity(std::ostream& os = std::cout);
   virtual ~Entity();
 
   /**
@@ -60,17 +60,10 @@ class Entity {
     */
   void setState(EntityState* s);
 
-  /**
-    * @param os the new output stream
-    */
-  void setOutput(std::ostream* os) {
-    out = os;
-  };
-
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  std::ostream* out;  // default to cout in constructor
+  std::ostream& out;  // default to cout in constructor
 
  private:
   Entity(const Entity&);

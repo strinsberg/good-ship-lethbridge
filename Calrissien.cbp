@@ -48,11 +48,14 @@
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Room.h" />
+		<Unit filename="src/Exit.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Parser.cpp" />
-		<Unit filename="src/TestClass.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
+		</Unit>
+		<Unit filename="test/TestExit.cpp">
+			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestGame.cpp">
 			<Option target="Test" />
