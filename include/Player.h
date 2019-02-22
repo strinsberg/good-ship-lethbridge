@@ -18,9 +18,9 @@ class Player : public Container {
  public:
   Player();
   virtual ~Player();
-  void describe();
-  void use(Entity&);
-  void serialize(std::fstream&);
+  virtual void describe();
+  virtual void use(Entity&);
+  virtual void serialize(std::fstream&);
 
   /**
     * @return the room the player is in

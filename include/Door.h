@@ -18,9 +18,9 @@ class Door : public Entity {
  public:
   Door();
   virtual ~Door();
-  void describe() const;
-  void use(Entity&);
-  void serialize(std::fstream&) const;
+  virtual void describe() const;
+  virtual void use(Entity&);
+  virtual void serialize(std::fstream&) const;
 
   /**
     * Set the room the door leads to
