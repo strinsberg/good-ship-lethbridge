@@ -11,9 +11,9 @@
   * Enumeration for types of atmosphere
   */
 enum Atmosphere {
-  OXYGEN;
-  SPACE;
-  RADIATION;
+  OXYGEN,
+  SPACE,
+  RADIATION,
 };
 
 #endif // ATMOSPHERE_H
