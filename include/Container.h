@@ -19,9 +19,9 @@ class Container: public Entity {
  public:
   Container();
   virtual ~Container();
-  void describe() const;
-  void use(Entity&);
-  void serialize(std::fstream&) const;
+  virtual void describe() const;
+  virtual void use(Entity&);
+  virtual void serialize(std::fstream&) const;
 
   /**
     * See if an entity with the given name is in the container.

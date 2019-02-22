@@ -20,9 +20,9 @@ class Room : public Container {
  public:
   Room();
   virtual ~Room();
-  void describe();
-  void use(Entity&);
-  void serialize(std::fstream&);
+  virtual void describe();
+  virtual void use(Entity&);
+  virtual void serialize(std::fstream&);
 
   /**
     * Take action when an entity enters the room
