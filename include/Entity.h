@@ -13,10 +13,13 @@
 
 
 /**
-  * Interface for a base game entity.
+  * Abstract class for a base game entity.
   */
 class Entity {
  public:
+  Entity();
+  virtual ~Entity();
+
   /**
     * Display a description of the entity to the
     * entity's output stream.
@@ -66,6 +69,10 @@ class Entity {
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
   std::ostream& out;  // default to cout in constructor
+
+ private:
+  Entity(const Entity&);
+  Entity& operator=(const Entity&);
 
 };
 
