@@ -36,3 +36,6 @@ testGame
 # Backup Files
 *~
 *.bak
+
+# codeblocks layouts
+*.layout
