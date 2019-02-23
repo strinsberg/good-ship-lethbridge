@@ -37,4 +37,17 @@ class invalid_input_error: public std::runtime_error {
   }
 };
 
+/**
+* Exception for an invalid record data used with ObjectBlueprints.
+*/
+class invalid_record_error: public std::runtime_error {
+ public:
+  /**
+  * @param errMessage An error message.
+  */
+  explicit invalid_record_error(const char* errMessage) :
+    std::runtime_error(errMessage) {
+  }
+};
+
 #endif  // INCLUDE_EXCEPTIONS_H_
