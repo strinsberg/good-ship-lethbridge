@@ -23,7 +23,7 @@ class Event {
     * Resolve the event.
     * @return a description of the results.
     */
-  virtual string execute() = 0;
+  virtual std::string execute() = 0;
 
   /**
     * Create a blueprint of the event that can be used to serialize it.

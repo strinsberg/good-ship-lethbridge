@@ -19,8 +19,8 @@ class Door : public Entity {
  public:
   Door();
   virtual ~Door();
-  virtual string describe() const;
-  virtual string use(Entity&);
+  virtual std::string describe() const;
+  virtual std::string use(Entity&);
   virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**

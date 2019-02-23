@@ -22,16 +22,16 @@ class Command {
     * Execute the command.
     * @return a description of the result.
     */
-  virtual string execute() = 0;
+  virtual std::string execute() = 0;
 
   /**
     * Set the target of the command, if applicable.
     * @param n the commands noun
     */
-  void setNoun(const string& n);
+  void setNoun(const std::string& n);
 
  protected:
-  string noun;
+  std::string noun;
 
  private:
   Command(const Command&);

@@ -14,55 +14,51 @@
 class ObjectBlueprint
 {
   public:
-    /**
-      * Create an empty blueprint of a specified type.
-      * @param type the type of the object.
-      */
-    ObjectBlueprint(const string& type);
+    ObjectBlueprint();
 
     /**
       * Create a blueprint from a textual representation of an object.
-      * @param data a string of object data
+      * @param data a std::string of object data
       * @throws TBD if the object does not have a type.
       */
-    ObjectBlueprint(const string& data);
+    ObjectBlueprint(const std::string& data);
     virtual ~ObjectBlueprint();
 
     /**
       * @return the type of the object
       */
-    const string& getType() const;
+    const std::string& getType() const;
 
     /**
       * @param key the name of the field to find.
       * @return the value of the field, or ObjectBlueprint::null.
       */
-    const string& getField(const string& key) const;
+    const std::string& getField(const std::string& key) const;
 
     /**
       * @param key the name of the field.
       * @param value the value of the field.
       */
-    void setField(const string& key, const string& value);
+    void setField(const std::string& key, const std::string& value);
 
     /**
       * @return a string of object data.
       */
-    string toString() const;
+    std::string toString() const;
 
     /**
       * A constant to return for non existent fields
       */
-    const string null = "null-field";
+    const std::string null = "null-field";
 
   private:
-    map<string,string> record;
+    std::map<std::string,std::string> record;
 
     /**
       * Parse a string of object data and add it's key, value pairs to record.
       * @param data a string of object data.
       */
-    parse(const string& data);
+    void parse(const std::string& data);
     ObjectBlueprint(const ObjectBlueprint&);
     ObjectBlueprint& operator=(const ObjectBlueprint&);
 };

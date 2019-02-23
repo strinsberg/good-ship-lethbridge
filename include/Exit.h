@@ -19,7 +19,7 @@ class Exit : public Action {
  public:
   Exit();
   virtual ~Exit();
-  string execute();
+  std::string execute();
 
  private:
   Exit(const Exit&);

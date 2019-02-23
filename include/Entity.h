@@ -24,14 +24,14 @@ class Entity {
   /**
     * @return a description of the entity.
     */
-  virtual string describe() const = 0;
+  virtual std::string describe() const = 0;
 
   /**
     * Use the entity.
     * @param user The user of the entity.
     * @return a description of the result.
     */
-  virtual string use(Entity& user) = 0;
+  virtual std::string use(Entity& user) = 0;
 
   /**
     * Create a blueprint of the entity that can be used to serialize it.
