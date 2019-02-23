@@ -7,6 +7,7 @@
 #ifndef CALRISSIEN_2720_EVENT_H
 #define CALRISSIEN_2720_EVENT_H
 
+#include "ObjectBlueprint.h"
 #include <string>
 
 
@@ -17,7 +18,19 @@ class Event {
  public:
   Event(std::ostream& os = std::cout) : out(os) {}
   virtual ~Event();
-  virtual void execute() = 0;
+
+  /**
+    * Resolve the event.
+    * @return a description of the results.
+    */
+  virtual string execute() = 0;
+
+  /**
+    * Create a blueprint of the event that can be used to serialize it.
+    * Transfers ownership of the blueprint to the caller.
+    * @return the blueprint.
+    */
+  virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
     * Set the message to be displayed when the event is executed
@@ -27,7 +40,6 @@ class Event {
 
  protected:
   std::string message;
-  std::ostream& out;
 
  private:
   Event(const Event&);

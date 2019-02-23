@@ -9,6 +9,7 @@
 
 #include "Entity.h"
 #include "Room.h"
+#include <string>
 
 
 /**
@@ -18,18 +19,19 @@ class Door : public Entity {
  public:
   Door();
   virtual ~Door();
-  virtual void describe() const;
-  virtual void use(Entity&);
-  virtual void serialize(std::fstream&) const;
+  virtual string describe() const;
+  virtual string use(Entity&);
+  virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
-    * Set the room the door leads to
+    * Set the room the door leads to. Does not transfer
+    * ownership to the door.
     * @param room the new destination
     */
-  void setDestination(Room& room);
+  void setDestination(Room* room);
 
  private:
-  Room& destination;
+  Room* destination;  // does not own this
 
   Door(const Door&);
   Door& operator=(const Door&);

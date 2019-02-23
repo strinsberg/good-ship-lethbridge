@@ -45,6 +45,7 @@
 		<Unit filename="include/Exceptions.h" />
 		<Unit filename="include/Exit.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/ObjectBlueprint.h" />
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Room.h" />
