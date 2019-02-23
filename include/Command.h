@@ -24,6 +24,15 @@ class Command {
     */
   virtual string execute() = 0;
 
+  /**
+    * Set the target of the command, if applicable.
+    * @param n the commands noun
+    */
+  void setNoun(const string& n);
+
+ protected:
+  string noun;
+
  private:
   Command(const Command&);
   Command& operator=(const Command&);
