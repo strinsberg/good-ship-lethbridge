@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_EXIT_H
 
 #include "Action.h"
+#include <string>
 
 
 /**
@@ -18,8 +19,7 @@ class Exit : public Action {
  public:
   Exit();
   virtual ~Exit();
-
-  void execute();
+  string execute();
 
  private:
   Exit(const Exit&);

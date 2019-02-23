@@ -7,7 +7,7 @@
 #ifndef CALRISSIEN_2720_COMMAND_H
 #define CALRISSIEN_2720_COMMAND_H
 
-#include <iostream>
+#include <string>
 
 
 /**
@@ -19,17 +19,10 @@ class Command {
   virtual ~Command();
 
   /**
-    * Execute the command
+    * Execute the command.
+    * @return a description of the result.
     */
-  virtual void execute() = 0;
-
-  /**
-    * @param os the new output stream
-    */
-  virtual void setOutput(std::ostream* os) {out = os;};
-
- protected:
-  std::ostream* out;
+  virtual string execute() = 0;
 
  private:
   Command(const Command&);

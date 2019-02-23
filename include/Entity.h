@@ -9,7 +9,8 @@
 
 #include "EntitySpec.h"
 #include "EntityState.h"
-#include <iostream>
+#include "ObjectBlueprint.h"
+#include <string>
 
 
 /**
@@ -21,22 +22,23 @@ class Entity {
   virtual ~Entity();
 
   /**
-    * Display a description of the entity to the
-    * entity's output stream.
+    * @return a description of the entity.
     */
-  virtual void describe() const = 0;
+  virtual string describe() const = 0;
 
   /**
     * Use the entity.
     * @param user The user of the entity.
+    * @return a description of the result.
     */
-  virtual void use(Entity& user) = 0;
+  virtual string use(Entity& user) = 0;
 
   /**
-    * Write the entities details to a file.
-    * @param fout The file stream to write to.
+    * Create a blueprint of the entity that can be used to serialize it.
+    * Transfers ownership of the blueprint to the caller.
+    * @return the blueprint.
     */
-  virtual void serialize(std::fstream& fout) const = 0;
+  virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
     * @return the spec
@@ -44,7 +46,7 @@ class Entity {
   EntitySpec& getSpec() const;
 
   /**
-    * Transfers ownership of state to the entity.
+    * Transfers ownership of spec to the entity.
     * @param s the new spec
     */
   void setSpec(EntitySpec* s);
@@ -60,15 +62,9 @@ class Entity {
     */
   void setState(EntityState* s);
 
-  /**
-    * @param os the new output stream
-    */
-  void setOutput(std::ostream* os) {out = os;};
-
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  std::ostream* out;  // default to cout in constructor
 
  private:
   Entity(const Entity&);

@@ -11,6 +11,8 @@
 #include "Container.h"
 #include "Atmosphere.h"
 #include "Event.h"
+#include "ObjectBlueprint.h"
+#include <string>
 
 
 /**
@@ -20,21 +22,21 @@ class Room : public Container {
  public:
   Room();
   virtual ~Room();
-  virtual void describe();
-  virtual void use(Entity&);
-  virtual void serialize(std::fstream&);
+  virtual string describe();
+  virtual string use(Entity&);
+  virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
     * Take action when an entity enters the room
     * @param entity the entity entering the room
     */
-  virtual void enter(Entity& entity);
+  virtual string enter(Entity& entity);
 
   /**
     * Take action when an entity leaves the room
     * @param entity the entity leaving the room
     */
-  virtual void exit(Entity& entity);
+  virtual string exit(Entity& entity);
 
   /**
     * Set an event to execute when the room is entered. Transfers ownership

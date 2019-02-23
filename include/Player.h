@@ -9,6 +9,8 @@
 
 #include "Container.h"
 #include "Room.h"
+#include "ObjectBlueprint.h"
+#include <string>
 
 
 /**
@@ -18,9 +20,9 @@ class Player : public Container {
  public:
   Player();
   virtual ~Player();
-  virtual void describe();
-  virtual void use(Entity&);
-  virtual void serialize(std::fstream&);
+  virtual string describe();
+  virtual string use(Entity&);
+  virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
     * @return the room the player is in
@@ -30,10 +32,10 @@ class Player : public Container {
   /**
     * @param room the room the player is now in
     */
-  void setCurrentRoom(Room&);
+  void setCurrentRoom(Room*);
 
  private:
-  Room& currentRoom;  // does not own the room
+  Room* currentRoom;  // does not own the room
 
   Player(const Player&);
   Player& operator=(const Player&);

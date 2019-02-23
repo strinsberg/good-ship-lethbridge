@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_CONTAINER_H
 
 #include "Entity.h"
+#include "ObjectBlueprint.h"
 #include <string>
 #include <map>
 
@@ -19,9 +20,9 @@ class Container: public Entity {
  public:
   Container();
   virtual ~Container();
-  virtual void describe() const;
-  virtual void use(Entity&);
-  virtual void serialize(std::fstream&) const;
+  virtual string describe() const;
+  virtual string use(Entity&);
+  virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
     * See if an entity with the given name is in the container.

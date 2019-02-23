@@ -8,7 +8,7 @@
 #define CALRISSIEN_2720_ACTION_H
 
 #include "Command.h"
-#inlcude "Entity.h"
+#inlcude "Player.h"
 
 
 /**
@@ -20,13 +20,14 @@ class Action : public Command {
   virtual ~Action();
 
   /**
-    * Set the entity that is responsible for the action
-    * @param entity the entity taking the action
+    * Set the entity that is responsible for the action. Does not
+    * transfer ownership to the Action.
+    * @param p the entity taking the action
     */
-  virtual void SetEntity(Entity&);
+  virtual void SetEntity(Player* p);
 
  protected:
-  Entity& entity;  // does not own the entity
+  Player* player;  // does not own the player
 
  private:
   Action(const Action&);
