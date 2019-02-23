@@ -20,8 +20,8 @@ class Container: public Entity {
  public:
   Container();
   virtual ~Container();
-  virtual string describe() const;
-  virtual string use(Entity&);
+  virtual std::string describe() const;
+  virtual std::string use(Entity&);
   virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
