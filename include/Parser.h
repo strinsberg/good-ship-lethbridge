@@ -26,7 +26,6 @@ class Parser {
   /**
     * Parse the input. Transfers ownership of command to the caller.
     * @return a command object for a user input command
-    * @throws invalid_input_error if the input does not make sense
     */
   Command* parse() const;
 

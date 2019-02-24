@@ -20,9 +20,9 @@ class Player : public Container {
  public:
   Player();
   virtual ~Player();
-  virtual std::string describe();
+  virtual std::string describe() const;
   virtual std::string use(Entity&);
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
+  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * @return the room the player is in

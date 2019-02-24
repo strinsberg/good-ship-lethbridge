@@ -11,6 +11,7 @@
 #include "Player.h"
 #include <string>
 #include <map>
+#include <iostream>
 
 
 /**
@@ -18,7 +19,7 @@
   */
 class Game {
  public:
-  Game();
+  Game(std::istream& is = std::cin, std::ostream& os = std::cout);
   virtual ~Game();
 
   /**
@@ -47,11 +48,12 @@ class Game {
 
   /**
     * Add a room to the game. Transfers ownership to this game.
+    * @param name the name of the room. (probably change later when room is implemented)
     * @param room the room to add
     * @throws invalid_parameter_error if a room with same name is
     * already stored
     */
-  void addRoom(Room* room);
+  void addRoom(const std::string& name, Room* room);
 
   /**
     * @return the number of rooms
@@ -61,6 +63,8 @@ class Game {
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
   Player* player;  // owns player
+  std::istream& in;
+  std::ostream& out;
 
   Game(const Game&);
   Game& operator=(const Game&);

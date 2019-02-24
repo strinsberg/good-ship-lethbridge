@@ -23,7 +23,7 @@ class Action : public Command {
     * Does not transfer ownership of player to the Action.
     * @param p the player taking the action
     */
-  virtual void SetPlayer(Player* p);
+  void SetPlayer(Player* p);
 
  protected:
   Player* player;  // does not own the player

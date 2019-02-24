@@ -20,14 +20,3 @@ string GameData::nextObject() {
   return data.substr(begin, end - begin + 1);
 }
 
-size_t GameData::getBegin() const {
-  return begin;
-}
-
-size_t GameData::getEnd() const {
-  return end;
-}
-
-const string& GameData::getData() const {
-  return data;
-}

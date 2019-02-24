@@ -9,15 +9,9 @@
 #include <string>
 
 
-TEST(GameDataTests, constructor_and_getters) {
-  GameData gd("{type:room, name=Captains Quaters,}");
-  EXPECT_EQ(gd.getBegin(), 0);
-  EXPECT_EQ(gd.getEnd(), 0);
-  EXPECT_EQ(gd.getData(), "{type:room, name=Captains Quaters,}");
-}
-
 TEST(GameDataTests, get_next_object) {
-  GameData gd("{type:room, name=Captains Quaters,}");
-  EXPECT_EQ(gd.nextObject(), "{type:room, name=Captains Quaters,}");
+  GameData gd("{type=room, name=Captains Quaters,} {type=door, name=Broken Door,}");
+  EXPECT_EQ(gd.nextObject(), "{type=room, name=Captains Quaters,}");
+  EXPECT_EQ(gd.nextObject(), "{type=door, name=Broken Door,}");
   EXPECT_EQ(gd.nextObject(), GameData::eof);
 }

@@ -24,21 +24,6 @@ class GameData {
   std::string nextObject();
 
   /**
-    * @return begin
-    */
-  size_t getBegin() const;
-
-  /**
-    * @return end
-    */
-  size_t getEnd() const;
-
-  /**
-    * @return the data
-    */
-  const std::string& getData() const;
-
-  /**
     * The end of the game data.
     */
   static const std::string eof;

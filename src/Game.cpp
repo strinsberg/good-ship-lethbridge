@@ -13,14 +13,17 @@
 using std::map;
 using std::string;
 
-Game::Game() : rooms(map<string, Room*>()), player(nullptr) {
+Game::Game(std::istream& is, std::ostream& os)
+    : rooms(map<string, Room*>()), player(nullptr), in(is), out(os) {
 
 }
 
 Game::~Game() {
-  delete player;
+  if (player != nullptr)
+    delete player;
   for (auto r : rooms)
-    delete r.second;
+    if (r.second != nullptr)
+      delete r.second;
 }
 
 void Game::run() {
@@ -32,15 +35,15 @@ Player* Game::getPlayer() const {
 }
 
 void Game::setPlayer(Player* p) {
-
+  player = p;
 }
 
 Room* Game::getRoom(std::string name) const {
-  return nullptr;
+  return rooms.find(name)->second;
 }
 
-void Game::addRoom(Room* room) {
-
+void Game::addRoom(const string& name, Room* room) {
+  rooms[name] = room;
 }
 
 int Game::numRooms() {

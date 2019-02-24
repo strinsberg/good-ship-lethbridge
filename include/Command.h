@@ -28,7 +28,12 @@ class Command {
     * Set the target of the command, if applicable.
     * @param n the commands noun
     */
-  void setNoun(const std::string& n);
+  virtual void setNoun(const std::string& n);
+
+  /**
+    * @return the noun
+    */
+  virtual const std::string& getNoun() const;
 
  protected:
   std::string noun;

@@ -22,7 +22,7 @@ class Container: public Entity {
   virtual ~Container();
   virtual std::string describe() const;
   virtual std::string use(Entity&);
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
+  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * See if an entity with the given name is in the container.
