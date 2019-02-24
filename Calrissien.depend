@@ -66,23 +66,26 @@
 	<string>
 	<map>
 
-1550977533 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
+1551041922 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
 	"Parser.h"
 	"Command.h"
+	"BadInput.h"
 	"gtest/gtest.h"
 	<string>
 
-1551027501 /home/deus2720/assn/Calrissien/include/Parser.h
+1551040697 /home/deus2720/assn/Calrissien/include/Parser.h
 	"Command.h"
 	<string>
 
 1551029936 /home/deus2720/assn/Calrissien/include/Command.h
 	<string>
 
-1550977533 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
+1551041968 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
 	"Parser.h"
 	"Command.h"
+	"BadInput.h"
 	<string>
+	<sstream>
 
 1550977533 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
@@ -136,11 +139,11 @@
 	"Player.h"
 	"gtest/gtest.h"
 
-1551037317 source:/home/deus2720/assn/Calrissien/src/BadInput.cpp
+1551037903 source:/home/deus2720/assn/Calrissien/src/BadInput.cpp
 	"BadInput.h"
 	<string>
 
-1551037105 /home/deus2720/assn/Calrissien/include/BadInput.h
+1551042065 /home/deus2720/assn/Calrissien/include/BadInput.h
 	"Command.h"
 	<string>
 

@@ -6,18 +6,19 @@
 
 #include "Parser.h"
 #include "Command.h"
+#include "BadInput.h"
 #include "gtest/gtest.h"
 #include <string>
 
 
-TEST(ParserTests, DISABLED_constructor) {
-  FAIL();
+TEST(ParserTests, constructor) {
+  Parser p("get laser");
+  EXPECT_EQ(p.getInput(), "get laser");
 }
 
-TEST(ParserTests, DISABLED_parse) {
-  FAIL();
-}
-
-TEST(ParserTests, DISABLED_parse_throws) {
-  FAIL();
+TEST(ParserTests, parse_bad_input) {
+  Parser p("scubadive");
+  Command* c = p.parse();
+  EXPECT_EQ(c->execute(), "You can't scubadive!");
+  delete c;  // parser does not own the pointer it returns
 }

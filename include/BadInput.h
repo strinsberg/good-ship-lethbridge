@@ -19,8 +19,8 @@ class BadInput : public Command
     std::string execute();
 
   private:
-    BadInput(const BadInput&) {}
-    BadInput& operator=(const BadInput&) {}
+    BadInput(const BadInput&);
+    BadInput& operator=(const BadInput&);
 };
 
 #endif // BADINPUT_H

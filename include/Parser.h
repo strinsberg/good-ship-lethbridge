@@ -29,6 +29,11 @@ class Parser {
     */
   Command* parse() const;
 
+  /**
+    * @return the input
+    */
+  const std::string& getInput() const;
+
  private:
   std::string input;
 
