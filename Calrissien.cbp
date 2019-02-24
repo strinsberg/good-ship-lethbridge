@@ -48,6 +48,7 @@
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameData.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
+		<Unit filename="include/ObjectWithContentsBlueprint.h" />
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Room.h" />
@@ -57,6 +58,7 @@
 		<Unit filename="src/Exit.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameData.cpp" />
+		<Unit filename="src/ObjectBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
@@ -77,6 +79,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestGameData.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestObjectBlueprint.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestParser.cpp">
