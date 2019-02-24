@@ -16,14 +16,19 @@
   */
 class Action : public Command {
  public:
-  Action() : player(nullptr) {}
-  virtual ~Action() {}
+  Action();
+  virtual ~Action();
 
   /**
     * Does not transfer ownership of player to the Action.
     * @param p the player taking the action
     */
-  void SetPlayer(Player* p);
+  void setPlayer(Player* p);
+
+   /**
+    * @return the player
+    */
+  const Player* getPlayer() const;
 
  protected:
   Player* player;  // does not own the player
