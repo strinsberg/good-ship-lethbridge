@@ -18,7 +18,7 @@
   */
 class Entity {
  public:
-  Entity() : out(nullptr) {}
+  Entity();
   virtual ~Entity();
 
   /**

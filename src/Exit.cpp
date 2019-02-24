@@ -9,6 +9,7 @@
 #include "Entity.h"
 #include <string>
 
-void Exit::execute() {
+
+std::string Exit::execute() {
 
 }

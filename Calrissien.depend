@@ -7,90 +7,112 @@
 1549848897 source:/home/deus2720/assn/Calrissien/test/main.cpp
 	"gtest/gtest.h"
 
-1550867156 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
+1550976685 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
 	"Game.h"
 	"Player.h"
 	"gtest/gtest.h"
 	<iostream>
 	<sstream>
 
-1550867156 /home/deus2720/assn/Calrissien/include/Game.h
+1550962021 /home/deus2720/assn/Calrissien/include/Game.h
 	"Room.h"
 	"Player.h"
 	<string>
 	<map>
 
-1550863842 /home/deus2720/assn/Calrissien/include/Room.h
+1550956879 /home/deus2720/assn/Calrissien/include/Room.h
 	"Entity.h"
 	"Container.h"
 	"Atmosphere.h"
 	"Event.h"
+	"ObjectBlueprint.h"
+	<string>
 
-1550867935 /home/deus2720/assn/Calrissien/include/Entity.h
+1550975123 /home/deus2720/assn/Calrissien/include/Entity.h
 	"EntitySpec.h"
 	"EntityState.h"
-	<iostream>
+	"ObjectBlueprint.h"
+	<string>
 
 1550857757 /home/deus2720/assn/Calrissien/include/EntitySpec.h
 	<string>
 
-1550857757 /home/deus2720/assn/Calrissien/include/EntityState.h
-	<string>
+1550956879 /home/deus2720/assn/Calrissien/include/EntityState.h
 
-1550863842 /home/deus2720/assn/Calrissien/include/Container.h
+1550956879 /home/deus2720/assn/Calrissien/include/Container.h
 	"Entity.h"
+	"ObjectBlueprint.h"
 	<string>
 	<map>
 
 1550858424 /home/deus2720/assn/Calrissien/include/Atmosphere.h
 
-1550868546 /home/deus2720/assn/Calrissien/include/Event.h
+1550975152 /home/deus2720/assn/Calrissien/include/Event.h
+	"ObjectBlueprint.h"
 	<string>
 
-1550863842 /home/deus2720/assn/Calrissien/include/Player.h
+1550956879 /home/deus2720/assn/Calrissien/include/Player.h
 	"Container.h"
 	"Room.h"
+	"ObjectBlueprint.h"
+	<string>
 
-1550867156 source:/home/deus2720/assn/Calrissien/src/Game.cpp
+1550962021 source:/home/deus2720/assn/Calrissien/src/Game.cpp
 	"Game.h"
 	"Player.h"
 	"Room.h"
 	<string>
 	<map>
 
-1550867156 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
+1550976628 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
 	"Parser.h"
 	"Command.h"
 	"gtest/gtest.h"
 	<string>
 
-1550867156 /home/deus2720/assn/Calrissien/include/Parser.h
+1550962021 /home/deus2720/assn/Calrissien/include/Parser.h
 	"Command.h"
 	<string>
 
-1550870429 /home/deus2720/assn/Calrissien/include/Command.h
-	<iostream>
+1550975101 /home/deus2720/assn/Calrissien/include/Command.h
+	<string>
 
-1550867156 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
+1550962021 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
 	"Parser.h"
 	"Command.h"
 	<string>
 
-1550870349 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1550975295 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
 	"gtest/gtest.h"
 	<sstream>
 
-1550869813 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
+1550975255 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
 	"Exit.h"
 	"Entity.h"
 	<string>
 
-1550870396 /home/deus2720/assn/Calrissien/include/Exit.h
+1550956879 /home/deus2720/assn/Calrissien/include/Exit.h
 	"Action.h"
+	<string>
 
-1550870408 /home/deus2720/assn/Calrissien/include/Action.h
+1550962021 /home/deus2720/assn/Calrissien/include/Action.h
 	"Command.h"
 	"Player.h"
-	<iostream>
+
+1550956879 /home/deus2720/assn/Calrissien/include/ObjectBlueprint.h
+	<string>
+	<map>
+
+1550977035 source:/home/deus2720/assn/Calrissien/src/GameData.cpp
+	"GameData.h"
+	<string>
+
+1550977253 /home/deus2720/assn/Calrissien/include/GameData.h
+	<string>
+
+1550975621 source:/home/deus2720/assn/Calrissien/test/TestGameData.cpp
+	"GameData.h"
+	"gtest/gtest.h"
+	<string>
 

@@ -15,8 +15,8 @@
   */
 class Command {
  public:
-  Command() : out(nullptr) {}
-  virtual ~Command() {}
+  Command();
+  virtual ~Command();
 
   /**
     * Execute the command.

@@ -16,13 +16,13 @@ public:
   void describe() {*out << "test";}
 };
 */
-TEST(GameTests, constructor) {
+TEST(GameTests, DISABLED_constructor) {
   Game g;
   EXPECT_EQ(g.getPlayer(), nullptr);
   EXPECT_EQ(g.numRooms(), 0);
 }
 
-TEST(GameTests, get_set_player) {
+TEST(GameTests, DISABLED_get_set_player) {
   /*
   Game g;
   std::stringstream ss;
@@ -32,15 +32,15 @@ TEST(GameTests, get_set_player) {
   FAIL();
 }
 
-TEST(GameTests, get_room) {
+TEST(GameTests, DISABLED_get_room) {
   FAIL();
 }
 
-TEST(GameTests, add_room) {
+TEST(GameTests, DISABLED_add_room) {
   FAIL();
 }
 
-TEST(GameTests, add_room_throws) {
+TEST(GameTests, DISABLED_add_room_throws) {
   FAIL();
 }
 

@@ -16,7 +16,7 @@
   */
 class Event {
  public:
-  Event(std::ostream& os = std::cout) : out(os) {}
+  Event();
   virtual ~Event();
 
   /**
