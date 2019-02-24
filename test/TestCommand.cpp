@@ -12,7 +12,7 @@
 // mock for testing command
 class MockCommand : public Command {
  public:
-  MockCommand(): Command() {};
+  MockCommand() {};
   ~MockCommand() {};
   std::string execute() {return "executed";}
 };

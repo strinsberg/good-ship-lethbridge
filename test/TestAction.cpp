@@ -11,7 +11,7 @@
 
 class MockAction : public Action {
  public:
-   MockAction(): Action() {}
+   MockAction() {}
    ~MockAction() {}
    std::string execute() {return "executed";}
 };

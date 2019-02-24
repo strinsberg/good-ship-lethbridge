@@ -9,6 +9,7 @@
 
 #include "ObjectBlueprint.h"
 #include <string>
+#include <iostream>
 
 
 /**
@@ -16,7 +17,7 @@
   */
 class Event {
  public:
-  Event();
+  Event(std::istream& is = std::cin, std::ostream& os = std::cout);
   virtual ~Event();
 
   /**
@@ -40,6 +41,8 @@ class Event {
 
  protected:
   std::string message;
+  std::istream& in;
+  std::ostream& out;
 
  private:
   Event(const Event&);
