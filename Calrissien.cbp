@@ -42,6 +42,7 @@
 		<Unit filename="include/EntitySpec.h" />
 		<Unit filename="include/EntityState.h" />
 		<Unit filename="include/Event.h" />
+		<Unit filename="include/EventSpec.h" />
 		<Unit filename="include/Exceptions.h" />
 		<Unit filename="include/Exit.h" />
 		<Unit filename="include/Game.h" />
