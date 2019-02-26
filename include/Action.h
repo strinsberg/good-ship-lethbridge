@@ -1,7 +1,7 @@
-/*
+/**
  * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-02-20
  */
 
 #ifndef CALRISSIEN_2720_ACTION_H
