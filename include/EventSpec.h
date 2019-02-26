@@ -1,6 +1,7 @@
 #ifndef EVENTSPEC_H
 #define EVENTSPEC_H
-
+#include <string>
+using namespace std;
 
 class EventSpec {
  public:

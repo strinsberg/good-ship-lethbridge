@@ -23,7 +23,7 @@ class EntitySpec {
     * @param n the name to check
     * @return true if it is a match, otherwise false
     */
-  bool matches(std::string) const;
+  bool matches(std::string n) const;
 
   /**
     * @return the name
@@ -34,7 +34,7 @@ class EntitySpec {
     * Set the name
     * @param n the new name
     */
-  void setName(std::string);
+  void setName(std::string n);
 
   /**
     * @return the description
@@ -45,7 +45,7 @@ class EntitySpec {
     * set the description
     * @param d the new description
     */
-  void setDescription(std::string);
+  void setDescription(std::string n);
 
  private:
   std::string name;

@@ -51,6 +51,7 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Room.h" />
 		<Unit filename="src/TestClass.cpp" />
+		<Unit filename="src/game/Entity.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
 		</Unit>
