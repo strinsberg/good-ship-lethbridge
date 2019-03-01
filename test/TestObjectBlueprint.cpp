@@ -10,8 +10,9 @@
 #include <map>
 
 
-TEST(ObjectBlueprintTests, DISABLED_constructor_get) {
-  ObjectBlueprint b("{type=room, description=The captian's quarters, name=Captain's Quarters,}");
+TEST(ObjectBlueprintTests, constructor_get) {
+  std::string data("{type=room, description=The captian's quarters, name=Captain's Quarters,}");
+  ObjectBlueprint b(data);
   EXPECT_EQ(b.getType(), "room");
   EXPECT_EQ(b.getField("description"), "The captain's quarters");
   EXPECT_EQ(b.getField("name"), "Captain's Quarters");

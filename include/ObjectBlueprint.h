@@ -19,16 +19,18 @@
   */
 class ObjectBlueprint {
  public:
+  ObjectBlueprint();
+
   /**
     * Create a blueprint from a textual representation of an object.
     * @param data a std::string of object data
-    * @throws TBD if the object does not have a type.
+    * @throw TBD if the object does not have a type.
     */
-  ObjectBlueprint(const std::string& data = "");
+  ObjectBlueprint(const std::string& data);
   virtual ~ObjectBlueprint();
 
   /**
-    * @return the type of the object
+    * @return the type of the object, ObjectBlueprint::null if no type
     */
   const std::string& getType() const;
 
@@ -47,7 +49,7 @@ class ObjectBlueprint {
 
   /**
     * @return a string of object data.
-    * @throws TBD if the object does not have a type
+    * @throw TBD if the object does not have a type
     */
   std::string toString() const;
 
@@ -64,6 +66,9 @@ class ObjectBlueprint {
     * @param data a string of object data.
     */
   void parse(const std::string& data);
+
+  size_t skipWhitespace(const std::string& str, size_t pos);
+  std::string toLower(const std::string& str);
 
   ObjectBlueprint(const ObjectBlueprint&);
   ObjectBlueprint& operator=(const ObjectBlueprint&);
