@@ -68,7 +68,7 @@ void ObjectBlueprint::parse(const string& data) {
   end = data.find(',');
 
   while (end != string::npos) {
-     rec[ toLower( data.substr(start, mid - start) ) ]
+     record[ toLower( data.substr(start, mid - start) ) ]
         = data.substr(mid + 1, end - (mid + 1));
 
      start = skipWhitespace(data, end + 1);
