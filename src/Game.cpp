@@ -13,7 +13,7 @@ using std::map;
 using std::string;
 
 Game::Game(std::istream& is, std::ostream& os)
-    : rooms(map<string, Room*>()), player(nullptr), in(is), out(os) {
+  : rooms(map<string, Room*>()), player(nullptr), in(is), out(os) {
 
 }
 

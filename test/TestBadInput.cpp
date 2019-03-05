@@ -4,8 +4,8 @@
  * @date 2019-02-20
  */
 
- #include "BadInput.h"
- #include "Command.h"
+#include "BadInput.h"
+#include "Command.h"
 #include "gtest/gtest.h"
 #include <string>
 

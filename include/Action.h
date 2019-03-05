@@ -25,9 +25,9 @@ class Action : public Command {
     */
   void setPlayer(Player* p);
 
-   /**
-    * @return the player
-    */
+  /**
+   * @return the player
+   */
   const Player* getPlayer() const;
 
  protected:

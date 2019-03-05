@@ -12,9 +12,9 @@
 // mock class for Testing Actions concrete methods
 class MockAction : public Action {
  public:
-   MockAction() {}
-   ~MockAction() {}
-   std::string execute() {}
+  MockAction() {}
+  ~MockAction() {}
+  std::string execute() {}
 };
 
 TEST(ActionTests, constructor) {

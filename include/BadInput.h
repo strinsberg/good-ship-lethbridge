@@ -11,16 +11,15 @@
 #include <string>
 
 
-class BadInput : public Command
-{
-  public:
-    BadInput();
-    virtual ~BadInput();
-    std::string execute();
+class BadInput : public Command {
+ public:
+  BadInput();
+  virtual ~BadInput();
+  std::string execute();
 
-  private:
-    BadInput(const BadInput&);
-    BadInput& operator=(const BadInput&);
+ private:
+  BadInput(const BadInput&);
+  BadInput& operator=(const BadInput&);
 };
 
 #endif // BADINPUT_H

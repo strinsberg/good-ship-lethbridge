@@ -4,7 +4,7 @@
  * @date 2019-02-20
  */
 
- #include "ObjectBlueprint.h"
+#include "ObjectBlueprint.h"
 #include <string>
 #include <map>
 #include <sstream>
@@ -19,7 +19,7 @@ const string ObjectBlueprint::null = "null-field";
 ObjectBlueprint::ObjectBlueprint() {}
 
 ObjectBlueprint::ObjectBlueprint(const string& data)
-    : record(map<string, string>()) {
+  : record(map<string, string>()) {
   if (!data.empty())
     parse(data);
 }
@@ -68,12 +68,12 @@ void ObjectBlueprint::parse(const string& data) {
   end = data.find(',');
 
   while (end != string::npos) {
-     record[ toLower( data.substr(start, mid - start) ) ]
-        = data.substr(mid + 1, end - (mid + 1));
+    record[ toLower( data.substr(start, mid - start) ) ]
+      = data.substr(mid + 1, end - (mid + 1));
 
-     start = skipWhitespace(data, end + 1);
-     mid = data.find('=', start);
-     end = data.find(',', start);
+    start = skipWhitespace(data, end + 1);
+    mid = data.find('=', start);
+    end = data.find(',', start);
   }
 }
 

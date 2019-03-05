@@ -11,7 +11,8 @@
 
 
 TEST(ObjectBlueprintTests, constructor_get) {
-  std::string data("{type=room, description=The captain's quarters, name=Captain's Quarters,}");
+  std::string
+  data("{type=room, description=The captain's quarters, name=Captain's Quarters,}");
   ObjectBlueprint b(data);
   EXPECT_EQ(b.getType(), "room");
   EXPECT_EQ(b.getField("description"), "The captain's quarters");
@@ -27,7 +28,7 @@ TEST(ObjectBlueprintTests, set_field) {
 }
 
 TEST(ObjectBlueprintTests, toString) {
-    ObjectBlueprint b;
+  ObjectBlueprint b;
   b.setField("type", "room");
   b.setField("name", "Captain's Quarters");
   EXPECT_EQ(b.toString(), "{\ntype=room,\nname=Captain's Quarters,\n}");

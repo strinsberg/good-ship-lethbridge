@@ -17,7 +17,7 @@ class MockCommand : public Command {
   std::string execute() {}
 };
 
-TEST(CommandTests,constructor_get) {
+TEST(CommandTests, constructor_get) {
   MockCommand m;
   Command* c = &m;
   EXPECT_EQ(c->getNoun(), "");

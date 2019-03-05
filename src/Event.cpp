@@ -13,7 +13,7 @@
 
 
 Event::Event(std::istream& is, std::ostream& os)
-    : message(""), spec(nullptr), in(is), out(os) {}
+  : message(""), spec(nullptr), in(is), out(os) {}
 
 Event::~Event() {
   if (spec != nullptr)

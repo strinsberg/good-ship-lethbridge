@@ -7,16 +7,15 @@
 /**
   * Holds some general info and state for an event.
   */
-class EventSpec
-{
+class EventSpec {
  public:
-   EventSpec();
-   virtual ~EventSpec();
+  EventSpec();
+  virtual ~EventSpec();
 
-   /**
-     * Set if the event is done or not.
-     * @param d if the event is done
-     */
+  /**
+    * Set if the event is done or not.
+    * @param d if the event is done
+    */
   void setDone(bool d);
 
   /**
@@ -38,11 +37,11 @@ class EventSpec
   const std::string& getName() const;
 
  private:
-   bool done;
-   std::string name;
+  bool done;
+  std::string name;
 
-   EventSpec(const EventSpec& other);
-   EventSpec& operator=(const EventSpec& other);
+  EventSpec(const EventSpec& other);
+  EventSpec& operator=(const EventSpec& other);
 };
 
 #endif // EVENTSPEC_H

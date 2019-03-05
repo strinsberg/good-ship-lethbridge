@@ -15,33 +15,32 @@
   * An object to use when creating a blueprint of an object that is
   * holding or composed of other objects that also have blueprints
   */
-class ObjectWithContentsBlueprint : public ObjectBlueprint
-{
-  public:
-    ObjectWithContentsBlueprint();
-    virtual ~ObjectWithContentsBlueprint();
+class ObjectWithContentsBlueprint : public ObjectBlueprint {
+ public:
+  ObjectWithContentsBlueprint();
+  virtual ~ObjectWithContentsBlueprint();
 
-    /**
-      * Add an ObjectBlueprint to the contents
-      * @param obj an ObjectBlueprint
-      */
-    void addBlueprint(ObjectBlueprint* obj);
+  /**
+    * Add an ObjectBlueprint to the contents
+    * @param obj an ObjectBlueprint
+    */
+  void addBlueprint(ObjectBlueprint* obj);
 
-    /**
-      * @return an iterator to the beginning of the contents
-      */
-    const std::vector<ObjectBlueprint>::iterator begin();
+  /**
+    * @return an iterator to the beginning of the contents
+    */
+  const std::vector<ObjectBlueprint>::iterator begin();
 
-    /**
-      * @return an iterator to the end of the contents
-      */
-    const std::vector<ObjectBlueprint>::iterator end();
+  /**
+    * @return an iterator to the end of the contents
+    */
+  const std::vector<ObjectBlueprint>::iterator end();
 
-  private:
-    vector<ObjectBlueprint*> contents;
+ private:
+  vector<ObjectBlueprint*> contents;
 
-    ObjectWithContentsBlueprint(const ObjectWithContentsBlueprint&);
-    ObjectWithContentsBlueprint& operator=(const ObjectWithContentsBlueprint&);
+  ObjectWithContentsBlueprint(const ObjectWithContentsBlueprint&);
+  ObjectWithContentsBlueprint& operator=(const ObjectWithContentsBlueprint&);
 };
 
 #endif // OBJECTWITHCONTENTSBLUEPRINT_H
