@@ -13,20 +13,23 @@
 
 
 Event::Event(std::istream& is, std::ostream& os)
-    : message(""), EntitySpec(nullptr), in(is), out(os) {}
+    : message(""), spec(nullptr), in(is), out(os) {}
 
-Event::~Event() {}
+Event::~Event() {
+  if (spec != nullptr)
+    delete spec;
+}
 
-Event::setMessage(std::string m) {
-
+void Event::setMessage(const std::string& m) {
+  message = m;
 }
 
 const std::string& Event::getMessage() const {
   return message;
 }
 
-Event::setSpec(EventSpec* s) {
-
+void Event::setSpec(EventSpec* s) {
+  spec = s;
 }
 
 const EventSpec* Event::getSpec() const {

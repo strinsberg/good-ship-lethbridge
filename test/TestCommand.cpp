@@ -9,29 +9,23 @@
 #include <string>
 
 
-// mock for testing command
+// mock for testing Commands concrete methods
 class MockCommand : public Command {
  public:
   MockCommand() {};
   ~MockCommand() {};
-  std::string execute() {return "executed";}
+  std::string execute() {}
 };
 
-TEST(CommandTests,constructor) {
+TEST(CommandTests,constructor_get) {
   MockCommand m;
   Command* c = &m;
   EXPECT_EQ(c->getNoun(), "");
 }
 
-TEST(CommandTests, set_get_noun) {
+TEST(CommandTests, set_noun) {
   MockCommand m;
   Command* c = &m;
   c->setNoun("Laser");
   EXPECT_EQ(c->getNoun(), "Laser");
-}
-
-TEST(CommandTests, execute) {
-  MockCommand m;
-  Command* c = &m;
-  EXPECT_EQ(c->execute(), "executed");
 }

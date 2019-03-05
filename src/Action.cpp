@@ -11,7 +11,7 @@ Action::Action() : player(nullptr) {};
 Action::~Action() {}
 
 void Action::setPlayer(Player* p) {
-  player = nullptr;
+  player = p;
 }
 
 const Player* Action::getPlayer() const {

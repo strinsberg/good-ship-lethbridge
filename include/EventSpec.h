@@ -29,7 +29,7 @@ class EventSpec
     * Set the name of the event
     * @param n the name
     */
-  void setName(std::string n);
+  void setName(const std::string& n);
 
   /**
     * Get the name of the event

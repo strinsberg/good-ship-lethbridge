@@ -9,11 +9,12 @@
 #include "gtest/gtest.h"
 
 
+// mock class for Testing Actions concrete methods
 class MockAction : public Action {
  public:
    MockAction() {}
    ~MockAction() {}
-   std::string execute() {return "executed";}
+   std::string execute() {}
 };
 
 TEST(ActionTests, constructor) {
@@ -22,17 +23,10 @@ TEST(ActionTests, constructor) {
   EXPECT_EQ(a->getPlayer(), nullptr);
 }
 
-// will need proper player object when player is implemented
-TEST(ActionTests, get_set_player) {
+TEST(ActionTests, set_player) {
   MockAction m;
   Action* a = &m;
-  Player* p = nullptr;
+  Player* p;
   a->setPlayer(p);
-  EXPECT_EQ(a->getPlayer(), nullptr);
-}
-
-TEST(ActionTests, execute) {
-  MockAction m;
-  Command* c = &m;
-  EXPECT_EQ(c->execute(), "executed");
+  EXPECT_EQ(a->getPlayer(), p);
 }

@@ -38,7 +38,7 @@ class Event {
     * Set the message to be displayed when the event is executed
     * @param m the message
     */
-  void setMessage(std::string m);
+  void setMessage(const std::string& m);
 
   /**
     * Return events message
