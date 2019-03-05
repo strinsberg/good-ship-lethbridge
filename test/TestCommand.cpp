@@ -5,15 +5,15 @@
  */
 
 #include "Command.h"
-#include "gtest/gtest.h"
 #include <string>
+#include "gtest/gtest.h"
 
 
 // mock for testing Commands concrete methods
 class MockCommand : public Command {
  public:
-  MockCommand() {};
-  ~MockCommand() {};
+  MockCommand() {}
+  ~MockCommand() {}
   std::string execute() {}
 };
 

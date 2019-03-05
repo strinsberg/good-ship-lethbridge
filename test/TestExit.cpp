@@ -5,10 +5,7 @@
  */
 
 #include "Exit.h"
-#include "gtest/gtest.h"
 #include <sstream>
+#include "gtest/gtest.h"
 
-
-TEST(ExitActionTests, DISABLED_execute) {
-
-}
+TEST(ExitActionTests, DISABLED_execute) {}

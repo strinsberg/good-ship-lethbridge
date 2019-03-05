@@ -27,16 +27,16 @@ class Room : public Container {
   virtual ObjectBlueprint* makeBlueprint() const = 0;
 
   /**
-    * Take action when an entity enters the room
+    * Take action when an entity enters the room. Does not transfer ownership to Room.
     * @param entity the entity entering the room
     */
-  virtual std::string enter(Entity& entity);
+  virtual std::string enter(Entity* entity);
 
   /**
-    * Take action when an entity leaves the room
+    * Take action when an entity leaves the room. Does not transfer ownership to Room.
     * @param entity the entity leaving the room
     */
-  virtual std::string exit(Entity& entity);
+  virtual std::string exit(Entity* entity);
 
   /**
     * Set an event to execute when the room is entered. Transfers ownership

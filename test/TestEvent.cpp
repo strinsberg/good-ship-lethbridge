@@ -7,15 +7,16 @@
 #include "Event.h"
 #include "EventSpec.h"
 #include "ObjectBlueprint.h"
-#include "gtest/gtest.h"
 #include <string>
 #include <iostream>
+#include "gtest/gtest.h"
+
 
 // mock for testing Events concrete methods
 class MockEvent : public Event {
  public:
-  MockEvent() {};
-  ~MockEvent() {};
+  MockEvent() {}
+  ~MockEvent() {}
   std::string execute() {}
   ObjectBlueprint* makeBlueprint() const {}
 };

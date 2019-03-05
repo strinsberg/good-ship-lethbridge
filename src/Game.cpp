@@ -18,11 +18,11 @@ Game::Game(std::istream& is, std::ostream& os)
 }
 
 Game::~Game() {
-  if (player != nullptr)
+  /*if (player != nullptr)
     delete player;
   for (auto r : rooms)
     if (r.second != nullptr)
-      delete r.second;
+      delete r.second;*/
 }
 
 void Game::run() {

@@ -6,6 +6,7 @@
 
 #include "Action.h"
 #include "Player.h"
+#include <string>
 #include "gtest/gtest.h"
 
 

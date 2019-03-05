@@ -6,8 +6,8 @@
 
 #include "BadInput.h"
 #include "Command.h"
-#include "gtest/gtest.h"
 #include <string>
+#include "gtest/gtest.h"
 
 
 TEST(BadInputTests, construct) {

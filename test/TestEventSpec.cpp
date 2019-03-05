@@ -5,8 +5,8 @@
  */
 
 #include "EventSpec.h"
-#include "gtest/gtest.h"
 #include <string>
+#include "gtest/gtest.h"
 
 
 TEST(EventSpecTests, constructor_get) {

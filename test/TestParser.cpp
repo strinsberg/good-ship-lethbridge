@@ -7,8 +7,8 @@
 #include "Parser.h"
 #include "Command.h"
 #include "BadInput.h"
-#include "gtest/gtest.h"
 #include <string>
+#include "gtest/gtest.h"
 
 
 TEST(ParserTests, constructor) {
