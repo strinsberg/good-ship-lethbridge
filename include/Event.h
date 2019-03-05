@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_EVENT_H
 
 #include "ObjectBlueprint.h"
+#include "EventSpec.h"
 #include <string>
 #include <iostream>
 
@@ -39,8 +40,27 @@ class Event {
     */
   void setMessage(std::string m);
 
+  /**
+    * Return events message
+    * @return message
+    */
+  const std::string& getMessage() const;
+
+  /**
+    * Set the spec. Transfers ownership to the Event.
+    * @param s the spec
+    */
+  void setSpec(EventSpec* s);
+
+  /**
+    * Get the event's spec. Does not transfer ownership.
+    * @return spec
+    */
+  const EventSpec* getSpec() const;
+
  protected:
   std::string message;
+  EventSpec* spec;  // owns this object
   std::istream& in;
   std::ostream& out;
 

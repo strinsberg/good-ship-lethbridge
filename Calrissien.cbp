@@ -43,6 +43,7 @@
 		<Unit filename="include/EntitySpec.h" />
 		<Unit filename="include/EntityState.h" />
 		<Unit filename="include/Event.h" />
+		<Unit filename="include/EventSpec.h" />
 		<Unit filename="include/Exceptions.h" />
 		<Unit filename="include/Exit.h" />
 		<Unit filename="include/Game.h" />
@@ -55,6 +56,8 @@
 		<Unit filename="src/Action.cpp" />
 		<Unit filename="src/BadInput.cpp" />
 		<Unit filename="src/Command.cpp" />
+		<Unit filename="src/Event.cpp" />
+		<Unit filename="src/EventSpec.cpp" />
 		<Unit filename="src/Exit.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameData.cpp" />
@@ -70,6 +73,12 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestCommand.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestEvent.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestEventSpec.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestExit.cpp">
