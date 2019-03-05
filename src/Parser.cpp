@@ -26,8 +26,10 @@ Command* Parser::parse() const {
   while (ss >> noun) {}
 
   if (0) {  //add cases here for other commands as they are ready
-    // use Action or Game command pointer first to be able to save player or game
-    // then save it to c to be returned. or make their constructors take player and game as arg.
+    // use Action or Game command pointer first to be able to save player
+    // or game
+    // then save it to c to be returned.
+    // or make their constructors take player and game as arg.
     c = nullptr;
   } else {
     c = new BadInput();

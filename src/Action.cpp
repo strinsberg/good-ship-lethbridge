@@ -7,7 +7,7 @@
 #include "Action.h"
 #include "Player.h"
 
-Action::Action() : player(nullptr) {};
+Action::Action() : player(nullptr) {}
 Action::~Action() {}
 
 void Action::setPlayer(Player* p) {

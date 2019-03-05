@@ -9,6 +9,4 @@
 #include <string>
 
 
-std::string Exit::execute() {
-
-}
+std::string Exit::execute() {}

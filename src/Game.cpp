@@ -13,9 +13,7 @@ using std::map;
 using std::string;
 
 Game::Game(std::istream& is, std::ostream& os)
-  : rooms(map<string, Room*>()), player(nullptr), in(is), out(os) {
-
-}
+  : rooms(map<string, Room*>()), player(nullptr), in(is), out(os) {}
 
 Game::~Game() {
   /*if (player != nullptr)
@@ -25,9 +23,7 @@ Game::~Game() {
       delete r.second;*/
 }
 
-void Game::run() {
-
-}
+void Game::run() {}
 
 Player* Game::getPlayer() const {
   return player;
