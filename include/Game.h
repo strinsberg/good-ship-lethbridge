@@ -60,11 +60,23 @@ class Game {
     */
   int numRooms();
 
+  /**
+    * Returns weather the game is running or not.
+    * @return running
+    */
+  bool isRunning();
+
+  /**
+    * Sets running to false
+    */
+  int stop();
+
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
   Player* player;  // owns player
   std::istream& in;
   std::ostream& out;
+  bool running;
 
   Game(const Game&);
   Game& operator=(const Game&);

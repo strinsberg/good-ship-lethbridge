@@ -51,13 +51,17 @@
 		<Unit filename="include/GameCommand.h" />
 		<Unit filename="include/GameData.h" />
 		<Unit filename="include/Get.h" />
+		<Unit filename="include/Help.h" />
 		<Unit filename="include/Inventory.h" />
+		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
 		<Unit filename="include/ObjectWithContentsBlueprint.h" />
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/Quit.h" />
 		<Unit filename="include/Room.h" />
+		<Unit filename="include/Save.h" />
 		<Unit filename="include/Talk.h" />
 		<Unit filename="include/Use.h" />
 		<Unit filename="src/Action.cpp" />
