@@ -39,6 +39,7 @@
 		<Unit filename="include/Command.h" />
 		<Unit filename="include/Container.h" />
 		<Unit filename="include/Door.h" />
+		<Unit filename="include/Drop.h" />
 		<Unit filename="include/Entity.h" />
 		<Unit filename="include/EntitySpec.h" />
 		<Unit filename="include/EntityState.h" />
@@ -47,12 +48,18 @@
 		<Unit filename="include/Exceptions.h" />
 		<Unit filename="include/Exit.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/GameCommand.h" />
 		<Unit filename="include/GameData.h" />
+		<Unit filename="include/Get.h" />
+		<Unit filename="include/Inventory.h" />
+		<Unit filename="include/Look.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
 		<Unit filename="include/ObjectWithContentsBlueprint.h" />
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Room.h" />
+		<Unit filename="include/Talk.h" />
+		<Unit filename="include/Use.h" />
 		<Unit filename="src/Action.cpp" />
 		<Unit filename="src/BadInput.cpp" />
 		<Unit filename="src/Command.cpp" />
