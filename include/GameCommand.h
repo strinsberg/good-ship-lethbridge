@@ -1,8 +1,14 @@
+/**
+ * CPSC2720 Group Project Spring 2019
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef CALRISSIEN_2720_GAME_COMMAND_H
 #define CALRISSIEN_2720_GAME_COMMAND_H
 
 #include "Command.h"
-#inlcude "Game.h"
+#include "Game.h"
 #include <string>
 
 
@@ -15,7 +21,7 @@ class GameCommand : public Command
   public:
     GameCommand();
     virtual ~GameCommand();
-    virtual std::string execute();
+    virtual std::string execute() = 0;
 
     /**
       * Get the game. Does not transfer ownership of the game.

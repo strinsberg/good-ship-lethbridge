@@ -67,13 +67,24 @@
 		<Unit filename="src/Action.cpp" />
 		<Unit filename="src/BadInput.cpp" />
 		<Unit filename="src/Command.cpp" />
+		<Unit filename="src/Drop.cpp" />
 		<Unit filename="src/Event.cpp" />
 		<Unit filename="src/EventSpec.cpp" />
 		<Unit filename="src/Exit.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/GameCommand.cpp" />
 		<Unit filename="src/GameData.cpp" />
+		<Unit filename="src/Get.cpp" />
+		<Unit filename="src/Help.cpp" />
+		<Unit filename="src/Inventory.cpp" />
+		<Unit filename="src/Load.cpp" />
+		<Unit filename="src/Look.cpp" />
 		<Unit filename="src/ObjectBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
+		<Unit filename="src/Quit.cpp" />
+		<Unit filename="src/Save.cpp" />
+		<Unit filename="src/Talk.cpp" />
+		<Unit filename="src/Use.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
 		</Unit>
@@ -84,6 +95,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestCommand.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestDrop.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestEvent.cpp">
@@ -101,10 +115,37 @@
 		<Unit filename="test/TestGameData.cpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="test/TestGet.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestHelp.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestInventory.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestLoad.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestLook.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestObjectBlueprint.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestParser.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestQuit.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestSave.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestTalk.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestUse.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/main.cpp">
