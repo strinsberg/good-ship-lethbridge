@@ -19,3 +19,10 @@ TEST(LookTests, set_noun) {
   l.setNoun("Laser");
   EXPECT_EQ(l.getNoun(), "Laser");
 }
+
+TEST(LookTests, set_player) {
+  Look l;
+  Player* p;  // Allows simple check for set without player being implemented
+  l.setPlayer(p);
+  EXPECT_EQ(l.getPlayer(), p);
+}

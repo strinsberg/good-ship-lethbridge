@@ -19,3 +19,10 @@ TEST(UseTests, set_noun) {
   u.setNoun("Laser");
   EXPECT_EQ(u.getNoun(), "Laser");
 }
+
+TEST(UseTests, set_player) {
+  Use u;
+  Player* p;  // Allows simple check for set without player being implemented
+  u.setPlayer(p);
+  EXPECT_EQ(u.getPlayer(), p);
+}

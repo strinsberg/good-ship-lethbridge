@@ -19,3 +19,10 @@ TEST(DropTests, set_noun) {
   d.setNoun("Laser");
   EXPECT_EQ(d.getNoun(), "Laser");
 }
+
+TEST(DropTests, set_player) {
+  Drop d;
+  Player* p;  // Allows simple check for set without player being implemented
+  d.setPlayer(p);
+  EXPECT_EQ(d.getPlayer(), p);
+}

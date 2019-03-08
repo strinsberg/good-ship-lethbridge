@@ -19,3 +19,10 @@ TEST(ExitTests, set_noun) {
   e.setNoun("Laser");
   EXPECT_EQ(e.getNoun(), "Laser");
 }
+
+TEST(ExitTests, set_player) {
+  Exit e;
+  Player* p;  // Allows simple check for set without player being implemented
+  e.setPlayer(p);
+  EXPECT_EQ(e.getPlayer(), p);
+}

@@ -19,3 +19,10 @@ TEST(InventoryTests, set_noun) {
   i.setNoun("Laser");
   EXPECT_EQ(i.getNoun(), "Laser");
 }
+
+TEST(InventoryTests, set_player) {
+  Inventory i;
+  Player* p;  // Allows simple check for set without player being implemented
+  i.setPlayer(p);
+  EXPECT_EQ(i.getPlayer(), p);
+}

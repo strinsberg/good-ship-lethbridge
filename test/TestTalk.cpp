@@ -19,3 +19,11 @@ TEST(TalkTests, set_noun) {
   t.setNoun("Laser");
   EXPECT_EQ(t.getNoun(), "Laser");
 }
+
+TEST(TalkTests, set_player) {
+  Talk t;
+  Player* p;  // Allows simple check for set without player being implemented
+  t.setPlayer(p);
+  EXPECT_EQ(t.getPlayer(), p);
+}
+

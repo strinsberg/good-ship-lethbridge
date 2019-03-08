@@ -88,12 +88,12 @@
 	<string>
 	<sstream>
 
-1552062135 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552062679 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
 	<sstream>
 	"gtest/gtest.h"
 
-1551887947 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
+1552062194 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
 	"Exit.h"
 	"Entity.h"
 	<string>
@@ -284,7 +284,7 @@
 	"GameCommand.h"
 	"Game.h"
 
-1551981088 source:/home/deus2720/assn/Calrissien/test/TestDrop.cpp
+1552062472 source:/home/deus2720/assn/Calrissien/test/TestDrop.cpp
 	"Drop.h"
 	<string>
 	"gtest/gtest.h"
@@ -294,7 +294,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552062039 source:/home/deus2720/assn/Calrissien/test/TestInventory.cpp
+1552062519 source:/home/deus2720/assn/Calrissien/test/TestInventory.cpp
 	"Inventory.h"
 	<string>
 	"gtest/gtest.h"
@@ -304,7 +304,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552062012 source:/home/deus2720/assn/Calrissien/test/TestLook.cpp
+1552062550 source:/home/deus2720/assn/Calrissien/test/TestLook.cpp
 	"Look.h"
 	<string>
 	"gtest/gtest.h"
@@ -319,18 +319,19 @@
 	<string>
 	"gtest/gtest.h"
 
-1552061979 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
+1552062607 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
 	"Talk.h"
 	<string>
 	"gtest/gtest.h"
 
-1552061945 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
+1552062649 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
 	"Use.h"
 	<string>
 	"gtest/gtest.h"
 
-1551981080 source:/home/deus2720/assn/Calrissien/test/TestGet.cpp
+1552062443 source:/home/deus2720/assn/Calrissien/test/TestGet.cpp
 	"Get.h"
+	"Player.h"
 	<string>
 	"gtest/gtest.h"
 
