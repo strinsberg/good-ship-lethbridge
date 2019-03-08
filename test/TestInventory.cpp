@@ -7,3 +7,15 @@
 #include "Inventory.h"
 #include <string>
 #include "gtest/gtest.h"
+
+TEST(InventoryTests, constructor_get) {
+  Inventory i;
+  EXPECT_EQ(i.getNoun(), "");
+  EXPECT_EQ(i.getPlayer(), nullptr);
+}
+
+TEST(InventoryTests, set_noun) {
+  Inventory i;
+  i.setNoun("Laser");
+  EXPECT_EQ(i.getNoun(), "Laser");
+}

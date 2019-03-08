@@ -7,3 +7,15 @@
 #include "Use.h"
 #include <string>
 #include "gtest/gtest.h"
+
+TEST(UseTests, constructor_get) {
+  Use u;
+  EXPECT_EQ(u.getNoun(), "");
+  EXPECT_EQ(u.getPlayer(), nullptr);
+}
+
+TEST(UseTests, set_noun) {
+  Use u;
+  u.setNoun("Laser");
+  EXPECT_EQ(u.getNoun(), "Laser");
+}

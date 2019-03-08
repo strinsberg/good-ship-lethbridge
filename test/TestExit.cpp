@@ -8,4 +8,14 @@
 #include <sstream>
 #include "gtest/gtest.h"
 
-TEST(ExitActionTests, DISABLED_execute) {}
+TEST(ExitTests, constructor_get) {
+  Exit e;
+  EXPECT_EQ(e.getNoun(), "");
+  EXPECT_EQ(e.getPlayer(), nullptr);
+}
+
+TEST(ExitTests, set_noun) {
+  Exit e;
+  e.setNoun("Laser");
+  EXPECT_EQ(e.getNoun(), "Laser");
+}

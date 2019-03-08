@@ -8,5 +8,6 @@
 #include "Entity.h"
 #include <string>
 
-
+Exit::Exit() {}
+Exit::~Exit() {}
 std::string Exit::execute() {}

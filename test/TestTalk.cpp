@@ -7,3 +7,15 @@
 #include "Talk.h"
 #include <string>
 #include "gtest/gtest.h"
+
+TEST(TalkTests, constructor_get) {
+  Talk t;
+  EXPECT_EQ(t.getNoun(), "");
+  EXPECT_EQ(t.getPlayer(), nullptr);
+}
+
+TEST(TalkTests, set_noun) {
+  Talk t;
+  t.setNoun("Laser");
+  EXPECT_EQ(t.getNoun(), "Laser");
+}
