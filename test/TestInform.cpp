@@ -36,3 +36,21 @@ TEST(InformTests, execute) {
   i.setMessage(message);
   EXPECT_EQ(i.execute(), "You can't use that!");
 }
+
+TEST(InformTests, make_blueprint) {
+  Inform i;
+  i.setMessage("You can't use that!");
+
+  EventSpec* e = new EventSpec();
+  e->setName("no_use");
+  e->setDone(false);
+  i.setSpec(e);
+
+  ObjectBlueprint* b = i.makeBlueprint();
+  EXPECT_EQ(b->getType(), "inform");
+  EXPECT_EQ(b->getField("message"), "You can't use that!");
+  EXPECT_EQ(b->getField("name"), "no_use");
+  EXPECT_EQ(b->getField("done"), "false");
+
+  delete b;
+}

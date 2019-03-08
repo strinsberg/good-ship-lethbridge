@@ -17,5 +17,13 @@ std::string Inform::execute() {
 }
 
 ObjectBlueprint* Inform::makeBlueprint() const {
-  return new ObjectBlueprint();
+  ObjectBlueprint* b = new ObjectBlueprint();
+
+  b->setField("type", "inform");
+  b->setField("message", message);
+  b->setField("name", spec->getName());
+  std::string d = spec->isDone() ? "true" : "false";
+  b->setField("done", d);
+
+  return b;
 }
