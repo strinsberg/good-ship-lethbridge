@@ -27,7 +27,7 @@ TEST(InventoryTests, set_player) {
   EXPECT_EQ(i.getPlayer(), p);
 }
 
-TEST(InventoryTests, execute_have_items) {
+TEST(InventoryTests, DISABLED_execute_have_items) {
   Inventory i;
   // Create a player
   // create a couple items
@@ -36,7 +36,7 @@ TEST(InventoryTests, execute_have_items) {
   EXPECT_EQ(i.execute(), "You are carrying:\nobject1\nobject2");
 }
 
-TEST(InventoryTests, execute_no_items) {
+TEST(InventoryTests, DISABLED_execute_no_items) {
   Inventory i;
   // Create a player
   // run i.execute and compare

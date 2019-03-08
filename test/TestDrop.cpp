@@ -27,7 +27,7 @@ TEST(DropTests, set_player) {
   EXPECT_EQ(d.getPlayer(), p);
 }
 
-TEST(DropTests, execute_item_exists) {
+TEST(DropTests, DISABLED_execute_item_exists) {
   Drop d;
   // Create a player, room, and item entity
   // Add the item to the player
@@ -37,7 +37,7 @@ TEST(DropTests, execute_item_exists) {
   EXPECT_EQ(d.execute(), "You drop the object_name");
 }
 
-TEST(DropTests, execute_item_does_not_exits) {
+TEST(DropTests, DISABLED_execute_item_does_not_exits) {
   Drop d;
   // Create a player
   // run get.execute and see the result

@@ -28,7 +28,7 @@ TEST(GetTests, set_player) {
   EXPECT_EQ(g.getPlayer(), p);
 }
 
-TEST(GetTests, execute_item_exists) {
+TEST(GetTests, DISABLED_execute_item_exists) {
   Get g;
   // Create a player, room, and item entity
   // Add the item to the room
@@ -38,7 +38,7 @@ TEST(GetTests, execute_item_exists) {
   EXPECT_EQ(g.execute(), "You take the object_name");
 }
 
-TEST(GetTests, execute_item_does_not_exist) {
+TEST(GetTests, DISABLED_execute_item_does_not_exist) {
   Get g;
   // Create a player, room
   // run get.execute and see the result

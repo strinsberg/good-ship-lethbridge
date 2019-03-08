@@ -27,7 +27,7 @@ TEST(ExitTests, set_player) {
   EXPECT_EQ(e.getPlayer(), p);
 }
 
-TEST(ExitTests, execute_exit_exists) {
+TEST(ExitTests, DISABLED_execute_exit_exists) {
   Exit e;
   // create player, room, other room, exit
   // add exit to room
@@ -37,7 +37,7 @@ TEST(ExitTests, execute_exit_exists) {
   EXPECT_EQ(e.execute(), "???");
 }
 
-TEST(ExitTests, execute_exit_is_not_active) {
+TEST(ExitTests, DISABLED_execute_exit_is_not_active) {
   Exit e;
   // create player, room, other room, exit
   // add exit to room
@@ -46,7 +46,7 @@ TEST(ExitTests, execute_exit_is_not_active) {
   EXPECT_EQ(e.execute(), "You are unable to go that way");
 }
 
-TEST(ExitTests, execute_exit_does_not_exists) {
+TEST(ExitTests, DISABLED_execute_exit_does_not_exists) {
   Exit e;
   // create player, room
   // set player room

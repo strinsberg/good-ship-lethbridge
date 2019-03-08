@@ -27,7 +27,7 @@ TEST(LookTests, set_player) {
   EXPECT_EQ(l.getPlayer(), p);
 }
 
-TEST(LookTests, execute_player_has_item) {
+TEST(LookTests, DISABLED_execute_player_has_item) {
   Look l;
   // Create a player, room, and item
   // put item in player inventory, set player room to room
@@ -36,7 +36,7 @@ TEST(LookTests, execute_player_has_item) {
   EXPECT_EQ(l.execute(), "Item description");
 }
 
-TEST(LookTests, execute_room_has_item) {
+TEST(LookTests, DISABLED_execute_room_has_item) {
   Look l;
   // Create a player, room, and item
   // put item in room inventory, set player room to room
@@ -45,7 +45,7 @@ TEST(LookTests, execute_room_has_item) {
   EXPECT_EQ(l.execute(), "Item Description");
 }
 
-TEST(LookTests, execute_no_item) {
+TEST(LookTests, DISABLED_execute_no_item) {
   Look l;
   // create player, and room
   // set player room

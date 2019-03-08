@@ -27,7 +27,7 @@ TEST(TalkTests, set_player) {
   EXPECT_EQ(t.getPlayer(), p);
 }
 
-TEST(TalkTests, execute_item_exists) {
+TEST(TalkTests, DISABLED_execute_item_exists) {
   Talk t;
   // Create a player, room, and item entity
   // Add the item to the room
@@ -38,7 +38,7 @@ TEST(TalkTests, execute_item_exists) {
   EXPECT_EQ(t.execute(), "Conversation");
 }
 
-TEST(TalkTests, execute_does_not_talk) {
+TEST(TalkTests, DISABLED_execute_does_not_talk) {
   Talk t;
   // Create player, room, and entity
   // add entity to room
@@ -48,7 +48,7 @@ TEST(TalkTests, execute_does_not_talk) {
   EXPECT_EQ(t.execute(), "You get no response");
 }
 
-TEST(TalkTests, execute_item_does_not_exist) {
+TEST(TalkTests, DISABLED_execute_item_does_not_exist) {
   Talk t;
   // Create a player, room
   // run get.execute and see the result

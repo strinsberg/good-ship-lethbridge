@@ -27,7 +27,7 @@ TEST(UseTests, set_player) {
   EXPECT_EQ(u.getPlayer(), p);
 }
 
-TEST(UseTests, execute_player_has_item) {
+TEST(UseTests, DISABLED_execute_player_has_item) {
   Use u;
   // Create a player, room, and item
   // put item in player inventory, set player room to room
@@ -36,7 +36,7 @@ TEST(UseTests, execute_player_has_item) {
   EXPECT_EQ(u.execute(), "Use description");
 }
 
-TEST(UseTests, execute_room_has_item) {
+TEST(UseTests, DISABLED_execute_room_has_item) {
   Use u;
   // Create a player, room, and item
   // put item in room inventory, set player room to room
@@ -45,7 +45,7 @@ TEST(UseTests, execute_room_has_item) {
   EXPECT_EQ(u.execute(), "Use description");
 }
 
-TEST(UseTests, execute_unusable) {
+TEST(UseTests, DISABLED_execute_unusable) {
   Use u;
   // create player, and room
   // set player room
@@ -54,7 +54,7 @@ TEST(UseTests, execute_unusable) {
   EXPECT_EQ(u.execute(), "You Can't use object_name!");
 }
 
-TEST(UseTests, execute_no_item) {
+TEST(UseTests, DISABLED_execute_no_item) {
   Use u;
   // create player, and room
   // set player room
