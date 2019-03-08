@@ -52,6 +52,7 @@
 		<Unit filename="include/GameData.h" />
 		<Unit filename="include/Get.h" />
 		<Unit filename="include/Help.h" />
+		<Unit filename="include/Inform.h" />
 		<Unit filename="include/Inventory.h" />
 		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
@@ -76,6 +77,7 @@
 		<Unit filename="src/GameData.cpp" />
 		<Unit filename="src/Get.cpp" />
 		<Unit filename="src/Help.cpp" />
+		<Unit filename="src/Inform.cpp" />
 		<Unit filename="src/Inventory.cpp" />
 		<Unit filename="src/Load.cpp" />
 		<Unit filename="src/Look.cpp" />
@@ -91,13 +93,7 @@
 		<Unit filename="test/TestBadInput.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="test/TestCommand.cpp">
-			<Option target="Test" />
-		</Unit>
 		<Unit filename="test/TestDrop.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestEvent.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestEventSpec.cpp">
@@ -116,6 +112,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestHelp.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestInform.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestInventory.cpp">

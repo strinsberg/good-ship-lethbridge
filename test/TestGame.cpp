@@ -19,14 +19,14 @@ TEST(GameTests, constructor) {
 
 TEST(GameTests, get_set_player) {
   Game g;
-  Player* p;
+  Player* p;// = new Player();  // add when these are done
   g.setPlayer(p);
   EXPECT_EQ(g.getPlayer(), p);
 }
 
 TEST(GameTests, get_add_room) {
   Game g;
-  Room* r;
+  Room* r;// = new Room();
   g.addRoom("Captains Quaters", r);
   EXPECT_EQ(g.getRoom("Captains Quaters"), r);
   EXPECT_EQ(g.numRooms(), 1);

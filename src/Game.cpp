@@ -16,6 +16,7 @@ Game::Game(std::istream& is, std::ostream& os)
   : rooms(map<string, Room*>()), player(nullptr), in(is), out(os), running(true) {}
 
 Game::~Game() {
+  // Uncomment when player and room are finished and working
   /*if (player != nullptr)
     delete player;
   for (auto r : rooms)

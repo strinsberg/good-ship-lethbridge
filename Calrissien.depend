@@ -7,7 +7,7 @@
 1549848897 source:/home/deus2720/assn/Calrissien/test/main.cpp
 	"gtest/gtest.h"
 
-1551887947 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
+1552065453 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
 	"Game.h"
 	"Player.h"
 	<iostream>
@@ -60,7 +60,7 @@
 	"ObjectBlueprint.h"
 	<string>
 
-1551889722 source:/home/deus2720/assn/Calrissien/src/Game.cpp
+1552065484 source:/home/deus2720/assn/Calrissien/src/Game.cpp
 	"Game.h"
 	"Player.h"
 	"Room.h"
@@ -88,7 +88,7 @@
 	<string>
 	<sstream>
 
-1552062965 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552064921 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
 	<sstream>
 	"gtest/gtest.h"
@@ -180,7 +180,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1551887947 source:/home/deus2720/assn/Calrissien/src/Event.cpp
+1552066943 source:/home/deus2720/assn/Calrissien/src/Event.cpp
 	"Event.h"
 	"ObjectBlueprint.h"
 	"EventSpec.h"
@@ -319,12 +319,12 @@
 	<string>
 	"gtest/gtest.h"
 
-1552063078 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
+1552064592 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
 	"Talk.h"
 	<string>
 	"gtest/gtest.h"
 
-1552063052 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
+1552064368 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
 	"Use.h"
 	<string>
 	"gtest/gtest.h"
@@ -334,4 +334,21 @@
 	"Player.h"
 	<string>
 	"gtest/gtest.h"
+
+1552066777 source:/home/deus2720/assn/Calrissien/test/TestInform.cpp
+	"Event.h"
+	"EventSpec.h"
+	"ObjectBlueprint.h"
+	<string>
+	"gtest/gtest.h"
+
+1552067136 source:/home/deus2720/assn/Calrissien/src/Inform.cpp
+	"Inform.h"
+	"ObjectBlueprint.h"
+	<string>
+
+1552067239 /home/deus2720/assn/Calrissien/include/Inform.h
+	"Event.h"
+	"ObjectBlueprint.h"
+	<string>
 
