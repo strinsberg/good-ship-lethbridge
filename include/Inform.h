@@ -11,12 +11,24 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-
+/**
+  * An event to return information
+  */
 class Inform : public Event
 {
   public:
+    /**
+      * Create an inform object with in and out streams
+      * @param in an istream (default cin)
+      * @param out an ostream (default cout)
+      */
     Inform(std::istream& in = std::cin, std::ostream& out = std::cout);
     virtual ~Inform();
+
+    /**
+      * Return the message
+      * @return message
+      */
     std::string execute();
     ObjectBlueprint* makeBlueprint() const;
 

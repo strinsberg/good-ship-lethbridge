@@ -5,11 +5,9 @@
  */
 
 #include "Inform.h"
-#include "Event.h"
 #include "EventSpec.h"
 #include "ObjectBlueprint.h"
 #include <string>
-#include <sstream>
 #include "gtest/gtest.h"
 
 TEST(InformTests, constructor_get) {
@@ -30,4 +28,11 @@ TEST(InformTests, set_spec) {
   EventSpec* spec = new EventSpec();
   i.setSpec(spec);
   EXPECT_EQ(i.getSpec(), spec);
+}
+
+TEST(InformTests, execute) {
+  std::string message("You can't use that!");
+  Inform i;
+  i.setMessage(message);
+  EXPECT_EQ(i.execute(), "You can't use that!");
 }
