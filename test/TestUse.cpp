@@ -26,3 +26,8 @@ TEST(UseTests, set_player) {
   u.setPlayer(p);
   EXPECT_EQ(u.getPlayer(), p);
 }
+
+TEST(UseTests, execute) {
+  Use u;
+  EXPECT_EQ(u.execute(), "TBD");
+}

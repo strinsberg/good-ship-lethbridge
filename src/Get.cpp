@@ -9,4 +9,7 @@
 
 Get::Get() {}
 Get::~Get() {}
-std::string Get::execute() {}
+
+std::string Get::execute() {
+  return noun;
+}

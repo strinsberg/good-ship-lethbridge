@@ -27,3 +27,7 @@ TEST(TalkTests, set_player) {
   EXPECT_EQ(t.getPlayer(), p);
 }
 
+TEST(TalkTests, execute) {
+  Talk t;
+  EXPECT_EQ(t.execute(), "TBD");
+}

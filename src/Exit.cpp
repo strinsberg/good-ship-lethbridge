@@ -10,4 +10,7 @@
 
 Exit::Exit() {}
 Exit::~Exit() {}
-std::string Exit::execute() {}
+
+std::string Exit::execute() {
+  return noun;  // for tdd
+}

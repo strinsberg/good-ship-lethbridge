@@ -26,3 +26,20 @@ TEST(DropTests, set_player) {
   d.setPlayer(p);
   EXPECT_EQ(d.getPlayer(), p);
 }
+
+TEST(DropTests, execute_item_exists) {
+  Drop d;
+  // Create a player, room, and item entity
+  // Add the item to the player
+  // Set the players current_room to room
+  // add the player and the name of the item to the get action
+  // run get.execute and see the result
+  EXPECT_EQ(d.execute(), "You drop the object_name");
+}
+
+TEST(DropTests, execute_item_does_not_exits) {
+  Drop d;
+  // Create a player
+  // run get.execute and see the result
+  EXPECT_EQ(d.execute(), "You don't have object_name");
+}

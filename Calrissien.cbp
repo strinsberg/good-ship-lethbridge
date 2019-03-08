@@ -88,9 +88,6 @@
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
 		</Unit>
-		<Unit filename="test/TestAction.cpp">
-			<Option target="Test" />
-		</Unit>
 		<Unit filename="test/TestBadInput.cpp">
 			<Option target="Test" />
 		</Unit>

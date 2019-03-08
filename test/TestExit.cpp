@@ -26,3 +26,8 @@ TEST(ExitTests, set_player) {
   e.setPlayer(p);
   EXPECT_EQ(e.getPlayer(), p);
 }
+
+TEST(ExitTests, execute) {
+  Exit e;
+  EXPECT_EQ(e.execute(), "TBD");
+}

@@ -26,3 +26,30 @@ TEST(LookTests, set_player) {
   l.setPlayer(p);
   EXPECT_EQ(l.getPlayer(), p);
 }
+
+TEST(LookTests, execute_player_has_item) {
+  Look l;
+  // Create a player, room, and item
+  // put item in player inventory, set player room to room
+  // add player and item name to look
+  // run execute
+  EXPECT_EQ(l.execute(), "Item description");
+}
+
+TEST(LookTests, execute_room_has_item) {
+  Look l;
+  // Create a player, room, and item
+  // put item in room inventory, set player room to room
+  // add player and item name to look
+  // run execute
+  EXPECT_EQ(l.execute(), "Item Description");
+}
+
+TEST(LookTests, execute_no_item) {
+  Look l;
+  // create player, and room
+  // set player room
+  // set player and item name to look
+  // run execute
+  EXPECT_EQ(l.execute(), "There is no object_name!");
+}
