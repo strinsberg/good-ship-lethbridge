@@ -44,6 +44,7 @@
 		<Unit filename="include/EntitySpec.h" />
 		<Unit filename="include/EntityState.h" />
 		<Unit filename="include/Event.h" />
+		<Unit filename="include/EventGroup.h" />
 		<Unit filename="include/EventSpec.h" />
 		<Unit filename="include/Exceptions.h" />
 		<Unit filename="include/Exit.h" />
@@ -70,6 +71,7 @@
 		<Unit filename="src/Command.cpp" />
 		<Unit filename="src/Drop.cpp" />
 		<Unit filename="src/Event.cpp" />
+		<Unit filename="src/EventGroup.cpp" />
 		<Unit filename="src/EventSpec.cpp" />
 		<Unit filename="src/Exit.cpp" />
 		<Unit filename="src/Game.cpp" />
@@ -94,6 +96,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestDrop.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestEventGroup.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestEventSpec.cpp">

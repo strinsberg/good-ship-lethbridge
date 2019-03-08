@@ -6,7 +6,9 @@
 
 #include "EventGroup.h"
 #include "Event.h"
+#include "ObjectBlueprint.h"
 #include <string>
+#include <sstream>
 
 EventGroup::EventGroup() {}
 
@@ -18,13 +20,19 @@ EventGroup::~EventGroup() {
 }
 
 void EventGroup::addEvent(Event* e) {
-
+  events.push_back(e);
 }
 
 std::string EventGroup::execute() {
-  return message;
+  std::stringstream ss;
+  for (int i = 0; i < events.size(); i++) {
+    std::string end = i < events.size() - 1 ? "\n" : "";
+    ss << events[i]->execute() << end;
+  }
+  return ss.str();
 }
 
 ObjectBlueprint* EventGroup::makeBlueprint() const {
-
+  // might need an object blueprint subclass
+  // like this one that is a group of object Blueprints
 }
