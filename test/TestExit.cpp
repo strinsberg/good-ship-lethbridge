@@ -27,7 +27,29 @@ TEST(ExitTests, set_player) {
   EXPECT_EQ(e.getPlayer(), p);
 }
 
-TEST(ExitTests, execute) {
+TEST(ExitTests, execute_exit_exists) {
   Exit e;
-  EXPECT_EQ(e.execute(), "TBD");
+  // create player, room, other room, exit
+  // add exit to room
+  // might need exit and enter events for the rooms
+  // set player room
+  // add player and exit name to the Exit
+  EXPECT_EQ(e.execute(), "???");
+}
+
+TEST(ExitTests, execute_exit_is_not_active) {
+  Exit e;
+  // create player, room, other room, exit
+  // add exit to room
+  // set player room
+  // add player and exit name to the Exit
+  EXPECT_EQ(e.execute(), "You are unable to go that way");
+}
+
+TEST(ExitTests, execute_exit_does_not_exists) {
+  Exit e;
+  // create player, room
+  // set player room
+  // add player and exit name to Exit
+  EXPECT_EQ(e.execute(), "There is no exit_name");
 }

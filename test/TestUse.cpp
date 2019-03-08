@@ -27,7 +27,38 @@ TEST(UseTests, set_player) {
   EXPECT_EQ(u.getPlayer(), p);
 }
 
-TEST(UseTests, execute) {
+TEST(UseTests, execute_player_has_item) {
   Use u;
-  EXPECT_EQ(u.execute(), "TBD");
+  // Create a player, room, and item
+  // put item in player inventory, set player room to room
+  // add player and item name to Use
+  // run execute
+  EXPECT_EQ(u.execute(), "Use description");
+}
+
+TEST(UseTests, execute_room_has_item) {
+  Use u;
+  // Create a player, room, and item
+  // put item in room inventory, set player room to room
+  // add player and item name to Use
+  // run execute
+  EXPECT_EQ(u.execute(), "Use description");
+}
+
+TEST(UseTests, execute_unusable) {
+  Use u;
+  // create player, and room
+  // set player room
+  // set player and item name to Use
+  // run execute
+  EXPECT_EQ(u.execute(), "You Can't use object_name!");
+}
+
+TEST(UseTests, execute_no_item) {
+  Use u;
+  // create player, and room
+  // set player room
+  // set player and item name to Use
+  // run execute
+  EXPECT_EQ(u.execute(), "There is no object_name!");
 }
