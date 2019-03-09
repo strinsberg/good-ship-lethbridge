@@ -9,8 +9,9 @@
 #include "ObjectBlueprint.h"
 #include <string>
 #include <sstream>
+#include <vector>
 
-EventGroup::EventGroup() {}
+EventGroup::EventGroup() : events(std::vector<Event*>()) {}
 
 EventGroup::~EventGroup() {
   for (auto e : events) {
@@ -25,10 +26,12 @@ void EventGroup::addEvent(Event* e) {
 
 std::string EventGroup::execute() {
   std::stringstream ss;
+
   for (int i = 0; i < events.size(); i++) {
     std::string end = i < events.size() - 1 ? "\n" : "";
     ss << events[i]->execute() << end;
   }
+
   return ss.str();
 }
 

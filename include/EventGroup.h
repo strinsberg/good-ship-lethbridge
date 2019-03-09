@@ -8,6 +8,7 @@
 #define EVENTGROUP_H
 
 #include "Event.h"
+#include "ObjectBlueprint.h"
 #include <vector>
 #include <string>
 
@@ -19,8 +20,8 @@ class EventGroup : public Event
   public:
     EventGroup();
     virtual ~EventGroup();
-    std::string execute();
-    ObjectBlueprint* makeBlueprint() const;
+    virtual std::string execute();
+    virtual ObjectBlueprint* makeBlueprint() const;
 
     /**
       * Add an event to the back of the group.

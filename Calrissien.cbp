@@ -64,6 +64,7 @@
 		<Unit filename="include/Quit.h" />
 		<Unit filename="include/Room.h" />
 		<Unit filename="include/Save.h" />
+		<Unit filename="include/StructuredEvents.h" />
 		<Unit filename="include/Talk.h" />
 		<Unit filename="include/Use.h" />
 		<Unit filename="src/Action.cpp" />
@@ -87,6 +88,7 @@
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Quit.cpp" />
 		<Unit filename="src/Save.cpp" />
+		<Unit filename="src/StructuredEvents.cpp" />
 		<Unit filename="src/Talk.cpp" />
 		<Unit filename="src/Use.cpp" />
 		<Unit filename="src/game/main.cpp">
@@ -141,6 +143,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestSave.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestStructuredEvent.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestTalk.cpp">

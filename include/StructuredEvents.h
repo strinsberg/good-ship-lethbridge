@@ -1,0 +1,49 @@
+#ifndef STRUCTUREDEVENTS_H
+#define STRUCTUREDEVENTS_H
+
+#include "EventGroup.h"
+#include "ObjectBlueprint.h"
+#include <string>
+
+
+/**
+  * A collection of sequenced events when execute is
+  * called the next current events execute is called.
+  * Can be set to repeat when the last event is reached.
+  */
+class StructuredEvents : public EventGroup
+{
+  public:
+    StructuredEvents();
+    virtual ~StructuredEvents();
+    std::string execute();
+    ObjectBlueprint* makeBlueprint() const;
+
+    /**
+      * Return the index of the current event.
+      * @return currentEvent
+      */
+    int getCurrentIndex();
+
+    /**
+      * Returns if the events repeat when you get to the end
+      * or is done.
+      * @return repeats
+      */
+    bool getRepeats();
+
+    /**
+      * Set weather the events repeat when they finish
+      * @param r if the events repeat
+      */
+    void setRepeats(bool r);
+
+  private:
+    int currentEvent;
+    bool repeats;
+
+    StructuredEvents(const StructuredEvents& other);
+    StructuredEvents& operator=(const StructuredEvents& other);
+};
+
+#endif // STRUCTUREDEVENTS_H

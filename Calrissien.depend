@@ -352,21 +352,32 @@
 	"ObjectBlueprint.h"
 	<string>
 
-1552088453 source:/home/deus2720/assn/Calrissien/src/EventGroup.cpp
+1552090683 source:/home/deus2720/assn/Calrissien/src/EventGroup.cpp
 	"EventGroup.h"
 	"Event.h"
+	"ObjectBlueprint.h"
 	<string>
 	<sstream>
+	<vector>
 
-1552072515 /home/deus2720/assn/Calrissien/include/EventGroup.h
+1552089095 /home/deus2720/assn/Calrissien/include/EventGroup.h
 	"Event.h"
+	"ObjectBlueprint.h"
 	<vector>
 	<string>
 
-1552088474 source:/home/deus2720/assn/Calrissien/test/TestEventGroup.cpp
+1552088833 source:/home/deus2720/assn/Calrissien/test/TestEventGroup.cpp
 	"EventGroup.h"
 	"Event.h"
 	"Inform.h"
 	<string>
 	"gtest/gtest.h"
+
+1552090610 source:/home/deus2720/assn/Calrissien/src/StructuredEvents.cpp
+	"StructuredEvents.h"
+
+1552090563 /home/deus2720/assn/Calrissien/include/StructuredEvents.h
+	"EventGroup.h"
+	"ObjectBlueprint.h"
+	<string>
 
