@@ -9,7 +9,8 @@
 #include <string>
 #include <vector>
 
-StructuredEvents::StructuredEvents() : currentEvent(0), repeats(true) {}
+StructuredEvents::StructuredEvents(std::istream& is, std::ostream& os)
+    : EventGroup(is, os), currentEvent(0), repeats(true) {}
 
 StructuredEvents::~StructuredEvents() {}
 
@@ -26,7 +27,14 @@ void StructuredEvents::setRepeats(bool r) {
 }
 
 std::string StructuredEvents::execute(std::vector<Entity*>& affected) {
-  return message;
+  if (currentEvent == events.size()) {
+    if (repeats)
+      currentEvent = 0;
+    else
+      return "Nothing Happens";
+  }
+
+  return events[currentEvent++]->execute(affected);
 }
 
 ObjectBlueprint* StructuredEvents::makeBlueprint() const {

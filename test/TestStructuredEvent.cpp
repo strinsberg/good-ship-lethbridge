@@ -43,7 +43,6 @@ TEST(StructuredEventsTests, execute_one_no_repeat) {
 
 TEST(StructuredEventsTests, execute_many_repeat) {
   StructuredEvents s;
-  s.setRepeats(false);
 
   Event* i = new Inform();
   i->setMessage("You can't use that!");
@@ -57,8 +56,9 @@ TEST(StructuredEventsTests, execute_many_repeat) {
   EXPECT_EQ(s.execute(v), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
   EXPECT_EQ(s.execute(v), "You have died!");
-  EXPECT_EQ(s.getCurrentIndex(), 0);
+  EXPECT_EQ(s.getCurrentIndex(), 2);
   EXPECT_EQ(s.execute(v), "You can't use that!");
+  EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
 TEST(StructuredEventsTests, DISABLED_make_blueprint) {}

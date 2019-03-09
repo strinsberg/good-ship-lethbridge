@@ -54,6 +54,7 @@
 		<Unit filename="include/Get.h" />
 		<Unit filename="include/Help.h" />
 		<Unit filename="include/Inform.h" />
+		<Unit filename="include/Interaction.h" />
 		<Unit filename="include/Inventory.h" />
 		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
@@ -81,10 +82,12 @@
 		<Unit filename="src/Get.cpp" />
 		<Unit filename="src/Help.cpp" />
 		<Unit filename="src/Inform.cpp" />
+		<Unit filename="src/Interaction.cpp" />
 		<Unit filename="src/Inventory.cpp" />
 		<Unit filename="src/Load.cpp" />
 		<Unit filename="src/Look.cpp" />
 		<Unit filename="src/ObjectBlueprint.cpp" />
+		<Unit filename="src/ObjectWithContentsBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Quit.cpp" />
 		<Unit filename="src/Save.cpp" />
@@ -93,6 +96,9 @@
 		<Unit filename="src/Use.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
+		</Unit>
+		<Unit filename="test/ObjectWithContentsBlueprint.cpp">
+			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestBadInput.cpp">
 			<Option target="Test" />
@@ -122,6 +128,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestInform.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestInteraction.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestInventory.cpp">

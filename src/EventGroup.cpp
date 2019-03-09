@@ -12,7 +12,8 @@
 #include <sstream>
 #include <vector>
 
-EventGroup::EventGroup() : events(std::vector<Event*>()) {}
+EventGroup::EventGroup(std::istream& is, std::ostream& os)
+    : Event(is, os), events(std::vector<Event*>()) {}
 
 EventGroup::~EventGroup() {
   for (auto e : events) {
@@ -28,7 +29,7 @@ void EventGroup::addEvent(Event* e) {
 std::string EventGroup::execute(std::vector<Entity*>& affected) {
   std::stringstream ss;
 
-  for (int i = 0; i < events.size(); i++) {
+  for (size_t i = 0; i < events.size(); i++) {
     std::string end = i < events.size() - 1 ? "\n" : "";
     ss << events[i]->execute(affected) << end;
   }

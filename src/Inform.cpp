@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-Inform::Inform(std::istream& in, std::ostream& out) : Event(in, out) {}
+Inform::Inform(std::istream& is, std::ostream& os) : Event(is, os) {}
 
 Inform::~Inform() {}
 

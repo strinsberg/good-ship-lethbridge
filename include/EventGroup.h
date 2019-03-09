@@ -19,7 +19,7 @@
 class EventGroup : public Event
 {
   public:
-    EventGroup();
+    EventGroup(std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~EventGroup();
     virtual std::string execute(std::vector<Entity*>& affected);
     virtual ObjectBlueprint* makeBlueprint() const;

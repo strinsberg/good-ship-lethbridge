@@ -51,7 +51,7 @@ class ObjectBlueprint {
     * @return a string of object data.
     * @throw TBD if the object does not have a type
     */
-  std::string toString() const;
+  virtual std::string toString() const;
 
   /**
     * A constant to return for non existent fields
