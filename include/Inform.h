@@ -9,7 +9,9 @@
 
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <string>
+#include <vector>
 
 /**
   * An event to return information
@@ -25,11 +27,7 @@ class Inform : public Event
     Inform(std::istream& in = std::cin, std::ostream& out = std::cout);
     virtual ~Inform();
 
-    /**
-      * Return the message
-      * @return message
-      */
-    std::string execute();
+    std::string execute(std::vector<Entity*>& affected);
     ObjectBlueprint* makeBlueprint() const;
 
   private:

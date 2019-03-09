@@ -6,13 +6,15 @@
 
 #include "Inform.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <string>
+#include <vector>
 
 Inform::Inform(std::istream& in, std::ostream& out) : Event(in, out) {}
 
 Inform::~Inform() {}
 
-std::string Inform::execute() {
+std::string Inform::execute(std::vector<Entity*>& affected) {
   return message;
 }
 

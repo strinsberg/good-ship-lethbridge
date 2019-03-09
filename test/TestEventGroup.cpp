@@ -7,7 +7,9 @@
 #include "EventGroup.h"
 #include "Event.h"
 #include "Inform.h"
+#include "Entity.h"
 #include <string>
+#include <vector>
 #include "gtest/gtest.h"
 
 TEST(EventGroupTests, constructor_get) {
@@ -23,7 +25,8 @@ TEST(EventGroupTests, constructor_add_event_execute) {
   i->setMessage("You can't use that!");
   e.addEvent(i);
 
-  EXPECT_EQ(e.execute(), "You can't use that!");
+  std::vector<Entity*> v;
+  EXPECT_EQ(e.execute(v), "You can't use that!");
 }
 
 TEST(EventGroupTests, constructor_execute_group) {
@@ -37,7 +40,8 @@ TEST(EventGroupTests, constructor_execute_group) {
   i2->setMessage("You have died!");
   e.addEvent(i2);
 
-  EXPECT_EQ(e.execute(), "You can't use that!\nYou have died!");
+  std::vector<Entity*> v;
+  EXPECT_EQ(e.execute(v), "You can't use that!\nYou have died!");
 }
 
 TEST(EventGroupTests, DISABLED_make_blueprint) {}

@@ -9,6 +9,7 @@
 
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <vector>
 #include <string>
 
@@ -20,7 +21,7 @@ class EventGroup : public Event
   public:
     EventGroup();
     virtual ~EventGroup();
-    virtual std::string execute();
+    virtual std::string execute(std::vector<Entity*>& affected);
     virtual ObjectBlueprint* makeBlueprint() const;
 
     /**

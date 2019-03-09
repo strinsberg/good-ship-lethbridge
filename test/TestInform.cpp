@@ -7,7 +7,9 @@
 #include "Inform.h"
 #include "EventSpec.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <string>
+#include <vector>
 #include "gtest/gtest.h"
 
 TEST(InformTests, constructor_get) {
@@ -34,7 +36,9 @@ TEST(InformTests, execute) {
   std::string message("You can't use that!");
   Inform i;
   i.setMessage(message);
-  EXPECT_EQ(i.execute(), "You can't use that!");
+
+  std::vector<Entity*> v;
+  EXPECT_EQ(i.execute(v), "You can't use that!");
 }
 
 TEST(InformTests, make_blueprint) {

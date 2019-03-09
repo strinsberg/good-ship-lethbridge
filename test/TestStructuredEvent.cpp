@@ -7,7 +7,9 @@
 #include "StructuredEvents.h"
 #include "Inform.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <string>
+#include <vector>
 #include "gtest/gtest.h"
 
 TEST(StructuredEventsTests, constructor_get) {
@@ -32,9 +34,10 @@ TEST(StructuredEventsTests, execute_one_no_repeat) {
   i->setMessage("You can't use that!");
   s.addEvent(i);
 
-  EXPECT_EQ(s.execute(), "You can't use that!");
+  std::vector<Entity*> v;
+  EXPECT_EQ(s.execute(v), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(), "Nothing Happens");
+  EXPECT_EQ(s.execute(v), "Nothing Happens");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
@@ -50,11 +53,12 @@ TEST(StructuredEventsTests, execute_many_repeat) {
   i2->setMessage("You have died!");
   s.addEvent(i2);
 
-  EXPECT_EQ(s.execute(), "You can't use that!");
+  std::vector<Entity*> v;
+  EXPECT_EQ(s.execute(v), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(), "You have died!");
+  EXPECT_EQ(s.execute(v), "You have died!");
   EXPECT_EQ(s.getCurrentIndex(), 0);
-  EXPECT_EQ(s.execute(), "You can't use that!");
+  EXPECT_EQ(s.execute(v), "You can't use that!");
 }
 
 TEST(StructuredEventsTests, DISABLED_make_blueprint) {}

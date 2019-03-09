@@ -7,6 +7,7 @@
 #include "EventGroup.h"
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <string>
 #include <sstream>
 #include <vector>
@@ -24,12 +25,12 @@ void EventGroup::addEvent(Event* e) {
   events.push_back(e);
 }
 
-std::string EventGroup::execute() {
+std::string EventGroup::execute(std::vector<Entity*>& affected) {
   std::stringstream ss;
 
   for (int i = 0; i < events.size(); i++) {
     std::string end = i < events.size() - 1 ? "\n" : "";
-    ss << events[i]->execute() << end;
+    ss << events[i]->execute(affected) << end;
   }
 
   return ss.str();

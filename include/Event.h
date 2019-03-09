@@ -9,8 +9,10 @@
 
 #include "ObjectBlueprint.h"
 #include "EventSpec.h"
+#include "Entity.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 
 /**
@@ -27,10 +29,11 @@ class Event {
   virtual ~Event();
 
   /**
-    * Resolve the event.
+    * Resolve the event on a list of entities. Does not transfer ownership of the entities.
+    * @param affected the entities to resolve the event on
     * @return a description of the results.
     */
-  virtual std::string execute() = 0;
+  virtual std::string execute(std::vector<Entity*>& affected) = 0;
 
   /**
     * Create a blueprint of the event that can be used to serialize it.

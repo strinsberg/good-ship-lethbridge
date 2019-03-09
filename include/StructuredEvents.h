@@ -1,9 +1,17 @@
+/**
+ * CPSC2720 Group Project Spring 2019
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-08
+ */
+
 #ifndef STRUCTUREDEVENTS_H
 #define STRUCTUREDEVENTS_H
 
 #include "EventGroup.h"
 #include "ObjectBlueprint.h"
+#include "Entity.h"
 #include <string>
+#include <vector>
 
 
 /**
@@ -16,7 +24,7 @@ class StructuredEvents : public EventGroup
   public:
     StructuredEvents();
     virtual ~StructuredEvents();
-    std::string execute();
+    std::string execute(std::vector<Entity*>& affected);
     ObjectBlueprint* makeBlueprint() const;
 
     /**
