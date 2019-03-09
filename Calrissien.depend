@@ -116,11 +116,17 @@
 	"EntityState.h"
 	"Event.h"
 
-1552167404 source:/home/nium2720/project/Calrissien/test/EntitySpecTest.cpp
+1552167912 source:/home/nium2720/project/Calrissien/test/EntitySpecTest.cpp
 	"gtest/gtest.h"
 	"EntitySpec.h"
 	"Exceptions.h"
 
 1551212115 /home/nium2720/project/Calrissien/include/Exceptions.h
 	<stdexcept>
+
+1552169061 source:/home/nium2720/project/Calrissien/src/game/EntityState.cpp
+	"Entity.h"
+	"EntitySpec.h"
+	"EntityState.h"
+	"Event.h"
 

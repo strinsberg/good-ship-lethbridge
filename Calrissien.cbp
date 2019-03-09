@@ -53,10 +53,14 @@
 		<Unit filename="src/TestClass.cpp" />
 		<Unit filename="src/game/Entity.cpp" />
 		<Unit filename="src/game/EntitySpec.cpp" />
+		<Unit filename="src/game/EntityState.cpp" />
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
 		</Unit>
 		<Unit filename="test/EntitySpecTest.cpp" />
+		<Unit filename="test/EntityStateTest.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/main.cpp">
 			<Option target="Test" />
 		</Unit>
