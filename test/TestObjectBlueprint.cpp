@@ -6,9 +6,7 @@
 
 #include "ObjectBlueprint.h"
 #include <string>
-#include <map>
 #include "gtest/gtest.h"
-
 
 
 TEST(ObjectBlueprintTests, constructor_get) {
@@ -26,6 +24,12 @@ TEST(ObjectBlueprintTests, set_field) {
   EXPECT_EQ(b.getType(), "room");
   b.setField("name", "Captain's Quarters");
   EXPECT_EQ(b.getField("name"), "Captain's Quarters");
+}
+
+TEST(ObjectBlueprintTests, get_null_type_fields) {
+  ObjectBlueprint b;
+  EXPECT_EQ(b.getType(), ObjectBlueprint::null);
+  EXPECT_EQ(b.getField("ham"), ObjectBlueprint::null);
 }
 
 TEST(ObjectBlueprintTests, toString) {

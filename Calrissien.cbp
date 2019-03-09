@@ -97,9 +97,6 @@
 		<Unit filename="src/game/main.cpp">
 			<Option target="Game" />
 		</Unit>
-		<Unit filename="test/ObjectWithContentsBlueprint.cpp">
-			<Option target="Test" />
-		</Unit>
 		<Unit filename="test/TestBadInput.cpp">
 			<Option target="Test" />
 		</Unit>
@@ -143,6 +140,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestObjectBlueprint.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestObjectWithContentsBlueprint.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestParser.cpp">

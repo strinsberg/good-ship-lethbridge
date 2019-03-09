@@ -5,6 +5,7 @@
  */
 
 #include "Interaction.h"
+#include "ObjectWithContentsBlueprint.h"
 #include <iostream>
 #include <exception>
 
@@ -43,7 +44,21 @@ std::string Interaction::execute(std::vector<Entity*>& affected) {
 }
 
 ObjectBlueprint* Interaction::makeBlueprint() const {
+  ObjectWithContentsBlueprint* b = new ObjectWithContentsBlueprint();
 
+  b->setField("type", "interaction");
+  b->setField("message", message);
+  if (spec != nullptr) {
+    b->setField("name", spec->getName());
+    std::string d = spec->isDone() ? "true" : "false";
+    b->setField("done", d);
+  }
+
+  for (auto o : options) {
+    b->addBlueprint(o.event->makeBlueprint());
+  }
+
+  return b;
 }
 
 

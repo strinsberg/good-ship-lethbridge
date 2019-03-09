@@ -23,9 +23,11 @@ ObjectBlueprint* Inform::makeBlueprint() const {
 
   b->setField("type", "inform");
   b->setField("message", message);
-  b->setField("name", spec->getName());
-  std::string d = spec->isDone() ? "true" : "false";
-  b->setField("done", d);
+  if (spec != nullptr) {
+    b->setField("name", spec->getName());
+    std::string d = spec->isDone() ? "true" : "false";
+    b->setField("done", d);
+  }
 
   return b;
 }

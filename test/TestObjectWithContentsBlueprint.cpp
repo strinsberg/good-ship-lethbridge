@@ -30,9 +30,15 @@ TEST(ObjectWithContentsBlueprintTests, add_blueprint_and_iterators) {
 
 TEST(ObjectWithContentsBlueprintTests, to_string) {
   ObjectWithContentsBlueprint b("{type=room, name=Captain's Quarters,}");
+
   ObjectBlueprint* o =
       new ObjectBlueprint("{type=fuse, name=Door fuse,}");
   b.addBlueprint(o);
-  EXPECT_EQ(b.begin() + 1, b.end());
-  EXPECT_EQ(b.toString(), "{\ntype=room,\nname=Captain's Quarters,\n}\n{\ntype=fuse,\nname=Door fuse,\n}");
+
+  ObjectBlueprint* o2 =
+      new ObjectBlueprint("{type=car, name=Sweet Ride,}");
+  b.addBlueprint(o2);
+
+  EXPECT_EQ(b.begin() + 2, b.end());
+  EXPECT_EQ(b.toString(), "{\ntype=room,\nname=Captain's Quarters,\n}\n{\ntype=fuse,\nname=Door fuse,\n}\n{\ntype=car,\nname=Sweet Ride,\n}");
 }

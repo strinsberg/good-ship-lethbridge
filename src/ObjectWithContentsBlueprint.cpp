@@ -39,6 +39,7 @@ const std::vector<ObjectBlueprint*>::iterator ObjectWithContentsBlueprint::end()
 std::string ObjectWithContentsBlueprint::toString() const {
   std::stringstream ss;
   ss << ObjectBlueprint::toString() << std::endl;
+
   for (size_t i = 0; i < contents.size(); i++) {
     ss << contents[i]->toString();
     if (i != contents.size() - 1)
