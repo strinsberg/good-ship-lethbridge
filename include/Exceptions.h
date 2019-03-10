@@ -1,10 +1,11 @@
-/*
+/**
  * CPSC 2720 Spring 2019: invalid_parameter_error
  * Copyright 2019 Dr. Anvik <john.anvik@uleth.ca>
  *
  * Adapted CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+ * @author Steven Deutekom <deutekom@uleth.ca>
+ * @author Max Niu <max.niu@uleth.ca>
+ * @date 2019 spring
  */
 #ifndef CALRISSIEN_2720_EXCEPTIONS_H_
 #define CALRISSIEN_2720_EXCEPTIONS_H_

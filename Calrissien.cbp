@@ -64,6 +64,18 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Quit.h" />
 		<Unit filename="include/Room.h" />
+		<Unit filename="src/Container.cpp" />
+		<Unit filename="src/game/Entity.cpp" />
+		<Unit filename="src/game/EntitySpec.cpp" />
+		<Unit filename="src/game/EntityState.cpp" />
+		<Unit filename="src/game/main.cpp">
+			<Option target="Game" />
+		</Unit>
+		<Unit filename="test/ContainerTest.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/EntitySpecTest.cpp" />
+		<Unit filename="test/EntityStateTest.cpp">
 		<Unit filename="include/Save.h" />
 		<Unit filename="include/StructuredEvents.h" />
 		<Unit filename="include/Talk.h" />

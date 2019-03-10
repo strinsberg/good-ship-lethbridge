@@ -3,13 +3,17 @@
  * Steven Deutekom <deutekom@uleth.ca>
  * Max Niu <max.niu@uleth.ca>
  */
-
+/**
+* @author Max Niu & Steven Deutekom
+* @date 2019-02-26
+*/
 #ifndef CALRISSIEN_2720_ENTITY_H
 #define CALRISSIEN_2720_ENTITY_H
 
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "ObjectBlueprint.h"
+#include "Event.h"
 #include <string>
 
 
@@ -71,7 +75,7 @@ class Entity {
   /**
     * @return the event
     */
-  Event& getEvent() const;
+  Event* getEvent() const;
 
  protected:
   EntitySpec* spec;  // owns this
