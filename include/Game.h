@@ -11,6 +11,7 @@
 #include "Player.h"
 #include <string>
 #include <map>
+#include <iostream>
 
 
 /**
@@ -18,7 +19,7 @@
   */
 class Game {
  public:
-  Game();
+  Game(std::istream& is = std::cin, std::ostream& os = std::cout);
   virtual ~Game();
 
   /**
@@ -27,9 +28,10 @@ class Game {
   void run();
 
   /**
+    * Does not Transfer ownership
     * @return the player
     */
-  Player& getPlayer() const;
+  Player* getPlayer() const;
 
   /**
     * Set the player for the game. Transfers ownership to this game.
@@ -46,15 +48,35 @@ class Game {
 
   /**
     * Add a room to the game. Transfers ownership to this game.
+    * @param name the name of the room. (probably change later when room is implemented)
     * @param room the room to add
     * @throws invalid_parameter_error if a room with same name is
     * already stored
     */
-  void addRoom(Room* room);
+  void addRoom(const std::string& name, Room* room);
+
+  /**
+    * @return the number of rooms
+    */
+  int numRooms();
+
+  /**
+    * Returns weather the game is running or not.
+    * @return running
+    */
+  bool isRunning();
+
+  /**
+    * Sets running to false
+    */
+  int stop();
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
   Player* player;  // owns player
+  std::istream& in;
+  std::ostream& out;
+  bool running;
 
   Game(const Game&);
   Game& operator=(const Game&);

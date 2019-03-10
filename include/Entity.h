@@ -27,11 +27,11 @@ class Entity {
   virtual std::string describe() const = 0;
 
   /**
-    * Use the entity.
+    * Use the entity. Does not transfer ownership to Entity.
     * @param user The user of the entity.
     * @return a description of the result.
     */
-  virtual std::string use(Entity& user) = 0;
+  virtual std::string use(Entity* user) = 0;
 
   /**
     * Create a blueprint of the entity that can be used to serialize it.
@@ -43,7 +43,7 @@ class Entity {
   /**
     * @return the spec
     */
-  EntitySpec& getSpec() const;
+  EntitySpec* getSpec() const;
 
   /**
     * Transfers ownership of spec to the entity.
@@ -54,7 +54,7 @@ class Entity {
   /**
     * @return the state
     */
-  EntityState& getState() const;
+  EntityState* getState() const;
 
   /**
     * Transfers ownership of state to the entity.
@@ -81,7 +81,6 @@ class Entity {
  private:
   Entity(const Entity&);
   Entity& operator=(const Entity&);
-
 };
 
 #endif // CALRISSIEN_2720_ENTITY_H

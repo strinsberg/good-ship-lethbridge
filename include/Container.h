@@ -21,8 +21,8 @@ class Container: public Entity {
   Container();
   virtual ~Container();
   virtual std::string describe() const;
-  virtual std::string use(Entity&);
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
+  virtual std::string use(Entity*);
+  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * See if an entity with the given name is in the container.
@@ -42,7 +42,7 @@ class Container: public Entity {
     * Remove an entity from the container. Transfers ownership to caller.
     * @param entity the entity to remove
     */
-  Entity* removeEntity(Entity& entity);
+  Entity* removeEntity(const Entity& entity);
 
  protected:
   std::map<std::string, Entity*> inventory;  // owns the entities it contains
