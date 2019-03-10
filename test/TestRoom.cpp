@@ -33,6 +33,12 @@ TEST(RoomTests, enter) {
   EXPECT_EQ("This place smells bad!", r.enter(ent));
 }
 
+TEST(RoomTests, enter_null) {
+  Room r;
+  Entity* ent;
+  EXPECT_EQ("", r.enter(ent));
+}
+
 TEST(RoomTests, exit) {
   Room r;
 
@@ -42,6 +48,12 @@ TEST(RoomTests, exit) {
 
   Entity* ent;
   EXPECT_EQ("This place smells bad!", r.exit(ent));
+}
+
+TEST(RoomTests, exit_null) {
+  Room r;
+  Entity* ent;
+  EXPECT_EQ("", r.exit(ent));
 }
 
 TEST(RoomTests, use) {

@@ -1,6 +1,7 @@
 #include "Container.h"
 #include "Entity.h"
 #include "EntitySpec.h"
+#include "Inform.h"
 #include "gtest/gtest.h"
 
 
@@ -49,4 +50,11 @@ c.addEntity(e);
 EXPECT_EQ(e,c.search("container"));
 c.removeEntity(e);
 EXPECT_EQ(nullptr,c.search("container"));
+}
+
+TEST(TestContainer, set_event) {
+  Container c;
+  Inform* i = new Inform();
+  c.setEvent(i);
+  EXPECT_EQ(i, c.getEvent());
 }

@@ -155,13 +155,14 @@
 	"Use.h"
 	<string>
 
-1552243252 source:/home/deus2720/assn/Calrissien/test/ContainerTest.cpp
+1552252613 source:/home/deus2720/assn/Calrissien/test/ContainerTest.cpp
 	"Container.h"
 	"Entity.h"
 	"EntitySpec.h"
+	"Inform.h"
 	"gtest/gtest.h"
 
-1552179022 source:/home/deus2720/assn/Calrissien/test/EntitySpecTest.cpp
+1552252682 source:/home/deus2720/assn/Calrissien/test/EntitySpecTest.cpp
 	"gtest/gtest.h"
 	"EntitySpec.h"
 	"Exceptions.h"
@@ -221,7 +222,7 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552252079 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
+1552252231 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
 	"Game.h"
 	"Player.h"
 	"Exceptions.h"

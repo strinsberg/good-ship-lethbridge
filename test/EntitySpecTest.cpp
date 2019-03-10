@@ -13,6 +13,11 @@ TEST(TestEntitySpec, matches) {
   e.setName("max");
   EXPECT_TRUE(e.matches("max"));
 }
+TEST(TestEntitySpec, matches_fail) {
+  EntitySpec e;
+  e.setName("max");
+  EXPECT_FALSE(e.matches("tim"));
+}
 //this test both set and get name
 TEST(TestEntitySpec, getName) {
   EntitySpec e;
