@@ -8,7 +8,7 @@
 #define INTERACTION_H
 
 #include "Event.h"
-
+#include "Entity.h"
 
 class Interaction : public Event
 {

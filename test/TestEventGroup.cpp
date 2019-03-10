@@ -25,8 +25,8 @@ TEST(EventGroupTests, constructor_add_event_execute) {
   i->setMessage("You can't use that!");
   e.addEvent(i);
 
-  Entity* ent;
-  EXPECT_EQ(e.execute(ent), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(e.execute(p), "You can't use that!");
 }
 
 TEST(EventGroupTests, constructor_execute_group) {
@@ -40,8 +40,8 @@ TEST(EventGroupTests, constructor_execute_group) {
   i2->setMessage("You have died!");
   e.addEvent(i2);
 
-  Entity* ent;
-  EXPECT_EQ(e.execute(ent), "You can't use that!\nYou have died!");
+  Entity* p;
+  EXPECT_EQ(e.execute(p), "You can't use that!\nYou have died!");
 }
 
 TEST(EventGroupTests, DISABLED_make_blueprint) {}

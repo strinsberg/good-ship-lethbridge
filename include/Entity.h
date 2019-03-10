@@ -1,12 +1,8 @@
-/*
- * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
- */
 /**
 * @author Max Niu & Steven Deutekom
 * @date 2019-02-26
 */
+
 #ifndef CALRISSIEN_2720_ENTITY_H
 #define CALRISSIEN_2720_ENTITY_H
 
@@ -80,7 +76,7 @@ class Entity {
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  Event* event;
+  Event* event;  // owns this
 
  private:
   Entity(const Entity&);

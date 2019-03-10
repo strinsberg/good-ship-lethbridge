@@ -34,10 +34,10 @@ TEST(StructuredEventsTests, execute_one_no_repeat) {
   i->setMessage("You can't use that!");
   s.addEvent(i);
 
-  Entity* ent;
-  EXPECT_EQ(s.execute(ent), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(ent), "Nothing Happens");
+  EXPECT_EQ(s.execute(p), "Nothing Happens");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
@@ -52,12 +52,12 @@ TEST(StructuredEventsTests, execute_many_repeat) {
   i2->setMessage("You have died!");
   s.addEvent(i2);
 
-  Entity* ent;
-  EXPECT_EQ(s.execute(ent), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(ent), "You have died!");
+  EXPECT_EQ(s.execute(p), "You have died!");
   EXPECT_EQ(s.getCurrentIndex(), 2);
-  EXPECT_EQ(s.execute(ent), "You can't use that!");
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 

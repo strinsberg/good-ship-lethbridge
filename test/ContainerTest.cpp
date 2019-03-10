@@ -1,6 +1,8 @@
-#include "gtest/gtest.h"
 #include "Container.h"
-#include "Exceptions.h"
+#include "Entity.h"
+#include "EntitySpec.h"
+#include "gtest/gtest.h"
+
 
 TEST(TestContainer,describe) {
  Container c;

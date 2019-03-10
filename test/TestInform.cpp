@@ -37,8 +37,8 @@ TEST(InformTests, execute) {
   Inform i;
   i.setMessage(message);
 
-  Entity* e;
-  EXPECT_EQ(i.execute(e), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(i.execute(p), "You can't use that!");
 }
 
 TEST(InformTests, make_blueprint) {
