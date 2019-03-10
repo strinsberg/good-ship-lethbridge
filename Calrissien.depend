@@ -21,7 +21,7 @@
 	<map>
 	<iostream>
 
-1551887947 /home/deus2720/assn/Calrissien/include/Room.h
+1552175652 /home/deus2720/assn/Calrissien/include/Room.h
 	"Entity.h"
 	"Container.h"
 	"Atmosphere.h"
@@ -29,7 +29,7 @@
 	"ObjectBlueprint.h"
 	<string>
 
-1551887947 /home/deus2720/assn/Calrissien/include/Entity.h
+1552175844 /home/deus2720/assn/Calrissien/include/Entity.h
 	"EntitySpec.h"
 	"EntityState.h"
 	"ObjectBlueprint.h"
@@ -46,9 +46,9 @@
 	<string>
 	<map>
 
-1550858424 /home/deus2720/assn/Calrissien/include/Atmosphere.h
+1552172500 /home/deus2720/assn/Calrissien/include/Atmosphere.h
 
-1552150965 /home/deus2720/assn/Calrissien/include/Event.h
+1552175013 /home/deus2720/assn/Calrissien/include/Event.h
 	"ObjectBlueprint.h"
 	"EventSpec.h"
 	"Entity.h"
@@ -336,7 +336,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552151108 source:/home/deus2720/assn/Calrissien/test/TestInform.cpp
+1552175391 source:/home/deus2720/assn/Calrissien/test/TestInform.cpp
 	"Inform.h"
 	"EventSpec.h"
 	"ObjectBlueprint.h"
@@ -345,21 +345,21 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552168907 source:/home/deus2720/assn/Calrissien/src/Inform.cpp
+1552175361 source:/home/deus2720/assn/Calrissien/src/Inform.cpp
 	"Inform.h"
 	"ObjectBlueprint.h"
 	"Entity.h"
 	<string>
 	<vector>
 
-1552151626 /home/deus2720/assn/Calrissien/include/Inform.h
+1552175352 /home/deus2720/assn/Calrissien/include/Inform.h
 	"Event.h"
 	"ObjectBlueprint.h"
 	"Entity.h"
 	<string>
 	<vector>
 
-1552152397 source:/home/deus2720/assn/Calrissien/src/EventGroup.cpp
+1552175029 source:/home/deus2720/assn/Calrissien/src/EventGroup.cpp
 	"EventGroup.h"
 	"Event.h"
 	"ObjectBlueprint.h"
@@ -368,14 +368,14 @@
 	<sstream>
 	<vector>
 
-1552153128 /home/deus2720/assn/Calrissien/include/EventGroup.h
+1552175126 /home/deus2720/assn/Calrissien/include/EventGroup.h
 	"Event.h"
 	"ObjectBlueprint.h"
 	"Entity.h"
 	<vector>
 	<string>
 
-1552151094 source:/home/deus2720/assn/Calrissien/test/TestEventGroup.cpp
+1552175435 source:/home/deus2720/assn/Calrissien/test/TestEventGroup.cpp
 	"EventGroup.h"
 	"Event.h"
 	"Inform.h"
@@ -384,20 +384,20 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552153964 source:/home/deus2720/assn/Calrissien/src/StructuredEvents.cpp
+1552175307 source:/home/deus2720/assn/Calrissien/src/StructuredEvents.cpp
 	"StructuredEvents.h"
 	"Entity.h"
 	<string>
 	<vector>
 
-1552151580 /home/deus2720/assn/Calrissien/include/StructuredEvents.h
+1552175323 /home/deus2720/assn/Calrissien/include/StructuredEvents.h
 	"EventGroup.h"
 	"ObjectBlueprint.h"
 	"Entity.h"
 	<string>
 	<vector>
 
-1552154126 source:/home/deus2720/assn/Calrissien/test/TestStructuredEvent.cpp
+1552175732 source:/home/deus2720/assn/Calrissien/test/TestStructuredEvent.cpp
 	"StructuredEvents.h"
 	"Inform.h"
 	"ObjectBlueprint.h"
@@ -406,7 +406,7 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552168988 source:/home/deus2720/assn/Calrissien/test/TestInteraction.cpp
+1552175484 source:/home/deus2720/assn/Calrissien/test/TestInteraction.cpp
 	"Interaction.h"
 	"Event.h"
 	"ObjectBlueprint.h"
@@ -417,10 +417,10 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552158526 /home/deus2720/assn/Calrissien/include/Interaction.h
+1552175297 /home/deus2720/assn/Calrissien/include/Interaction.h
 	"Event.h"
 
-1552168819 source:/home/deus2720/assn/Calrissien/src/Interaction.cpp
+1552175261 source:/home/deus2720/assn/Calrissien/src/Interaction.cpp
 	"Interaction.h"
 	"ObjectWithContentsBlueprint.h"
 	<iostream>
@@ -452,5 +452,30 @@
 	<string>
 	<vector>
 	<sstream>
+	"gtest/gtest.h"
+
+1552175659 source:/home/deus2720/assn/Calrissien/src/Room.cpp
+	"Room.h"
+	"Entity.h"
+	"Container.h"
+	"Atmosphere.h"
+	"Event.h"
+	"ObjectBlueprint.h"
+	"Exceptions.h"
+	<string>
+
+1552173803 /home/deus2720/assn/Calrissien/include/Exceptions.h
+	<stdexcept>
+
+1552175669 source:/home/deus2720/assn/Calrissien/test/TestRoom.cpp
+	"Room.h"
+	"Entity.h"
+	"Event.h"
+	"Inform.h"
+	"Container.h"
+	"Atmosphere.h"
+	"Event.h"
+	"ObjectBlueprint.h"
+	<string>
 	"gtest/gtest.h"
 

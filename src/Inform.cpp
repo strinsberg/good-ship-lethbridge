@@ -14,7 +14,7 @@ Inform::Inform(std::istream& is, std::ostream& os) : Event(is, os) {}
 
 Inform::~Inform() {}
 
-std::string Inform::execute(std::vector<Entity*>& affected) {
+std::string Inform::execute(Entity* affected) {
   return message;
 }
 

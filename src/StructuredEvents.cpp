@@ -26,7 +26,7 @@ void StructuredEvents::setRepeats(bool r) {
   repeats = r;
 }
 
-std::string StructuredEvents::execute(std::vector<Entity*>& affected) {
+std::string StructuredEvents::execute(Entity* affected) {
   if (currentEvent == events.size()) {
     if (repeats)
       currentEvent = 0;

@@ -22,7 +22,7 @@ class Inform : public Event
     Inform(std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~Inform();
 
-    std::string execute(std::vector<Entity*>& affected);
+    std::string execute(Entity* affected);
     ObjectBlueprint* makeBlueprint() const;
 
   private:

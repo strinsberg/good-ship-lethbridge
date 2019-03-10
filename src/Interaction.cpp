@@ -21,7 +21,7 @@ void Interaction::addOption(std::string t, Event* e) {
   options.push_back(o);
 }
 
-std::string Interaction::execute(std::vector<Entity*>& affected) {
+std::string Interaction::execute(Entity* affected) {
   out << "Please choose an option number:" << std::endl;
 
   size_t i;

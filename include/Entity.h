@@ -43,7 +43,7 @@ class Entity {
   /**
     * @return the spec
     */
-  EntitySpec& getSpec() const;
+  EntitySpec* getSpec() const;
 
   /**
     * Transfers ownership of spec to the entity.
@@ -54,7 +54,7 @@ class Entity {
   /**
     * @return the state
     */
-  EntityState& getState() const;
+  EntityState* getState() const;
 
   /**
     * Transfers ownership of state to the entity.

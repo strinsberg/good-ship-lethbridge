@@ -37,8 +37,8 @@ TEST(InformTests, execute) {
   Inform i;
   i.setMessage(message);
 
-  std::vector<Entity*> v;
-  EXPECT_EQ(i.execute(v), "You can't use that!");
+  Entity* e;
+  EXPECT_EQ(i.execute(e), "You can't use that!");
 }
 
 TEST(InformTests, make_blueprint) {

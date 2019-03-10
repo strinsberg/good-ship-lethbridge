@@ -90,6 +90,7 @@
 		<Unit filename="src/ObjectWithContentsBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Quit.cpp" />
+		<Unit filename="src/Room.cpp" />
 		<Unit filename="src/Save.cpp" />
 		<Unit filename="src/StructuredEvents.cpp" />
 		<Unit filename="src/Talk.cpp" />
@@ -149,6 +150,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestQuit.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestRoom.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestSave.cpp">

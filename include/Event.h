@@ -33,7 +33,7 @@ class Event {
     * @param affected the entities to resolve the event on
     * @return a description of the results.
     */
-  virtual std::string execute(std::vector<Entity*>& affected) = 0;
+  virtual std::string execute(Entity* affected) = 0;
 
   /**
     * Create a blueprint of the event that can be used to serialize it.

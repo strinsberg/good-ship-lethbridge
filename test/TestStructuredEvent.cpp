@@ -34,10 +34,10 @@ TEST(StructuredEventsTests, execute_one_no_repeat) {
   i->setMessage("You can't use that!");
   s.addEvent(i);
 
-  std::vector<Entity*> v;
-  EXPECT_EQ(s.execute(v), "You can't use that!");
+  Entity* ent;
+  EXPECT_EQ(s.execute(ent), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(v), "Nothing Happens");
+  EXPECT_EQ(s.execute(ent), "Nothing Happens");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
@@ -52,12 +52,12 @@ TEST(StructuredEventsTests, execute_many_repeat) {
   i2->setMessage("You have died!");
   s.addEvent(i2);
 
-  std::vector<Entity*> v;
-  EXPECT_EQ(s.execute(v), "You can't use that!");
+  Entity* ent;
+  EXPECT_EQ(s.execute(ent), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(v), "You have died!");
+  EXPECT_EQ(s.execute(ent), "You have died!");
   EXPECT_EQ(s.getCurrentIndex(), 2);
-  EXPECT_EQ(s.execute(v), "You can't use that!");
+  EXPECT_EQ(s.execute(ent), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 

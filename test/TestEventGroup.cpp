@@ -25,8 +25,8 @@ TEST(EventGroupTests, constructor_add_event_execute) {
   i->setMessage("You can't use that!");
   e.addEvent(i);
 
-  std::vector<Entity*> v;
-  EXPECT_EQ(e.execute(v), "You can't use that!");
+  Entity* ent;
+  EXPECT_EQ(e.execute(ent), "You can't use that!");
 }
 
 TEST(EventGroupTests, constructor_execute_group) {
@@ -40,8 +40,8 @@ TEST(EventGroupTests, constructor_execute_group) {
   i2->setMessage("You have died!");
   e.addEvent(i2);
 
-  std::vector<Entity*> v;
-  EXPECT_EQ(e.execute(v), "You can't use that!\nYou have died!");
+  Entity* ent;
+  EXPECT_EQ(e.execute(ent), "You can't use that!\nYou have died!");
 }
 
 TEST(EventGroupTests, DISABLED_make_blueprint) {}

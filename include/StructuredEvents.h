@@ -24,7 +24,7 @@ class StructuredEvents : public EventGroup
   public:
     StructuredEvents(std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~StructuredEvents();
-    std::string execute(std::vector<Entity*>& affected);
+    std::string execute(Entity* affected);
     ObjectBlueprint* makeBlueprint() const;
 
     /**

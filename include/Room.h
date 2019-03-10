@@ -1,7 +1,7 @@
-/*
+/**
  * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-09
  */
 
 #ifndef CALRISSIEN_2720_ROOM_H
@@ -23,8 +23,8 @@ class Room : public Container {
   Room();
   virtual ~Room();
   virtual std::string describe();
-  virtual std::string use(Entity&);
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
+  virtual std::string use(Entity*);
+  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Take action when an entity enters the room. Does not transfer ownership to Room.
@@ -50,7 +50,7 @@ class Room : public Container {
     * to this room.
     * @param event the event
     */
-  void setExit(Event*);
+  void setExit(Event* event);
 
  protected:
   Atmosphere atmosphere;

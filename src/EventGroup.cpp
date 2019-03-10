@@ -26,7 +26,7 @@ void EventGroup::addEvent(Event* e) {
   events.push_back(e);
 }
 
-std::string EventGroup::execute(std::vector<Entity*>& affected) {
+std::string EventGroup::execute(Entity* affected) {
   std::stringstream ss;
 
   for (size_t i = 0; i < events.size(); i++) {

@@ -15,7 +15,7 @@ class Interaction : public Event
   public:
     Interaction(std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~Interaction();
-    std::string execute(std::vector<Entity*>& affected);
+    std::string execute(Entity* affected);
     ObjectBlueprint* makeBlueprint() const;
 
     /**
