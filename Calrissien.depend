@@ -7,11 +7,12 @@
 	"Command.h"
 	<string>
 
-1552179022 source:/home/deus2720/assn/Calrissien/src/Entity.cpp
+1552254099 source:/home/deus2720/assn/Calrissien/src/Entity.cpp
 	"Entity.h"
 	"EntitySpec.h"
 	"EntityState.h"
 	"Event.h"
+	"Inform.h"
 
 1552179022 source:/home/deus2720/assn/Calrissien/src/EntitySpec.cpp
 	"Entity.h"
@@ -25,16 +26,18 @@
 	"EntityState.h"
 	"Event.h"
 
-1552249765 source:/home/deus2720/assn/Calrissien/src/Event.cpp
+1552254030 source:/home/deus2720/assn/Calrissien/src/Event.cpp
 	"Event.h"
 	"ObjectBlueprint.h"
 	"EventSpec.h"
 	<string>
 	<iostream>
 
-1552179021 source:/home/deus2720/assn/Calrissien/src/Action.cpp
+1552255872 source:/home/deus2720/assn/Calrissien/src/Action.cpp
 	"Action.h"
+	"Entity.h"
 	"Player.h"
+	"Exceptions.h"
 
 1552179021 source:/home/deus2720/assn/Calrissien/src/Drop.cpp
 	"Drop.h"
@@ -107,8 +110,10 @@
 	"Load.h"
 	<string>
 
-1552179022 source:/home/deus2720/assn/Calrissien/src/Look.cpp
+1552255883 source:/home/deus2720/assn/Calrissien/src/Look.cpp
 	"Look.h"
+	"Entity.h"
+	"Exceptions.h"
 	<string>
 
 1552179022 source:/home/deus2720/assn/Calrissien/src/ObjectBlueprint.cpp
@@ -151,7 +156,7 @@
 	"Talk.h"
 	<string>
 
-1552179022 source:/home/deus2720/assn/Calrissien/src/Use.cpp
+1552256645 source:/home/deus2720/assn/Calrissien/src/Use.cpp
 	"Use.h"
 	<string>
 
@@ -183,7 +188,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552250838 source:/home/deus2720/assn/Calrissien/src/Room.cpp
+1552254214 source:/home/deus2720/assn/Calrissien/src/Room.cpp
 	"Room.h"
 	"Entity.h"
 	"Container.h"
@@ -213,7 +218,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552179021 source:/home/deus2720/assn/Calrissien/src/Container.cpp
+1552253949 source:/home/deus2720/assn/Calrissien/src/Container.cpp
 	"Container.h"
 	"Entity.h"
 
@@ -285,7 +290,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552179022 source:/home/deus2720/assn/Calrissien/test/TestLook.cpp
+1552255342 source:/home/deus2720/assn/Calrissien/test/TestLook.cpp
 	"Look.h"
 	<string>
 	"gtest/gtest.h"
@@ -315,7 +320,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552251252 source:/home/deus2720/assn/Calrissien/test/TestRoom.cpp
+1552254221 source:/home/deus2720/assn/Calrissien/test/TestRoom.cpp
 	"Room.h"
 	"Entity.h"
 	"Event.h"
@@ -347,7 +352,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552179022 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
+1552256121 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
 	"Use.h"
 	<string>
 	"gtest/gtest.h"

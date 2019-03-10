@@ -33,7 +33,13 @@ class Action : public Command {
  protected:
   Player* player;  // does not own the player
 
+  // Find an entity in the player or current room
+  // Returns the entity or nullptr if the entity is not there
+  // uses player and noun
+  Entity* getEntity();
+
  private:
+
   Action(const Action&);
   Action& operator=(const Action&);
 };

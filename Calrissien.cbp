@@ -104,7 +104,6 @@
 		<Unit filename="test/ContainerTest.cpp" />
 		<Unit filename="test/EntitySpecTest.cpp" />
 		<Unit filename="test/EntityStateTest.cpp" />
-		<Unit filename="test/EntityTest.cpp" />
 		<Unit filename="test/TestBadInput.cpp" />
 		<Unit filename="test/TestDrop.cpp" />
 		<Unit filename="test/TestEventGroup.cpp" />

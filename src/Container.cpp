@@ -2,7 +2,7 @@
 #include "Entity.h"
 
 
-Container::Container():inventory(std::map<std::string, Entity*>()) {}
+Container::Container() : inventory(std::map<std::string, Entity*>()) {}
 
 Container::~Container() {
   for (auto e: inventory) {

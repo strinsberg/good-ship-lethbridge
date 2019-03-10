@@ -9,7 +9,18 @@
 
 
 Use::Use() {}
+
 Use::~Use() {}
+
 std::string Use::execute() {
-  return noun;
+  Entity* e = getEntity();
+
+  if (e != nullptr) {
+    if (!e->getState()->getActive())
+      return "For some reason you can't";
+    else if (!e->getState()->getHidden())
+      return e->use(player);
+  }
+
+  return "There is no " + noun;
 }
