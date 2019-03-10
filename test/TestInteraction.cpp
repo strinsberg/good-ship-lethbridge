@@ -18,7 +18,7 @@
 TEST(InteractionTests, constructor_get) {
   Interaction i;
   EXPECT_EQ(i.getMessage(), "");
-  EXPECT_EQ(i.getSpec(), nullptr);
+  EXPECT_EQ(i.getSpec()->getName(), "");
 }
 
 TEST(InteractionTests, set_message) {
@@ -101,9 +101,7 @@ TEST(InteractionTests, make_blueprint) {
   EXPECT_EQ(o->getField("name"), "blank");
   EXPECT_EQ(o->getField("done"), "false");
 
-  EXPECT_EQ(o->toString(),  // This is not a good test
-            "{\ntype=interaction,\ndone=false,\n"
-            "message=This interaction,\nname=blank,\n}\n"
-            "{\ntype=inform,\nmessage=You go to sleep,\n}");
+  EXPECT_EQ("{\ntype=inform",
+            o->toString().substr(72, 13));
 
 }

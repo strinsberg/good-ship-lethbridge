@@ -6,6 +6,7 @@
 
 #include "Game.h"
 #include "Player.h"
+#include "Exceptions.h"
 #include <iostream>
 #include <sstream>
 #include "gtest/gtest.h"
@@ -13,28 +14,40 @@
 
 TEST(GameTests, constructor) {
   Game g;
-  EXPECT_EQ(g.getPlayer(), nullptr);
-  EXPECT_EQ(g.numRooms(), 0);
+  EXPECT_EQ("None", g.getPlayer()->getSpec()->getName());
+  EXPECT_EQ(0, g.numRooms());
 }
 
 TEST(GameTests, get_set_player) {
   Game g;
-  Player* p;// = new Player();  // add when these are done
+  Player* p = new Player();
   g.setPlayer(p);
   EXPECT_EQ(g.getPlayer(), p);
 }
 
 TEST(GameTests, get_add_room) {
   Game g;
-  Room* r;// = new Room();
+  Room* r = new Room();
   g.addRoom("Captains Quaters", r);
   EXPECT_EQ(g.getRoom("Captains Quaters"), r);
   EXPECT_EQ(g.numRooms(), 1);
 }
 
-TEST(GameTests, DISABLED_get_room_not_there) {}
+TEST(GameTests, get_room_not_there) {
+  Game g;
+  EXPECT_EQ(nullptr, g.getRoom("Any"));
+}
 
-TEST(GameTests, DISABLED_add_room_throws) {}
+TEST(GameTests, add_room_throws) {
+  Game g;
+  Room* r = new Room();
+  g.addRoom("Captains Quaters", r);
+  EXPECT_EQ(g.getRoom("Captains Quaters"), r);
+
+  Room* r2 = new Room();
+  EXPECT_THROW(g.addRoom("Captains Quaters", r2), invalid_parameter_error);
+  delete r2;
+}
 
 TEST(GameTests, DISABLED_run) {}
 

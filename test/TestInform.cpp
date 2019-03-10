@@ -14,8 +14,8 @@
 
 TEST(InformTests, constructor_get) {
   Inform i;
-  EXPECT_EQ(i.getMessage(), "");
-  EXPECT_EQ(i.getSpec(), nullptr);
+  EXPECT_EQ("", i.getMessage());
+  EXPECT_EQ("", i.getSpec()->getName());
 }
 
 TEST(InformTests, set_message) {

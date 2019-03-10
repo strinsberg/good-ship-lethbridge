@@ -12,16 +12,17 @@
 #include "Atmosphere.h"
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "Exceptions.h"
 #include <string>
 #include "gtest/gtest.h"
 
-TEST(RoomTests, DISABLED_constructor_get) {
+TEST(RoomTests, constructor_get) {
   Room r;
   EXPECT_EQ(r.getSpec(), nullptr);
   EXPECT_EQ(r.getState(), nullptr);
 }
 
-TEST(RoomTests, DISABLED_enter) {
+TEST(RoomTests, enter) {
   Room r;
 
   Event* e = new Inform();
@@ -32,7 +33,13 @@ TEST(RoomTests, DISABLED_enter) {
   EXPECT_EQ("This place smells bad!", r.enter(ent));
 }
 
-TEST(RoomTests, DISABLED_exit) {
+TEST(RoomTests, enter_null) {
+  Room r;
+  Entity* ent;
+  EXPECT_EQ("", r.enter(ent));
+}
+
+TEST(RoomTests, exit) {
   Room r;
 
   Event* e = new Inform();
@@ -43,13 +50,19 @@ TEST(RoomTests, DISABLED_exit) {
   EXPECT_EQ("This place smells bad!", r.exit(ent));
 }
 
-TEST(RoomTests, DISABLED_use) {
+TEST(RoomTests, exit_null) {
+  Room r;
+  Entity* ent;
+  EXPECT_EQ("", r.exit(ent));
+}
+
+TEST(RoomTests, use) {
   Room r;
   Entity* ent;
   EXPECT_EQ("You can't use a room!", r.use(ent));
 }
 
-TEST(RoomTests, DISABLED_describe) {
+TEST(RoomTests, describe) {
   Room r;
   EntitySpec* spec = new EntitySpec();
   spec->setName("Captain's Room");
@@ -61,9 +74,11 @@ TEST(RoomTests, DISABLED_describe) {
             "It's your room!", r.describe());
 }
 
-TEST(RoomTests, DISABLED_make_blueprint) {
+TEST(RoomTests, describe_no_spec) {
   Room r;
-  Entity* ent;
-  EXPECT_EQ("You can't use a room!", r.use(ent));
+  EXPECT_THROW(r.describe(), unfinished_object_error);
+}
+
+TEST(RoomTests, DISABLED_make_blueprint) {
 }
 

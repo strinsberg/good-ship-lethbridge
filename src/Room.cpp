@@ -12,6 +12,7 @@
 #include "ObjectBlueprint.h"
 #include "Exceptions.h"
 #include <string>
+#include <sstream>
 
 Room::Room() : atmosphere(Atmosphere::OXYGEN),
                enterEvent(nullptr),
@@ -24,10 +25,14 @@ Room::~Room() {
     delete exitEvent;
 }
 
-std::string Room::describe() {
+std::string Room::describe() const {
   if (spec == nullptr)
     throw(unfinished_object_error("The room has no spec!"));
-  return spec->getDescription();
+
+  std::stringstream ss;
+  ss << "Location: " << spec->getName() << std::endl;
+  ss << spec->getDescription();
+  return ss.str();
 }
 
 std::string Room::use(Entity*) {

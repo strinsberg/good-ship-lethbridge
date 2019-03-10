@@ -21,7 +21,7 @@ class Room : public Container {
  public:
   Room();
   virtual ~Room();
-  virtual std::string describe();
+  virtual std::string describe() const;
   virtual std::string use(Entity*);
   virtual ObjectBlueprint* makeBlueprint() const;
 

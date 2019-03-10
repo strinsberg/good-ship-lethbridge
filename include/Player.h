@@ -25,14 +25,16 @@ class Player : public Container {
   virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
+    * Returns the room the player is currently in. Does not transfer ownership.
     * @return the room the player is in
     */
-  Room& getCurrentRoom() const;
+  Room* getCurrentRoom() const;
 
   /**
-    * @param room the room the player is now in
+    * Set the players current Room. Does not transfer ownership.
+    * @param r the room the player is now in
     */
-  void setCurrentRoom(Room*);
+  void setCurrentRoom(Room* r);
 
  private:
   Room* currentRoom;  // does not own the room

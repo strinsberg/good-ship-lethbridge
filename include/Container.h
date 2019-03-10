@@ -20,6 +20,10 @@ class Container: public Entity {
  public:
   Container();
   virtual ~Container();
+
+  /**
+    * Give the description of the container and everything it has in it.
+    */
   virtual std::string describe() const;
   virtual std::string use(Entity*);
   virtual ObjectBlueprint* makeBlueprint() const;
