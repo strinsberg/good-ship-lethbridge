@@ -68,8 +68,5 @@ TEST(RoomTests, describe_no_spec) {
 }
 
 TEST(RoomTests, DISABLED_make_blueprint) {
-  Room r;
-  Entity* ent;
-  EXPECT_EQ("You can't use a room!", r.use(ent));
 }
 

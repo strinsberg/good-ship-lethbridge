@@ -58,10 +58,11 @@
 	"Entity.h"
 	<string>
 
-1552179021 source:/home/deus2720/assn/Calrissien/src/Game.cpp
+1552252187 source:/home/deus2720/assn/Calrissien/src/Game.cpp
 	"Game.h"
 	"Player.h"
 	"Room.h"
+	"Exceptions.h"
 	<string>
 	<map>
 
@@ -220,9 +221,10 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552179022 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
+1552252079 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
 	"Game.h"
 	"Player.h"
+	"Exceptions.h"
 	<iostream>
 	<sstream>
 	"gtest/gtest.h"
@@ -312,7 +314,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552250616 source:/home/deus2720/assn/Calrissien/test/TestRoom.cpp
+1552251252 source:/home/deus2720/assn/Calrissien/test/TestRoom.cpp
 	"Room.h"
 	"Entity.h"
 	"Event.h"
@@ -321,6 +323,7 @@
 	"Atmosphere.h"
 	"Event.h"
 	"ObjectBlueprint.h"
+	"Exceptions.h"
 	<string>
 	"gtest/gtest.h"
 
