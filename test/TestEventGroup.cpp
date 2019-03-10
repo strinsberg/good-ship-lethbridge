@@ -15,7 +15,7 @@
 TEST(EventGroupTests, constructor_get) {
   EventGroup e;
   EXPECT_EQ(e.getMessage(), "");
-  EXPECT_EQ(e.getSpec(), nullptr);
+  EXPECT_EQ(e.getSpec()->getName(), "");
 }
 
 TEST(EventGroupTests, constructor_add_event_execute) {

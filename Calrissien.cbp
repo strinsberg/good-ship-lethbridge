@@ -91,13 +91,16 @@
 		<Unit filename="src/ObjectBlueprint.cpp" />
 		<Unit filename="src/ObjectWithContentsBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
+		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Quit.cpp" />
 		<Unit filename="src/Room.cpp" />
 		<Unit filename="src/Save.cpp" />
 		<Unit filename="src/StructuredEvents.cpp" />
 		<Unit filename="src/Talk.cpp" />
 		<Unit filename="src/Use.cpp" />
-		<Unit filename="src/game/main.cpp" />
+		<Unit filename="src/game/main.cpp">
+			<Option target="Game" />
+		</Unit>
 		<Unit filename="test/ContainerTest.cpp" />
 		<Unit filename="test/EntitySpecTest.cpp" />
 		<Unit filename="test/EntityStateTest.cpp" />
@@ -119,6 +122,9 @@
 		<Unit filename="test/TestObjectBlueprint.cpp" />
 		<Unit filename="test/TestObjectWithContentsBlueprint.cpp" />
 		<Unit filename="test/TestParser.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestPlayer.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestQuit.cpp" />

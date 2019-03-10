@@ -17,7 +17,7 @@ TEST(StructuredEventsTests, constructor_get) {
   EXPECT_EQ(s.getCurrentIndex(), 0);
   EXPECT_EQ(s.getRepeats(), true);
   EXPECT_EQ(s.getMessage(), "");
-  EXPECT_EQ(s.getSpec(), nullptr);
+  EXPECT_EQ("", s.getSpec()->getName());
 }
 
 TEST(StructuredEventsTests, set_repeats) {

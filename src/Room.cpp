@@ -24,7 +24,7 @@ Room::~Room() {
     delete exitEvent;
 }
 
-std::string Room::describe() {
+std::string Room::describe() const {
   if (spec == nullptr)
     throw(unfinished_object_error("The room has no spec!"));
   return spec->getDescription();
