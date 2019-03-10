@@ -3,12 +3,12 @@
 #include "EntityState.h"
 #include "Event.h"
 
-EntityState::EntityState():obtainable(true),active(true),hidden(false){}
+EntityState::EntityState():obtainable(true), active(true), hidden(false) {}
 
-EntityState::~EntityState(){}
+EntityState::~EntityState() {}
 
-bool EntityState::getObtainable() const{
-return obtainable;
+bool EntityState::getObtainable() const {
+  return obtainable;
 }
 
 void EntityState::setObtainable(bool ob) {
@@ -16,17 +16,17 @@ void EntityState::setObtainable(bool ob) {
 }
 
 bool EntityState::getActive() const {
-return active;
+  return active;
 }
 
 void EntityState::setActive(bool a) {
-active=a;
+  active=a;
 }
 
 bool EntityState::getHidden() const {
-return hidden;
+  return hidden;
 }
 
 void EntityState::setHidden(bool h) {
-hidden = h;
+  hidden = h;
 }

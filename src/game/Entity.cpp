@@ -8,12 +8,12 @@
 #include "Event.h"
 
 
-Entity::Entity():spec(nullptr),state(nullptr),event(nullptr){}
+Entity::Entity():spec(nullptr), state(nullptr), event(nullptr) {}
 
-Entity::~Entity(){
-delete spec;
-delete state;
-delete event;
+Entity::~Entity() {
+  delete spec;
+  delete state;
+  delete event;
 }
 
 EntitySpec* Entity::getSpec() const {
@@ -21,18 +21,18 @@ EntitySpec* Entity::getSpec() const {
   return spec;
 }
 
-void Entity::setSpec(EntitySpec* s){
+void Entity::setSpec(EntitySpec* s) {
   spec = s;
 }
 
-EntityState* Entity::getState() const{
- return state;
+EntityState* Entity::getState() const {
+  return state;
 }
 
-void Entity::setEvent(Event* e){
-event = e;
+void Entity::setEvent(Event* e) {
+  event = e;
 }
 
-Event* Entity::getEvent() const{
-return event;
+Event* Entity::getEvent() const {
+  return event;
 }

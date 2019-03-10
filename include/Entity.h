@@ -35,7 +35,7 @@ class Entity {
     * @param user The user of the entity.
     * @return a description of the result.
     */
-  virtual std::string use(Entity& user) = 0;
+  virtual std::string use(Entity* user) = 0;
 
   /**
     * Create a blueprint of the entity that can be used to serialize it.

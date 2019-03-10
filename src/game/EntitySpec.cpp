@@ -7,29 +7,29 @@
 #include "EntityState.h"
 #include "Event.h"
 
-EntitySpec::EntitySpec(): name(""),description(""){}
+EntitySpec::EntitySpec(): name(""), description("") {}
 
-EntitySpec::~EntitySpec(){}
+EntitySpec::~EntitySpec() {}
 
-bool EntitySpec::matches(std::string n) const{
-if(n == name)
-  return true;
-else
-  return false;
+bool EntitySpec::matches(std::string n) const {
+  if (n == name)
+    return true;
+  else
+    return false;
 }
 
-std::string EntitySpec:: getName() const{
-return name;
+std::string EntitySpec:: getName() const {
+  return name;
 }
 
-void EntitySpec::setName(std::string n){
-name = n;
+void EntitySpec::setName(std::string n) {
+  name = n;
 }
 
 std::string EntitySpec::getDescription()const {
-return description;
+  return description;
 }
 
-void EntitySpec::setDescription(std::string n){
-description=n;
+void EntitySpec::setDescription(std::string n) {
+  description=n;
 }
