@@ -62,9 +62,21 @@ class Entity {
     */
   void setState(EntityState* s);
 
+  /**
+    * Transfers ownership of event to the entity.
+    * @param e the new event
+    */
+  void setEvent(Event* e);
+
+  /**
+    * @return the event
+    */
+  Event& getEvent() const;
+
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
+  Event* event;
 
  private:
   Entity(const Entity&);
