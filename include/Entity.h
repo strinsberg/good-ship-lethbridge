@@ -31,7 +31,7 @@ class Entity {
   virtual std::string describe() const = 0;
 
   /**
-    * Use the entity.
+    * Use the entity. Does not transfer ownership to Entity.
     * @param user The user of the entity.
     * @return a description of the result.
     */
@@ -85,7 +85,6 @@ class Entity {
  private:
   Entity(const Entity&);
   Entity& operator=(const Entity&);
-
 };
 
 #endif // CALRISSIEN_2720_ENTITY_H

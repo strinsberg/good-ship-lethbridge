@@ -42,7 +42,7 @@ class Container: public Entity {
     * Remove an entity from the container. Transfers ownership to caller.
     * @param entity the entity to remove
     */
-  void removeEntity(Entity* entity);
+  Entity* removeEntity(const Entity& entity);
 
  protected:
   std::map<std::string, Entity*> inventory;  // owns the entities it contains

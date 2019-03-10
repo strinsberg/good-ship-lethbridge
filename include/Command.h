@@ -1,7 +1,7 @@
-/*
+/**
  * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-02-20
  */
 
 #ifndef CALRISSIEN_2720_COMMAND_H
@@ -28,7 +28,12 @@ class Command {
     * Set the target of the command, if applicable.
     * @param n the commands noun
     */
-  void setNoun(const std::string& n);
+  virtual void setNoun(const std::string& n);
+
+  /**
+    * @return the noun
+    */
+  virtual const std::string& getNoun() const;
 
  protected:
   std::string noun;

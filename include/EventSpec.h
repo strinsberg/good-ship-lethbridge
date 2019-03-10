@@ -3,36 +3,46 @@
 #include <string>
 using namespace std;
 
+#include <string>
+
+/**
+  * Holds some general info and state for an event.
+  */
 class EventSpec {
  public:
   EventSpec();
-  virtual ~EventSpec() {}
+  virtual ~EventSpec();
 
   /**
+    * Set if the event is done or not.
+    * @param d if the event is done
+    */
+  void setDone(bool d);
+
+  /**
+    * Get the status of the event
+    * @return done
+    */
+  bool isDone() const;
+
+  /**
+    * Set the name of the event
+    * @param n the name
+    */
+  void setName(const std::string& n);
+
+  /**
+    * Get the name of the event
     * @return the name
     */
-  string getName();
-
-  /**
-    * @param n the new name
-    */
-  void setName(string n);
-
-  /**
-    * @return weather the event is finished or not
-    */
-  bool isDone();
-
-  /**
-    * @param isDone the state of the event
-    */
-  void setDone(bool isDone);
-
- protected:
+  const std::string& getName() const;
 
  private:
-  string name;
   bool done;
+  std::string name;
+
+  EventSpec(const EventSpec& other);
+  EventSpec& operator=(const EventSpec& other);
 };
 
 #endif // EVENTSPEC_H
