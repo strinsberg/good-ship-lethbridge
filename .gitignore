@@ -38,5 +38,6 @@ bin/
 *~
 *.bak
 
-# codeblocks layouts
+# codeblocks
 *.layout
+*.depend
