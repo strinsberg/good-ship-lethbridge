@@ -1,0 +1,212 @@
+# depslib dependency file v1.0
+1552179021 source:/home/deus2720/assn/Calrissien/src/BadInput.cpp
+	"BadInput.h"
+	<string>
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/Command.cpp
+	"Command.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Entity.cpp
+	"Entity.h"
+	"EntitySpec.h"
+	"EntityState.h"
+	"Event.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/EntitySpec.cpp
+	"Entity.h"
+	"EntitySpec.h"
+	"EntityState.h"
+	"Event.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/EntityState.cpp
+	"Entity.h"
+	"EntitySpec.h"
+	"EntityState.h"
+	"Event.h"
+
+1552241494 source:/home/deus2720/assn/Calrissien/src/Event.cpp
+	"Event.h"
+	"ObjectBlueprint.h"
+	"EventSpec.h"
+	<string>
+	<iostream>
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/Action.cpp
+	"Action.h"
+	"Player.h"
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/Drop.cpp
+	"Drop.h"
+	<string>
+
+1552247677 source:/home/deus2720/assn/Calrissien/src/EventGroup.cpp
+	"EventGroup.h"
+	"Event.h"
+	"ObjectBlueprint.h"
+	"Entity.h"
+	<string>
+	<sstream>
+	<vector>
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/EventSpec.cpp
+	"EventSpec.h"
+	<string>
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
+	"Exit.h"
+	"Entity.h"
+	<string>
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/Game.cpp
+	"Game.h"
+	"Player.h"
+	"Room.h"
+	<string>
+	<map>
+
+1550854790 source:/home/deus2720/assn/Calrissien/src/game/main.cpp
+	<iostream>
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/GameCommand.cpp
+	"GameCommand.h"
+	"Game.h"
+
+1552179021 source:/home/deus2720/assn/Calrissien/src/GameData.cpp
+	"GameData.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Get.cpp
+	"Get.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Help.cpp
+	"Help.h"
+	<string>
+
+1552247677 source:/home/deus2720/assn/Calrissien/src/Inform.cpp
+	"Inform.h"
+	"ObjectBlueprint.h"
+	"Entity.h"
+	<string>
+	<vector>
+
+1552247677 source:/home/deus2720/assn/Calrissien/src/Interaction.cpp
+	"Interaction.h"
+	"ObjectWithContentsBlueprint.h"
+	"Entity.h"
+	<iostream>
+	<exception>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Inventory.cpp
+	"Inventory.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Load.cpp
+	"Load.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Look.cpp
+	"Look.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/ObjectBlueprint.cpp
+	"ObjectBlueprint.h"
+	<string>
+	<map>
+	<sstream>
+	<cctype>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/ObjectWithContentsBlueprint.cpp
+	"ObjectWithContentsBlueprint.h"
+	"ObjectBlueprint.h"
+	<string>
+	<vector>
+	<iostream>
+	<sstream>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
+	"Parser.h"
+	"Command.h"
+	"BadInput.h"
+	<string>
+	<sstream>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Quit.cpp
+	"Quit.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Save.cpp
+	"Save.h"
+	<string>
+
+1552247677 source:/home/deus2720/assn/Calrissien/src/StructuredEvents.cpp
+	"StructuredEvents.h"
+	"Entity.h"
+	<string>
+	<vector>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
+	"Talk.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Use.cpp
+	"Use.h"
+	<string>
+
+1552243252 source:/home/deus2720/assn/Calrissien/test/ContainerTest.cpp
+	"Container.h"
+	"Entity.h"
+	"EntitySpec.h"
+	"gtest/gtest.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/test/EntitySpecTest.cpp
+	"gtest/gtest.h"
+	"EntitySpec.h"
+	"Exceptions.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/test/EntityStateTest.cpp
+	"gtest/gtest.h"
+	"EntityState.h"
+	"Exceptions.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/test/EntityTest.cpp
+
+1549848897 source:/home/deus2720/assn/Calrissien/test/main.cpp
+	"gtest/gtest.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/test/TestBadInput.cpp
+	"BadInput.h"
+	"Command.h"
+	<string>
+	"gtest/gtest.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/src/Room.cpp
+	"Room.h"
+	"Entity.h"
+	"Container.h"
+	"Atmosphere.h"
+	"Event.h"
+	"ObjectBlueprint.h"
+	"Exceptions.h"
+	<string>
+
+1552179022 source:/home/deus2720/assn/Calrissien/test/TestDrop.cpp
+	"Drop.h"
+	<string>
+	"gtest/gtest.h"
+
+1552247718 source:/home/deus2720/assn/Calrissien/test/TestEventGroup.cpp
+	"EventGroup.h"
+	"Event.h"
+	"Inform.h"
+	"Entity.h"
+	<string>
+	<vector>
+	"gtest/gtest.h"
+
+1552179022 source:/home/deus2720/assn/Calrissien/test/TestEventSpec.cpp
+	"EventSpec.h"
+	<string>
+	"gtest/gtest.h"
+
