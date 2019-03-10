@@ -14,7 +14,6 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-
 /**
   * Base class for all areas of the game
   */

@@ -21,7 +21,7 @@ class Player : public Container {
   Player();
   virtual ~Player();
   virtual std::string describe() const;
-  virtual std::string use(Entity&);
+  virtual std::string use(Entity*);
   virtual ObjectBlueprint* makeBlueprint() const;
 
   /**

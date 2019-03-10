@@ -9,11 +9,10 @@
 
 #include "ObjectBlueprint.h"
 #include "EventSpec.h"
-#include "Entity.h"
 #include <string>
 #include <iostream>
 #include <vector>
-
+class Entity;
 
 /**
   * An interface for game events

@@ -13,7 +13,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Game">
@@ -23,7 +22,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -64,18 +62,6 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Quit.h" />
 		<Unit filename="include/Room.h" />
-		<Unit filename="src/Container.cpp" />
-		<Unit filename="src/game/Entity.cpp" />
-		<Unit filename="src/game/EntitySpec.cpp" />
-		<Unit filename="src/game/EntityState.cpp" />
-		<Unit filename="src/game/main.cpp">
-			<Option target="Game" />
-		</Unit>
-		<Unit filename="test/ContainerTest.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/EntitySpecTest.cpp" />
-		<Unit filename="test/EntityStateTest.cpp">
 		<Unit filename="include/Save.h" />
 		<Unit filename="include/StructuredEvents.h" />
 		<Unit filename="include/Talk.h" />
@@ -83,7 +69,11 @@
 		<Unit filename="src/Action.cpp" />
 		<Unit filename="src/BadInput.cpp" />
 		<Unit filename="src/Command.cpp" />
+		<Unit filename="src/Container.cpp" />
 		<Unit filename="src/Drop.cpp" />
+		<Unit filename="src/Entity.cpp" />
+		<Unit filename="src/EntitySpec.cpp" />
+		<Unit filename="src/EntityState.cpp" />
 		<Unit filename="src/Event.cpp" />
 		<Unit filename="src/EventGroup.cpp" />
 		<Unit filename="src/EventSpec.cpp" />
@@ -107,81 +97,37 @@
 		<Unit filename="src/StructuredEvents.cpp" />
 		<Unit filename="src/Talk.cpp" />
 		<Unit filename="src/Use.cpp" />
-		<Unit filename="src/game/main.cpp">
-			<Option target="Game" />
-		</Unit>
-		<Unit filename="test/TestBadInput.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestDrop.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestEventGroup.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestEventSpec.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestExit.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestGame.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestGameData.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestGet.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestHelp.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestInform.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestInteraction.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestInventory.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestLoad.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestLook.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestObjectBlueprint.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestObjectWithContentsBlueprint.cpp">
-			<Option target="Test" />
-		</Unit>
+		<Unit filename="src/game/main.cpp" />
+		<Unit filename="test/ContainerTest.cpp" />
+		<Unit filename="test/EntitySpecTest.cpp" />
+		<Unit filename="test/EntityStateTest.cpp" />
+		<Unit filename="test/EntityTest.cpp" />
+		<Unit filename="test/TestBadInput.cpp" />
+		<Unit filename="test/TestDrop.cpp" />
+		<Unit filename="test/TestEventGroup.cpp" />
+		<Unit filename="test/TestEventSpec.cpp" />
+		<Unit filename="test/TestExit.cpp" />
+		<Unit filename="test/TestGame.cpp" />
+		<Unit filename="test/TestGameData.cpp" />
+		<Unit filename="test/TestGet.cpp" />
+		<Unit filename="test/TestHelp.cpp" />
+		<Unit filename="test/TestInform.cpp" />
+		<Unit filename="test/TestInteraction.cpp" />
+		<Unit filename="test/TestInventory.cpp" />
+		<Unit filename="test/TestLoad.cpp" />
+		<Unit filename="test/TestLook.cpp" />
+		<Unit filename="test/TestObjectBlueprint.cpp" />
+		<Unit filename="test/TestObjectWithContentsBlueprint.cpp" />
 		<Unit filename="test/TestParser.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="test/TestQuit.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestRoom.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestSave.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestStructuredEvent.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestTalk.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/TestUse.cpp">
-			<Option target="Test" />
-		</Unit>
-		<Unit filename="test/main.cpp">
-			<Option target="Test" />
-		</Unit>
+		<Unit filename="test/TestQuit.cpp" />
+		<Unit filename="test/TestRoom.cpp" />
+		<Unit filename="test/TestSave.cpp" />
+		<Unit filename="test/TestStructuredEvent.cpp" />
+		<Unit filename="test/TestTalk.cpp" />
+		<Unit filename="test/TestUse.cpp" />
+		<Unit filename="test/main.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

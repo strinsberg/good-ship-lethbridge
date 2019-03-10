@@ -43,8 +43,8 @@ TEST(InteractionTests, add_option_execute) {
   i.addOption("Sleep", e);
 
   in << 1;
-  Entity* ent;
-  std::string result = i.execute(ent);
+  Entity* p;
+  std::string result = i.execute(p);
 
   EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
   EXPECT_EQ(result, "You go to sleep");
@@ -59,8 +59,8 @@ TEST(InteractionTests, execute_cancel) {
   i.addOption("Sleep", e);
 
   in << 2;
-  Entity* ent;
-  std::string result = i.execute(ent);
+  Entity* p;
+  std::string result = i.execute(p);
 
   EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
   EXPECT_EQ(result, "canceled");
@@ -75,8 +75,8 @@ TEST(InteractionTests, execute_bad_choice) {
   i.addOption("Sleep", e);
 
   in << 20;
-  Entity* ent;
-  std::string result = i.execute(ent);
+  Entity* p;
+  std::string result = i.execute(p);
 
   EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
   EXPECT_EQ(result, "Not a valid choice!");

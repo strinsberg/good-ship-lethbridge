@@ -6,6 +6,7 @@
 
 #include "Interaction.h"
 #include "ObjectWithContentsBlueprint.h"
+#include "Entity.h"
 #include <iostream>
 #include <exception>
 
