@@ -132,7 +132,9 @@
 		<Unit filename="test/TestStructuredEvent.cpp" />
 		<Unit filename="test/TestTalk.cpp" />
 		<Unit filename="test/TestUse.cpp" />
-		<Unit filename="test/main.cpp" />
+		<Unit filename="test/main.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Extensions>
 			<envvars />
 			<code_completion />

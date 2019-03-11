@@ -10,5 +10,6 @@
 Quit::Quit() {}
 Quit::~Quit() {}
 std::string Quit::execute() {
-  return noun;
+  game->stop();
+  return "Thanks for playing!";
 }

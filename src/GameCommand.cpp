@@ -7,9 +7,17 @@
 #include "GameCommand.h"
 #include "Game.h"
 
-GameCommand::GameCommand() {}
-GameCommand::~GameCommand() {}
+GameCommand::GameCommand() : game(nullptr) {}
 
-Game* GameCommand::getGame() {}
+GameCommand::~GameCommand() {
+  if (game != nullptr)
+    delete game;
+}
 
-void GameCommand::setGame(Game* g) {}
+Game* GameCommand::getGame() {
+  return game;
+}
+
+void GameCommand::setGame(Game* g) {
+  game = g;
+}

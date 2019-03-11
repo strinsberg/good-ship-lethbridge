@@ -69,7 +69,7 @@ class Game {
   /**
     * Sets running to false
     */
-  int stop();
+  void stop();
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
