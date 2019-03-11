@@ -19,7 +19,7 @@
 class GameCommand : public Command
 {
   public:
-    GameCommand();
+    GameCommand(Game* g);
     virtual ~GameCommand();
     virtual std::string execute() = 0;
 

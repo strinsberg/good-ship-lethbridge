@@ -5,9 +5,10 @@
  */
 
 #include "Load.h"
+#include "Game.h"
 #include <string>
 
-Load::Load() {}
+Load::Load(Game* g) :GameCommand(g) {}
 Load::~Load() {}
 std::string Load::execute() {
   return noun;

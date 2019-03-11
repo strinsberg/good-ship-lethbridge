@@ -2,6 +2,7 @@
 #define QUIT_H
 
 #include "GameCommand.h"
+#include "Game.h"
 #include <string>
 
 
@@ -11,7 +12,7 @@
 class Quit : public GameCommand
 {
   public:
-    Quit();
+    Quit(Game* g);
     virtual ~Quit();
 
     std::string execute();

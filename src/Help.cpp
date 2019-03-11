@@ -5,9 +5,10 @@
  */
 
 #include "Help.h"
+#include "Game.h"
 #include <string>
 
-Help::Help() {}
+Help::Help(Game* g) :GameCommand(g) {}
 Help::~Help() {}
 std::string Help::execute() {
   return noun;

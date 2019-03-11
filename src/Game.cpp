@@ -74,10 +74,8 @@ void Game::run() {
     out << "> ";
     std::getline(in, input);
 
-    if (input == "quit")  // Remove when Quit command is finished
-      return;
-
-    Parser p(input);
+    Game* g;
+    Parser p(input, this);
     Command* c = p.parse();
 
     out << c->execute() << std::endl;

@@ -54,6 +54,6 @@ TEST(GameTests, run) {
   in << "get box\nquit";
   Game g(in, out);
   g.run();
-  EXPECT_EQ("> You can't get!\n> ", out.str());
+  EXPECT_EQ("> You can't get!\n> Thanks for playing!\n", out.str());
 }
 

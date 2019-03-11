@@ -5,24 +5,25 @@
  */
 
 #include "Quit.h"
+#include "Game.h"
 #include <string>
 #include "gtest/gtest.h"
 
 TEST(QuitTests, constructor_get) {
-  Quit q;
+  Quit q(nullptr);
   EXPECT_EQ("", q.getNoun());
   EXPECT_EQ(nullptr, q.getGame());
 }
 
 TEST(QuitTests, set_game) {
-  Quit q;
+  Quit q(nullptr);
   Game* g = new Game();
   q.setGame(g);
   EXPECT_EQ(g, q.getGame());
 }
 
 TEST(QuitTests, execute) {
-  Quit q;
+  Quit q(nullptr);
 
   Game* g = new Game();
   q.setGame(g);

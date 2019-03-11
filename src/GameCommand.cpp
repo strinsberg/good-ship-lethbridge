@@ -7,12 +7,9 @@
 #include "GameCommand.h"
 #include "Game.h"
 
-GameCommand::GameCommand() : game(nullptr) {}
+GameCommand::GameCommand(Game* g) : game(g) {}
 
-GameCommand::~GameCommand() {
-  if (game != nullptr)
-    delete game;
-}
+GameCommand::~GameCommand() {}
 
 Game* GameCommand::getGame() {
   return game;

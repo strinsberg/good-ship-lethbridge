@@ -5,9 +5,10 @@
  */
 
 #include "Save.h"
+#include "Game.h"
 #include <string>
 
-Save::Save() {}
+Save::Save(Game* g) :GameCommand(g) {}
 Save::~Save() {}
 std::string Save::execute() {
   return noun;

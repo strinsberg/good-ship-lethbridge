@@ -7,17 +7,20 @@
 #include "Parser.h"
 #include "Command.h"
 #include "BadInput.h"
+#include "Game.h"
 #include <string>
 #include "gtest/gtest.h"
 
 
 TEST(ParserTests, constructor) {
-  Parser p("get laser");
+  Game g;
+  Parser p("get laser", &g);
   EXPECT_EQ(p.getInput(), "get laser");
 }
 
 TEST(ParserTests, parse_bad_input) {
-  Parser p("scubadive");
+  Game g;
+  Parser p("scubadive", &g);
   Command* c = p.parse();
   EXPECT_EQ(c->execute(), "You can't scubadive!");
   delete c;  // parser does not own the pointer it returns

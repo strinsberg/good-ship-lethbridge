@@ -9,6 +9,7 @@
 #define HELP_H
 
 #include "GameCommand.h"
+#include "Game.h"
 #include <string>
 
 
@@ -18,7 +19,7 @@
 class Help : public GameCommand
 {
   public:
-    Help();
+    Help(Game* g);
     virtual ~Help();
 
    std::string execute();
