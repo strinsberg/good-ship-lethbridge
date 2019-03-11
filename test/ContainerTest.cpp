@@ -1,6 +1,7 @@
 #include "Container.h"
 #include "Entity.h"
 #include "EntitySpec.h"
+#include "EntityState.h"
 #include "Inform.h"
 #include "gtest/gtest.h"
 
@@ -57,4 +58,26 @@ TEST(TestContainer, set_event) {
   Inform* i = new Inform();
   c.setEvent(i);
   EXPECT_EQ(i, c.getEvent());
+}
+
+TEST(TestContainer, set_state) {
+  Container c;
+  EntityState* s = new EntityState();
+  c.setState(s);
+  EXPECT_EQ(s, c.getState());
+}
+
+TEST(TestContainer, container_iterator) {
+Container c;
+
+Entity* e = new Container();
+EntitySpec *s = new EntitySpec();
+s->setName("container");
+e->setSpec(s);
+
+c.addEntity(e);
+auto it = c.begin();
+EXPECT_EQ(e, it->second);
+it++;
+EXPECT_EQ(c.end(), it);
 }

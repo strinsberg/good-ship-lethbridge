@@ -22,23 +22,93 @@ TEST(InventoryTests, set_noun) {
 
 TEST(InventoryTests, set_player) {
   Inventory i;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p;
   i.setPlayer(p);
   EXPECT_EQ(i.getPlayer(), p);
 }
 
-TEST(InventoryTests, DISABLED_execute_have_items) {
+TEST(InventoryTests, execute_item_in_inventory) {
   Inventory i;
-  // Create a player
-  // create a couple items
-  // add them to the players inventory
-  // run i.execute and compare
-  EXPECT_EQ(i.execute(), "You are carrying:\nobject1\nobject2");
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+
+  i.setPlayer(&p);
+  i.setNoun("");
+  EXPECT_EQ("You have:\nbox -> a box", i.execute());
 }
 
-TEST(InventoryTests, DISABLED_execute_no_items) {
+TEST(InventoryTests, execute_multiple_items_in_inventory) {
   Inventory i;
-  // Create a player
-  // run i.execute and compare
-  EXPECT_EQ(i.execute(), "You don't have anything!");
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+
+  Container* c2 = new Container();
+  c2->getSpec()->setName("gold");
+  c2->getSpec()->setDescription("a shiny coin");
+  p.addEntity(c2);
+
+  i.setPlayer(&p);
+  i.setNoun("");
+  EXPECT_EQ("You have:\nbox -> a box\ngold -> a shiny coin", i.execute());
 }
+
+TEST(InventoryTests, execute_no_items) {
+  Inventory i;
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  i.setPlayer(&p);
+  i.setNoun("");
+  EXPECT_EQ("You don't have anything!", i.execute());
+}
+
+TEST(InventoryTests, execute_search_item_in_inventory) {
+  Inventory i;
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+
+  i.setPlayer(&p);
+  i.setNoun("box");
+  EXPECT_EQ("You have that", i.execute());
+}
+
+TEST(InventoryTests, execute_search_item_not_in_inventory) {
+  Inventory i;
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+
+  i.setPlayer(&p);
+  i.setNoun("gold");
+  EXPECT_EQ("You don't have that", i.execute());
+}
+

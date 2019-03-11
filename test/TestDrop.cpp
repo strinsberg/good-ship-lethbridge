@@ -22,24 +22,55 @@ TEST(DropTests, set_noun) {
 
 TEST(DropTests, set_player) {
   Drop d;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p;
   d.setPlayer(p);
   EXPECT_EQ(d.getPlayer(), p);
 }
 
-TEST(DropTests, DISABLED_execute_item_exists) {
+TEST(DropTests, execute_player_has_item) {
   Drop d;
-  // Create a player, room, and item entity
-  // Add the item to the player
-  // Set the players current_room to room
-  // add the player and the name of the item to the get action
-  // run get.execute and see the result
-  EXPECT_EQ(d.execute(), "You drop the object_name");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  d.setPlayer(&p);
+  d.setNoun("box");
+  EXPECT_EQ("You drop the box", d.execute());
+  EXPECT_EQ(c, r.search("box"));
+  EXPECT_EQ(nullptr, p.search("box"));
 }
 
-TEST(DropTests, DISABLED_execute_item_does_not_exits) {
+TEST(DropTests, execute_room_has_item) {
   Drop d;
-  // Create a player
-  // run get.execute and see the result
-  EXPECT_EQ(d.execute(), "You don't have object_name");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  d.setPlayer(&p);
+  d.setNoun("box");
+  EXPECT_EQ("You don't have that!", d.execute());
+  EXPECT_EQ(c, r.search("box"));
+  EXPECT_EQ(nullptr, p.search("box"));
+}
+
+TEST(DropTests, execute_item_does_not_exits) {
+  Drop d;
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  d.setPlayer(&p);
+  d.setNoun("box");
+  EXPECT_EQ("There is no box", d.execute());
 }

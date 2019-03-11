@@ -5,10 +5,20 @@
  */
 
 #include "Look.h"
+#include "Entity.h"
+#include "Exceptions.h"
 #include <string>
 
 Look::Look() {}
+
 Look::~Look() {}
+
 std::string Look::execute() {
-  return noun;
+  Entity* e = getEntity();
+
+  std::string str("You see ");
+  if (e != nullptr)
+    return str + e->getSpec()->getDescription();
+
+  return "There is no " + noun;
 }

@@ -26,9 +26,6 @@ Room::~Room() {
 }
 
 std::string Room::describe() const {
-  if (spec == nullptr)
-    throw(unfinished_object_error("The room has no spec!"));
-
   std::stringstream ss;
   ss << "Location: " << spec->getName() << std::endl;
   ss << spec->getDescription();

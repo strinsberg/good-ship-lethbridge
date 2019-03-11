@@ -18,8 +18,8 @@
 
 TEST(RoomTests, constructor_get) {
   Room r;
-  EXPECT_EQ(r.getSpec(), nullptr);
-  EXPECT_EQ(r.getState(), nullptr);
+  EXPECT_EQ("", r.getSpec()->getName());
+  EXPECT_EQ(true, r.getState()->getObtainable());
 }
 
 TEST(RoomTests, enter) {
@@ -72,11 +72,6 @@ TEST(RoomTests, describe) {
   Entity* ent;
   EXPECT_EQ("Location: Captain's Room\n"
             "It's your room!", r.describe());
-}
-
-TEST(RoomTests, describe_no_spec) {
-  Room r;
-  EXPECT_THROW(r.describe(), unfinished_object_error);
 }
 
 TEST(RoomTests, DISABLED_make_blueprint) {

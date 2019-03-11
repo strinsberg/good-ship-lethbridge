@@ -6,9 +6,32 @@
 
 #include "Inventory.h"
 #include <string>
+#include <sstream>
+#include <iostream>
 
 Inventory::Inventory() {}
 Inventory::~Inventory() {}
 std::string Inventory::execute() {
-  return noun;
+  if (player->begin() == player->end())
+    return "You don't have anything!";
+
+  if (noun == "") {
+    std::stringstream ss;
+    ss << "You have:" << std::endl;
+
+    for (auto it = player->begin(); it != player->end(); it++) {
+      ss << it->first << " -> " << it->second->describe();
+
+      it++;
+      if (it != player->end())
+        ss << std::endl;
+      it--;  // This is gross
+    }
+    return ss.str();
+  }
+
+  if (player->search(noun) != nullptr)
+    return "You have that";
+
+  return "You don't have that";
 }

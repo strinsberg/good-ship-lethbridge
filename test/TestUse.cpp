@@ -5,6 +5,10 @@
  */
 
 #include "Use.h"
+#include "Exceptions.h"
+#include "Room.h"
+#include "Player.h"
+#include "Container.h"
 #include <string>
 #include "gtest/gtest.h"
 
@@ -22,43 +26,73 @@ TEST(UseTests, set_noun) {
 
 TEST(UseTests, set_player) {
   Use u;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p;
   u.setPlayer(p);
   EXPECT_EQ(u.getPlayer(), p);
 }
 
-TEST(UseTests, DISABLED_execute_player_has_item) {
+TEST(UseTests, execute_player_has_item) {
   Use u;
-  // Create a player, room, and item
-  // put item in player inventory, set player room to room
-  // add player and item name to Use
-  // run execute
-  EXPECT_EQ(u.execute(), "Use description");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  u.setPlayer(&p);
+  u.setNoun("box");
+  EXPECT_EQ(u.execute(), "you can't use containers");
 }
 
-TEST(UseTests, DISABLED_execute_room_has_item) {
+TEST(UseTests, execute_room_has_item) {
   Use u;
-  // Create a player, room, and item
-  // put item in room inventory, set player room to room
-  // add player and item name to Use
-  // run execute
-  EXPECT_EQ(u.execute(), "Use description");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  u.setPlayer(&p);
+  u.setNoun("box");
+  EXPECT_EQ(u.execute(), "you can't use containers");
 }
 
-TEST(UseTests, DISABLED_execute_unusable) {
+TEST(UseTests, execute_inactive) {
   Use u;
-  // create player, and room
-  // set player room
-  // set player and item name to Use
-  // run execute
-  EXPECT_EQ(u.execute(), "You Can't use object_name!");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  c->getState()->setActive(false);
+  r.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  u.setPlayer(&p);
+  u.setNoun("box");
+  EXPECT_EQ(u.execute(), "For some reason you can't");
 }
 
-TEST(UseTests, DISABLED_execute_no_item) {
+TEST(UseTests, no_player) {
   Use u;
-  // create player, and room
-  // set player room
-  // set player and item name to Use
-  // run execute
-  EXPECT_EQ(u.execute(), "There is no object_name!");
+  EXPECT_THROW(u.execute(), unfinished_object_error);
+}
+
+TEST(UseTests, execute_no_item) {
+  Use u;
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  u.setPlayer(&p);
+  u.setNoun("box");
+  EXPECT_EQ(u.execute(), "There is no box");
 }

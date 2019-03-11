@@ -22,34 +22,51 @@ TEST(LookTests, set_noun) {
 
 TEST(LookTests, set_player) {
   Look l;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p;
   l.setPlayer(p);
   EXPECT_EQ(l.getPlayer(), p);
 }
 
-TEST(LookTests, DISABLED_execute_player_has_item) {
+TEST(LookTests, execute_player_has_item) {
   Look l;
-  // Create a player, room, and item
-  // put item in player inventory, set player room to room
-  // add player and item name to look
-  // run execute
-  EXPECT_EQ(l.execute(), "Item description");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  l.setPlayer(&p);
+  l.setNoun("box");
+  EXPECT_EQ(l.execute(), "You see a box");
 }
 
-TEST(LookTests, DISABLED_execute_room_has_item) {
+TEST(LookTests, execute_room_has_item) {
   Look l;
-  // Create a player, room, and item
-  // put item in room inventory, set player room to room
-  // add player and item name to look
-  // run execute
-  EXPECT_EQ(l.execute(), "Item Description");
+
+  Player p;
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  p.setCurrentRoom(&r);
+
+  l.setPlayer(&p);
+  l.setNoun("box");
+  EXPECT_EQ(l.execute(), "You see a box");
 }
 
-TEST(LookTests, DISABLED_execute_no_item) {
+TEST(LookTests, execute_no_item) {
   Look l;
-  // create player, and room
-  // set player room
-  // set player and item name to look
-  // run execute
-  EXPECT_EQ(l.execute(), "There is no object_name!");
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  l.setPlayer(&p);
+  l.setNoun("box");
+  EXPECT_EQ(l.execute(), "There is no box");
 }

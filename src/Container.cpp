@@ -2,7 +2,7 @@
 #include "Entity.h"
 
 
-Container::Container():inventory(std::map<std::string, Entity*>()) {}
+Container::Container() : inventory(std::map<std::string, Entity*>()) {}
 
 Container::~Container() {
   for (auto e: inventory) {
@@ -32,4 +32,11 @@ void Container::addEntity(Entity* entity) {
 
 void Container::removeEntity(Entity* entity){
   inventory.erase(entity->getSpec()->getName());
+}
+
+std::map<std::string, Entity*>::iterator Container::begin() {
+  return inventory.begin();
+}
+std::map<std::string, Entity*>::iterator Container::end() {
+  return inventory.end();
 }

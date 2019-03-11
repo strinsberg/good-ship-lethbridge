@@ -11,5 +11,20 @@ Get::Get() {}
 Get::~Get() {}
 
 std::string Get::execute() {
-  return noun;
+  if (player->search(noun) != nullptr)
+    return "You already have the " + noun;
+
+  Entity* e = getEntity();
+
+  if (e != nullptr) {
+    if (!e->getState()->getObtainable())
+      return "You can't take that!";
+    else if (!e->getState()->getHidden()) {
+      player->getCurrentRoom()->removeEntity(e);
+      player->addEntity(e);
+      return "You get the " + noun;
+    }
+  }
+
+  return "There is no " + noun;
 }
