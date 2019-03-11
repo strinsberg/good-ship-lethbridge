@@ -162,10 +162,11 @@
 	"Use.h"
 	<string>
 
-1552320475 source:/home/deus2720/assn/Calrissien/test/ContainerTest.cpp
+1552321764 source:/home/deus2720/assn/Calrissien/test/ContainerTest.cpp
 	"Container.h"
 	"Entity.h"
 	"EntitySpec.h"
+	"EntityState.h"
 	"Inform.h"
 	"gtest/gtest.h"
 
@@ -273,7 +274,7 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552321377 source:/home/deus2720/assn/Calrissien/test/TestInventory.cpp
+1552321476 source:/home/deus2720/assn/Calrissien/test/TestInventory.cpp
 	"Inventory.h"
 	<string>
 	"gtest/gtest.h"

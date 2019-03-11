@@ -44,6 +44,28 @@ TEST(InventoryTests, execute_item_in_inventory) {
   EXPECT_EQ("You have:\nbox -> a box", i.execute());
 }
 
+TEST(InventoryTests, execute_multiple_items_in_inventory) {
+  Inventory i;
+
+  Player p;
+  Room r;
+  p.setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p.addEntity(c);
+
+  Container* c2 = new Container();
+  c2->getSpec()->setName("gold");
+  c2->getSpec()->setDescription("a shiny coin");
+  p.addEntity(c2);
+
+  i.setPlayer(&p);
+  i.setNoun("");
+  EXPECT_EQ("You have:\nbox -> a box\ngold -> a shiny coin", i.execute());
+}
+
 TEST(InventoryTests, execute_no_items) {
   Inventory i;
 
