@@ -10,10 +10,10 @@
 #include <string>
 
 Quit::Quit(Game* g) : GameCommand(g) {}
+
 Quit::~Quit() {}
+
 std::string Quit::execute() {
-  if (game == nullptr)
-    throw unfinished_object_error("You have no game for quit object!");
   game->stop();
   return "Thanks for playing!";
 }

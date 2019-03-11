@@ -30,7 +30,6 @@ class Interaction : public Event
     struct Option {
       std::string title = "";  // Menu title
       Event* event = nullptr;  // Owns this event
-      //~Option() {delete event;}
     };
 
     std::vector<Option> options;

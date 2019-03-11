@@ -22,9 +22,10 @@ TEST(InventoryTests, set_noun) {
 
 TEST(InventoryTests, set_player) {
   Inventory i;
-  Player* p;
+  Player* p = new Player();
   i.setPlayer(p);
   EXPECT_EQ(i.getPlayer(), p);
+  delete p;
 }
 
 TEST(InventoryTests, execute_item_in_inventory) {

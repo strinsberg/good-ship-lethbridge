@@ -20,6 +20,7 @@ TEST(QuitTests, set_game) {
   Game* g = new Game();
   q.setGame(g);
   EXPECT_EQ(g, q.getGame());
+  delete g;
 }
 
 TEST(QuitTests, execute) {
@@ -29,4 +30,5 @@ TEST(QuitTests, execute) {
   q.setGame(g);
   EXPECT_EQ("Thanks for playing!", q.execute());
   EXPECT_EQ(false, g->isRunning());
+  delete g;
 }

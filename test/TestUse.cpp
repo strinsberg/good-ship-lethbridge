@@ -26,9 +26,10 @@ TEST(UseTests, set_noun) {
 
 TEST(UseTests, set_player) {
   Use u;
-  Player* p;
+  Player* p = new Player();
   u.setPlayer(p);
   EXPECT_EQ(u.getPlayer(), p);
+  delete p;
 }
 
 TEST(UseTests, execute_player_has_item) {

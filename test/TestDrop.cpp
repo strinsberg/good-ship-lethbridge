@@ -22,9 +22,10 @@ TEST(DropTests, set_noun) {
 
 TEST(DropTests, set_player) {
   Drop d;
-  Player* p;
+  Player* p = new Player();
   d.setPlayer(p);
   EXPECT_EQ(d.getPlayer(), p);
+  delete p;
 }
 
 TEST(DropTests, execute_player_has_item) {

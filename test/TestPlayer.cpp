@@ -21,10 +21,11 @@ TEST(PlayerTests, constructor_get) {
 TEST(PlayerTests, set_room) {
   Player p;
 
-  Room* r;
+  Room* r = new Room();
   p.setCurrentRoom(r);
 
   EXPECT_EQ(r, p.getCurrentRoom());
+  delete r;
 }
 
 TEST(PlayerTests, describe) {

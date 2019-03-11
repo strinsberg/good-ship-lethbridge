@@ -9,6 +9,7 @@
 #include "ObjectBlueprint.h"
 #include "Inform.h"
 #include "Entity.h"
+#include "Player.h"
 #include <string>
 #include <vector>
 #include <sstream>
@@ -43,11 +44,12 @@ TEST(InteractionTests, add_option_execute) {
   i.addOption("Sleep", e);
 
   in << 1;
-  Entity* p;
+  Entity* p = new Player();
   std::string result = i.execute(p);
 
   EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
   EXPECT_EQ(result, "You go to sleep");
+  delete p;
 }
 
 TEST(InteractionTests, execute_cancel) {
@@ -59,11 +61,12 @@ TEST(InteractionTests, execute_cancel) {
   i.addOption("Sleep", e);
 
   in << 2;
-  Entity* p;
+  Entity* p = new Player();
   std::string result = i.execute(p);
 
   EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
   EXPECT_EQ(result, "canceled");
+  delete p;
 }
 
 TEST(InteractionTests, execute_bad_choice) {
@@ -75,11 +78,12 @@ TEST(InteractionTests, execute_bad_choice) {
   i.addOption("Sleep", e);
 
   in << 20;
-  Entity* p;
+  Entity* p = new Player();
   std::string result = i.execute(p);
 
   EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
   EXPECT_EQ(result, "Not a valid choice!");
+  delete p;
 }
 
 TEST(InteractionTests, make_blueprint) {
@@ -103,5 +107,5 @@ TEST(InteractionTests, make_blueprint) {
 
   EXPECT_EQ("{\ntype=inform",
             o->toString().substr(72, 13));
-
+  delete o;
 }

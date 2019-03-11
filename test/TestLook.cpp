@@ -22,9 +22,10 @@ TEST(LookTests, set_noun) {
 
 TEST(LookTests, set_player) {
   Look l;
-  Player* p;
+  Player* p = new Player();
   l.setPlayer(p);
   EXPECT_EQ(l.getPlayer(), p);
+  delete p;
 }
 
 TEST(LookTests, execute_player_has_item) {
