@@ -58,3 +58,18 @@ TEST(TestContainer, set_event) {
   c.setEvent(i);
   EXPECT_EQ(i, c.getEvent());
 }
+
+TEST(TestContainer, container_iterator) {
+Container c;
+
+Entity* e = new Container();
+EntitySpec *s = new EntitySpec();
+s->setName("container");
+e->setSpec(s);
+
+c.addEntity(e);
+auto it = c.begin();
+EXPECT_EQ(e, it->second);
+it++;
+EXPECT_EQ(c.end(), it);
+}

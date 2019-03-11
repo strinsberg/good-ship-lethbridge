@@ -48,6 +48,9 @@ class Container: public Entity {
     */
   void removeEntity(Entity* entity);
 
+  std::map<std::string, Entity*>::iterator begin();
+  std::map<std::string, Entity*>::iterator end();
+
  protected:
   std::map<std::string, Entity*> inventory;  // owns the entities it contains
 

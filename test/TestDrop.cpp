@@ -22,7 +22,7 @@ TEST(DropTests, set_noun) {
 
 TEST(DropTests, set_player) {
   Drop d;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p;
   d.setPlayer(p);
   EXPECT_EQ(d.getPlayer(), p);
 }
