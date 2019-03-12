@@ -48,9 +48,10 @@ s->setName("container");
 e->setSpec(s);
 
 c.addEntity(e);
-EXPECT_EQ(e,c.search("container"));
+EXPECT_EQ(e, c.search("container"));
 c.removeEntity(e);
-EXPECT_EQ(nullptr,c.search("container"));
+EXPECT_EQ(nullptr, c.search("container"));
+delete e;
 }
 
 TEST(TestContainer, set_event) {

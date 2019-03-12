@@ -9,6 +9,7 @@
 
 #include "Command.h"
 #include <string>
+class Game;
 
 
 /**
@@ -19,8 +20,9 @@ class Parser {
   /**
     * Create a new parser object to parse given input
     * @param in the input to parse
+    * @param g The game object
     */
-  Parser(std::string in);
+  Parser(std::string in, Game* g);
   virtual ~Parser();
 
   /**
@@ -36,6 +38,7 @@ class Parser {
 
  private:
   std::string input;
+  Game* game;  // does not own this
 
   Parser(const Parser&);
   Parser& operator=(const Parser&);

@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Game">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -47,6 +49,7 @@
 		<Unit filename="include/Exceptions.h" />
 		<Unit filename="include/Exit.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/GameBuilder.h" />
 		<Unit filename="include/GameCommand.h" />
 		<Unit filename="include/GameData.h" />
 		<Unit filename="include/Get.h" />
@@ -79,6 +82,7 @@
 		<Unit filename="src/EventSpec.cpp" />
 		<Unit filename="src/Exit.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/GameBuilder.cpp" />
 		<Unit filename="src/GameCommand.cpp" />
 		<Unit filename="src/GameData.cpp" />
 		<Unit filename="src/Get.cpp" />
@@ -110,6 +114,9 @@
 		<Unit filename="test/TestEventSpec.cpp" />
 		<Unit filename="test/TestExit.cpp" />
 		<Unit filename="test/TestGame.cpp" />
+		<Unit filename="test/TestGameBuilder.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestGameData.cpp" />
 		<Unit filename="test/TestGet.cpp" />
 		<Unit filename="test/TestHelp.cpp" />
@@ -132,7 +139,9 @@
 		<Unit filename="test/TestStructuredEvent.cpp" />
 		<Unit filename="test/TestTalk.cpp" />
 		<Unit filename="test/TestUse.cpp" />
-		<Unit filename="test/main.cpp" />
+		<Unit filename="test/main.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Extensions>
 			<envvars />
 			<code_completion />

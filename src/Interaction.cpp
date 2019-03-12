@@ -13,7 +13,10 @@
 Interaction::Interaction(std::istream& is, std::ostream& os)
     : Event(is, os), options(std::vector<Option>()) {}
 
-Interaction::~Interaction() {}
+Interaction::~Interaction() {
+  for (auto o : options)
+    delete o.event;
+}
 
 void Interaction::addOption(std::string t, Event* e) {
   Option o;

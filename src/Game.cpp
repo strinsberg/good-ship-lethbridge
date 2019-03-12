@@ -7,9 +7,12 @@
 #include "Game.h"
 #include "Player.h"
 #include "Room.h"
+#include "Parser.h"
+#include "Command.h"
 #include "Exceptions.h"
 #include <string>
 #include <map>
+#include <iostream>
 
 using std::map;
 using std::string;
@@ -30,8 +33,6 @@ Game::~Game() {
   for (auto r : rooms)
     delete r.second;
 }
-
-void Game::run() {}
 
 Player* Game::getPlayer() const {
   return player;
@@ -57,4 +58,28 @@ void Game::addRoom(const string& name, Room* room) {
 
 int Game::numRooms() {
   return rooms.size();
+}
+
+bool Game::isRunning() {
+  return running;
+}
+
+void Game::stop() {
+  running = false;
+}
+
+void Game::run() {
+  while (running) {
+    std::string input;
+    out << "> ";
+    std::getline(in, input);
+
+    Command* c;
+    if (input != "") {
+      Parser p(input, this);
+      c = p.parse();
+      out << c->execute() << std::endl;
+      delete c;
+    }
+  }
 }

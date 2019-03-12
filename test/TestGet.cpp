@@ -23,9 +23,10 @@ TEST(GetTests, set_noun) {
 
 TEST(GetTests, set_player) {
   Get g;
-  Player* p;
+  Player* p = new Player();
   g.setPlayer(p);
   EXPECT_EQ(g.getPlayer(), p);
+  delete p;
 }
 
 TEST(GetTests, execute_room_has_item) {

@@ -8,6 +8,7 @@
 #define SAVE_H
 
 #include "GameCommand.h"
+#include "Game.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
 class Save : public GameCommand
 {
   public:
-    Save();
+    Save(Game* g);
     virtual ~Save();
 
     std::string execute();

@@ -2,6 +2,7 @@
 #define LOAD_H
 
 #include "GameCommand.h"
+#include "Game.h"
 #include <string>
 
 
@@ -11,7 +12,7 @@
 class Load : public GameCommand
 {
   public:
-    Load();
+    Load(Game* g);
     virtual ~Load();
 
     std::string execute();

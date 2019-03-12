@@ -7,13 +7,12 @@
 #include "Parser.h"
 #include "Command.h"
 #include "BadInput.h"
+#include "Quit.h"
 #include <string>
 #include <sstream>
 
 
-Parser::Parser(std::string in) {
-  input = in;
-}
+Parser::Parser(std::string in, Game* g) : input(in), game(g) {}
 
 Parser::~Parser() {}
 
@@ -25,12 +24,15 @@ Command* Parser::parse() const {
   ss >> verb;
   while (ss >> noun) {}
 
-  if (0) {  //add cases here for other commands as they are ready
+  if (verb == "quit") {
+
+
+    //add cases here for other commands as they are ready
     // use Action or Game command pointer first to be able to save player
     // or game
     // then save it to c to be returned.
     // or make their constructors take player and game as arg.
-    c = nullptr;
+    c = new Quit(game);
   } else {
     c = new BadInput();
     c->setNoun(verb);

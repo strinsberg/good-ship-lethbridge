@@ -22,9 +22,10 @@ TEST(ExitTests, set_noun) {
 
 TEST(ExitTests, set_player) {
   Exit e;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p = new Player();  // Allows simple check for set without player being implemented
   e.setPlayer(p);
   EXPECT_EQ(e.getPlayer(), p);
+  delete p;
 }
 
 TEST(ExitTests, DISABLED_execute_exit_exists) {

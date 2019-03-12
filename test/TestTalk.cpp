@@ -22,9 +22,10 @@ TEST(TalkTests, set_noun) {
 
 TEST(TalkTests, set_player) {
   Talk t;
-  Player* p;  // Allows simple check for set without player being implemented
+  Player* p = new Player();
   t.setPlayer(p);
   EXPECT_EQ(t.getPlayer(), p);
+  delete p;
 }
 
 TEST(TalkTests, DISABLED_execute_item_exists) {

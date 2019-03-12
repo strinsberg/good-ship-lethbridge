@@ -49,5 +49,11 @@ TEST(GameTests, add_room_throws) {
   delete r2;
 }
 
-TEST(GameTests, DISABLED_run) {}
+TEST(GameTests, run) {
+  std::stringstream in, out;
+  in << "get box\nquit";
+  Game g(in, out);
+  g.run();
+  EXPECT_EQ("> You can't get!\n> Thanks for playing!\n", out.str());
+}
 
