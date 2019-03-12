@@ -29,7 +29,7 @@ Game* GameBuilder::newGame(std::string name) {
   Entity* box = new Container();
   addEntityInfo(box,
                 "Box",
-                "A small metallic container, maybe filled with treasure!",
+                "a small metallic container, maybe filled with treasure!",
                 true, true, false);
   captains_room->addEntity(box);
 

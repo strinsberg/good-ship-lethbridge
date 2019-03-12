@@ -1,6 +1,9 @@
 #include "Container.h"
 #include "Entity.h"
 #include "Game.h"
+#include <string>
+#include <iostream>
+#include <sstream>
 
 
 Container::Container() : inventory(std::map<std::string, Entity*>()) {}

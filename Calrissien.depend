@@ -141,7 +141,7 @@
 	<iostream>
 	<sstream>
 
-1552353839 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
+1552355034 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
 	"Parser.h"
 	"Command.h"
 	"BadInput.h"
@@ -149,6 +149,8 @@
 	"Get.h"
 	"Drop.h"
 	"Look.h"
+	"Inventory.h"
+	"Use.h"
 	<string>
 	<sstream>
 
@@ -328,7 +330,7 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552328614 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
+1552353078 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
 	"Parser.h"
 	"Command.h"
 	"BadInput.h"
@@ -509,7 +511,7 @@
 	"Game.h"
 	<string>
 
-1552350215 source:/home/deus2720/assn/Calrissien/src/GameBuilder.cpp
+1552355462 source:/home/deus2720/assn/Calrissien/src/GameBuilder.cpp
 	"GameBuilder.h"
 	"Game.h"
 
