@@ -112,6 +112,9 @@
 		<Unit filename="test/EntitySpecTest.cpp" />
 		<Unit filename="test/EntityStateTest.cpp" />
 		<Unit filename="test/TestBadInput.cpp" />
+		<Unit filename="test/TestDoor.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestDrop.cpp" />
 		<Unit filename="test/TestEventGroup.cpp" />
 		<Unit filename="test/TestEventSpec.cpp" />

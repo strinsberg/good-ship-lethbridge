@@ -33,10 +33,23 @@ class Door : public Entity
       */
     Room* getDestination();
 
+    /**
+      * Set a location of the door
+      * @param room the location of the room
+      */
+    void setHere(Room* room);
+
+    /**
+      * Get the room the door is in
+      * @return here
+      */
+    Room* getHere();
+
   protected:
 
   private:
     Room* destination;  // Does not own this
+    Room* here;
 
     Door(const Door& other);
     Door& operator=(const Door& other);
