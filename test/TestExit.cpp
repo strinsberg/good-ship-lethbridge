@@ -21,6 +21,7 @@ TEST(ExitTests, set_noun) {
   Exit e(p);
   e.setNoun("Laser");
   EXPECT_EQ(e.getNoun(), "Laser");
+  delete p;
 }
 
 TEST(ExitTests, DISABLED_execute_exit_exists) {
