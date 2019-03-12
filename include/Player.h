@@ -10,6 +10,7 @@
 #include "Container.h"
 #include "Room.h"
 #include "ObjectBlueprint.h"
+#include "Suit.h"
 #include <string>
 
 
@@ -35,10 +36,12 @@ class Player : public Container {
     * @param r the room the player is now in
     */
   void setCurrentRoom(Room* r);
+  void setEquipped(Suit* s);
+  Suit* getEquipped();
 
  private:
   Room* currentRoom;  // does not own the room
-
+  Suit* equipped;
   Player(const Player&);
   Player& operator=(const Player&);
 };

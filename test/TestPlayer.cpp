@@ -12,6 +12,7 @@
 #include "ObjectBlueprint.h"
 #include <string>
 #include "gtest/gtest.h"
+#include "Suit.h"
 
 TEST(PlayerTests, constructor_get) {
   Player p;
@@ -46,4 +47,12 @@ TEST(PlayerTests, use) {
 
 TEST(PlayerTests, DISABLED_make_blueprint) {
 
+}
+TEST(PlayerTests,setEquipped) {
+Player p;
+Suit* s;
+
+p.setEquipped(s);
+
+EXPECT_EQ(s,p.getEquipped());
 }
