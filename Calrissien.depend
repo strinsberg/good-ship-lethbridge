@@ -586,7 +586,7 @@
 	"ObjectBlueprint.h"
 	<string>
 
-1552403173 source:/home/deus2720/assn/Calrissien/test/TestItem.cpp
+1552403228 source:/home/deus2720/assn/Calrissien/test/TestItem.cpp
 	"Item.h"
 	"Entity.h"
 	"EntitySpec.h"
@@ -596,4 +596,15 @@
 	"ObjectBlueprint.h"
 	<string>
 	"gtest/gtest.h"
+
+1552403695 source:/home/deus2720/assn/Calrissien/src/Door.cpp
+	"Door.h"
+	"ObjectBlueprint.h"
+	<string>
+
+1552403798 /home/deus2720/assn/Calrissien/include/Door.h
+	"Entity.h"
+	"Room.h"
+	"ObjectBlueprint.h"
+	<string>
 

@@ -74,6 +74,7 @@
 		<Unit filename="src/BadInput.cpp" />
 		<Unit filename="src/Command.cpp" />
 		<Unit filename="src/Container.cpp" />
+		<Unit filename="src/Door.cpp" />
 		<Unit filename="src/Drop.cpp" />
 		<Unit filename="src/Entity.cpp" />
 		<Unit filename="src/EntitySpec.cpp" />
