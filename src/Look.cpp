@@ -9,7 +9,7 @@
 #include "Exceptions.h"
 #include <string>
 
-Look::Look() {}
+Look::Look(Player* p) : Action(p) {}
 
 Look::~Look() {}
 

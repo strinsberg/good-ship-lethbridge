@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_INVENTORY_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
 class Inventory : public Action
 {
   public:
-    Inventory();
+    Inventory(Player* p);
     virtual ~Inventory();
 
     std::string execute();

@@ -43,17 +43,17 @@ void Game::setPlayer(Player* p) {
   player = p;
 }
 
-Room* Game::getRoom(std::string name) const {
-  auto it = rooms.find(name);
+Room* Game::getRoom(const std::string& name) {
+  auto it = rooms.find( toLower(name) );
   if (it == rooms.end())
     return nullptr;
   return it->second;
 }
 
 void Game::addRoom(const string& name, Room* room) {
-  if (rooms.find(name) != rooms.end())
+  if (rooms.find( toLower(name) ) != rooms.end())
     throw invalid_parameter_error("There is a room with that name already!");
-  rooms[name] = room;
+  rooms[ toLower(name) ] = room;
 }
 
 int Game::numRooms() {
@@ -74,6 +74,8 @@ void Game::run() {
     out << "> ";
     std::getline(in, input);
 
+    input = toLower(input);
+
     Command* c;
     if (input != "") {
       Parser p(input, this);
@@ -82,4 +84,11 @@ void Game::run() {
       delete c;
     }
   }
+}
+
+string Game::toLower(const string& str) {
+  string lower;
+  for (auto c : str)
+    lower.push_back( tolower(c) );
+  return lower;
 }

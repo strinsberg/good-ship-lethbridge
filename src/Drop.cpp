@@ -7,7 +7,7 @@
 #include "Drop.h"
 #include <string>
 
-Drop::Drop() {}
+Drop::Drop(Player* p) : Action(p) {}
 Drop::~Drop() {}
 std::string Drop::execute() {
   if (player->getCurrentRoom()->search(noun) != nullptr)

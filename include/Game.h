@@ -44,7 +44,7 @@ class Game {
     * @param name the name of the room
     * @return the room with given name or nullptr
     */
-  Room* getRoom(std::string name) const;
+  Room* getRoom(const std::string& name);
 
   /**
     * Add a room to the game. Transfers ownership to this game.
@@ -70,6 +70,8 @@ class Game {
     * Sets running to false
     */
   void stop();
+
+  string toLower(const string& str);
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms

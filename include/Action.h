@@ -16,14 +16,8 @@
   */
 class Action : public Command {
  public:
-  Action();
+  Action(Player* p);
   virtual ~Action();
-
-  /**
-    * Does not transfer ownership of player to the Action.
-    * @param p the player taking the action
-    */
-  void setPlayer(Player* p);
 
   /**
    * @return the player

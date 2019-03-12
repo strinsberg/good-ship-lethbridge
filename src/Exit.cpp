@@ -8,7 +8,7 @@
 #include "Entity.h"
 #include <string>
 
-Exit::Exit() {}
+Exit::Exit(Player* p) : Action(p) {}
 Exit::~Exit() {}
 
 std::string Exit::execute() {

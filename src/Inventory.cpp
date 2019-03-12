@@ -9,7 +9,7 @@
 #include <sstream>
 #include <iostream>
 
-Inventory::Inventory() {}
+Inventory::Inventory(Player* p) :Action(p) {}
 Inventory::~Inventory() {}
 std::string Inventory::execute() {
   if (player->begin() == player->end())

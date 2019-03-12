@@ -9,7 +9,7 @@
 #include <string>
 
 
-Talk::Talk() {}
+Talk::Talk(Player* p) : Action(p) {}
 Talk::~Talk() {}
 std::string Talk::execute() {
   return noun;

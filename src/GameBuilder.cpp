@@ -28,7 +28,7 @@ Game* GameBuilder::newGame(std::string name) {
   // Create objects ///////////////////////////////////////////////////////////
   Entity* box = new Container();
   addEntityInfo(box,
-                "box",
+                "Box",
                 "A small metallic container, maybe filled with treasure!",
                 true, true, false);
   captains_room->addEntity(box);

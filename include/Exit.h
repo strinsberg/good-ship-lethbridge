@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_EXIT_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
   */
 class Exit : public Action {
  public:
-  Exit();
+  Exit(Player* p);
   virtual ~Exit();
   std::string execute();
 

@@ -9,65 +9,61 @@
 #include "gtest/gtest.h"
 
 TEST(LookTests, constructor_get) {
-  Look l;
-  EXPECT_EQ(l.getNoun(), "");
-  EXPECT_EQ(l.getPlayer(), nullptr);
-}
-
-TEST(LookTests, set_noun) {
-  Look l;
-  l.setNoun("Laser");
-  EXPECT_EQ(l.getNoun(), "Laser");
-}
-
-TEST(LookTests, set_player) {
-  Look l;
   Player* p = new Player();
-  l.setPlayer(p);
+  Look l(p);
+  EXPECT_EQ(l.getNoun(), "");
   EXPECT_EQ(l.getPlayer(), p);
   delete p;
 }
 
-TEST(LookTests, execute_player_has_item) {
-  Look l;
+TEST(LookTests, set_noun) {
+  Player* p = new Player();
+  Look l(p);
+  l.setNoun("Laser");
+  EXPECT_EQ(l.getNoun(), "Laser");
+  delete p;
+}
 
-  Player p;
+TEST(LookTests, execute_player_has_item) {
+  Player* p = new Player();
+  Look l(p);
+
   Room r;
   Container* c = new Container();
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
-  p.addEntity(c);
-  p.setCurrentRoom(&r);
+  p->addEntity(c);
+  p->setCurrentRoom(&r);
 
-  l.setPlayer(&p);
   l.setNoun("box");
   EXPECT_EQ(l.execute(), "You see a box");
+  delete p;
 }
 
 TEST(LookTests, execute_room_has_item) {
-  Look l;
+  Player* p = new Player();
+  Look l(p);
 
-  Player p;
   Room r;
   Container* c = new Container();
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   r.addEntity(c);
-  p.setCurrentRoom(&r);
+  p->setCurrentRoom(&r);
 
-  l.setPlayer(&p);
   l.setNoun("box");
   EXPECT_EQ(l.execute(), "You see a box");
+  delete p;
 }
 
 TEST(LookTests, execute_no_item) {
-  Look l;
+  Player* p = new Player();
+  Look l(p);
 
-  Player p;
   Room r;
-  p.setCurrentRoom(&r);
+  p->setCurrentRoom(&r);
 
-  l.setPlayer(&p);
   l.setNoun("box");
   EXPECT_EQ(l.execute(), "There is no box");
+  delete p;
 }
