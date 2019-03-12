@@ -238,12 +238,15 @@
 	<string>
 	"gtest/gtest.h"
 
-1552353359 source:/home/deus2720/assn/Calrissien/src/Container.cpp
+1552356055 source:/home/deus2720/assn/Calrissien/src/Container.cpp
 	"Container.h"
 	"Entity.h"
 	"Game.h"
+	<string>
+	<iostream>
+	<sstream>
 
-1552352284 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552356351 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
 	<sstream>
 	"gtest/gtest.h"
@@ -571,5 +574,26 @@
 1552346021 source:/home/deus2720/assn/Calrissien/test/TestGameBuilder.cpp
 	"GameBuilder.h"
 	"Game.h"
+	"gtest/gtest.h"
+
+1552403197 source:/home/deus2720/assn/Calrissien/src/Item.cpp
+	"Item.h"
+	"ObjectBlueprint.h"
+	<string>
+
+1552402496 /home/deus2720/assn/Calrissien/include/Item.h
+	"Entity.h"
+	"ObjectBlueprint.h"
+	<string>
+
+1552403173 source:/home/deus2720/assn/Calrissien/test/TestItem.cpp
+	"Item.h"
+	"Entity.h"
+	"EntitySpec.h"
+	"Event.h"
+	"Inform.h"
+	"Player.h"
+	"ObjectBlueprint.h"
+	<string>
 	"gtest/gtest.h"
 
