@@ -24,8 +24,9 @@ class GameBuilder
     Game* newGame(std::string name);
 
   private:
-    Room* makeRoom(std::string name, std::string description);
     EntitySpec* makeEntitySpec(std::string name, std::string description);
+    EntityState* makeEntityState(bool active, bool obtainable, bool hidden);
+    void addEntityInfo(Entity* entity, std::string name, std::string description, bool active, bool obtainable, bool hidden);
 
     GameBuilder(const GameBuilder& other);
     GameBuilder& operator=(const GameBuilder& other);

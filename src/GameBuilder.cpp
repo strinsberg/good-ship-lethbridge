@@ -15,31 +15,33 @@ Game* GameBuilder::newGame(std::string name) {
   // Create a game
   Game* g = new Game();
 
-  // Create Rooms /////////////////////////////////////////////////////////////
-  Room* r = makeRoom("Captain's Room",
-                     "The best room on the ship! Your the captain after all.");
-  g->addRoom("Captain's Room", r);
+  // for AddEntityInfo(name,description,active,obtainable,hidden) //
 
+  // Create Rooms /////////////////////////////////////////////////////////////
+  Room* captains_room = new Room();
+  addEntityInfo(captains_room,
+                "Captain's Room",
+                "The best room on the ship! Your the captain after all.",
+                true, false, false);
+  g->addRoom("Captain's Room", captains_room);
+
+  // Create objects ///////////////////////////////////////////////////////////
+  Entity* box = new Container();
+  addEntityInfo(box,
+                "box",
+                "A small metallic container, maybe filled with treasure!",
+                true, true, false);
+  captains_room->addEntity(box);
 
   // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
+  p->setState( makeEntityState(true, false, false) );
+  p->setCurrentRoom(captains_room);
   g->setPlayer(p);
 
   // Return the game
   return g;
-}
-
-Room* GameBuilder::makeRoom(std::string name, std::string description) {
-  Room* room = new Room();
-
-  room->setSpec( makeEntitySpec(name, description) );
-
-  EntityState* state = new EntityState();
-  state->setObtainable(false);  // You can't take a room
-  room->setState(state);
-
-  return room;
 }
 
 EntitySpec* GameBuilder::makeEntitySpec(std::string name, std::string description) {
@@ -47,4 +49,17 @@ EntitySpec* GameBuilder::makeEntitySpec(std::string name, std::string descriptio
   spec->setName(name);
   spec->setDescription(description);
   return spec;
+}
+
+EntityState* GameBuilder::makeEntityState(bool active, bool obtainable, bool hidden) {
+  EntityState* state = new EntityState();
+  state->setActive(active);
+  state->setObtainable(obtainable);
+  state->setHidden(hidden);
+  return state;
+}
+
+void GameBuilder::addEntityInfo(Entity* entity, std::string name, std::string description, bool active, bool obtainable, bool hidden) {
+  entity->setSpec(makeEntitySpec(name, description));
+  entity->setState(makeEntityState(active, obtainable, hidden));
 }
