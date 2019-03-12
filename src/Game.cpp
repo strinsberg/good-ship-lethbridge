@@ -74,11 +74,12 @@ void Game::run() {
     out << "> ";
     std::getline(in, input);
 
-    Game* g;
-    Parser p(input, this);
-    Command* c = p.parse();
-
-    out << c->execute() << std::endl;
-    delete c;
+    Command* c;
+    if (input != "") {
+      Parser p(input, this);
+      c = p.parse();
+      out << c->execute() << std::endl;
+      delete c;
+    }
   }
 }
