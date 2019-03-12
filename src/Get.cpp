@@ -7,7 +7,7 @@
 #include "Get.h"
 #include <string>
 
-Get::Get() {}
+Get::Get(Player* p) : Action(p) {}
 Get::~Get() {}
 
 std::string Get::execute() {

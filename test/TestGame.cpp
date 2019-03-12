@@ -51,9 +51,9 @@ TEST(GameTests, add_room_throws) {
 
 TEST(GameTests, run) {
   std::stringstream in, out;
-  in << "get box\nquit";
+  in << "fly box\nquit";
   Game g(in, out);
   g.run();
-  EXPECT_EQ("> You can't get!\n> Thanks for playing!\n", out.str());
+  EXPECT_EQ("> You can't fly!\n> Thanks for playing!\n", out.str());
 }
 

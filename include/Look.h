@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_LOOK_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
 class Look : public Action
 {
   public:
-    Look();
+    Look(Player* p);
     virtual ~Look();
 
     std::string execute();

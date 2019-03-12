@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_USE_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
 class Use : public Action
 {
   public:
-    Use();
+    Use(Player* p);
     virtual ~Use();
 
     std::string execute();

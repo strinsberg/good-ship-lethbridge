@@ -9,12 +9,8 @@
 #include "Player.h"
 #include "Exceptions.h"
 
-Action::Action() : player(nullptr) {}
+Action::Action(Player* p) : player(p) {}
 Action::~Action() {}
-
-void Action::setPlayer(Player* p) {
-  player = p;
-}
 
 const Player* Action::getPlayer() const {
   return player;

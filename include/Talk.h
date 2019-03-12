@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_TALK_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
 class Talk : public Action
 {
   public:
-    Talk();
+    Talk(Player* p);
     virtual ~Talk();
 
     std::string execute();

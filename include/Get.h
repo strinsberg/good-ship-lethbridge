@@ -8,6 +8,7 @@
 #define CALRISSIEN_2720_GET_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -17,7 +18,7 @@
 class Get : public Action
 {
   public:
-    Get();
+    Get(Player* p);
     virtual ~Get();
 
     std::string execute();

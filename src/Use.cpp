@@ -8,7 +8,7 @@
 #include <string>
 
 
-Use::Use() {}
+Use::Use(Player* p) : Action(p) {}
 
 Use::~Use() {}
 

@@ -33,13 +33,13 @@
 	<string>
 	<iostream>
 
-1552342070 source:/home/deus2720/assn/Calrissien/src/Action.cpp
+1552352165 source:/home/deus2720/assn/Calrissien/src/Action.cpp
 	"Action.h"
 	"Entity.h"
 	"Player.h"
 	"Exceptions.h"
 
-1552319455 source:/home/deus2720/assn/Calrissien/src/Drop.cpp
+1552350540 source:/home/deus2720/assn/Calrissien/src/Drop.cpp
 	"Drop.h"
 	<string>
 
@@ -56,12 +56,12 @@
 	"EventSpec.h"
 	<string>
 
-1552179021 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
+1552350872 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
 	"Exit.h"
 	"Entity.h"
 	<string>
 
-1552328899 source:/home/deus2720/assn/Calrissien/src/Game.cpp
+1552352665 source:/home/deus2720/assn/Calrissien/src/Game.cpp
 	"Game.h"
 	"Player.h"
 	"Room.h"
@@ -86,7 +86,7 @@
 	"GameData.h"
 	<string>
 
-1552318646 source:/home/deus2720/assn/Calrissien/src/Get.cpp
+1552350551 source:/home/deus2720/assn/Calrissien/src/Get.cpp
 	"Get.h"
 	<string>
 
@@ -109,7 +109,7 @@
 	<iostream>
 	<exception>
 
-1552321423 source:/home/deus2720/assn/Calrissien/src/Inventory.cpp
+1552350885 source:/home/deus2720/assn/Calrissien/src/Inventory.cpp
 	"Inventory.h"
 	<string>
 	<sstream>
@@ -120,7 +120,7 @@
 	"Game.h"
 	<string>
 
-1552255883 source:/home/deus2720/assn/Calrissien/src/Look.cpp
+1552353925 source:/home/deus2720/assn/Calrissien/src/Look.cpp
 	"Look.h"
 	"Entity.h"
 	"Exceptions.h"
@@ -141,11 +141,16 @@
 	<iostream>
 	<sstream>
 
-1552328325 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
+1552355034 source:/home/deus2720/assn/Calrissien/src/Parser.cpp
 	"Parser.h"
 	"Command.h"
 	"BadInput.h"
 	"Quit.h"
+	"Get.h"
+	"Drop.h"
+	"Look.h"
+	"Inventory.h"
+	"Use.h"
 	<string>
 	<sstream>
 
@@ -166,11 +171,11 @@
 	<string>
 	<vector>
 
-1552179022 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
+1552350561 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
 	"Talk.h"
 	<string>
 
-1552256645 source:/home/deus2720/assn/Calrissien/src/Use.cpp
+1552350566 source:/home/deus2720/assn/Calrissien/src/Use.cpp
 	"Use.h"
 	<string>
 
@@ -214,7 +219,7 @@
 	<string>
 	<sstream>
 
-1552342301 source:/home/deus2720/assn/Calrissien/test/TestDrop.cpp
+1552352284 source:/home/deus2720/assn/Calrissien/test/TestDrop.cpp
 	"Drop.h"
 	<string>
 	"gtest/gtest.h"
@@ -233,16 +238,17 @@
 	<string>
 	"gtest/gtest.h"
 
-1552343217 source:/home/deus2720/assn/Calrissien/src/Container.cpp
+1552353359 source:/home/deus2720/assn/Calrissien/src/Container.cpp
 	"Container.h"
 	"Entity.h"
+	"Game.h"
 
-1552342358 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552352284 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
 	<sstream>
 	"gtest/gtest.h"
 
-1552328999 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
+1552352747 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
 	"Game.h"
 	"Player.h"
 	"Exceptions.h"
@@ -255,7 +261,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552342377 source:/home/deus2720/assn/Calrissien/test/TestGet.cpp
+1552352284 source:/home/deus2720/assn/Calrissien/test/TestGet.cpp
 	"Get.h"
 	"Player.h"
 	<string>
@@ -287,7 +293,7 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552342398 source:/home/deus2720/assn/Calrissien/test/TestInventory.cpp
+1552352226 source:/home/deus2720/assn/Calrissien/test/TestInventory.cpp
 	"Inventory.h"
 	<string>
 	"gtest/gtest.h"
@@ -306,7 +312,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552342418 source:/home/deus2720/assn/Calrissien/test/TestLook.cpp
+1552352780 source:/home/deus2720/assn/Calrissien/test/TestLook.cpp
 	"Look.h"
 	<string>
 	"gtest/gtest.h"
@@ -324,7 +330,7 @@
 	<sstream>
 	"gtest/gtest.h"
 
-1552328614 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
+1552353078 source:/home/deus2720/assn/Calrissien/test/TestParser.cpp
 	"Parser.h"
 	"Command.h"
 	"BadInput.h"
@@ -365,12 +371,12 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552342487 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
+1552352780 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
 	"Talk.h"
 	<string>
 	"gtest/gtest.h"
 
-1552342574 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
+1552352780 source:/home/deus2720/assn/Calrissien/test/TestUse.cpp
 	"Use.h"
 	"Exceptions.h"
 	"Room.h"
@@ -389,7 +395,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552255848 /home/deus2720/assn/Calrissien/include/Action.h
+1552352173 /home/deus2720/assn/Calrissien/include/Action.h
 	"Command.h"
 	"Player.h"
 
@@ -452,8 +458,9 @@
 	"Command.h"
 	<string>
 
-1552179021 /home/deus2720/assn/Calrissien/include/Drop.h
+1552350682 /home/deus2720/assn/Calrissien/include/Drop.h
 	"Action.h"
+	"Player.h"
 	<string>
 
 1552247546 /home/deus2720/assn/Calrissien/include/Inform.h
@@ -470,11 +477,12 @@
 	<vector>
 	<string>
 
-1550956879 /home/deus2720/assn/Calrissien/include/Exit.h
+1552350684 /home/deus2720/assn/Calrissien/include/Exit.h
 	"Action.h"
+	"Player.h"
 	<string>
 
-1552324402 /home/deus2720/assn/Calrissien/include/Game.h
+1552353262 /home/deus2720/assn/Calrissien/include/Game.h
 	"Room.h"
 	"Player.h"
 	<string>
@@ -493,8 +501,9 @@
 1552179021 /home/deus2720/assn/Calrissien/include/GameData.h
 	<string>
 
-1552179021 /home/deus2720/assn/Calrissien/include/Get.h
+1552350684 /home/deus2720/assn/Calrissien/include/Get.h
 	"Action.h"
+	"Player.h"
 	<string>
 
 1552328656 /home/deus2720/assn/Calrissien/include/Help.h
@@ -502,7 +511,7 @@
 	"Game.h"
 	<string>
 
-1552348201 source:/home/deus2720/assn/Calrissien/src/GameBuilder.cpp
+1552355462 source:/home/deus2720/assn/Calrissien/src/GameBuilder.cpp
 	"GameBuilder.h"
 	"Game.h"
 
@@ -517,8 +526,9 @@
 	"ObjectBlueprint.h"
 	<vector>
 
-1552179021 /home/deus2720/assn/Calrissien/include/Inventory.h
+1552350912 /home/deus2720/assn/Calrissien/include/Inventory.h
 	"Action.h"
+	"Player.h"
 	<string>
 
 1552328656 /home/deus2720/assn/Calrissien/include/Load.h
@@ -526,8 +536,9 @@
 	"Game.h"
 	<string>
 
-1552179021 /home/deus2720/assn/Calrissien/include/Look.h
+1552350684 /home/deus2720/assn/Calrissien/include/Look.h
 	"Action.h"
+	"Player.h"
 	<string>
 
 1552328424 /home/deus2720/assn/Calrissien/include/Quit.h
@@ -547,12 +558,14 @@
 	<string>
 	<vector>
 
-1552179021 /home/deus2720/assn/Calrissien/include/Talk.h
+1552350684 /home/deus2720/assn/Calrissien/include/Talk.h
 	"Action.h"
+	"Player.h"
 	<string>
 
-1552179021 /home/deus2720/assn/Calrissien/include/Use.h
+1552350645 /home/deus2720/assn/Calrissien/include/Use.h
 	"Action.h"
+	"Player.h"
 	<string>
 
 1552346021 source:/home/deus2720/assn/Calrissien/test/TestGameBuilder.cpp

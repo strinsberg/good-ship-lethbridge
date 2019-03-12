@@ -8,6 +8,11 @@
 #include "Command.h"
 #include "BadInput.h"
 #include "Quit.h"
+#include "Get.h"
+#include "Drop.h"
+#include "Look.h"
+#include "Inventory.h"
+#include "Use.h"
 #include <string>
 #include <sstream>
 
@@ -25,19 +30,24 @@ Command* Parser::parse() const {
   while (ss >> noun) {}
 
   if (verb == "quit") {
-
-
-    //add cases here for other commands as they are ready
-    // use Action or Game command pointer first to be able to save player
-    // or game
-    // then save it to c to be returned.
-    // or make their constructors take player and game as arg.
     c = new Quit(game);
+  } else if (verb == "get" || verb == "g") {
+    c = new Get(game->getPlayer());
+  } else if (verb == "drop" || verb == "d") {
+    c = new Drop(game->getPlayer());
+  } else if (verb == "look" || verb == "l") {
+    c = new Look(game->getPlayer());
+  } else if (verb == "inventory" || verb == "i") {
+    c = new Inventory(game->getPlayer());
+  } else if (verb == "use" || verb == "u") {
+    c = new Use(game->getPlayer());
   } else {
     c = new BadInput();
     c->setNoun(verb);
+    return c;
   }
 
+  c->setNoun(noun);
   return c;
 }
 

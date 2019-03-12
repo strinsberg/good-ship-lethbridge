@@ -9,11 +9,14 @@
 #include "Exceptions.h"
 #include <string>
 
-Look::Look() {}
+Look::Look(Player* p) : Action(p) {}
 
 Look::~Look() {}
 
 std::string Look::execute() {
+  if (noun == "")
+    return player->getCurrentRoom()->getSpec()->getDescription();
+
   Entity* e = getEntity();
 
   std::string str("You see ");

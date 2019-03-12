@@ -1,5 +1,9 @@
 #include "Container.h"
 #include "Entity.h"
+#include "Game.h"
+#include <string>
+#include <iostream>
+#include <sstream>
 
 
 Container::Container() : inventory(std::map<std::string, Entity*>()) {}
@@ -19,7 +23,7 @@ std::string Container::use(Entity*) {
 ObjectBlueprint* Container:: makeBlueprint() const {}
 
 Entity* Container::search(std::string name) const {
-  auto it = inventory.find(name);
+  auto it = inventory.find( Game::toLower(name) );
   if (it == inventory.end())
     return nullptr;
   else
@@ -27,11 +31,11 @@ Entity* Container::search(std::string name) const {
 }
 
 void Container::addEntity(Entity* entity) {
-  inventory[entity->getSpec()->getName()] = entity;
+  inventory[ Game::toLower(entity->getSpec()->getName()) ] = entity;
 }
 
 void Container::removeEntity(Entity* entity){
-  inventory.erase(entity->getSpec()->getName());
+  inventory.erase( Game::toLower(entity->getSpec()->getName()) );
 }
 
 std::map<std::string, Entity*>::iterator Container::begin() {

@@ -2,6 +2,7 @@
 #define CALRISSIEN_2720_DROP_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
@@ -11,7 +12,7 @@
 class Drop : public Action
 {
   public:
-    Drop();
+    Drop(Player* p);
     virtual ~Drop();
 
     std::string execute();
