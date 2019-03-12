@@ -57,6 +57,7 @@
 		<Unit filename="include/Inform.h" />
 		<Unit filename="include/Interaction.h" />
 		<Unit filename="include/Inventory.h" />
+		<Unit filename="include/Item.h" />
 		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
@@ -73,6 +74,7 @@
 		<Unit filename="src/BadInput.cpp" />
 		<Unit filename="src/Command.cpp" />
 		<Unit filename="src/Container.cpp" />
+		<Unit filename="src/Door.cpp" />
 		<Unit filename="src/Drop.cpp" />
 		<Unit filename="src/Entity.cpp" />
 		<Unit filename="src/EntitySpec.cpp" />
@@ -90,6 +92,7 @@
 		<Unit filename="src/Inform.cpp" />
 		<Unit filename="src/Interaction.cpp" />
 		<Unit filename="src/Inventory.cpp" />
+		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/Load.cpp" />
 		<Unit filename="src/Look.cpp" />
 		<Unit filename="src/ObjectBlueprint.cpp" />
@@ -109,6 +112,9 @@
 		<Unit filename="test/EntitySpecTest.cpp" />
 		<Unit filename="test/EntityStateTest.cpp" />
 		<Unit filename="test/TestBadInput.cpp" />
+		<Unit filename="test/TestDoor.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestDrop.cpp" />
 		<Unit filename="test/TestEventGroup.cpp" />
 		<Unit filename="test/TestEventSpec.cpp" />
@@ -123,6 +129,9 @@
 		<Unit filename="test/TestInform.cpp" />
 		<Unit filename="test/TestInteraction.cpp" />
 		<Unit filename="test/TestInventory.cpp" />
+		<Unit filename="test/TestItem.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestLoad.cpp" />
 		<Unit filename="test/TestLook.cpp" />
 		<Unit filename="test/TestObjectBlueprint.cpp" />
