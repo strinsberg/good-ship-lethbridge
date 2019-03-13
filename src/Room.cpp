@@ -59,3 +59,11 @@ void Room::setEnter(Event* event) {
 void Room::setExit(Event* event) {
   exitEvent = event;
 }
+
+Atmosphere Room::getAtmosphere() {
+  return atmosphere;
+}
+
+void Room::setAtmosphere(Atmosphere a) {
+  atmosphere = a;
+}

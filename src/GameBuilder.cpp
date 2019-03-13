@@ -55,6 +55,10 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
    desk->addEntity(computer);
 
+  // Create events ////////////////////////////////////////////////////////////
+
+
+
   // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));

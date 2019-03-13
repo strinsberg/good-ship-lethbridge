@@ -51,6 +51,9 @@ class Room : public Container {
     */
   void setExit(Event* event);
 
+  Atmosphere getAtmosphere();
+  void setAtmosphere(Atmosphere a);
+
  protected:
   Atmosphere atmosphere;
   Event* enterEvent;  // owns these events

@@ -34,6 +34,6 @@ void Event::setSpec(EventSpec* s) {
   spec = s;
 }
 
-const EventSpec* Event::getSpec() const {
+EventSpec* Event::getSpec() const {
   return spec;
 }
