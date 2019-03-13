@@ -65,12 +65,6 @@ class Event {
     */
   const EventSpec* getSpec() const;
 
-  /**
-   * Transfers ownership of spec to the event
-   * @param s the new spec
-   */
-  void setSpec(Event* s);
-
  protected:
   std::string message;
   EventSpec* spec;  // owns this object

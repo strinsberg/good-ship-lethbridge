@@ -33,6 +33,10 @@ Game* GameBuilder::newGame(std::string name) {
                 true, true, false);
   captains_room->addEntity(box);
 
+  // Create events ////////////////////////////////////////////////////////////
+
+
+
   // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
