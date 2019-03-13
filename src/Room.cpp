@@ -28,7 +28,7 @@ Room::~Room() {
 std::string Room::describe() const {
   std::stringstream ss;
   ss << "Location: " << spec->getName() << std::endl;
-  ss << spec->getDescription();
+  ss << Container::describe();
   return ss.str();
 }
 

@@ -6,7 +6,8 @@
 
 #include "GameBuilder.h"
 #include "Game.h"
-
+#include "Item.h"
+#include "Entity.h"
 GameBuilder::GameBuilder() {}
 
 GameBuilder::~GameBuilder() {}
@@ -21,7 +22,7 @@ Game* GameBuilder::newGame(std::string name) {
   Room* captains_room = new Room();
   addEntityInfo(captains_room,
                 "Captain's Room",
-                "The best room on the ship! Your the captain after all.",
+                "The best room on the ship! You are the captain after all.",
                 true, false, false);
   g->addRoom("Captain's Room", captains_room);
 
@@ -32,6 +33,27 @@ Game* GameBuilder::newGame(std::string name) {
                 "a small metallic container, maybe filled with treasure!",
                 true, true, false);
   captains_room->addEntity(box);
+
+  Container* desk = new Container();
+  addEntityInfo(desk,
+                "Desk",
+                "futuristic looking desk!",
+                true, false, false);
+  captains_room->addEntity(desk);
+
+  Entity* bed = new Item();
+  addEntityInfo(bed,
+                "Bed",
+                "your bed",
+                true, false, false);
+  captains_room->addEntity(bed);
+
+  Entity* computer = new Item();
+  addEntityInfo(computer,
+                "computer terminal",
+                "Captain's personal computer terminal",
+                true, false, false);
+   desk->addEntity(computer);
 
   // Create events ////////////////////////////////////////////////////////////
 
