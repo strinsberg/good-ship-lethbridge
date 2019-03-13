@@ -15,7 +15,12 @@ Container::~Container() {
 }
 
 std::string Container::describe()const {
-  return spec->getDescription();
+  std::stringstream ss;
+  if(inventory.size()>0){
+  ss<<endl<<"Contains: "<<endl;}
+  for(auto e : inventory) {ss<<e.first<<endl;}
+  ss.str();
+  return  spec->getDescription() + ss.str();
 }
 std::string Container::use(Entity*) {
   return "you can't use containers";

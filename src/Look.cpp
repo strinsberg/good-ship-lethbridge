@@ -15,13 +15,13 @@ Look::~Look() {}
 
 std::string Look::execute() {
   if (noun == "")
-    return player->getCurrentRoom()->getSpec()->getDescription();
+    return player->getCurrentRoom()->describe();
 
   Entity* e = getEntity();
 
   std::string str("You see ");
   if (e != nullptr)
-    return str + e->getSpec()->getDescription();
+    return str + e->describe();
 
   return "There is no " + noun;
 }
