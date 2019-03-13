@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "Player.h"
 #include "Exceptions.h"
+#include "Kill.h"
 #include <iostream>
 #include <sstream>
 #include "gtest/gtest.h"
@@ -55,5 +56,16 @@ TEST(GameTests, run) {
   Game g(in, out);
   g.run();
   EXPECT_EQ("> You can't fly!\n> Thanks for playing!\n", out.str());
+}
+
+TEST(GameTests, run_player_is_dead) {
+  std::stringstream in, out;
+  in << "fly box\nslip disk";
+  Game g(in, out);
+  Kill k;
+  k.execute(g.getPlayer());
+  g.run();
+  EXPECT_EQ(true, g.getPlayer()->getState()->getHidden());
+  EXPECT_EQ("> You can't fly!\nGame Over!\nBetter luck next time!\n", out.str());
 }
 

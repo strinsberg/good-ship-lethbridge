@@ -12,7 +12,7 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-Player::Player() : currentRoom(nullptr) {}
+Player::Player() : currentRoom(nullptr), equipped(nullptr) {}
 
 Player::~Player() {}
 
@@ -34,3 +34,10 @@ void Player::setCurrentRoom(Room* r) {
 
 ObjectBlueprint* Player::makeBlueprint() const {
 }
+
+void Player::setEquipped(Suit* s){
+equipped = s;
+}
+
+Suit* Player::getEquipped(){
+return equipped;}

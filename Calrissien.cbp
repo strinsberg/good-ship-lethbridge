@@ -34,8 +34,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="include/Action.h" />
+		<Unit filename="include/Activate.h" />
 		<Unit filename="include/Atmosphere.h" />
 		<Unit filename="include/BadInput.h" />
+		<Unit filename="include/CheckSuit.h" />
 		<Unit filename="include/Command.h" />
 		<Unit filename="include/Container.h" />
 		<Unit filename="include/Door.h" />
@@ -58,20 +60,28 @@
 		<Unit filename="include/Interaction.h" />
 		<Unit filename="include/Inventory.h" />
 		<Unit filename="include/Item.h" />
+		<Unit filename="include/KeyLock.h" />
+		<Unit filename="include/Kill.h" />
 		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
+		<Unit filename="include/MoveItems.h" />
+		<Unit filename="include/Npc.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
 		<Unit filename="include/ObjectWithContentsBlueprint.h" />
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/QuestionLock.h" />
 		<Unit filename="include/Quit.h" />
 		<Unit filename="include/Room.h" />
 		<Unit filename="include/Save.h" />
 		<Unit filename="include/StructuredEvents.h" />
+		<Unit filename="include/Suit.h" />
 		<Unit filename="include/Talk.h" />
 		<Unit filename="include/Use.h" />
 		<Unit filename="src/Action.cpp" />
+		<Unit filename="src/Activate.cpp" />
 		<Unit filename="src/BadInput.cpp" />
+		<Unit filename="src/CheckSuit.cpp" />
 		<Unit filename="src/Command.cpp" />
 		<Unit filename="src/Container.cpp" />
 		<Unit filename="src/Door.cpp" />
@@ -93,16 +103,22 @@
 		<Unit filename="src/Interaction.cpp" />
 		<Unit filename="src/Inventory.cpp" />
 		<Unit filename="src/Item.cpp" />
+		<Unit filename="src/KeyLock.cpp" />
+		<Unit filename="src/Kill.cpp" />
 		<Unit filename="src/Load.cpp" />
 		<Unit filename="src/Look.cpp" />
+		<Unit filename="src/MoveItems.cpp" />
+		<Unit filename="src/Npc.cpp" />
 		<Unit filename="src/ObjectBlueprint.cpp" />
 		<Unit filename="src/ObjectWithContentsBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/QuestionLock.cpp" />
 		<Unit filename="src/Quit.cpp" />
 		<Unit filename="src/Room.cpp" />
 		<Unit filename="src/Save.cpp" />
 		<Unit filename="src/StructuredEvents.cpp" />
+		<Unit filename="src/Suit.cpp" />
 		<Unit filename="src/Talk.cpp" />
 		<Unit filename="src/Use.cpp" />
 		<Unit filename="src/game/main.cpp">
@@ -111,7 +127,13 @@
 		<Unit filename="test/ContainerTest.cpp" />
 		<Unit filename="test/EntitySpecTest.cpp" />
 		<Unit filename="test/EntityStateTest.cpp" />
+		<Unit filename="test/TestActivate.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestBadInput.cpp" />
+		<Unit filename="test/TestCheckSuit.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestDoor.cpp">
 			<Option target="Test" />
 		</Unit>
@@ -132,8 +154,20 @@
 		<Unit filename="test/TestItem.cpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="test/TestKeyLock.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestKill.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestLoad.cpp" />
 		<Unit filename="test/TestLook.cpp" />
+		<Unit filename="test/TestMoveItems.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestNpc.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestObjectBlueprint.cpp" />
 		<Unit filename="test/TestObjectWithContentsBlueprint.cpp" />
 		<Unit filename="test/TestParser.cpp">
@@ -142,10 +176,16 @@
 		<Unit filename="test/TestPlayer.cpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="test/TestQuestionLock.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestQuit.cpp" />
 		<Unit filename="test/TestRoom.cpp" />
 		<Unit filename="test/TestSave.cpp" />
 		<Unit filename="test/TestStructuredEvent.cpp" />
+		<Unit filename="test/TestSuit.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestTalk.cpp" />
 		<Unit filename="test/TestUse.cpp" />
 		<Unit filename="test/main.cpp">

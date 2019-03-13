@@ -24,8 +24,16 @@ ObjectBlueprint* Container:: makeBlueprint() const {}
 
 Entity* Container::search(std::string name) const {
   auto it = inventory.find( Game::toLower(name) );
-  if (it == inventory.end())
+  if (it == inventory.end()) {
+    for (auto itemPair : inventory) {
+      if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
+        Entity* e = c->search( Game::toLower(name) );
+        if (e!= nullptr)
+          return e;
+      }
+    }
     return nullptr;
+  }
   else
     return it->second;
 }

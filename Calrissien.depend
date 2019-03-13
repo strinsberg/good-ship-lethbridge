@@ -26,14 +26,14 @@
 	"EntityState.h"
 	"Event.h"
 
-1552254030 source:/home/deus2720/assn/Calrissien/src/Event.cpp
+1552490044 source:/home/deus2720/assn/Calrissien/src/Event.cpp
 	"Event.h"
 	"ObjectBlueprint.h"
 	"EventSpec.h"
 	<string>
 	<iostream>
 
-1552352165 source:/home/deus2720/assn/Calrissien/src/Action.cpp
+1552517291 source:/home/deus2720/assn/Calrissien/src/Action.cpp
 	"Action.h"
 	"Entity.h"
 	"Player.h"
@@ -56,12 +56,13 @@
 	"EventSpec.h"
 	<string>
 
-1552350872 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
+1552506320 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
 	"Exit.h"
 	"Entity.h"
+	"Door.h"
 	<string>
 
-1552352665 source:/home/deus2720/assn/Calrissien/src/Game.cpp
+1552516455 source:/home/deus2720/assn/Calrissien/src/Game.cpp
 	"Game.h"
 	"Player.h"
 	"Room.h"
@@ -90,7 +91,7 @@
 	"Get.h"
 	<string>
 
-1552328656 source:/home/deus2720/assn/Calrissien/src/Help.cpp
+1552499100 source:/home/deus2720/assn/Calrissien/src/Help.cpp
 	"Help.h"
 	"Game.h"
 	<string>
@@ -171,8 +172,10 @@
 	<string>
 	<vector>
 
-1552350561 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
+1552516418 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
 	"Talk.h"
+	"Entity.h"
+	"Npc.h"
 	<string>
 
 1552350566 source:/home/deus2720/assn/Calrissien/src/Use.cpp
@@ -208,7 +211,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552254214 source:/home/deus2720/assn/Calrissien/src/Room.cpp
+1552501626 source:/home/deus2720/assn/Calrissien/src/Room.cpp
 	"Room.h"
 	"Entity.h"
 	"Container.h"
@@ -238,7 +241,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552356055 source:/home/deus2720/assn/Calrissien/src/Container.cpp
+1552517562 source:/home/deus2720/assn/Calrissien/src/Container.cpp
 	"Container.h"
 	"Entity.h"
 	"Game.h"
@@ -246,15 +249,20 @@
 	<iostream>
 	<sstream>
 
-1552356351 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552506607 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
+	"Door.h"
+	"Room.h"
+	"Inform.h"
+	"Item.h"
 	<sstream>
 	"gtest/gtest.h"
 
-1552352747 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
+1552503433 source:/home/deus2720/assn/Calrissien/test/TestGame.cpp
 	"Game.h"
 	"Player.h"
 	"Exceptions.h"
+	"Kill.h"
 	<iostream>
 	<sstream>
 	"gtest/gtest.h"
@@ -270,7 +278,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552179022 source:/home/deus2720/assn/Calrissien/test/TestHelp.cpp
+1552499100 source:/home/deus2720/assn/Calrissien/test/TestHelp.cpp
 	"Help.h"
 	<string>
 	"gtest/gtest.h"
@@ -301,7 +309,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552249642 source:/home/deus2720/assn/Calrissien/src/Player.cpp
+1552502439 source:/home/deus2720/assn/Calrissien/src/Player.cpp
 	"Player.h"
 	"Room.h"
 	"Container.h"
@@ -374,8 +382,11 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552352780 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
+1552516406 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
 	"Talk.h"
+	"Npc.h"
+	"Inform.h"
+	"Item.h"
 	<string>
 	"gtest/gtest.h"
 
@@ -388,7 +399,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552342460 source:/home/deus2720/assn/Calrissien/test/TestPlayer.cpp
+1552499100 source:/home/deus2720/assn/Calrissien/test/TestPlayer.cpp
 	"Player.h"
 	"Room.h"
 	"Container.h"
@@ -397,6 +408,7 @@
 	"ObjectBlueprint.h"
 	<string>
 	"gtest/gtest.h"
+	"Suit.h"
 
 1552352173 /home/deus2720/assn/Calrissien/include/Action.h
 	"Command.h"
@@ -405,10 +417,11 @@
 1552179021 /home/deus2720/assn/Calrissien/include/Command.h
 	<string>
 
-1552248928 /home/deus2720/assn/Calrissien/include/Player.h
+1552499100 /home/deus2720/assn/Calrissien/include/Player.h
 	"Container.h"
 	"Room.h"
 	"ObjectBlueprint.h"
+	"Suit.h"
 	<string>
 
 1552320798 /home/deus2720/assn/Calrissien/include/Container.h
@@ -433,7 +446,7 @@
 	<string>
 	<map>
 
-1552247578 /home/deus2720/assn/Calrissien/include/Event.h
+1552490064 /home/deus2720/assn/Calrissien/include/Event.h
 	"ObjectBlueprint.h"
 	"EventSpec.h"
 	<string>
@@ -444,7 +457,7 @@
 	<string>
 	<string>
 
-1552248594 /home/deus2720/assn/Calrissien/include/Room.h
+1552501114 /home/deus2720/assn/Calrissien/include/Room.h
 	"Entity.h"
 	"Container.h"
 	"Atmosphere.h"
@@ -514,7 +527,7 @@
 	"Game.h"
 	<string>
 
-1552355462 source:/home/deus2720/assn/Calrissien/src/GameBuilder.cpp
+1552426040 source:/home/deus2720/assn/Calrissien/src/GameBuilder.cpp
 	"GameBuilder.h"
 	"Game.h"
 
@@ -597,7 +610,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552413555 source:/home/deus2720/assn/Calrissien/src/Door.cpp
+1552414254 source:/home/deus2720/assn/Calrissien/src/Door.cpp
 	"Door.h"
 	"ObjectBlueprint.h"
 	"Player.h"
@@ -619,4 +632,143 @@
 	"ObjectBlueprint.h"
 	<string>
 	"gtest/gtest.h"
+
+1552489347 source:/home/deus2720/assn/Calrissien/src/Activate.cpp
+	"Activate.h"
+	"Exceptions.h"
+	"Entity.h"
+	<string>
+
+1552489381 /home/deus2720/assn/Calrissien/include/Activate.h
+	"Event.h"
+
+1552430876 source:/home/deus2720/assn/Calrissien/test/TestActivate.cpp
+	"Activate.h"
+	"Event.h"
+	"Item.h"
+	"EntityState.h"
+	<string>
+	"gtest/gtest.h"
+
+1552489227 source:/home/deus2720/assn/Calrissien/src/KeyLock.cpp
+	"KeyLock.h"
+	"Container.h"
+	<typeinfo>
+
+1552489195 /home/deus2720/assn/Calrissien/include/KeyLock.h
+	"Activate.h"
+
+1552435255 source:/home/deus2720/assn/Calrissien/test/TestKeyLock.cpp
+	"KeyLock.h"
+	"Item.h"
+	"Entity.h"
+	"Container.h"
+	"gtest/gtest.h"
+
+1552490854 source:/home/deus2720/assn/Calrissien/src/QuestionLock.cpp
+	"QuestionLock.h"
+	"Entity.h"
+	<string>
+
+1552489236 /home/deus2720/assn/Calrissien/include/QuestionLock.h
+	"Activate.h"
+
+1552490823 source:/home/deus2720/assn/Calrissien/test/TestQuestionLock.cpp
+	"QuestionLock.h"
+	"Item.h"
+	"Entity.h"
+	"gtest/gtest.h"
+
+1552500228 source:/home/deus2720/assn/Calrissien/src/MoveItems.cpp
+	"MoveItems.h"
+	"ObjectBlueprint.h"
+	"Container.h"
+	"Exceptions.h"
+
+1552495778 /home/deus2720/assn/Calrissien/include/MoveItems.h
+	"Event.h"
+	"ObjectBlueprint.h"
+
+1552496794 source:/home/deus2720/assn/Calrissien/test/TestMoveItems.cpp
+	"MoveItems.h"
+	"Event.h"
+	"Item.h"
+	"Container.h"
+	"Player.h"
+	<string>
+	"gtest/gtest.h"
+
+1552497490 source:/home/deus2720/assn/Calrissien/src/Kill.cpp
+	"Kill.h"
+	"Entity.h"
+
+1552497145 /home/deus2720/assn/Calrissien/include/Kill.h
+	"Event.h"
+
+1552497919 source:/home/deus2720/assn/Calrissien/test/TestKill.cpp
+	"Kill.h"
+	"Event.h"
+	"Item.h"
+	"Container.h"
+	"Player.h"
+	<string>
+	"gtest/gtest.h"
+
+1552499100 /home/deus2720/assn/Calrissien/include/Suit.h
+	"Atmosphere.h"
+	"Entity.h"
+
+1552502459 source:/home/deus2720/assn/Calrissien/src/CheckSuit.cpp
+	"CheckSuit.h"
+	"Room.h"
+	"Suit.h"
+	"Player.h"
+	"Kill.h"
+	"ObjectBlueprint.h"
+	"Atmosphere.h"
+	<string>
+
+1552499864 /home/deus2720/assn/Calrissien/include/CheckSuit.h
+	"Event.h"
+	"Room.h"
+	"ObjectBlueprint.h"
+	<string>
+
+1552502608 source:/home/deus2720/assn/Calrissien/test/TestCheckSuit.cpp
+	"CheckSuit.h"
+	"Suit.h"
+	"Event.h"
+	"Item.h"
+	"Container.h"
+	"Player.h"
+	"Atmosphere.h"
+	<string>
+	"gtest/gtest.h"
+
+1552499100 source:/home/deus2720/assn/Calrissien/src/Npc.cpp
+	"Npc.h"
+	"Container.h"
+
+1552499100 /home/deus2720/assn/Calrissien/include/Npc.h
+	"Container.h"
+
+1552499100 source:/home/deus2720/assn/Calrissien/src/Suit.cpp
+	"Suit.h"
+	"Player.h"
+	<typeinfo>
+
+1552499100 source:/home/deus2720/assn/Calrissien/test/TestNpc.cpp
+	"Npc.h"
+	"Container.h"
+	"gtest/gtest.h"
+	"Inform.h"
+	"Player.h"
+
+1552499100 source:/home/deus2720/assn/Calrissien/test/TestSuit.cpp
+	"Suit.h"
+	"Atmosphere.h"
+	"Exceptions.h"
+	<string>
+	"gtest/gtest.h"
+	"Player.h"
 
