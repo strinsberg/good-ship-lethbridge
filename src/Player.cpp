@@ -12,7 +12,7 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-Player::Player() : currentRoom(nullptr) {}
+Player::Player() : currentRoom(nullptr), equipped(nullptr) {}
 
 Player::~Player() {}
 

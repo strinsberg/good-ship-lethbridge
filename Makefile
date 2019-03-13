@@ -25,7 +25,7 @@ PROGRAM = adventureGame
 PROGRAM_TEST = testAdventure
 
 .PHONY: all
-all: $(PROGRAM_TEST) memcheck-test coverage docs static style
+all: $(PROGRAM_TEST) memcheck coverage docs static style
 
 # default rule for compiling .cc to .o
 %.o: %.cpp
@@ -50,7 +50,7 @@ $(PROGRAM_TEST): $(TEST_DIR) $(SRC_DIR)
 tests: $(PROGRAM_TEST)
 	$(PROGRAM_TEST)
 
-memcheck-test: $(PROGRAM_TEST)
+memcheck: $(PROGRAM_TEST)
 	valgrind --tool=memcheck --leak-check=yes $(PROGRAM_TEST)
 
 coverage: $(PROGRAM_TEST)
