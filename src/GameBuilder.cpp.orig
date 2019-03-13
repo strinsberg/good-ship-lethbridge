@@ -34,6 +34,7 @@ Game* GameBuilder::newGame(std::string name) {
                 true, true, false);
   captains_room->addEntity(box);
 
+<<<<<<< HEAD
   Container* desk = new Container();
   addEntityInfo(desk,
                 "Desk",
@@ -54,16 +55,11 @@ Game* GameBuilder::newGame(std::string name) {
                 "Captain's personal computer terminal",
                 true, false, false);
    desk->addEntity(computer);
-
-  Entity* window = new Item();
-  addEntityInfo(window,
-                "window",
-                "window in Captain's room",
-                true, false, false);
-   captains_room->addEntity(window);
+=======
   // Create events ////////////////////////////////////////////////////////////
 
 
+>>>>>>> fb829bde232606dd5ff60371ddc1a44eee3f4734
 
   // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();

@@ -47,7 +47,7 @@ Command* Parser::parse() const {
     return c;
   }
 
-  c->setNoun(noun);
+  c->setNoun(noun1.str());
   return c;
 }
 
