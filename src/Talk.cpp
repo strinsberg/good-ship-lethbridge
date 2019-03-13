@@ -6,11 +6,24 @@
 
 
 #include "Talk.h"
+#include "Entity.h"
+#include "Npc.h"
 #include <string>
 
 
 Talk::Talk(Player* p) : Action(p) {}
 Talk::~Talk() {}
 std::string Talk::execute() {
-  return noun;
+  Entity* e = player->getCurrentRoom()->search(noun);
+  if (e == nullptr)
+    return "There is no " + noun;
+
+  if (Npc* npc = dynamic_cast<Npc*>(e)) {
+    if (npc->getState()->getActive()) {
+        return npc->use(player);
+    } else {
+      return noun + " can't talk right now";
+    }
+  }
+  return "You can't talk to " + noun;
 }

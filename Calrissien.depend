@@ -33,7 +33,7 @@
 	<string>
 	<iostream>
 
-1552352165 source:/home/deus2720/assn/Calrissien/src/Action.cpp
+1552517291 source:/home/deus2720/assn/Calrissien/src/Action.cpp
 	"Action.h"
 	"Entity.h"
 	"Player.h"
@@ -171,8 +171,10 @@
 	<string>
 	<vector>
 
-1552350561 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
+1552516418 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
 	"Talk.h"
+	"Entity.h"
+	"Npc.h"
 	<string>
 
 1552350566 source:/home/deus2720/assn/Calrissien/src/Use.cpp
@@ -238,7 +240,7 @@
 	<string>
 	"gtest/gtest.h"
 
-1552356055 source:/home/deus2720/assn/Calrissien/src/Container.cpp
+1552517562 source:/home/deus2720/assn/Calrissien/src/Container.cpp
 	"Container.h"
 	"Entity.h"
 	"Game.h"
@@ -374,8 +376,11 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552352780 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
+1552516406 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
 	"Talk.h"
+	"Npc.h"
+	"Inform.h"
+	"Item.h"
 	<string>
 	"gtest/gtest.h"
 
