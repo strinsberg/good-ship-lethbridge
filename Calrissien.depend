@@ -56,9 +56,10 @@
 	"EventSpec.h"
 	<string>
 
-1552350872 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
+1552506320 source:/home/deus2720/assn/Calrissien/src/Exit.cpp
 	"Exit.h"
 	"Entity.h"
+	"Door.h"
 	<string>
 
 1552503314 source:/home/deus2720/assn/Calrissien/src/Game.cpp
@@ -246,8 +247,11 @@
 	<iostream>
 	<sstream>
 
-1552356351 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552506222 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
+	"Door.h"
+	"Room.h"
+	"Inform.h"
 	<sstream>
 	"gtest/gtest.h"
 
