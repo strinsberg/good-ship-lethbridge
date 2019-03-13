@@ -172,8 +172,10 @@
 	<string>
 	<vector>
 
-1552350561 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
+1552516418 source:/home/deus2720/assn/Calrissien/src/Talk.cpp
 	"Talk.h"
+	"Entity.h"
+	"Npc.h"
 	<string>
 
 1552350566 source:/home/deus2720/assn/Calrissien/src/Use.cpp
@@ -247,11 +249,12 @@
 	<iostream>
 	<sstream>
 
-1552506222 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
+1552506607 source:/home/deus2720/assn/Calrissien/test/TestExit.cpp
 	"Exit.h"
 	"Door.h"
 	"Room.h"
 	"Inform.h"
+	"Item.h"
 	<sstream>
 	"gtest/gtest.h"
 
@@ -379,8 +382,11 @@
 	<vector>
 	"gtest/gtest.h"
 
-1552352780 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
+1552516406 source:/home/deus2720/assn/Calrissien/test/TestTalk.cpp
 	"Talk.h"
+	"Npc.h"
+	"Inform.h"
+	"Item.h"
 	<string>
 	"gtest/gtest.h"
 
