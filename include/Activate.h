@@ -7,7 +7,7 @@
 class Activate : public Event
 {
   public:
-    Activate(Entity* t);
+    Activate(Entity* t, std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~Activate();
     virtual std::string execute(Entity* e);
     virtual ObjectBlueprint* makeBlueprint() const;

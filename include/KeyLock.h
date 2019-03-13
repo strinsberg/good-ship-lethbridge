@@ -13,7 +13,7 @@
 class KeyLock : public Activate
 {
   public:
-    KeyLock(Entity* target, Entity* key);
+    KeyLock(Entity* target, Entity* key, std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~KeyLock();
 
     std::string execute(Entity* e);

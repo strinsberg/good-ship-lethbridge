@@ -37,6 +37,7 @@
 		<Unit filename="include/Activate.h" />
 		<Unit filename="include/Atmosphere.h" />
 		<Unit filename="include/BadInput.h" />
+		<Unit filename="include/CheckSuit.h" />
 		<Unit filename="include/Command.h" />
 		<Unit filename="include/Container.h" />
 		<Unit filename="include/Door.h" />
@@ -60,12 +61,15 @@
 		<Unit filename="include/Inventory.h" />
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/KeyLock.h" />
+		<Unit filename="include/Kill.h" />
 		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
+		<Unit filename="include/MoveItems.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
 		<Unit filename="include/ObjectWithContentsBlueprint.h" />
 		<Unit filename="include/Parser.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/QuestionLock.h" />
 		<Unit filename="include/Quit.h" />
 		<Unit filename="include/Room.h" />
 		<Unit filename="include/Save.h" />
@@ -75,6 +79,7 @@
 		<Unit filename="src/Action.cpp" />
 		<Unit filename="src/Activate.cpp" />
 		<Unit filename="src/BadInput.cpp" />
+		<Unit filename="src/CheckSuit.cpp" />
 		<Unit filename="src/Command.cpp" />
 		<Unit filename="src/Container.cpp" />
 		<Unit filename="src/Door.cpp" />
@@ -97,12 +102,15 @@
 		<Unit filename="src/Inventory.cpp" />
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/KeyLock.cpp" />
+		<Unit filename="src/Kill.cpp" />
 		<Unit filename="src/Load.cpp" />
 		<Unit filename="src/Look.cpp" />
+		<Unit filename="src/MoveItems.cpp" />
 		<Unit filename="src/ObjectBlueprint.cpp" />
 		<Unit filename="src/ObjectWithContentsBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/QuestionLock.cpp" />
 		<Unit filename="src/Quit.cpp" />
 		<Unit filename="src/Room.cpp" />
 		<Unit filename="src/Save.cpp" />
@@ -119,6 +127,9 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestBadInput.cpp" />
+		<Unit filename="test/TestCheckSuit.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestDoor.cpp">
 			<Option target="Test" />
 		</Unit>
@@ -142,14 +153,23 @@
 		<Unit filename="test/TestKeyLock.cpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="test/TestKill.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestLoad.cpp" />
 		<Unit filename="test/TestLook.cpp" />
+		<Unit filename="test/TestMoveItems.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestObjectBlueprint.cpp" />
 		<Unit filename="test/TestObjectWithContentsBlueprint.cpp" />
 		<Unit filename="test/TestParser.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestPlayer.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/TestQuestionLock.cpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="test/TestQuit.cpp" />

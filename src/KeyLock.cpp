@@ -8,7 +8,8 @@
 #include "Container.h"
 #include <typeinfo>
 
-KeyLock::KeyLock(Entity* target, Entity* k) : Activate(target), key(k) {}
+KeyLock::KeyLock(Entity* target, Entity* k, std::istream& is, std::ostream& os)
+    : Activate(target, is, os), key(k) {}
 
 KeyLock::~KeyLock() {}
 

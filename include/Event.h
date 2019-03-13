@@ -63,7 +63,7 @@ class Event {
     * Get the event's spec. Does not transfer ownership.
     * @return spec
     */
-  const EventSpec* getSpec() const;
+  EventSpec* getSpec() const;
 
  protected:
   std::string message;
