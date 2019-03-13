@@ -65,6 +65,7 @@
 		<Unit filename="include/Load.h" />
 		<Unit filename="include/Look.h" />
 		<Unit filename="include/MoveItems.h" />
+		<Unit filename="include/Npc.h" />
 		<Unit filename="include/ObjectBlueprint.h" />
 		<Unit filename="include/ObjectWithContentsBlueprint.h" />
 		<Unit filename="include/Parser.h" />
@@ -74,6 +75,7 @@
 		<Unit filename="include/Room.h" />
 		<Unit filename="include/Save.h" />
 		<Unit filename="include/StructuredEvents.h" />
+		<Unit filename="include/Suit.h" />
 		<Unit filename="include/Talk.h" />
 		<Unit filename="include/Use.h" />
 		<Unit filename="src/Action.cpp" />
@@ -106,6 +108,7 @@
 		<Unit filename="src/Load.cpp" />
 		<Unit filename="src/Look.cpp" />
 		<Unit filename="src/MoveItems.cpp" />
+		<Unit filename="src/Npc.cpp" />
 		<Unit filename="src/ObjectBlueprint.cpp" />
 		<Unit filename="src/ObjectWithContentsBlueprint.cpp" />
 		<Unit filename="src/Parser.cpp" />
@@ -115,6 +118,7 @@
 		<Unit filename="src/Room.cpp" />
 		<Unit filename="src/Save.cpp" />
 		<Unit filename="src/StructuredEvents.cpp" />
+		<Unit filename="src/Suit.cpp" />
 		<Unit filename="src/Talk.cpp" />
 		<Unit filename="src/Use.cpp" />
 		<Unit filename="src/game/main.cpp">
@@ -161,6 +165,9 @@
 		<Unit filename="test/TestMoveItems.cpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="test/TestNpc.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestObjectBlueprint.cpp" />
 		<Unit filename="test/TestObjectWithContentsBlueprint.cpp" />
 		<Unit filename="test/TestParser.cpp">
@@ -176,6 +183,9 @@
 		<Unit filename="test/TestRoom.cpp" />
 		<Unit filename="test/TestSave.cpp" />
 		<Unit filename="test/TestStructuredEvent.cpp" />
+		<Unit filename="test/TestSuit.cpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="test/TestTalk.cpp" />
 		<Unit filename="test/TestUse.cpp" />
 		<Unit filename="test/main.cpp">

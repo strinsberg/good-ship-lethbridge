@@ -2,18 +2,24 @@
 #define CHECKSUIT_H
 
 #include "Event.h"
+#include "Room.h"
+#include "ObjectBlueprint.h"
+#include <string>
 
 
 class CheckSuit : public Event
 {
   public:
-    CheckSuit();
+    CheckSuit(Room* here, std::istream& is = std::cin, std::ostream& os = std::cout);
     virtual ~CheckSuit();
 
     std::string execute(Entity* affected);
     ObjectBlueprint* makeBlueprint() const;
 
+    Room* getHere();
+
   protected:
+    Room* here;
 
   private:
     CheckSuit(const CheckSuit& other);

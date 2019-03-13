@@ -10,7 +10,7 @@ MoveItems::~MoveItems() {}
 
 std::string MoveItems::execute(Entity* affected) {
   if (spec->isDone())
-    return "";
+    return message;
 
   if (Container* own = dynamic_cast<Container*>(owner)) {
       if (Container* aff = dynamic_cast<Container*>(affected)) {
