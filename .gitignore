@@ -37,8 +37,9 @@ bin/
 # Backup Files
 *~
 *.bak
+*.orig
 
 # codeblocks
-*.layout
-*.cbp
-*.depend
+*layout
+*cbp
+*depend
