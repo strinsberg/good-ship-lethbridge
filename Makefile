@@ -50,7 +50,7 @@ $(PROGRAM_TEST): $(TEST_DIR) $(SRC_DIR)
 tests: $(PROGRAM_TEST)
 	$(PROGRAM_TEST)
 
-memcheck-test: $(PROGRAM_TEST)
+memcheck: $(PROGRAM_TEST)
 	valgrind --tool=memcheck --leak-check=yes $(PROGRAM_TEST)
 
 coverage: $(PROGRAM_TEST)
