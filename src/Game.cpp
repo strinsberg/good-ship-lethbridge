@@ -87,7 +87,7 @@ void Game::run() {
     if (player->getState()->getHidden()) {
       out << "Game Over!" << std::endl;
       out << "Better luck next time!" << std::endl;
-      running == false;
+      running = false;
     }
   }
 }
