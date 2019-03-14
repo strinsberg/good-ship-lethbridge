@@ -75,7 +75,7 @@ TEST(TestKeyLock, constructor_execute_no_key) {
   KeyLock l(locked, key);
   l.setMessage("You now have access");
 
-  EXPECT_EQ("You don't have the key", l.execute(c));
+  EXPECT_EQ("You don't have what you need", l.execute(c));
   EXPECT_EQ(true, locked->getState()->getActive());
 
   delete key;
@@ -94,7 +94,7 @@ TEST(TestKeyLock, constructor_execute_not_a_container) {
   KeyLock l(locked, key);
   l.setMessage("You now have access");
 
-  EXPECT_EQ("That can't hold a key", l.execute(item));
+  EXPECT_EQ("That can't hold a key", l.execute(item));  // does this make sense
   EXPECT_EQ(true, locked->getState()->getActive());
 
   delete key;

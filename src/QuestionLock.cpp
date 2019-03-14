@@ -23,7 +23,13 @@ std::string QuestionLock::execute(Entity* affected) {
   return "Nope!";
 }
 
-ObjectBlueprint* QuestionLock::makeBlueprint() {}
+ObjectBlueprint* QuestionLock::makeBlueprint() {
+  ObjectBlueprint* bp = Activate::makeBlueprint();
+  bp->setField("type", "questionlock");
+  bp->setField("question", question);
+  bp->setField("answer", answer);
+  return bp;
+}
 
 std::string QuestionLock::getQuestion() {
   return question;

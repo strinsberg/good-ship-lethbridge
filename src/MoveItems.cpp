@@ -32,7 +32,19 @@ std::string MoveItems::execute(Entity* affected) {
   }
 }
 
-ObjectBlueprint* MoveItems::makeBlueprint() const {}
+ObjectBlueprint* MoveItems::makeBlueprint() const {
+  ObjectBlueprint* bp = new ObjectBlueprint();
+  bp->setField("type", "move_items");
+  bp->setField("message", message);
+  bp->setField("name", spec->getName());
+  std::string d = spec->isDone() ? "true" : "false";
+  bp->setField("done", d);
+  bp->setField("owner", owner->getSpec()->getName());
+  bp->setField("item_name", itemName);
+  std::string g = give ? "true" : "false";
+  bp->setField("give", g);
+  return bp;
+}
 
 Entity* MoveItems::getOwner() const {
   return owner;

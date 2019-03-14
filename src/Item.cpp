@@ -21,5 +21,7 @@ std::string Item::use(Entity* user) {
 }
 
 ObjectBlueprint* Item::makeBlueprint() const {
-
+  ObjectBlueprint* bp = Entity::makeBlueprint();
+  bp->setField("type", "item");
+  return bp;
 }
