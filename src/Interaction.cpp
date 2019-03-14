@@ -59,7 +59,9 @@ ObjectBlueprint* Interaction::makeBlueprint() const {
   }
 
   for (auto o : options) {
-    b->addBlueprint(o.event->makeBlueprint());
+    ObjectBlueprint* ebp = o.event->makeBlueprint();
+    ebp->setField("owner", spec->getName());
+    b->addBlueprint(ebp);
   }
 
   return b;

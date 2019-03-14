@@ -38,7 +38,7 @@ class Entity {
     * Transfers ownership of the blueprint to the caller.
     * @return the blueprint.
     */
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
+  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * @return the spec

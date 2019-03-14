@@ -6,6 +6,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
+#include "ObjectWithContentsBlueprint.h"
 #include "Inform.h"
 
 
@@ -46,4 +47,25 @@ void Entity::setEvent(Event* e) {
 
 Event* Entity::getEvent() const {
   return event;
+}
+
+ObjectBlueprint* Entity::makeBlueprint() const {
+  ObjectWithContentsBlueprint* bp = new ObjectWithContentsBlueprint();
+
+  bp->setField("type", "entity");
+  bp->setField("description", spec->getDescription());
+  bp->setField("name", spec->getName());
+
+  std::string act = state->getActive() ? "true" : "false";
+  bp->setField("active", act);
+  std::string obt = state->getObtainable() ? "true" : "false";
+  bp->setField("obtainable", obt);
+  std::string hid = state->getHidden() ? "true" : "false";
+  bp->setField("hidden", hid);
+
+  ObjectBlueprint* ebp = event->makeBlueprint();
+  ebp->setField("owner", spec->getName());
+  bp->addBlueprint(ebp);
+
+  return bp;
 }

@@ -12,4 +12,6 @@ return spec->getDescription();
 string Npc::use(Entity* user){
 return event->execute(user);
 }
-ObjectBlueprint* Npc::makeBlueprint()const{}
+ObjectBlueprint* Npc::makeBlueprint()const{
+  return Container::makeBlueprint();
+}

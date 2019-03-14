@@ -36,7 +36,11 @@ std::string Door::use(Entity* user) {
 }
 
 ObjectBlueprint* Door::makeBlueprint() const {
-
+  ObjectBlueprint* bp = Entity::makeBlueprint();
+  bp->setField("type", "door");
+  bp->setField("here", here->getSpec()->getName());
+  bp->setField("destination", destination->getSpec()->getName());
+  return bp;
 }
 
 void Door::setDestination(Room* room) {

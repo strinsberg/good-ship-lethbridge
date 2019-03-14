@@ -30,7 +30,16 @@ std::string CheckSuit::execute(Entity* affected) {
   }
 }
 
-ObjectBlueprint* CheckSuit::makeBlueprint() const {}
+ObjectBlueprint* CheckSuit::makeBlueprint() const {
+  ObjectBlueprint* bp = new ObjectBlueprint();
+  bp->setField("type", "checksuit");
+  bp->setField("message", message);
+  bp->setField("name", spec->getName());
+  std::string done = spec->isDone() ? "true" : "false";
+  bp->setField("done", done);
+  bp->setField("here", here->getSpec()->getName());
+  return bp;
+}
 
 Room* CheckSuit::getHere() {
   return here;

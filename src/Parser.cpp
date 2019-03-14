@@ -13,6 +13,9 @@
 #include "Look.h"
 #include "Inventory.h"
 #include "Use.h"
+#include "Talk.h"
+#include "Help.h"
+#include "Exit.h"
 #include <string>
 #include <sstream>
 
@@ -35,7 +38,7 @@ Command* Parser::parse() const {
     i++;
   }
 
-  if (verb == "quit") {
+  if (verb == "quit" || verb == "q") {
     c = new Quit(game);
   } else if (verb == "get" || verb == "g") {
     c = new Get(game->getPlayer());
@@ -47,6 +50,12 @@ Command* Parser::parse() const {
     c = new Inventory(game->getPlayer());
   } else if (verb == "use" || verb == "u") {
     c = new Use(game->getPlayer());
+  } else if (verb == "talk" || verb == "t"){
+    c = new Talk(game->getPlayer());
+  } else if (verb == "exit" || verb == "e"){
+    c = new Exit(game->getPlayer());
+  } else if (verb == "help" || verb == "h"){
+    c = new Help(game);
   } else {
     c = new BadInput();
     c->setNoun(verb);
