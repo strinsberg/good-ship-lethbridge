@@ -5,6 +5,7 @@
  */
 #include"Suit.h"
 #include"Player.h"
+#include "ObjectBlueprint.h"
 #include<typeinfo>
 
 Suit::Suit(){}
@@ -21,9 +22,14 @@ string Suit::use(Entity* user){
   }
 
   return "suit authorization failed";
-
 }
-ObjectBlueprint* Suit::makeBlueprint() const{}
+
+ObjectBlueprint* Suit::makeBlueprint() const{
+  ObjectBlueprint* bp = Entity::makeBlueprint();
+  bp->setField("type", "suit");
+  bp->setField("atmosphere", std::to_string(atmosphere));
+  return bp;
+}
 
 Atmosphere Suit::getAtmosphere(){
 return atmosphere;

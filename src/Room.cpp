@@ -10,6 +10,7 @@
 #include "Atmosphere.h"
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "ObjectWithContentsBlueprint.h"
 #include "Exceptions.h"
 #include <string>
 #include <sstream>
@@ -37,7 +38,15 @@ std::string Room::use(Entity*) {
 }
 
 ObjectBlueprint* Room::makeBlueprint() const {
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>(Container::makeBlueprint());
 
+  bp->setField("type", "room");
+  bp->setField("atmosphere", std::to_string(atmosphere));  // might need a different conversion
+
+  bp->addBlueprint(enterEvent->makeBlueprint());
+  bp->addBlueprint(exitEvent->makeBlueprint());
+
+  return bp;
 }
 
 std::string Room::enter(Entity* entity) {

@@ -31,6 +31,12 @@ ObjectBlueprint* Container:: makeBlueprint() const {
   bp->setField("type", "container");
 
   // for loop to add all items with this container as owner to the blueprint
+  for (auto iPair : inventory) {
+    ObjectBlueprint* ebp = iPair.second->makeBlueprint();
+    ebp->setField("owner", spec->getName());
+    bp->addBlueprint(ebp);
+  }
+
   return bp;
 }
 
