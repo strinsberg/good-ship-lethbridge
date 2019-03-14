@@ -98,3 +98,7 @@ string Game::toLower(const string& str) {
     lower.push_back( tolower(c) );
   return lower;
 }
+
+std::map<std::string, Room*> Game::getRooms() {
+  return rooms;
+}

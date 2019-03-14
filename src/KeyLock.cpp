@@ -13,14 +13,19 @@ KeyLock::KeyLock(Entity* target, Entity* k, std::istream& is, std::ostream& os)
 
 KeyLock::~KeyLock() {}
 
-ObjectBlueprint* KeyLock::makeBlueprint() {}
+ObjectBlueprint* KeyLock::makeBlueprint() {
+  ObjectBlueprint* bp = Activate::makeBlueprint();
+  bp->setField("type", "keylock");
+  bp->setField("key", key->getSpec()->getName());
+  return bp;
+}
 
 std::string KeyLock::execute(Entity* affected) {
   if (Container* c = dynamic_cast<Container*>(affected)) {
       if (c->search(key->getSpec()->getName()))
         return Activate::execute(affected);
       else
-        return "You don't have the key";
+        return "You don't have what you need";
   }
   return "That can't hold a key";
 }

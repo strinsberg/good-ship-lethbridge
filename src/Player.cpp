@@ -10,6 +10,7 @@
 #include "Atmosphere.h"
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "ObjectWithContentsBlueprint.h"
 #include <string>
 
 Player::Player() : currentRoom(nullptr), equipped(nullptr) {}
@@ -33,6 +34,14 @@ void Player::setCurrentRoom(Room* r) {
 }
 
 ObjectBlueprint* Player::makeBlueprint() const {
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>(Container::makeBlueprint());
+
+  bp->setField("type", "player");
+  bp->setField("room", currentRoom->getSpec()->getName());
+  std::string s = equipped == nullptr ? "none" : equipped->getSpec()->getName();
+  bp->setField("suit", s);
+
+  return bp;
 }
 
 void Player::setEquipped(Suit* s){

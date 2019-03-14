@@ -7,6 +7,7 @@
 #include "Activate.h"
 #include "Exceptions.h"
 #include "Entity.h"
+#include "ObjectBlueprint.h"
 #include <string>
 
 Activate::Activate(Entity* t, std::istream& is, std::ostream& os) : Event(is, os), target(t) {}
@@ -24,7 +25,15 @@ std::string Activate::execute(Entity* e) {
 }
 
 ObjectBlueprint* Activate::makeBlueprint() const {
+  ObjectBlueprint* bp = new ObjectBlueprint();
+  bp->setField("type", "activate");
+  bp->setField("target", target->getSpec()->getName());
+  bp->setField("message", message);
+  bp->setField("name", spec->getName());
+  std::string done = spec->isDone() ? "true" : "false";
+  bp->setField("done", done);
 
+  return bp;
 }
 
 void Activate::setTarget(Entity* e) {

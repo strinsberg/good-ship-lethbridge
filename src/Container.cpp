@@ -1,6 +1,7 @@
 #include "Container.h"
 #include "Entity.h"
 #include "Game.h"
+#include "ObjectWithContentsBlueprint.h"
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -25,7 +26,19 @@ std::string Container::describe()const {
 std::string Container::use(Entity*) {
   return "you can't use containers";
 }
-ObjectBlueprint* Container:: makeBlueprint() const {}
+ObjectBlueprint* Container:: makeBlueprint() const {
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>(Entity::makeBlueprint());
+  bp->setField("type", "container");
+
+  // for loop to add all items with this container as owner to the blueprint
+  for (auto iPair : inventory) {
+    ObjectBlueprint* ebp = iPair.second->makeBlueprint();
+    ebp->setField("owner", spec->getName());
+    bp->addBlueprint(ebp);
+  }
+
+  return bp;
+}
 
 Entity* Container::search(std::string name) const {
   auto it = inventory.find( Game::toLower(name) );
