@@ -13,6 +13,11 @@
 #include "Inform.h"
 #include "QuestionLock.h"
 #include "KeyLock.h"
+#include "Interaction.h"
+#include "Npc.h"
+#include "MoveItems.h"
+#include "EventGroup.h"
+
 GameBuilder::GameBuilder() {}
 
 GameBuilder::~GameBuilder() {}
@@ -44,6 +49,13 @@ Game* GameBuilder::newGame(std::string name) {
                 "the room of the engineer Clem Spanner",
                 true, false, false);
   g->addRoom("spanner Room",spannerRoom);
+
+  Room* hall = new Room();
+  addEntityInfo(hall,
+                "main hall",
+                "the main hall, it connect to everywhere",
+                true, false, false);
+  g->addRoom("main hall",hall);
 
   //Create doors /////////////////////////////////////////////////////
   Door* door = new Door();
@@ -91,9 +103,17 @@ Game* GameBuilder::newGame(std::string name) {
                 "the door lead you to the hallway",
                 false,false,false);
     hallDoor->setHere(common_room);
-    //hallDoor->setDestination(hall);
+    hallDoor->setDestination(hall);
     common_room->addEntity(hallDoor);
 
+    Door* engiDoor = new Door();
+      addEntityInfo(engiDoor,
+                "engineering room door",
+                "the door lead you to the engineering room",
+                false,false,false);
+    engiDoor->setHere(hall);
+    //engiDoor->setDestination(engiControl);
+    hall->addEntity(engiDoor);
 
   // Create objects ///////////////////////////////////////////////////////////
 
@@ -217,6 +237,39 @@ Container* spannerdesk = new Container();
                 true, false, false);
    spannerdesk->addEntity(spannerComputer);
 
+  //hall objects
+
+  Entity* hallComputer = new Item();
+  addEntityInfo(hallComputer,
+                "computer terminal",
+                "computer terminal in hall",
+                true, false, false);
+   hall->addEntity(hallComputer);
+
+   Item* medKit = new Item();
+   addEntityInfo(medKit,
+                 "medKit",
+                 "use it to heal wounds",
+                 true,true,false);
+  hall->addEntity(medKit);
+
+
+
+  //create NPCs
+
+  Npc* barbara = new Npc();
+  addEntityInfo(barbara,
+                "barbara Mcdougal",
+                "sitting on the floor, looks injured.",
+                true,false,false);
+  hall->addEntity(barbara);
+
+
+
+
+
+
+
 
 
   // Create events ////////////////////////////////////////////////////////////
@@ -280,12 +333,53 @@ hallDoorPanel->setEvent(hallLock);
   spannerComputerInfo->setMessage("biometric authentication failed! \naccess denied!!");
   spannerComputer->setEvent(spannerComputerInfo);
 
+  //hall events
+
+  Inform* useMed = new Inform();
+  useMed->setMessage("you dont need it");
+  medKit->setEvent(useMed);
+
+  Inform* talkBarbara = new Inform();
+  talkBarbara->setMessage("please i need help!");
+  KeyLock* engiOpen = new KeyLock(engiDoor,medKit);
+
+  MoveItems* giveMedkit = new MoveItems(barbara,"medKit");
+
+
+
+
+
+
+  EventGroup* healBarbara = new EventGroup();
+  healBarbara->addEvent(engiOpen);
+  healBarbara->addEvent(giveMedkit);
+
+
+ Interaction* interBarbara = new Interaction();
+ interBarbara->addOption("talk to her",talkBarbara);
+ interBarbara->addOption("heal Barbara",healBarbara);
+
+
+
+
+
+
+
+
+
 // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
   p->setState( makeEntityState(true, false, false) );
-  p->setCurrentRoom(spannerRoom);
+  p->setCurrentRoom(hall);
   g->setPlayer(p);
+
+
+
+
+
+
+//debugs
 
   // Return the game
   return g;
