@@ -171,6 +171,13 @@ addEntityInfo(hallDoorPanel,
               true,false,false);
               common_room->addEntity(hallDoorPanel);
 
+Item* spannerDoorLock = new Item();
+addEntityInfo(spannerDoorLock,
+              "spanner door lock",
+              "combination lock for spanner's door",
+              true,false,false);
+common_room->addEntity(spannerDoorLock);
+
 //spanner's room objects//////////////////////////////////////////////////////////////////
 Container* tool_closet = new Container();
 addEntityInfo(tool_closet,
@@ -189,12 +196,28 @@ addEntityInfo(fuse,
 tool_closet->addEntity(fuse);
 
 
-Item* spannerDoorLock = new Item();
-addEntityInfo(spannerDoorLock,
-              "spanner door lock",
-              "combination lock for spanner's door",
-              true,false,false);
-common_room->addEntity(spannerDoorLock);
+Container* spannerdesk = new Container();
+  addEntityInfo(spannerdesk,
+                "Desk",
+                "futuristic looking desk!",
+                true, false, false);
+  spannerRoom->addEntity(spannerdesk);
+
+  Entity* spannerbed = new Item();
+  addEntityInfo(spannerbed,
+                "Bed",
+                "Spanner's bed",
+                true, false, false);
+  spannerRoom->addEntity(spannerbed);
+
+  Entity* spannerComputer = new Item();
+  addEntityInfo(spannerComputer,
+                "computer terminal",
+                "Spanner's personal computer terminal",
+                true, false, false);
+   spannerdesk->addEntity(spannerComputer);
+
+
 
   // Create events ////////////////////////////////////////////////////////////
 
@@ -245,14 +268,23 @@ hallLock->setMessage("power restored to hall door");
 hallDoorPanel->setEvent(hallLock);
 
 //spanner room events///////////////////////////
-Inform* use_fuse = new Inform();
-use_fuse->setMessage("Careful you might break it!");
-fuse->setEvent(use_fuse);
-  // Create player ////////////////////////////////////////////////////////////
+  Inform* use_fuse = new Inform();
+  use_fuse->setMessage("Careful you might break it!");
+  fuse->setEvent(use_fuse);
+
+  Kill* killSpannerBed = new Kill();
+  killSpannerBed->setMessage("you slept through the disaster");
+  spannerbed->setEvent(killSpannerBed);
+
+  Inform* spannerComputerInfo = new Inform();
+  spannerComputerInfo->setMessage("biometric authentication failed! \naccess denied!!");
+  spannerComputer->setEvent(spannerComputerInfo);
+
+// Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
   p->setState( makeEntityState(true, false, false) );
-  p->setCurrentRoom(common_room);
+  p->setCurrentRoom(spannerRoom);
   g->setPlayer(p);
 
   // Return the game
