@@ -33,7 +33,7 @@ std::string StructuredEvents::execute(Entity* affected) {
     if (repeats)
       currentEvent = 0;
     else
-      return "Nothing Happens";
+      return events[events.size()-1]->execute(affected);
   }
 
   return events[currentEvent++]->execute(affected);
