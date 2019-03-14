@@ -16,6 +16,7 @@ std::string Save::execute() {
   for (auto r : game->getRooms()) {
     fs << r.second->makeBlueprint()->toString() << std::endl;
   }
+  fs << game->getPlayer()->makeBlueprint();
   fs.close();
   // should have error code to check if file operations are successful
   return "Game saved!!!";
