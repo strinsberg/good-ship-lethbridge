@@ -23,11 +23,17 @@ Parser::~Parser() {}
 
 Command* Parser::parse() const {
   Command* c;
-  std::string verb, noun;
+  std::string verb, next, noun;
   std::stringstream ss(input);
 
   ss >> verb;
-  while (ss >> noun) {}
+  int i = 0;
+  while (ss >> next) {
+    if (i != 0)
+      noun.append(" ");
+    noun.append(next);
+    i++;
+  }
 
   if (verb == "quit") {
     c = new Quit(game);
@@ -47,7 +53,7 @@ Command* Parser::parse() const {
     return c;
   }
 
-  c->setNoun(noun1.str());
+  c->setNoun(noun);
   return c;
 }
 
