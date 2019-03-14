@@ -16,12 +16,14 @@ std::string MoveItems::execute(Entity* affected) {
       if (Container* aff = dynamic_cast<Container*>(affected)) {
         if (give) {
           Entity* e = own->search(itemName);
+          if(e == nullptr){return "";}
           own->removeEntity(e);
           aff->addEntity(e);
           spec->setDone(true);
           return owner->getSpec()->getName() + " gives you a " + itemName;
         } else {
           Entity* e = aff->search(itemName);
+          if(e == nullptr){return "";}
           aff->removeEntity(e);
           own->addEntity(e);
           spec->setDone(true);
