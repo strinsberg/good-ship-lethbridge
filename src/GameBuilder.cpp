@@ -283,7 +283,7 @@ Game* GameBuilder::newGame(std::string name) {
                 "window",
                 "Captain's window",
                 true, false, false);
-   desk->addEntity(window);
+   captains_room->addEntity(window);
 
    // common room objects
    Item* chair = new Item();
@@ -394,6 +394,19 @@ Container* spannerdesk = new Container();
                 true,false,false);
   hall->addEntity(barbara);
 
+  Entity* hallWindow = new Item();
+  addEntityInfo(hallWindow,
+                "hall window",
+                "a every big window in the hall way, the ship is traveling at extreme speed! ",
+                true, false, false);
+   hall->addEntity(hallWindow);
+
+   Item* plant = new Item();
+   addEntityInfo(plant,
+                 "green plant",
+                 "green plant nothing special.",
+                 true,true,false);
+  hall-> addEntity(plant);
   //engineer control
 
   Container* engiCloset = new Container();
@@ -423,6 +436,8 @@ Container* spannerdesk = new Container();
                 "This amazing little tool is great for fixing cores",
                 true, true, false);
   spanner->addEntity(coreWrench);
+
+
 
   // engine bay object
 
@@ -457,7 +472,7 @@ spaceCloset->addEntity(spaceSuit);
 Npc* Mae = new Npc();
 addEntityInfo(Mae,
               "Whinny Mae",
-              "ships Doctor",
+              " the ships Doctor",
               true,false,false);
 cargoBay->addEntity(Mae);
 
@@ -466,14 +481,14 @@ cargoBay->addEntity(Mae);
 Npc* alien = new Npc();
 addEntityInfo(alien,
               "master yoda",
-              "Jedi meditation on a antenna",
+              "the Jedi meditation on a antenna",
               true,false,false);
 outerSpace->addEntity(alien);
 
 Item* lightSaber = new Item();
 addEntityInfo(lightSaber,
               "light saber",
-              "the very old light saber that belongs to a legendary Jedi",
+              "the very old light saber that used to belongs to a legendary Jedi",
               true,true,false);
 alien->addEntity(lightSaber);
 
@@ -488,7 +503,7 @@ Mae->addEntity(cookie);
 Npc* lars = new Npc();
 addEntityInfo(lars,
               "Lars Philbur",
-              "the bridge officer is standing on the ceiling",
+              "the flashing light you see the bridge officer is standing on the ceiling!",
               true,false,false);
 bridge->addEntity(lars);
 
@@ -525,10 +540,10 @@ nice_furniture->setMessage("This feels too good! Your a bad captain! Save your s
 comfy_chair->setEvent(nice_furniture);
 
 Inform* manifest_list = new Inform();
-manifest_list->setMessage("Barbara Mcdougal - Biologist\nID #0791"
-			"Clem Spanner - Engineer\nID #4396"
-			"Whinny Mae - Doctor\nID #0341"
-			"Lars Philbur - Bridge Officer\nID #7513");
+manifest_list->setMessage("Barbara Mcdougal - Biologist\nID #0791\n\n"
+			"Clem Spanner - Engineer\nID #4396\n\n"
+			"Whinny Mae - Doctor\nID #0341\n\n"
+			"Lars Philbur - Bridge Officer\nID #7513\n\n");
 crewList->setEvent(manifest_list);
 
 
@@ -550,7 +565,7 @@ hallDoorPanel->setEvent(hallLock);
   spannerbed->setEvent(killSpannerBed);
 
   Inform* spannerComputerInfo = new Inform();
-  spannerComputerInfo->setMessage("biometric authentication failed! \naccess denied!!");
+  spannerComputerInfo->setMessage("Biometric authentication failed! \naccess denied!!");
   spannerComputer->setEvent(spannerComputerInfo);
 
   //hall events
@@ -574,7 +589,24 @@ hallDoorPanel->setEvent(hallLock);
   interBarbara->addOption("heal Barbara",healBarbara);
   barbara->setEvent(interBarbara);
 
+Inform* hallComputerinfo = new Inform();
+hallComputerinfo->setMessage("authorization level : 'Captain'\n\n"
+                             "               SHIP STATUS \n\n"
+                             "Engine Status:          INACTIVE(HARD REBOOT REQUIRED)\n\n"
+                             "Ship Body Integrity:    56%\n\n"
+                             "Oxygen Leak:            NO\n\n"
+                             "Crew:                   INJURY 1/5\n\n"
+                             "                        SIGNAL LOST Lars Philbur\n\n"
+                             "Stress Signal:          FAIL TO SENT (REQUIRE 'Antenna' REPLACEMENT)\n"
+                             "Life Supply:            74% OXYGEN 80% WATER 76% FOOD\n"
+                             "         ALL CREW MEMBER RETURN TO POSITION\n\n"
 
+                             "ON BORAD COMPUTER DETECTS PROTENIAL IMPACT!!\n"
+                             "DISTANCE : 9714035KM\n"
+                             "PLEASE CHANGE COURSE AT COMMAND BRIDGE!!\n"
+
+                             );
+  hallComputer->setEvent(hallComputerinfo);
   // Engineering Events
 
   MoveItems* getCoreWrench = new MoveItems(spanner, "core wrench");
@@ -589,7 +621,7 @@ hallDoorPanel->setEvent(hallLock);
   askSpanner->setMessage("Just smack it real hard");
 
   Interaction* interSpanner = new Interaction();
-  interSpanner->setMessage("Glad your here I need some help!");
+  interSpanner->setMessage("Glad you are here I need some help!");
   interSpanner->addOption("talk to him", talkSpanner);
   interSpanner->addOption("get core wrench", getCoreWrench);
   interSpanner->addOption("How do I fix the reactor?", askSpanner);
@@ -674,7 +706,7 @@ lars->setEvent(ending);
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
   p->setState( makeEntityState(true, false, false) );
-  p->setCurrentRoom(outerSpace);
+  p->setCurrentRoom(hall);
   g->setPlayer(p);
 
 
