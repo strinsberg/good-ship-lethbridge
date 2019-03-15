@@ -7,6 +7,7 @@
 #include "Door.h"
 #include "ObjectBlueprint.h"
 #include "Player.h"
+#include <sstream>
 #include <typeinfo>
 #include <string>
 
@@ -22,21 +23,33 @@ std::string Door::use(Entity* user) {
   if (!state->getActive())
     return "For some reason it doesn't work";
 
+  if (destination == nullptr)
+    return "The door leads nowhere";
 
+
+  std::stringstream ss;
   if (Player* p = dynamic_cast<Player*>(user)) {
     p = (Player*)user;
     p->setCurrentRoom(destination);
-    return "You use " + spec->getName();
+    ss << "You use " << spec->getName() << std::endl;
+    ss << destination->enter(p);
+    return ss.str();
   } else {
     // check entity is in room???
     here->removeEntity(user);
     destination->addEntity(user);
-    return user->getSpec()->getName() + " uses " + spec->getName();
+    ss << user->getSpec()->getName() << " uses " << spec->getName()  << std::endl;
+    ss << destination->enter(p);
+    return ss.str();
   }
 }
 
 ObjectBlueprint* Door::makeBlueprint() const {
-
+  ObjectBlueprint* bp = Entity::makeBlueprint();
+  bp->setField("type", "door");
+  bp->setField("here", here->getSpec()->getName());
+  bp->setField("destination", destination->getSpec()->getName());
+  return bp;
 }
 
 void Door::setDestination(Room* room) {

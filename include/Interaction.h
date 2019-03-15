@@ -24,6 +24,8 @@ class Interaction : public Event
       * @param e the associated event
       */
     void addOption(std::string t, Event* e);
+    bool getBreakOut();
+    void setBreakOut(bool b);
 
   private:
 
@@ -33,6 +35,7 @@ class Interaction : public Event
     };
 
     std::vector<Option> options;
+    bool breakOut;
 
     Interaction(const Interaction& other);
     Interaction& operator=(const Interaction& other);

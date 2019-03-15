@@ -10,7 +10,7 @@
 Drop::Drop(Player* p) : Action(p) {}
 Drop::~Drop() {}
 std::string Drop::execute() {
-  if (player->getCurrentRoom()->search(noun) != nullptr)
+  if (player->search(noun) == nullptr)
     return "You don't have that!";
 
   Entity* e = getEntity();

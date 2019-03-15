@@ -5,6 +5,8 @@
  */
 
 #include "StructuredEvents.h"
+#include "ObjectBlueprint.h"
+#include "ObjectWithContentsBlueprint.h"
 #include "Entity.h"
 #include <string>
 #include <vector>
@@ -31,12 +33,27 @@ std::string StructuredEvents::execute(Entity* affected) {
     if (repeats)
       currentEvent = 0;
     else
-      return "Nothing Happens";
+      return events[events.size()-1]->execute(affected);
   }
 
   return events[currentEvent++]->execute(affected);
 }
 
 ObjectBlueprint* StructuredEvents::makeBlueprint() const {
+  ObjectWithContentsBlueprint* b = new ObjectWithContentsBlueprint();
 
+  b->setField("type", "structured_event");
+  b->setField("message", message);
+  b->setField("name", spec->getName());
+  std::string d = spec->isDone() ? "true" : "false";
+  b->setField("done", d);
+  b->setField("index", std::to_string(currentEvent));
+
+  for (auto e : events) {
+    ObjectBlueprint* ebp = e->makeBlueprint();
+    ebp->setField("owner", spec->getName());
+    b->addBlueprint(ebp);
+  }
+
+  return b;
 }

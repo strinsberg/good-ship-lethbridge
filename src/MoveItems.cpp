@@ -16,12 +16,14 @@ std::string MoveItems::execute(Entity* affected) {
       if (Container* aff = dynamic_cast<Container*>(affected)) {
         if (give) {
           Entity* e = own->search(itemName);
+          if(e == nullptr){return "";}
           own->removeEntity(e);
           aff->addEntity(e);
           spec->setDone(true);
           return owner->getSpec()->getName() + " gives you a " + itemName;
         } else {
           Entity* e = aff->search(itemName);
+          if(e == nullptr){return "";}
           aff->removeEntity(e);
           own->addEntity(e);
           spec->setDone(true);
@@ -32,7 +34,19 @@ std::string MoveItems::execute(Entity* affected) {
   }
 }
 
-ObjectBlueprint* MoveItems::makeBlueprint() const {}
+ObjectBlueprint* MoveItems::makeBlueprint() const {
+  ObjectBlueprint* bp = new ObjectBlueprint();
+  bp->setField("type", "move_items");
+  bp->setField("message", message);
+  bp->setField("name", spec->getName());
+  std::string d = spec->isDone() ? "true" : "false";
+  bp->setField("done", d);
+  bp->setField("owner", owner->getSpec()->getName());
+  bp->setField("item_name", itemName);
+  std::string g = give ? "true" : "false";
+  bp->setField("give", g);
+  return bp;
+}
 
 Entity* MoveItems::getOwner() const {
   return owner;

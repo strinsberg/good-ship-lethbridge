@@ -20,9 +20,16 @@ class KeyLock : public Activate
     ObjectBlueprint* makeBlueprint();
     void setKey(Entity* key);
     Entity* getKey();
+    void setSuccessEvent(Event*);
+    Event* getSuccessEvent();
+
+    void setFailMessage(std::string str);
+    std::string getFailMessage();
 
   protected:
     Entity* key;
+    Event* successEvent;
+    std::string failMessage;
 
   private:
     KeyLock(const KeyLock& other);

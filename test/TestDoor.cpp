@@ -10,6 +10,7 @@
 #include "Entity.h"
 #include "Item.h"
 #include "ObjectBlueprint.h"
+#include "Inform.h"
 #include <string>
 #include "gtest/gtest.h"
 
@@ -41,11 +42,15 @@ TEST(DoorTests, use_normal) {
   Room* start = new Room();
   Room* end = new Room();
 
+  Inform* i = new Inform();
+  i->setMessage("You made it to the end");
+  end->setEnter(i);
+
   p->setCurrentRoom(start);
   d.setDestination(end);
   d.getSpec()->setName("rusty door");
 
-  EXPECT_EQ("You use rusty door", d.use(p));
+  EXPECT_EQ("You use rusty door\nYou made it to the end", d.use(p));
   EXPECT_EQ(end, p->getCurrentRoom());
 
   delete start;
@@ -82,14 +87,34 @@ TEST(DoorTests, use_entity) {
   start->addEntity(i);
   Room* end = new Room();
 
+  Inform* inf = new Inform();
+  inf->setMessage("Calvin made it to the end");
+  end->setEnter(inf);
+
   d.setHere(start);
   d.setDestination(end);
   d.getSpec()->setName("rusty door");
 
-  EXPECT_EQ("Calvin uses rusty door", d.use(i));
+  EXPECT_EQ("Calvin uses rusty door\nCalvin made it to the end", d.use(i));
   EXPECT_EQ(nullptr, start->search("Calvin"));
   EXPECT_EQ(i, end->search("Calvin"));
 
   delete start;
   delete end;
+}
+
+TEST(DoorTests, use_no_destination) {
+  Door d;
+
+  Player* p = new Player();
+  Room* start = new Room();
+
+  p->setCurrentRoom(start);
+  d.getSpec()->setName("rusty door");
+
+  EXPECT_EQ("The door leads nowhere", d.use(p));
+  EXPECT_EQ(start, p->getCurrentRoom());
+
+  delete start;
+  delete p;
 }

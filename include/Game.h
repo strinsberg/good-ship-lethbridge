@@ -71,6 +71,8 @@ class Game {
     */
   void stop();
 
+  std::map<std::string, Room*> getRooms();
+
   static string toLower(const string& str);
 
  private:

@@ -5,6 +5,7 @@
  */
 #include"Suit.h"
 #include"Player.h"
+#include "ObjectBlueprint.h"
 #include<typeinfo>
 
 Suit::Suit(){}
@@ -16,14 +17,23 @@ return spec->getDescription();
 string Suit::use(Entity* user){
 
   if(Player* p = dynamic_cast<Player*>(user)) {
-    p->setEquipped(this);
-    return "the suit is on you";
+    if (p->search(this->getSpec()->getName()) != nullptr) {
+      p->setEquipped(this);
+      return "the suit is on you";
+    } else {
+      return "You need to be carrying a suit to use it!";
+    }
   }
 
   return "suit authorization failed";
-
 }
-ObjectBlueprint* Suit::makeBlueprint() const{}
+
+ObjectBlueprint* Suit::makeBlueprint() const{
+  ObjectBlueprint* bp = Entity::makeBlueprint();
+  bp->setField("type", "suit");
+  bp->setField("atmosphere", std::to_string(atmosphere));
+  return bp;
+}
 
 Atmosphere Suit::getAtmosphere(){
 return atmosphere;

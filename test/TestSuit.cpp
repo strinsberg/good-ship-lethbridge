@@ -12,9 +12,17 @@
 #include "Player.h"
 
 TEST(TestSuit,use) {
-Suit s;
+Suit*  s = new Suit();
 Player* p = new Player;
-EXPECT_EQ("the suit is on you",s.use(p));
+p->addEntity(s);
+EXPECT_EQ("the suit is on you",s->use(p));
+delete p;
+}
+
+TEST(TestSuit,use_not_carrying) {
+Suit*  s = new Suit();
+Player* p = new Player;
+EXPECT_EQ("You need to be carrying a suit to use it!",s->use(p));
 delete p;
 }
 
