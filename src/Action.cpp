@@ -16,17 +16,21 @@ const Player* Action::getPlayer() const {
   return player;
 }
 
-Entity* Action::getEntity() {
-  if (player == nullptr)
+Entity* Action::findEntity(Player* p, std::string n) {
+  if (p == nullptr)
     throw unfinished_object_error("Action has no Player!");
 
-  Entity* e = player->search(noun);
+  Entity* e = p->search(n);
   if (e != nullptr)
     return e;
 
-  e = player->getCurrentRoom()->search(noun);
+  e = p->getCurrentRoom()->search(n);
   if (e != nullptr)
     return e;
 
   return nullptr;
+}
+
+Entity* Action::getEntity() {
+  return findEntity(player, noun);
 }

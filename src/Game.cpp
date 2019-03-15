@@ -92,6 +92,17 @@ void Game::run() {
   }
 }
 
+Event* Game::getEvent(const std::string& name) {
+  auto it = events.find( toLower(name) );
+  if (it == events.end())
+    return nullptr;
+  return it->second;
+}
+
+void Game::addEvent(const string& name, Event* event) {
+  events[ toLower(name) ] = event;
+}
+
 string Game::toLower(const string& str) {
   string lower;
   for (auto c : str)

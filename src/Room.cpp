@@ -40,7 +40,8 @@ ObjectBlueprint* Room::makeBlueprint() const {
   bp->setField("type", "room");
   bp->setField("atmosphere", std::to_string(atmosphere));  // might need a different conversion
 
-  bp->addBlueprint(enterEvent->makeBlueprint());
+  if (enterEvent != nullptr)
+    bp->addBlueprint(enterEvent->makeBlueprint());
 
   return bp;
 }

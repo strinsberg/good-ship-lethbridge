@@ -24,10 +24,12 @@ class Action : public Command {
    */
   const Player* getPlayer() const;
 
+  static Entity* findEntity(Player* p, std::string noun);
+
  protected:
   Player* player;  // does not own the player
 
-  // Find an entity in the player or current room
+    // Find an entity in the player or current room
   // Returns the entity or nullptr if the entity is not there
   // uses player and noun
   Entity* getEntity();

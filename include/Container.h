@@ -48,6 +48,8 @@ class Container: public Entity {
     */
   void removeEntity(Entity* entity);
 
+  Entity* findOwner(std::string name);
+
   std::map<std::string, Entity*>::iterator begin();
   std::map<std::string, Entity*>::iterator end();
 
