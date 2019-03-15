@@ -6,12 +6,17 @@
 
 #include "KeyLock.h"
 #include "Container.h"
+#include <sstream>
 #include <typeinfo>
 
 KeyLock::KeyLock(Entity* target, Entity* k, std::istream& is, std::ostream& os)
-    : Activate(target, is, os), key(k) {}
+    : Activate(target, is, os), key(k), successEvent(nullptr),
+      failMessage("You don't have what you need") {}
 
-KeyLock::~KeyLock() {}
+KeyLock::~KeyLock() {
+  if (successEvent != nullptr)
+    delete successEvent;
+}
 
 ObjectBlueprint* KeyLock::makeBlueprint() {
   ObjectBlueprint* bp = Activate::makeBlueprint();
@@ -22,10 +27,15 @@ ObjectBlueprint* KeyLock::makeBlueprint() {
 
 std::string KeyLock::execute(Entity* affected) {
   if (Container* c = dynamic_cast<Container*>(affected)) {
-      if (c->search(key->getSpec()->getName()))
-        return Activate::execute(affected);
-      else
-        return "You don't have what you need";
+      if (c->search(key->getSpec()->getName())) {
+        std::stringstream ss;
+        if (successEvent != nullptr)
+          ss << successEvent->execute(affected) << std::endl;
+        ss << Activate::execute(affected);
+        return ss.str();
+      } else {
+        return failMessage;
+      }
   }
   return "That can't hold a key";
 }
@@ -37,3 +47,19 @@ void KeyLock::setKey(Entity* k) {
 Entity* KeyLock::getKey() {
   return key;
 }
+
+void KeyLock::setSuccessEvent(Event* e) {
+  successEvent = e;
+}
+
+Event* KeyLock::getSuccessEvent() {
+  return successEvent;
+}
+
+void KeyLock::setFailMessage(std::string str) {
+  failMessage = str;
+}
+std::string KeyLock::getFailMessage() {
+  return failMessage;
+}
+
