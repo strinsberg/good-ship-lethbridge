@@ -20,7 +20,7 @@ std::string Talk::execute() {
 
   if (Npc* npc = dynamic_cast<Npc*>(e)) {
     if (npc->getState()->getActive()) {
-        return npc->use(player);
+      return npc->use(player);
     } else {
       return noun + " can't talk right now";
     }

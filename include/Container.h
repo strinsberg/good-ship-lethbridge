@@ -48,9 +48,23 @@ class Container: public Entity {
     */
   void removeEntity(Entity* entity);
 
+  /**
+    * Find the entity that contains an object.
+    * @param name the name of the object.
+    * @return a pointer to the entity that contains the object.
+    */
   Entity* findOwner(std::string name);
 
+  /**
+    * Returns an iterator to the beginning of inventory.
+    * @return a amp iterator to beginning of the containers inventory.
+    */
   std::map<std::string, Entity*>::iterator begin();
+
+  /**
+    * Returns an iterator to the end of inventory.
+    * @return a amp iterator to end of the containers inventory.
+    */
   std::map<std::string, Entity*>::iterator end();
 
  protected:

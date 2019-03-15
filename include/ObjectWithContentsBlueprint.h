@@ -9,6 +9,7 @@
 
 #include "ObjectBlueprint.h"
 #include <vector>
+#include <string>
 
 
 /**
@@ -37,10 +38,10 @@ class ObjectWithContentsBlueprint : public ObjectBlueprint {
     */
   const std::vector<ObjectBlueprint*>::iterator end();
 
-    /**
-    * @return a string of object data.
-    * @throw TBD if the object does not have a type
-    */
+  /**
+  * @return a string of object data.
+  * @throw TBD if the object does not have a type
+  */
   std::string toString() const;
 
  private:

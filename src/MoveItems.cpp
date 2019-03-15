@@ -3,8 +3,9 @@
 #include "Container.h"
 #include "Exceptions.h"
 
-MoveItems::MoveItems(Entity* o, std::string name, std::istream& is, std::ostream& os)
-    : Event(is, out), owner(o), itemName(name), give(false) {}
+MoveItems::MoveItems(Entity* o, std::string name, std::istream& is,
+                     std::ostream& os)
+  : Event(is, out), owner(o), itemName(name), give(false) {}
 
 MoveItems::~MoveItems() {}
 
@@ -13,23 +14,27 @@ std::string MoveItems::execute(Entity* affected) {
     return message;
 
   if (Container* own = dynamic_cast<Container*>(owner)) {
-      if (Container* aff = dynamic_cast<Container*>(affected)) {
-        if (give) {
-          Entity* e = own->search(itemName);
-          if(e == nullptr){return "";}
-          own->removeEntity(e);
-          aff->addEntity(e);
-          spec->setDone(true);
-          return owner->getSpec()->getName() + " gives you a " + itemName;
-        } else {
-          Entity* e = aff->search(itemName);
-          if(e == nullptr){return "";}
-          aff->removeEntity(e);
-          own->addEntity(e);
-          spec->setDone(true);
-          return "You give a " + itemName + " to " + owner->getSpec()->getName();
+    if (Container* aff = dynamic_cast<Container*>(affected)) {
+      if (give) {
+        Entity* e = own->search(itemName);
+        if (e == nullptr) {
+          return "";
         }
+        own->removeEntity(e);
+        aff->addEntity(e);
+        spec->setDone(true);
+        return owner->getSpec()->getName() + " gives you a " + itemName;
+      } else {
+        Entity* e = aff->search(itemName);
+        if (e == nullptr) {
+          return "";
+        }
+        aff->removeEntity(e);
+        own->addEntity(e);
+        spec->setDone(true);
+        return "You give a " + itemName + " to " + owner->getSpec()->getName();
       }
+    }
     throw unfinished_object_error("Move items event is not attached to a container!");
   }
 }

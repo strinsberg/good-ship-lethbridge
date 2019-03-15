@@ -16,17 +16,16 @@
 /**
   * Command to get help.
   */
-class Help : public GameCommand
-{
-  public:
-    Help(Game* g);
-    virtual ~Help();
+class Help : public GameCommand {
+ public:
+  Help(Game* g);
+  virtual ~Help();
 
-   std::string execute();
+  std::string execute();
 
-  private:
-    Help(const Help& other);
-    Help& operator=(const Help& other);
+ private:
+  Help(const Help& other);
+  Help& operator=(const Help& other);
 };
 
 #endif // HELP_H

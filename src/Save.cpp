@@ -13,7 +13,8 @@ Save::Save(Game* g) :GameCommand(g) {}
 Save::~Save() {}
 std::string Save::execute() {
   std::ofstream fs;
-  fs.open(game->getPlayer()->getSpec()->getName() + ".save", ios::trunc);  //might not be optimal with multi word player names
+  fs.open(game->getPlayer()->getSpec()->getName() + ".save",
+          std::ios::trunc);  //might not be optimal with multi word player names
   for (auto r : game->getRooms()) {
     ObjectBlueprint* bp = r.second->makeBlueprint();
     fs << bp->toString() << std::endl;

@@ -9,17 +9,16 @@
 /**
   * Command to load a saved game.
   */
-class Load : public GameCommand
-{
-  public:
-    Load(Game* g);
-    virtual ~Load();
+class Load : public GameCommand {
+ public:
+  Load(Game* g);
+  virtual ~Load();
 
-    std::string execute();
+  std::string execute();
 
-  private:
-    Load(const Load& other);
-    Load& operator=(const Load& other);
+ private:
+  Load(const Load& other);
+  Load& operator=(const Load& other);
 };
 
 #endif // LOAD_H

@@ -15,17 +15,16 @@
 /**
   * Command to save the game.
   */
-class Save : public GameCommand
-{
-  public:
-    Save(Game* g);
-    virtual ~Save();
+class Save : public GameCommand {
+ public:
+  Save(Game* g);
+  virtual ~Save();
 
-    std::string execute();
+  std::string execute();
 
-  private:
-    Save(const Save& other);
-    Save& operator=(const Save& other);
+ private:
+  Save(const Save& other);
+  Save& operator=(const Save& other);
 };
 
 #endif // SAVE_H

@@ -21,9 +21,9 @@ bool stob(const std::string& str) {
   return str == "true";
 }
 
-void updateEntity(Game*,ObjectBlueprint*);
-void updateEvent(Game*,ObjectBlueprint*);
-void updateInteraction(Game*,ObjectBlueprint*);
+void updateEntity(Game*, ObjectBlueprint*);
+void updateEvent(Game*, ObjectBlueprint*);
+void updateInteraction(Game*, ObjectBlueprint*);
 Event* findEvent(Game*, std::string);
 void moveEntity(Game*, Entity*, std::string);
 
@@ -70,10 +70,13 @@ std::string Load::execute() {
     if (type == ObjectBlueprint::null)
       continue;
 
-    if (type == "item" || type == "door" || type == "npc" || type == "container" || type == "room") {
+    if (type == "item" || type == "door" || type == "npc" || type == "container"
+        || type == "room") {
       updateEntity(game, bp );
-    } else if (type == "inform" || type == "keylock" || type == "event_group" || type == "interaction" ||
-               type == "question_lock" || type == "move_items" || type == "check_suit" || type == "activate") {
+    } else if (type == "inform" || type == "keylock" || type == "event_group"
+               || type == "interaction" ||
+               type == "question_lock" || type == "move_items" || type == "check_suit"
+               || type == "activate") {
       updateEvent(game, bp );
     } else if (type == "structured_event") {
       updateInteraction(game, bp );
@@ -138,7 +141,8 @@ void moveEntity(Game* g, Entity* entity, std::string newOwner) {
       Entity* giveTo = nullptr;
       for (auto rPair : g->getRooms()) {
         if (rPair.second->getSpec()->getName() == newOwner) {
-          std::cout << rPair.second->getSpec()->getName() << " - " << itemName << " - " << owner->getSpec()->getName() <<std::endl;
+          std::cout << rPair.second->getSpec()->getName() << " - " << itemName << " - " <<
+                    owner->getSpec()->getName() <<std::endl;
           giveTo = rPair.second;
           move.execute(giveTo);
           return;

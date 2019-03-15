@@ -78,7 +78,7 @@ class Game {
 
   std::map<std::string, Room*> getRooms();
 
-  static string toLower(const string& str);
+  static std::string toLower(const std::string& str);
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms

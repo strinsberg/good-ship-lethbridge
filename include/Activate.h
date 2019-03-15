@@ -2,34 +2,43 @@
 #define ACTIVATE_H
 
 #include "Event.h"
+#include <string>
 
 
-class Activate : public Event
-{
-  public:
-    Activate(Entity* t, std::istream& is = std::cin, std::ostream& os = std::cout);
-    virtual ~Activate();
-    virtual std::string execute(Entity* e);
-    virtual ObjectBlueprint* makeBlueprint() const;
+class Activate : public Event {
+ public:
 
-    /**
-      * Set the entity to activate
-      * @param e the target entity
-      */
-    void setTarget(Entity* e);
+  /**
+    * Create an event that will activate it's target when run.
+    *
+    * @param t the target entity to activate.
+    */
+  Activate(Entity* t,
+           std::istream& is = std::cin,
+           std::ostream& os = std::cout);
 
-    /**
-      * Get the target entity
-      * @return target
-      */
-    Entity* getTarget();
+  virtual ~Activate();
+  virtual std::string execute(Entity* e);
+  virtual ObjectBlueprint* makeBlueprint() const;
 
-  protected:
-    Entity* target;
+  /**
+    * Set the entity to activate
+    * @param e the target entity
+    */
+  void setTarget(Entity* e);
 
-  private:
-    Activate(const Activate& other);
-    Activate& operator=(const Activate& other);
+  /**
+    * Get the target entity
+    * @return target
+    */
+  Entity* getTarget();
+
+ protected:
+  Entity* target;  // Does not own this
+
+ private:
+  Activate(const Activate& other);
+  Activate& operator=(const Activate& other);
 };
 
 #endif // ACTIVATE_H
