@@ -46,6 +46,7 @@ class StructuredEvents : public EventGroup
       */
     void setRepeats(bool r);
 
+    void setCurrentIndex(int i) {currentEvent = i;}
   private:
     int currentEvent;
     bool repeats;
