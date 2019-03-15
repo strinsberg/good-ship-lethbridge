@@ -45,14 +45,13 @@ TEST(PlayerTests, use) {
   EXPECT_EQ("Have some self respect! Don't use yourself!", p.use(ent));
 }
 
-TEST(PlayerTests, DISABLED_make_blueprint) {
+TEST(PlayerTests, DISABLED_make_blueprint) {}
 
-}
-TEST(PlayerTests,setEquipped) {
-Player p;
-Suit* s;
+TEST(PlayerTests, setEquipped) {
+  Player p;
+  Suit* s;
 
-p.setEquipped(s);
+  p.setEquipped(s);
 
-EXPECT_EQ(s,p.getEquipped());
+  EXPECT_EQ(s, p.getEquipped());
 }

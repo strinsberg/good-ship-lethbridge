@@ -47,9 +47,12 @@ TEST(InteractionTests, add_option_execute) {
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. Cancel\n>>> You go to sleepPlease choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+  EXPECT_EQ("Please choose an option number:\n"
+            "1. Sleep\n2. Cancel\n>>> "
+            "You go to sleep\n\n"
+            "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
             out.str());
-  EXPECT_EQ(result, "canceled");
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -67,7 +70,7 @@ TEST(InteractionTests, execute_cancel) {
 
   EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
             out.str());
-  EXPECT_EQ(result, "canceled");
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -83,9 +86,11 @@ TEST(InteractionTests, execute_bad_choice) {
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. Cancel\n>>> Not a valid choice!Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+  EXPECT_EQ("Please choose an option number:\n"
+            "1. Sleep\n2. Cancel\n>>> Not a valid choice!\n\n"
+            "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
             out.str());
-  EXPECT_EQ(result, "canceled");
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -101,9 +106,11 @@ TEST(InteractionTests, execute_bad_choice_not_number) {
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. Cancel\n>>> Please enter a number!Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+  EXPECT_EQ("Please choose an option number:\n"
+            "1. Sleep\n2. Cancel\n>>> Please enter a number!\n\n"
+            "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
             out.str());
-  EXPECT_EQ(result, "canceled");
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -127,6 +134,6 @@ TEST(InteractionTests, make_blueprint) {
   EXPECT_EQ(o->getField("done"), "false");
 
   EXPECT_EQ("{\ntype=inform",
-            o->toString().substr(72, 13));
+            o->toString().substr(89, 13));
   delete o;
 }

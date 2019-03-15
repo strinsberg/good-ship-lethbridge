@@ -14,6 +14,9 @@ using std::string;
 using std::map;
 using std::stringstream;
 
+const char EQUAL_SEP = '=';
+const char FIELD_SEP = ',';
+
 const string ObjectBlueprint::null = "null-field";
 
 ObjectBlueprint::ObjectBlueprint() {}
@@ -50,7 +53,7 @@ string ObjectBlueprint::toString() const {
   ss << "type=" << getType() << ",\n";
   for (auto f : record) {
     if (f.first != "type")
-      ss << f.first << '=' << f.second << ",\n";
+      ss << f.first << EQUAL_SEP << f.second << FIELD_SEP << "\n";
   }
   ss << '}';
   return ss.str();
@@ -64,8 +67,8 @@ void ObjectBlueprint::parse(const string& data) {
   size_t end = 0;
 
   start = skipWhitespace(data, 1);  // ignore '{' and spaces or '\n'
-  mid = data.find('=');
-  end = data.find(',');
+  mid = data.find(EQUAL_SEP);
+  end = data.find(FIELD_SEP);
 
   while (end != string::npos) {
     record[ toLower(data.substr(start, mid - start)) ]

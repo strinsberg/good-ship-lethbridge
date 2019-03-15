@@ -16,27 +16,26 @@
 /**
   * Event that can execute one or more events in order
   */
-class EventGroup : public Event
-{
-  public:
-    EventGroup(std::istream& is = std::cin, std::ostream& os = std::cout);
-    virtual ~EventGroup();
-    virtual std::string execute(Entity* affected);
-    virtual ObjectBlueprint* makeBlueprint() const;
+class EventGroup : public Event {
+ public:
+  EventGroup(std::istream& is = std::cin, std::ostream& os = std::cout);
+  virtual ~EventGroup();
+  virtual std::string execute(Entity* affected);
+  virtual ObjectBlueprint* makeBlueprint() const;
 
-    /**
-      * Add an event to the back of the group.
-      * Transfers ownership to the EventGroup.
-      * @param e an event
-      */
-    void addEvent(Event* e);
+  /**
+    * Add an event to the back of the group.
+    * Transfers ownership to the EventGroup.
+    * @param e an event
+    */
+  void addEvent(Event* e);
 
-  protected:
-    std::vector<Event*> events;  // Owns these events
+ protected:
+  std::vector<Event*> events;  // Owns these events
 
-  private:
-    EventGroup(const EventGroup& other);
-    EventGroup& operator=(const EventGroup& other);
+ private:
+  EventGroup(const EventGroup& other);
+  EventGroup& operator=(const EventGroup& other);
 };
 
 #endif // EVENTGROUP_H

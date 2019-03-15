@@ -9,24 +9,24 @@
 
 #include "Entity.h"
 #include "ObjectBlueprint.h"
+#include "KeyLock.h"
 #include <string>
 
 
-class Item : public Entity
-{
-  public:
-    Item();
-    virtual ~Item();
+class Item : public Entity {
+ public:
+  Item();
+  virtual ~Item();
 
-    virtual std::string describe() const;
+  virtual std::string describe() const;
 
-    virtual std::string use(Entity* user);
+  virtual std::string use(Entity* user);
 
-    virtual ObjectBlueprint* makeBlueprint() const;
+  virtual ObjectBlueprint* makeBlueprint() const;
 
-  private:
-    Item(const Item& other);
-    Item& operator=(const Item& other);
+ private:
+  Item(const Item& other);
+  Item& operator=(const Item& other);
 };
 
 #endif // ITEM_H

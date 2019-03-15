@@ -18,7 +18,7 @@ using std::map;
 using std::string;
 
 Game::Game(std::istream& is, std::ostream& os)
-    : rooms(map<string, Room*>()), player(nullptr), in(is), out(os), running(true) {
+  : rooms(map<string, Room*>()), player(nullptr), in(is), out(os), running(true) {
   // Create a player with a blank spec
   player = new Player();
   EntitySpec* spec = new EntitySpec();
@@ -86,10 +86,21 @@ void Game::run() {
 
     if (player->getState()->getHidden()) {
       out << "Game Over!" << std::endl;
-      out << "Better luck next time!" << std::endl;
+      out << "Thanks for playing!" << std::endl;
       running = false;
     }
   }
+}
+
+Event* Game::getEvent(const std::string& name) {
+  auto it = events.find( toLower(name) );
+  if (it == events.end())
+    return nullptr;
+  return it->second;
+}
+
+void Game::addEvent(const string& name, Event* event) {
+  events[ toLower(name) ] = event;
 }
 
 string Game::toLower(const string& str) {

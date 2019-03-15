@@ -12,11 +12,17 @@
 Save::Save(Game* g) :GameCommand(g) {}
 Save::~Save() {}
 std::string Save::execute() {
-  std::fstream fs(game->getPlayer()->getSpec()->getName());  //might not be optimal with multi word player names
+  std::ofstream fs;
+  fs.open(game->getPlayer()->getSpec()->getName() + ".save",
+          std::ios::trunc);  //might not be optimal with multi word player names
   for (auto r : game->getRooms()) {
-    fs << r.second->makeBlueprint()->toString() << std::endl;
+    ObjectBlueprint* bp = r.second->makeBlueprint();
+    fs << bp->toString() << std::endl;
+    delete bp;
   }
-  fs << game->getPlayer()->makeBlueprint();
+  ObjectBlueprint* pbp = game->getPlayer()->makeBlueprint();
+  fs << pbp->toString();
+  delete pbp;
   fs.close();
   // should have error code to check if file operations are successful
   return "Game saved!!!";

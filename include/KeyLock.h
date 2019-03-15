@@ -8,25 +8,33 @@
 #define KEYLOCK_H
 
 #include "Activate.h"
+#include <string>
 
 
-class KeyLock : public Activate
-{
-  public:
-    KeyLock(Entity* target, Entity* key, std::istream& is = std::cin, std::ostream& os = std::cout);
-    virtual ~KeyLock();
+class KeyLock : public Activate {
+ public:
+  KeyLock(Entity* target, Entity* key, std::istream& is = std::cin,
+          std::ostream& os = std::cout);
+  virtual ~KeyLock();
 
-    std::string execute(Entity* e);
-    ObjectBlueprint* makeBlueprint();
-    void setKey(Entity* key);
-    Entity* getKey();
+  std::string execute(Entity* e);
+  ObjectBlueprint* makeBlueprint();
+  void setKey(Entity* key);
+  Entity* getKey();
+  void setSuccessEvent(Event*);
+  Event* getSuccessEvent();
 
-  protected:
-    Entity* key;
+  void setFailMessage(std::string str);
+  std::string getFailMessage();
 
-  private:
-    KeyLock(const KeyLock& other);
-    KeyLock& operator=(const KeyLock& other);
+ protected:
+  Entity* key;
+  Event* successEvent;
+  std::string failMessage;
+
+ private:
+  KeyLock(const KeyLock& other);
+  KeyLock& operator=(const KeyLock& other);
 };
 
 #endif // KEYLOCK_H

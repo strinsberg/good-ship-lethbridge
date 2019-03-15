@@ -12,7 +12,7 @@
 #include <vector>
 
 StructuredEvents::StructuredEvents(std::istream& is, std::ostream& os)
-    : EventGroup(is, os), currentEvent(0), repeats(true) {}
+  : EventGroup(is, os), currentEvent(0), repeats(true) {}
 
 StructuredEvents::~StructuredEvents() {}
 

@@ -6,12 +6,16 @@
 #include "Npc.h"
 #include "Container.h"
 
-string Npc::describe()const{
-return spec->getDescription();
+Npc::Npc() {}
+
+Npc::~Npc() {}
+
+std::string Npc::describe()const {
+  return spec->getDescription();
 }
-string Npc::use(Entity* user){
-return event->execute(user);
+std::string Npc::use(Entity* user) {
+  return event->execute(user);
 }
-ObjectBlueprint* Npc::makeBlueprint()const{
+ObjectBlueprint* Npc::makeBlueprint()const {
   return Container::makeBlueprint();
 }

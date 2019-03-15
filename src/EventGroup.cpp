@@ -14,12 +14,12 @@
 #include <vector>
 
 EventGroup::EventGroup(std::istream& is, std::ostream& os)
-    : Event(is, os), events(std::vector<Event*>()) {}
+  : Event(is, os), events(std::vector<Event*>()) {}
 
 EventGroup::~EventGroup() {
   for (auto e : events) {
     if (e != nullptr)
-    delete e;
+      delete e;
   }
 }
 

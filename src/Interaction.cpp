@@ -11,7 +11,7 @@
 #include <exception>
 
 Interaction::Interaction(std::istream& is, std::ostream& os)
-    : Event(is, os), options(std::vector<Option>()) {}
+  : Event(is, os), options(std::vector<Option>()), breakOut(false) {}
 
 Interaction::~Interaction() {
   for (auto o : options)
@@ -31,8 +31,8 @@ std::string Interaction::execute(Entity* affected) {
 
     size_t i;
     for (i = 0; i < options.size(); i++) {
-     out << i + 1 << ". ";
-     out << options[i].title << std::endl;
+      out << i + 1 << ". ";
+      out << options[i].title << std::endl;
     }
     out << i + 1 << ". Cancel" << std::endl;
     out << ">>> ";
@@ -48,9 +48,11 @@ std::string Interaction::execute(Entity* affected) {
         out << options.at(ch - 1).event->execute(affected);
       else
         out << "Not a valid choice!";
-    } catch (invalid_argument e) {
+    } catch (std::invalid_argument e) {
       out << "Please enter a number!";
     }
+    if (breakOut)
+      return "";
     out << std::endl << std::endl;
   }
 }
@@ -65,6 +67,8 @@ ObjectBlueprint* Interaction::makeBlueprint() const {
     std::string d = spec->isDone() ? "true" : "false";
     b->setField("done", d);
   }
+  std::string bo = breakOut ? "true" : "false";
+  b->setField("break_out", bo);
 
   for (auto o : options) {
     ObjectBlueprint* ebp = o.event->makeBlueprint();
@@ -75,5 +79,10 @@ ObjectBlueprint* Interaction::makeBlueprint() const {
   return b;
 }
 
+void Interaction::setBreakOut(bool b) {
+  breakOut = b;
+}
 
-
+bool Interaction::getBreakOut() {
+  return breakOut;
+}

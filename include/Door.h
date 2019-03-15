@@ -12,47 +12,44 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-class Door : public Entity
-{
-  public:
-    Door();
-    virtual ~Door();
-    virtual std::string describe() const;
-    virtual std::string use(Entity* user);
-    virtual ObjectBlueprint* makeBlueprint() const;
+class Door : public Entity {
+ public:
+  Door();
+  virtual ~Door();
+  virtual std::string describe() const;
+  virtual std::string use(Entity* user);
+  virtual ObjectBlueprint* makeBlueprint() const;
 
-    /**
-      * Set a destination for the door to lead to.
-      * @param room the destination room
-      */
-    void setDestination(Room* room);
+  /**
+    * Set a destination for the door to lead to.
+    * @param room the destination room
+    */
+  void setDestination(Room* room);
 
-    /**
-      * Get the room the door leads to
-      * @return destination
-      */
-    Room* getDestination();
+  /**
+    * Get the room the door leads to
+    * @return destination
+    */
+  Room* getDestination();
 
-    /**
-      * Set a location of the door
-      * @param room the location of the room
-      */
-    void setHere(Room* room);
+  /**
+    * Set a location of the door
+    * @param room the location of the room
+    */
+  void setHere(Room* room);
 
-    /**
-      * Get the room the door is in
-      * @return here
-      */
-    Room* getHere();
+  /**
+    * Get the room the door is in
+    * @return here
+    */
+  Room* getHere();
 
-  protected:
+ private:
+  Room* destination;  // Does not own this
+  Room* here;
 
-  private:
-    Room* destination;  // Does not own this
-    Room* here;
-
-    Door(const Door& other);
-    Door& operator=(const Door& other);
+  Door(const Door& other);
+  Door& operator=(const Door& other);
 };
 
 #endif // DOOR_H

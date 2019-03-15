@@ -7,23 +7,23 @@
 #include <string>
 
 
-class CheckSuit : public Event
-{
-  public:
-    CheckSuit(Room* here, std::istream& is = std::cin, std::ostream& os = std::cout);
-    virtual ~CheckSuit();
+class CheckSuit : public Event {
+ public:
+  CheckSuit(Room* here, std::istream& is = std::cin,
+            std::ostream& os = std::cout);
+  virtual ~CheckSuit();
 
-    std::string execute(Entity* affected);
-    ObjectBlueprint* makeBlueprint() const;
+  std::string execute(Entity* affected);
+  ObjectBlueprint* makeBlueprint() const;
 
-    Room* getHere();
+  Room* getHere();
 
-  protected:
-    Room* here;
+ protected:
+  Room* here;
 
-  private:
-    CheckSuit(const CheckSuit& other);
-    CheckSuit& operator=(const CheckSuit& other);
+ private:
+  CheckSuit(const CheckSuit& other);
+  CheckSuit& operator=(const CheckSuit& other);
 };
 
 #endif // CHECKSUIT_H
