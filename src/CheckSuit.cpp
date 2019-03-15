@@ -20,11 +20,12 @@ std::string CheckSuit::execute(Entity* affected) {
       return "Good thing you're wearing the right equipment!";
     } else {
       Kill k;
+      k.setMessage("You are not wearing the right protective suit!");
       message = k.execute(p);
       if (here->getAtmosphere() == Atmosphere::RADIATION)
-        return "You are not protected from the radiation in this room!\n" + message;
+        return "The radiation burns you up!\n" + message;
       else if (here->getAtmosphere() == Atmosphere::SPACE)
-        return "You are not wearing a space suit!\n" + message;
+        return "you suffocate in space!\n" + message;
     }
   return "Only players can have suits so why are you checking for one?";
   }

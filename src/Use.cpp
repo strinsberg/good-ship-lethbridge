@@ -5,6 +5,7 @@
  */
 
 #include "Use.h"
+#include "Activate.h"
 #include <string>
 
 
@@ -16,9 +17,12 @@ std::string Use::execute() {
   Entity* e = getEntity();
 
   if (e != nullptr) {
-    if (!e->getState()->getActive())
-      return "For some reason you can't";
-    else if (!e->getState()->getHidden())
+    if (!e->getState()->getActive()) {
+      if (Activate* a = dynamic_cast<Activate*>(e->getEvent()))
+        return e->getEvent()->execute(player);
+      else
+        return "For some reason you can't";
+    } else if (!e->getState()->getHidden())
       return e->use(player);
   }
 

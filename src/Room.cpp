@@ -16,14 +16,11 @@
 #include <sstream>
 
 Room::Room() : atmosphere(Atmosphere::OXYGEN),
-               enterEvent(nullptr),
-               exitEvent(nullptr) {}
+               enterEvent(nullptr) {}
 
 Room::~Room() {
   if (enterEvent != nullptr)
     delete enterEvent;
-  if (exitEvent != nullptr)
-    delete exitEvent;
 }
 
 std::string Room::describe() const {
@@ -44,7 +41,6 @@ ObjectBlueprint* Room::makeBlueprint() const {
   bp->setField("atmosphere", std::to_string(atmosphere));  // might need a different conversion
 
   bp->addBlueprint(enterEvent->makeBlueprint());
-  bp->addBlueprint(exitEvent->makeBlueprint());
 
   return bp;
 }
@@ -55,19 +51,11 @@ std::string Room::enter(Entity* entity) {
   return enterEvent->execute(entity);
 }
 
-std::string Room::exit(Entity* entity) {
-  if (exitEvent == nullptr)
-    return "";
-  return exitEvent->execute(entity);
-}
 
 void Room::setEnter(Event* event) {
   enterEvent = event;
 }
 
-void Room::setExit(Event* event) {
-  exitEvent = event;
-}
 
 Atmosphere Room::getAtmosphere() {
   return atmosphere;

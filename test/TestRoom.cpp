@@ -39,22 +39,6 @@ TEST(RoomTests, enter_null) {
   EXPECT_EQ("", r.enter(ent));
 }
 
-TEST(RoomTests, exit) {
-  Room r;
-
-  Event* e = new Inform();
-  e->setMessage("This place smells bad!");
-  r.setExit(e);
-
-  Entity* ent;
-  EXPECT_EQ("This place smells bad!", r.exit(ent));
-}
-
-TEST(RoomTests, exit_null) {
-  Room r;
-  Entity* ent;
-  EXPECT_EQ("", r.exit(ent));
-}
 
 TEST(RoomTests, use) {
   Room r;

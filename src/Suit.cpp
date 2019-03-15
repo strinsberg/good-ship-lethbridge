@@ -17,8 +17,12 @@ return spec->getDescription();
 string Suit::use(Entity* user){
 
   if(Player* p = dynamic_cast<Player*>(user)) {
-    p->setEquipped(this);
-    return "the suit is on you";
+    if (p->search(this->getSpec()->getName()) != nullptr) {
+      p->setEquipped(this);
+      return "the suit is on you";
+    } else {
+      return "You need to be carrying a suit to use it!";
+    }
   }
 
   return "suit authorization failed";
