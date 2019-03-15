@@ -706,7 +706,7 @@ lars->setEvent(ending);
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
   p->setState( makeEntityState(true, false, false) );
-  p->setCurrentRoom(hall);
+  p->setCurrentRoom(cargoBay);
   g->setPlayer(p);
 
 
