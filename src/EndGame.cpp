@@ -1,23 +1,21 @@
-#include "Kill.h"
+#include "EndGame.h"
 #include "Entity.h"
 #include <sstream>
-#include <iostream>
 
-Kill::Kill() {}
+EndGame::EndGame() {}
 
-Kill::~Kill() {}
+EndGame::~EndGame() {}
 
-std::string Kill::execute(Entity* affected) {
+std::string EndGame::execute(Entity* affected) {
   std::stringstream ss;
   affected->getState()->setHidden(true);
   ss << message << std::endl;
-  ss << affected->getSpec()->getName() << " is Dead!";
   return ss.str();
 }
 
-ObjectBlueprint* Kill::makeBlueprint() const {
+ObjectBlueprint* EndGame::makeBlueprint() const {
   ObjectBlueprint* bp = new ObjectBlueprint();
-  bp->setField("type", "kill");
+  bp->setField("type", "end_game");
   bp->setField("message", message);
   bp->setField("name", spec->getName());
   std::string d = spec->isDone() ? "true" : "false";

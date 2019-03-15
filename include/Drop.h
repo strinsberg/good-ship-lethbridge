@@ -9,19 +9,15 @@
 /**
   * Action to drop a game object.
   */
-class Drop : public Action
-{
-  public:
-    Drop(Player* p);
-    virtual ~Drop();
+class Drop : public Action {
+ public:
+  Drop(Player* p);
+  virtual ~Drop();
+  std::string execute();
 
-    std::string execute();
-
-  protected:
-
-  private:
-    Drop(const Drop& other);
-    Drop& operator=(const Drop& other);
+ private:
+  Drop(const Drop& other);
+  Drop& operator=(const Drop& other);
 };
 
 #endif // DROP_H

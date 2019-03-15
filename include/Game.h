@@ -9,6 +9,7 @@
 
 #include "Room.h"
 #include "Player.h"
+#include "Event.h"
 #include <string>
 #include <map>
 #include <iostream>
@@ -71,12 +72,17 @@ class Game {
     */
   void stop();
 
+  Event* getEvent(const std::string& name);
+
+  void addEvent(const std::string& name, Event* event);
+
   std::map<std::string, Room*> getRooms();
 
-  static string toLower(const string& str);
+  static std::string toLower(const std::string& str);
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
+  std::map<std::string, Event*> events; // does not own these!!!
   Player* player;  // owns player
   std::istream& in;
   std::ostream& out;

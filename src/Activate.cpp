@@ -10,7 +10,8 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-Activate::Activate(Entity* t, std::istream& is, std::ostream& os) : Event(is, os), target(t) {}
+Activate::Activate(Entity* t, std::istream& is, std::ostream& os) : Event(is,
+      os), target(t) {}
 
 Activate::~Activate() {}
 

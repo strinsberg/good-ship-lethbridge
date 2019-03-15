@@ -50,6 +50,4 @@ TEST(ActivateTests, execute_already_on) {
   delete i;
 }
 
-TEST(ActivateTests, DISABLED_make_blueprint) {
-
-}
+TEST(ActivateTests, DISABLED_make_blueprint) {}

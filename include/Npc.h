@@ -8,13 +8,14 @@
 #define NPC_H
 
 #include "Container.h"
+#include <string>
 
-class Npc : public Container{
-public:
-Npc(){};
-~Npc(){};
-string describe() const;
-string use(Entity* user);
-ObjectBlueprint* makeBlueprint()const;
+class Npc : public Container {
+ public:
+  Npc();
+  ~Npc();
+  std::string describe() const;
+  std::string use(Entity* user);
+  ObjectBlueprint* makeBlueprint()const;
 };
 #endif //NPC_H

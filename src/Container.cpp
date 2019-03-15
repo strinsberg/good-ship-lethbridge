@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Game.h"
 #include "ObjectWithContentsBlueprint.h"
+#include "Npc.h"
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -17,9 +18,12 @@ Container::~Container() {
 
 std::string Container::describe()const {
   std::stringstream ss;
-  if(inventory.size()>0){
-  ss<<endl<<"Contains: "<<endl;}
-  for(auto e : inventory) {ss<<e.first<<endl;}
+  if (inventory.size()>0) {
+    ss<<std::endl<<"Contains: "<<std::endl;
+  }
+  for (auto e : inventory) {
+    ss<<e.first<<std::endl;
+  }
   ss.str();
   return  spec->getDescription() + ss.str();
 }
@@ -27,7 +31,8 @@ std::string Container::use(Entity*) {
   return "you can't use containers";
 }
 ObjectBlueprint* Container:: makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>(Entity::makeBlueprint());
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
+                                    (Entity::makeBlueprint());
   bp->setField("type", "container");
 
   // for loop to add all items with this container as owner to the blueprint
@@ -45,22 +50,40 @@ Entity* Container::search(std::string name) const {
   if (it == inventory.end()) {
     for (auto itemPair : inventory) {
       if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
-        Entity* e = c->search( Game::toLower(name) );
-        if (e!= nullptr)
-          return e;
+        if (Npc* n = dynamic_cast<Npc*>(c)) {
+          return nullptr;
+        } else {
+          Entity* e = c->search( Game::toLower(name) );
+          if (e!= nullptr)
+            return e;
+        }
       }
     }
     return nullptr;
-  }
-  else
+  } else
     return it->second;
+}
+
+Entity* Container::findOwner(std::string name) {
+  auto it = inventory.find( Game::toLower(name) );
+  if (it == inventory.end()) {
+    for (auto itemPair : inventory) {
+      if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
+        Entity* e = c->search( Game::toLower(name) );
+        if (e!= nullptr)
+          return c;
+      }
+    }
+    return nullptr;
+  } else
+    return this;
 }
 
 void Container::addEntity(Entity* entity) {
   inventory[ Game::toLower(entity->getSpec()->getName()) ] = entity;
 }
 
-void Container::removeEntity(Entity* entity){
+void Container::removeEntity(Entity* entity) {
   inventory.erase( Game::toLower(entity->getSpec()->getName()) );
 }
 

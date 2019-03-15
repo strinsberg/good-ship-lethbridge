@@ -43,12 +43,16 @@ TEST(InteractionTests, add_option_execute) {
   e->setMessage("You go to sleep");
   i.addOption("Sleep", e);
 
-  in << 1;
+  in << "1\n2";
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
-  EXPECT_EQ(result, "You go to sleep");
+  EXPECT_EQ("Please choose an option number:\n"
+            "1. Sleep\n2. Cancel\n>>> "
+            "You go to sleep\n\n"
+            "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+            out.str());
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -60,12 +64,13 @@ TEST(InteractionTests, execute_cancel) {
   e->setMessage("You go to sleep");
   i.addOption("Sleep", e);
 
-  in << 2;
+  in << "2";
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
-  EXPECT_EQ(result, "canceled");
+  EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+            out.str());
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -77,12 +82,35 @@ TEST(InteractionTests, execute_bad_choice) {
   e->setMessage("You go to sleep");
   i.addOption("Sleep", e);
 
-  in << 20;
+  in << "20\n2";
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ(out.str(), "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ");
-  EXPECT_EQ(result, "Not a valid choice!");
+  EXPECT_EQ("Please choose an option number:\n"
+            "1. Sleep\n2. Cancel\n>>> Not a valid choice!\n\n"
+            "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+            out.str());
+  EXPECT_EQ(result, "Done");
+  delete p;
+}
+
+TEST(InteractionTests, execute_bad_choice_not_number) {
+  std::stringstream in, out;
+  Interaction i(in, out);
+
+  Event* e = new Inform();
+  e->setMessage("You go to sleep");
+  i.addOption("Sleep", e);
+
+  in << "steve\n2";
+  Entity* p = new Player();
+  std::string result = i.execute(p);
+
+  EXPECT_EQ("Please choose an option number:\n"
+            "1. Sleep\n2. Cancel\n>>> Please enter a number!\n\n"
+            "Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
+            out.str());
+  EXPECT_EQ(result, "Done");
   delete p;
 }
 
@@ -106,6 +134,6 @@ TEST(InteractionTests, make_blueprint) {
   EXPECT_EQ(o->getField("done"), "false");
 
   EXPECT_EQ("{\ntype=inform",
-            o->toString().substr(72, 13));
+            o->toString().substr(89, 13));
   delete o;
 }

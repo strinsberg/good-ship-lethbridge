@@ -9,6 +9,7 @@
 
 #include "Command.h"
 #include "Player.h"
+#include <string>
 
 
 /**
@@ -24,16 +25,20 @@ class Action : public Command {
    */
   const Player* getPlayer() const;
 
+  /**
+    * Allows finding an entity in a player and it's current room.
+    * @param player the player
+    * @param name then name of the entity
+    */
+  static Entity* findEntity(Player* player, std::string name);
+
  protected:
   Player* player;  // does not own the player
 
-  // Find an entity in the player or current room
-  // Returns the entity or nullptr if the entity is not there
-  // uses player and noun
+  // Calls findEntity with player and Command::noun
   Entity* getEntity();
 
  private:
-
   Action(const Action&);
   Action& operator=(const Action&);
 };

@@ -16,9 +16,9 @@ std::string Drop::execute() {
   Entity* e = getEntity();
 
   if (e != nullptr && !e->getState()->getHidden()) {
-      player->getCurrentRoom()->addEntity(e);
-      player->removeEntity(e);
-      return "You drop the " + noun;
+    player->getCurrentRoom()->addEntity(e);
+    player->removeEntity(e);
+    return "You drop the " + noun;
   }
 
   return "There is no " + noun;

@@ -2,8 +2,9 @@
 #include "Entity.h"
 #include <string>
 
-QuestionLock::QuestionLock(Entity* target, std::string q, std::string a, std::istream& is, std::ostream& os)
-    : Activate(target, is, os), question(q), answer(a) {}
+QuestionLock::QuestionLock(Entity* target, std::string q, std::string a,
+                           std::istream& is, std::ostream& os)
+  : Activate(target, is, os), question(q), answer(a) {}
 
 QuestionLock::~QuestionLock() {}
 

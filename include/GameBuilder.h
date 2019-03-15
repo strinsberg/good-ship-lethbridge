@@ -8,28 +8,29 @@
 #define GAMEBUILDER_H
 
 #include "Game.h"
+#include <string>
 
 /**
   * Builds a new game in its initial state.
   */
-class GameBuilder
-{
-  public:
-    GameBuilder();
-    virtual ~GameBuilder();
+class GameBuilder {
+ public:
+  GameBuilder();
+  virtual ~GameBuilder();
 
-    /**
-      * Create a new game and return it. Transfers ownership.
-      */
-    Game* newGame(std::string name);
+  /**
+    * Create a new game and return it. Transfers ownership.
+    */
+  Game* newGame(std::string name);
 
-  private:
-    EntitySpec* makeEntitySpec(std::string name, std::string description);
-    EntityState* makeEntityState(bool active, bool obtainable, bool hidden);
-    void addEntityInfo(Entity* entity, std::string name, std::string description, bool active, bool obtainable, bool hidden);
+ private:
+  EntitySpec* makeEntitySpec(std::string name, std::string description);
+  EntityState* makeEntityState(bool active, bool obtainable, bool hidden);
+  void addEntityInfo(Entity* entity, std::string name, std::string description,
+                     bool active, bool obtainable, bool hidden);
 
-    GameBuilder(const GameBuilder& other);
-    GameBuilder& operator=(const GameBuilder& other);
+  GameBuilder(const GameBuilder& other);
+  GameBuilder& operator=(const GameBuilder& other);
 };
 
 #endif // GAMEBUILDER_H

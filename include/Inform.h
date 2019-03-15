@@ -16,18 +16,17 @@
 /**
   * An event to return information
   */
-class Inform : public Event
-{
-  public:
-    Inform(std::istream& is = std::cin, std::ostream& os = std::cout);
-    virtual ~Inform();
+class Inform : public Event {
+ public:
+  Inform(std::istream& is = std::cin, std::ostream& os = std::cout);
+  virtual ~Inform();
 
-    std::string execute(Entity* affected);
-    ObjectBlueprint* makeBlueprint() const;
+  std::string execute(Entity* affected);
+  ObjectBlueprint* makeBlueprint() const;
 
-  private:
-    Inform(const Inform& other);
-    Inform& operator=(const Inform& other);
+ private:
+  Inform(const Inform& other);
+  Inform& operator=(const Inform& other);
 };
 
 #endif // INFORM_H

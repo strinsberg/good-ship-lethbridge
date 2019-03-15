@@ -15,17 +15,16 @@
 /**
   * Action to use a game object.
   */
-class Use : public Action
-{
-  public:
-    Use(Player* p);
-    virtual ~Use();
+class Use : public Action {
+ public:
+  Use(Player* p);
+  virtual ~Use();
 
-    std::string execute();
+  std::string execute();
 
-  private:
-    Use(const Use& other);
-    Use& operator=(const Use& other);
+ private:
+  Use(const Use& other);
+  Use& operator=(const Use& other);
 };
 
 #endif // USE_H
