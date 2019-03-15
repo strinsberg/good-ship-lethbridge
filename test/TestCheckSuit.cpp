@@ -87,7 +87,7 @@ TEST(CheckSuitTests, player_wrong_suit_space) {
   s->use(p);
 
   EXPECT_EQ(s, p->getEquipped());
-  EXPECT_EQ("You are not wearing a space suit!\nSteve is Dead!", cs.execute(p));
+  EXPECT_EQ("you suffocate in space!\nYou are not wearing the right protective suit!\nSteve is Dead!", cs.execute(p));
   EXPECT_EQ(true, p->getState()->getHidden());
   delete r;
   delete p;
@@ -102,7 +102,7 @@ TEST(CheckSuitTests, player_no_suit_radiation) {
   p->getSpec()->setName("Steve");;
 
   EXPECT_EQ(nullptr, p->getEquipped());
-  EXPECT_EQ("You are not protected from the radiation in this room!\nSteve is Dead!", cs.execute(p));
+  EXPECT_EQ("The radiation burns you up!\nYou are not wearing the right protective suit!\nSteve is Dead!", cs.execute(p));
   EXPECT_EQ(true, p->getState()->getHidden());
   delete r;
   delete p;

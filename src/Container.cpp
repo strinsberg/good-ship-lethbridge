@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Game.h"
 #include "ObjectWithContentsBlueprint.h"
+#include "Npc.h"
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -45,9 +46,13 @@ Entity* Container::search(std::string name) const {
   if (it == inventory.end()) {
     for (auto itemPair : inventory) {
       if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
-        Entity* e = c->search( Game::toLower(name) );
-        if (e!= nullptr)
-          return e;
+        if (Npc* n = dynamic_cast<Npc*>(c)) {
+          return nullptr;
+        } else {
+          Entity* e = c->search( Game::toLower(name) );
+          if (e!= nullptr)
+            return e;
+        }
       }
     }
     return nullptr;

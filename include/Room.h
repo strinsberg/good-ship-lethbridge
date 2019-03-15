@@ -32,24 +32,12 @@ class Room : public Container {
   virtual std::string enter(Entity* entity);
 
   /**
-    * Take action when an entity leaves the room. Does not transfer ownership to Room.
-    * @param entity the entity leaving the room
-    */
-  virtual std::string exit(Entity* entity);
-
-  /**
     * Set an event to execute when the room is entered. Transfers ownership
     * to this room.
     * @param event the event
     */
   void setEnter(Event* event);
 
-  /**
-    * Set an event to execute when the room is exited. Transfers ownership
-    * to this room.
-    * @param event the event
-    */
-  void setExit(Event* event);
 
   Atmosphere getAtmosphere();
   void setAtmosphere(Atmosphere a);
@@ -57,7 +45,6 @@ class Room : public Container {
  protected:
   Atmosphere atmosphere;
   Event* enterEvent;  // owns these events
-  Event* exitEvent;
 
  private:
   Room(const Room&);

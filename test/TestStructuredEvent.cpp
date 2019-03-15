@@ -37,7 +37,7 @@ TEST(StructuredEventsTests, execute_one_no_repeat) {
   Entity* p;
   EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(p), "Nothing Happens");
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 

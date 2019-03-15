@@ -68,6 +68,6 @@ TEST(DropTests, execute_item_does_not_exits) {
   p->setCurrentRoom(&r);
 
   d.setNoun("box");
-  EXPECT_EQ("There is no box", d.execute());
+  EXPECT_EQ("You don't have that!", d.execute());
   delete p;
 }

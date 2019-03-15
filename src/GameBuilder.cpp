@@ -674,7 +674,7 @@ lars->setEvent(ending);
   Player* p = new Player();
   p->setSpec( makeEntitySpec(name, "It's you!"));
   p->setState( makeEntityState(true, false, false) );
-  p->setCurrentRoom(outerSpace);
+  p->setCurrentRoom(engiControl);
   g->setPlayer(p);
 
 

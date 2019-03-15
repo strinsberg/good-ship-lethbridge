@@ -1,13 +1,18 @@
 #include "Kill.h"
 #include "Entity.h"
+#include <sstream>
+#include <iostream>
 
 Kill::Kill() {}
 
 Kill::~Kill() {}
 
 std::string Kill::execute(Entity* affected) {
+  std::stringstream ss;
   affected->getState()->setHidden(true);
-  return affected->getSpec()->getName() + " is Dead!";
+  ss << message << std::endl;
+  ss << affected->getSpec()->getName() << " is Dead!";
+  return ss.str();
 }
 
 ObjectBlueprint* Kill::makeBlueprint() const {

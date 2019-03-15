@@ -26,25 +26,33 @@ void Interaction::addOption(std::string t, Event* e) {
 }
 
 std::string Interaction::execute(Entity* affected) {
-  out << "Please choose an option number:" << std::endl;
+  while (true) {
+    out << "Please choose an option number:" << std::endl;
 
-  size_t i;
-  for (i = 0; i < options.size(); i++) {
-   out << i + 1 << ". ";
-   out << options[i].title << std::endl;
+    size_t i;
+    for (i = 0; i < options.size(); i++) {
+     out << i + 1 << ". ";
+     out << options[i].title << std::endl;
+    }
+    out << i + 1 << ". Cancel" << std::endl;
+    out << ">>> ";
+
+    std::string choice;
+
+    getline(in, choice);
+    try {
+      int ch = std::stoi(choice);
+      if (ch == options.size() + 1)
+        return "Done";
+      else if (ch <= options.size() && ch > 0)
+        out << options.at(ch - 1).event->execute(affected);
+      else
+        out << "Not a valid choice!";
+    } catch (invalid_argument e) {
+      out << "Please enter a number!";
+    }
+    out << std::endl << std::endl;
   }
-  out << i + 1 << ". Cancel" << std::endl;
-  out << ">>> ";
-
-  size_t choice;
-
-  in >> choice;  // What happens if this tries to get a string?
-  if (choice == options.size() + 1)
-    return "canceled";
-  else if (choice <= options.size() && choice > 0)
-    return options.at(choice - 1).event->execute(affected);
-  else
-    return "Not a valid choice!";
 }
 
 ObjectBlueprint* Interaction::makeBlueprint() const {
