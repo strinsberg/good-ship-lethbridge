@@ -11,7 +11,7 @@
 #include <exception>
 
 Interaction::Interaction(std::istream& is, std::ostream& os)
-    : Event(is, os), options(std::vector<Option>()), breakOut(false) {}
+  : Event(is, os), options(std::vector<Option>()), breakOut(false) {}
 
 Interaction::~Interaction() {
   for (auto o : options)
@@ -31,8 +31,8 @@ std::string Interaction::execute(Entity* affected) {
 
     size_t i;
     for (i = 0; i < options.size(); i++) {
-     out << i + 1 << ". ";
-     out << options[i].title << std::endl;
+      out << i + 1 << ". ";
+      out << options[i].title << std::endl;
     }
     out << i + 1 << ". Cancel" << std::endl;
     out << ">>> ";
@@ -48,7 +48,7 @@ std::string Interaction::execute(Entity* affected) {
         out << options.at(ch - 1).event->execute(affected);
       else
         out << "Not a valid choice!";
-    } catch (invalid_argument e) {
+    } catch (std::invalid_argument e) {
       out << "Please enter a number!";
     }
     if (breakOut)

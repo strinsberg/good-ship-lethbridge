@@ -16,7 +16,7 @@
 #include <sstream>
 
 Room::Room() : atmosphere(Atmosphere::OXYGEN),
-               enterEvent(nullptr) {}
+  enterEvent(nullptr) {}
 
 Room::~Room() {
   if (enterEvent != nullptr)
@@ -35,10 +35,12 @@ std::string Room::use(Entity*) {
 }
 
 ObjectBlueprint* Room::makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>(Container::makeBlueprint());
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
+                                    (Container::makeBlueprint());
 
   bp->setField("type", "room");
-  bp->setField("atmosphere", std::to_string(atmosphere));  // might need a different conversion
+  bp->setField("atmosphere",
+               std::to_string(atmosphere));  // might need a different conversion
 
   if (enterEvent != nullptr)
     bp->addBlueprint(enterEvent->makeBlueprint());

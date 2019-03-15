@@ -14,7 +14,7 @@
 
 Event::Event(std::istream& is, std::ostream& os)
   : message(""), spec(nullptr), in(is), out(os) {
-    spec = new EventSpec();
+  spec = new EventSpec();
 }
 
 Event::~Event() {

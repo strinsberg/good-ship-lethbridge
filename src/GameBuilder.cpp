@@ -476,7 +476,7 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   cargoBay->addEntity(Mae);
 
-    Item* cookie = new Item();
+  Item* cookie = new Item();
   addEntityInfo(cookie,
                 "box of cookie",
                 "a box full of cookie, bake by aliens",
@@ -527,38 +527,38 @@ Game* GameBuilder::newGame(std::string name) {
   captainComputer->getSpec()->setName("c_comp");
   captainComputer->setMessage("good ship Lethbridge status : code red \npower down everywhere ");
   computer->setEvent(captainComputer);
-  g->addEvent("c_comp",captainComputer);
+  g->addEvent("c_comp", captainComputer);
 
   Inform* captainWindow = new Inform();
   captainWindow->getSpec()->setName("c_win");
   captainWindow->setMessage("you see endless space and some debris probably from the'Lethbridge'");
   window->setEvent(captainWindow);
-  g->addEvent("c_win",captainWindow);
+  g->addEvent("c_win", captainWindow);
 
   Inform* enter_captains_room = new Inform();
   enter_captains_room->getSpec()->setName("c_enter");
   enter_captains_room->setMessage("You are in the captains room");
   captains_room->setEnter(enter_captains_room);
-  g->addEvent("c_enter",enter_captains_room);
+  g->addEvent("c_enter", enter_captains_room);
 
   // common room events
   Inform* enter_common_room = new Inform();
   enter_common_room->getSpec()->setName("spa_enter");
   enter_common_room->setMessage("You are in the common room");
   common_room->setEnter(enter_common_room);
-  g->addEvent("spa_enter",enter_common_room);
+  g->addEvent("spa_enter", enter_common_room);
 
   Inform* furniture = new Inform();
   furniture->getSpec()->setName("spa_furn");
   furniture->setMessage("You take a moment to relax. Is this really the time!");
   chair->setEvent(furniture);
-  g->addEvent("spa_furn",furniture);
+  g->addEvent("spa_furn", furniture);
 
   Inform* nice_furniture = new Inform();
   furniture->getSpec()->setName("spa_nice");
   nice_furniture->setMessage("This feels too good! Your a bad captain! Save your ship!");
   comfy_chair->setEvent(nice_furniture);
-  g->addEvent("spa_nice",nice_furniture);
+  g->addEvent("spa_nice", nice_furniture);
 
   Inform* manifest_list = new Inform();
   manifest_list->getSpec()->setName("spa_list");
@@ -567,7 +567,7 @@ Game* GameBuilder::newGame(std::string name) {
                             "Whinny Mae - Doctor\nID #0341\n\n"
                             "Lars Philbur - Bridge Officer\nID #7513\n\n");
   crewList->setEvent(manifest_list);
-  g->addEvent("spa_list",manifest_list);
+  g->addEvent("spa_list", manifest_list);
 
 
   QuestionLock* spannerLock = new QuestionLock(spannerRoomDoor,
@@ -575,32 +575,32 @@ Game* GameBuilder::newGame(std::string name) {
   spannerLock->getSpec()->setName("spa_lock");
   spannerLock->setMessage("spanner room door activated ");
   spannerDoorLock->setEvent(spannerLock);
-  g->addEvent("spa_lock",spannerLock);
+  g->addEvent("spa_lock", spannerLock);
 
   KeyLock* hallLock =new KeyLock(hallDoor, fuse);
   hallLock->getSpec()->setName("spa_hall_lock");
   hallLock->setMessage("power restored to hall door");
   hallDoorPanel->setEvent(hallLock);
-  g->addEvent("spa_hall_lock",hallLock);
+  g->addEvent("spa_hall_lock", hallLock);
 
   //spanner room events///////////////////////////
   Inform* use_fuse = new Inform();
-    use_fuse->getSpec()->setName("s_fuse");
+  use_fuse->getSpec()->setName("s_fuse");
   use_fuse->setMessage("Careful you might break it!");
   fuse->setEvent(use_fuse);
-  g->addEvent("s_fuse",use_fuse);
+  g->addEvent("s_fuse", use_fuse);
 
   Kill* killSpannerBed = new Kill();
   killSpannerBed->getSpec()->setName("s_die");
   killSpannerBed->setMessage("you slept through the disaster");
   spannerbed->setEvent(killSpannerBed);
-  g->addEvent("s_die",killSpannerBed);
+  g->addEvent("s_die", killSpannerBed);
 
   Inform* spannerComputerInfo = new Inform();
   spannerComputerInfo->getSpec()->setName("s_comp");
   spannerComputerInfo->setMessage("Biometric authentication failed! \naccess denied!!");
   spannerComputer->setEvent(spannerComputerInfo);
-  g->addEvent("s_comp",spannerComputerInfo);
+  g->addEvent("s_comp", spannerComputerInfo);
 
   //hall events
 
@@ -608,33 +608,33 @@ Game* GameBuilder::newGame(std::string name) {
   useMed->getSpec()->setName("s_med");
   useMed->setMessage("you dont need it");
   medKit->setEvent(useMed);
-  g->addEvent("s_med",useMed);
+  g->addEvent("s_med", useMed);
 
   Inform* talkBarbara = new Inform();
   talkBarbara->getSpec()->setName("s_barb");
   talkBarbara->setMessage("please i need help!");
-  g->addEvent("s_barb",talkBarbara);
+  g->addEvent("s_barb", talkBarbara);
 
   KeyLock* engiOpen = new KeyLock(engiDoor, medKit);
   engiOpen->getSpec()->setName("s_engi_open");
-  g->addEvent("s_engi_open",engiOpen);
+  g->addEvent("s_engi_open", engiOpen);
 
   MoveItems* giveMedkit = new MoveItems(barbara, "medKit");
   giveMedkit->getSpec()->setName("s_give_med");
-  g->addEvent("medKit",giveMedkit);
+  g->addEvent("medKit", giveMedkit);
 
   EventGroup* healBarbara = new EventGroup();
   healBarbara->getSpec()->setName("s_heal_barb");
   healBarbara->addEvent(engiOpen);
   healBarbara->addEvent(giveMedkit);
-  g->addEvent("s_heal_barb",healBarbara);
+  g->addEvent("s_heal_barb", healBarbara);
 
   Interaction* interBarbara = new Interaction();
   interBarbara->getSpec()->setName("s_int_barb");
   interBarbara->addOption("talk to her", talkBarbara);
   interBarbara->addOption("heal Barbara", healBarbara);
   barbara->setEvent(interBarbara);
-  g->addEvent("s_int_barb",interBarbara);
+  g->addEvent("s_int_barb", interBarbara);
 
   Inform* hallComputerinfo = new Inform();
   hallComputerinfo->getSpec()->setName("h_comp_inf");
@@ -655,25 +655,25 @@ Game* GameBuilder::newGame(std::string name) {
 
                               );
   hallComputer->setEvent(hallComputerinfo);
-  g->addEvent("h_comp_inf",hallComputerinfo);
+  g->addEvent("h_comp_inf", hallComputerinfo);
   // Engineering Events
 
   MoveItems* getCoreWrench = new MoveItems(spanner, "core wrench");
   getCoreWrench->getSpec()->setName("h_wrench");
   getCoreWrench->setGive(true);
   getCoreWrench->setMessage("Here you go! Now get in there and fix the core!");
-  g->addEvent("h_wrench",getCoreWrench);
+  g->addEvent("h_wrench", getCoreWrench);
 
   Inform* talkSpanner = new Inform();
   talkSpanner->getSpec()->setName("e_talk_spanner");
   talkSpanner->setMessage("You have to go into the core while I operate the controls\n"
                           "I have a core wrench you will need");
-  g->addEvent("e_talk_spanner",talkSpanner);
+  g->addEvent("e_talk_spanner", talkSpanner);
 
   Inform* askSpanner = new Inform();
   askSpanner->getSpec()->setName("e_ask_span");
   askSpanner->setMessage("Just smack it real hard");
-  g->addEvent("e_ask_span",askSpanner);
+  g->addEvent("e_ask_span", askSpanner);
 
   Interaction* interSpanner = new Interaction();
   interSpanner->getSpec()->setName("e_inter_span");
@@ -682,29 +682,29 @@ Game* GameBuilder::newGame(std::string name) {
   interSpanner->addOption("get core wrench", getCoreWrench);
   interSpanner->addOption("How do I fix the reactor?", askSpanner);
   spanner->setEvent(interSpanner);
-  g->addEvent("e_inter_span",interSpanner);
+  g->addEvent("e_inter_span", interSpanner);
 //engine bay event
 
   Kill* fiddle = new Kill();
   fiddle->getSpec()->setName("b_fidd");
   fiddle->setMessage("you pressed wrong button, segfault (core dumped) 0xFFFFF :( !!");
-  g->addEvent("b_fidd",fiddle);
+  g->addEvent("b_fidd", fiddle);
 
   CheckSuit* radSuit = new CheckSuit(engiBay);
   radSuit->getSpec()->setName("b_suit");
   radSuit->setMessage("You enter the engine bay. I hope you have a radiation suit on.");
   engiBay->setEnter(radSuit);
-  g->addEvent("b_suit",radSuit);
+  g->addEvent("b_suit", radSuit);
 
   KeyLock* Fixed = new KeyLock(cargoBaydoor, coreWrench);
   Fixed->getSpec()->setName("b_fixed");
   Fixed->setMessage("power is restored, good job ;)");
-  g->addEvent("b_fixed",Fixed);
+  g->addEvent("b_fixed", Fixed);
 
   Kill* leakage = new Kill();
   leakage->getSpec()->setName("b_leak");
   leakage->setMessage("radiation kills every one on this ship");
-  g->addEvent("b_leak",leakage);
+  g->addEvent("b_leak", leakage);
 
   Interaction* reactorFix = new Interaction();
   reactorFix->getSpec()->setName("b_leak");
@@ -712,40 +712,40 @@ Game* GameBuilder::newGame(std::string name) {
   reactorFix->addOption("smack with wrench real hard!", Fixed);
   reactorFix->addOption("put out reactor core", leakage);
   reactor->setEvent(reactorFix);
-  g->addEvent("b_leak",reactorFix);
+  g->addEvent("b_leak", reactorFix);
 
 //cargo bay even//
 
   Inform* quick=new Inform();
   quick->getSpec()->setName("b_quick");
   quick->setMessage("quick you need to get to the bridge!");
-  g->addEvent("b_quick",quick);
+  g->addEvent("b_quick", quick);
 
   Inform* larsCrash=new Inform();
   larsCrash->getSpec()->setName("b_crash");
   larsCrash->setMessage("Lars is controlled by the alien now!");
-  g->addEvent("b_crash",larsCrash);
+  g->addEvent("b_crash", larsCrash);
 
   Inform* stillhere=new Inform();
   stillhere->getSpec()->setName("b_here");
   stillhere->setMessage("what are you still here for, go save us!");
-  g->addEvent("b_here",stillhere);
+  g->addEvent("b_here", stillhere);
 
   Inform* forget=new Inform();
   forget->getSpec()->setName("b_forget");
   forget->setMessage("don't forget wear space suit!");
-  g->addEvent("b_forget",forget);
+  g->addEvent("b_forget", forget);
 
   MoveItems* giveCookie = new MoveItems(Mae, "box of cookie");
   giveCookie->getSpec()->setName("b_cookie");
   giveCookie->setMessage("here is a box of cookie");
   giveCookie->setGive(true);
-  g->addEvent("box of cookie",giveCookie);
+  g->addEvent("box of cookie", giveCookie);
 
   Inform* stoptalk=new Inform();
   stoptalk->getSpec()->setName("b_stop");
   stoptalk->setMessage("stop talking to me!");
-  g->addEvent("b_stop",stoptalk);
+  g->addEvent("b_stop", stoptalk);
 
   StructuredEvents* talkMae = new StructuredEvents();
   talkMae->getSpec()->setName("b_mae");
@@ -757,7 +757,7 @@ Game* GameBuilder::newGame(std::string name) {
   talkMae->addEvent(giveCookie);
   talkMae->addEvent(stoptalk);
   Mae->setEvent(talkMae);
-  g->addEvent("b_mae",talkMae);
+  g->addEvent("b_mae", talkMae);
 
 //space events
 
@@ -766,39 +766,39 @@ Game* GameBuilder::newGame(std::string name) {
   talkyoda->setFailMessage("its rude to interrupt a Jedi's meditation");
   talkyoda->setMessage("\"mmmm cookies you have\"");
   alien->setEvent(talkyoda);
-  g->addEvent("b_yoda",talkyoda);
+  g->addEvent("b_yoda", talkyoda);
 
   MoveItems* giveSaber = new MoveItems(alien, "light saber");
   giveSaber->getSpec()->setName("b_saber");
   giveSaber->setGive(true);
   talkyoda->setSuccessEvent(giveSaber);
-  g->addEvent("b_saber",giveSaber);
+  g->addEvent("b_saber", giveSaber);
 
   //bridge events
   EndGame* intosun = new EndGame();
   intosun->getSpec()->setName("b_int_sun");
   intosun->setMessage("you fly the ship into the sun, sacrificing your self and your crew to save the galaxy!");
-  g->addEvent("b_int_sun",intosun);
+  g->addEvent("b_int_sun", intosun);
 
   EndGame* escape= new EndGame();
   escape->getSpec()->setName("b_escape");
   escape->setMessage("you took the only escape pod, fly away! what a captain!");
-  g->addEvent("b_escape",escape);
+  g->addEvent("b_escape", escape);
 
   EndGame* capture = new EndGame();
   capture->getSpec()->setName("b_capture");
   capture->setMessage("you captured lars but the contamination spreads, and devastated the galaxy!");
-  g->addEvent("b_capture",capture);
+  g->addEvent("b_capture", capture);
 
   KeyLock* win = new KeyLock(dummy, lightSaber);
   win->getSpec()->setName("b_win");
-  g->addEvent("b_win",win);
+  g->addEvent("b_win", win);
 
   EndGame* killedLars = new EndGame();
   killedLars->getSpec()->setName("b_killed");
   killedLars->setMessage("you excuted the source of the virus, the rest of your crew and the galaxy is all saved!!\n");
   win->setSuccessEvent(killedLars);
-  g->addEvent("b_killed",killedLars);
+  g->addEvent("b_killed", killedLars);
 
   Interaction* ending = new Interaction();
   ending->getSpec()->setName("b_end");
@@ -808,7 +808,7 @@ Game* GameBuilder::newGame(std::string name) {
   ending->addOption("capture and lock lars", capture);
   ending->setBreakOut(true);
   lars->setEvent(ending);
-  g->addEvent("b_end",ending);
+  g->addEvent("b_end", ending);
 
 
 // Create player ////////////////////////////////////////////////////////////

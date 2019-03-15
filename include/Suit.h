@@ -8,17 +8,18 @@
 
 #include"Atmosphere.h"
 #include"Entity.h"
+#include <string>
 
 class Suit :public Entity {
-public:
-Suit();
-~Suit();
-string describe() const;
-string use(Entity* user);
-ObjectBlueprint* makeBlueprint() const;
-Atmosphere getAtmosphere();
-void setAtmosphere(Atmosphere a);
-private:
+ public:
+  Suit();
+  ~Suit();
+  std::string describe() const;
+  std::string use(Entity* user);
+  ObjectBlueprint* makeBlueprint() const;
+  Atmosphere getAtmosphere();
+  void setAtmosphere(Atmosphere a);
+ private:
   Atmosphere atmosphere;
 };
 

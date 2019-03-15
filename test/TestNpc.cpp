@@ -8,19 +8,19 @@
 #include "gtest/gtest.h"
 #include "Inform.h"
 #include "Player.h"
-TEST(TestNpc,describe) {
-Npc Max;
+TEST(TestNpc, describe) {
+  Npc Max;
 
-Max.getSpec()->setDescription("this is max from your class");
-EXPECT_EQ("this is max from your class",Max.describe());
+  Max.getSpec()->setDescription("this is max from your class");
+  EXPECT_EQ("this is max from your class", Max.describe());
 }
 
-TEST(TestNpc,use) {
-Npc steve;
-Player* Max = new Player();
+TEST(TestNpc, use) {
+  Npc steve;
+  Player* Max = new Player();
 
-Event* info = new Inform();
-info->setMessage("hi I am Steve");
-steve.setEvent(info);
-EXPECT_EQ("hi I am Steve",steve.use(Max));
+  Event* info = new Inform();
+  info->setMessage("hi I am Steve");
+  steve.setEvent(info);
+  EXPECT_EQ("hi I am Steve", steve.use(Max));
 }

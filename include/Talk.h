@@ -15,17 +15,16 @@
 /**
   * Action to talk to an NPC.
   */
-class Talk : public Action
-{
-  public:
-    Talk(Player* p);
-    virtual ~Talk();
+class Talk : public Action {
+ public:
+  Talk(Player* p);
+  virtual ~Talk();
 
-    std::string execute();
+  std::string execute();
 
-  private:
-    Talk(const Talk& other);
-    Talk& operator=(const Talk& other);
+ private:
+  Talk(const Talk& other);
+  Talk& operator=(const Talk& other);
 };
 
 #endif // TALK_H

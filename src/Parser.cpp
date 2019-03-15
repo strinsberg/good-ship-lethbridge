@@ -50,11 +50,11 @@ Command* Parser::parse() const {
     c = new Inventory(game->getPlayer());
   } else if (verb == "use" || verb == "u") {
     c = new Use(game->getPlayer());
-  } else if (verb == "talk" || verb == "t"){
+  } else if (verb == "talk" || verb == "t") {
     c = new Talk(game->getPlayer());
-  } else if (verb == "exit" || verb == "e"){
+  } else if (verb == "exit" || verb == "e") {
     c = new Exit(game->getPlayer());
-  } else if (verb == "help" || verb == "h"){
+  } else if (verb == "help" || verb == "h") {
     c = new Help(game);
   } else if (verb == "quit" || verb == "q") {
     c = new Quit(game);

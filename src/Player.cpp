@@ -17,7 +17,7 @@ Player::Player() : currentRoom(nullptr), equipped(nullptr) {}
 
 Player::~Player() {}
 
-std::string Player::describe() const{
+std::string Player::describe() const {
   return spec->getDescription();
 }
 
@@ -34,7 +34,8 @@ void Player::setCurrentRoom(Room* r) {
 }
 
 ObjectBlueprint* Player::makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>(Container::makeBlueprint());
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
+                                    (Container::makeBlueprint());
 
   bp->setField("type", "player");
   bp->setField("room", currentRoom->getSpec()->getName());
@@ -44,9 +45,10 @@ ObjectBlueprint* Player::makeBlueprint() const {
   return bp;
 }
 
-void Player::setEquipped(Suit* s){
-equipped = s;
+void Player::setEquipped(Suit* s) {
+  equipped = s;
 }
 
-Suit* Player::getEquipped(){
-return equipped;}
+Suit* Player::getEquipped() {
+  return equipped;
+}
