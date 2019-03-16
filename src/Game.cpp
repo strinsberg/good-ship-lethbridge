@@ -76,8 +76,8 @@ void Game::run() {
 
     input = toLower(input);
 
-    Command* c;
     if (input != "") {
+      Command* c;
       Parser p(input, this);
       c = p.parse();
       out << c->execute() << std::endl;

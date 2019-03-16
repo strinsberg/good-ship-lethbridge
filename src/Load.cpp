@@ -68,7 +68,6 @@ std::string Load::execute() {
 
   for (auto bp : blueprints) {
     std::string type = bp->getType();
-    std::string name = bp->getField("name");
     if (type == ObjectBlueprint::null())
       continue;
 
@@ -110,9 +109,8 @@ void updateInteraction(Game* g, ObjectBlueprint* bp) {
 }
 
 void updateEntity(Game* g, ObjectBlueprint* bp) {
-  Entity* ent = nullptr;
   for (auto rPair : g->getRooms()) {
-    ent = rPair.second->search(bp->getField("name"));
+    Entity* ent = rPair.second->search(bp->getField("name"));
     if (ent != nullptr) {
       moveEntity(g, ent, bp->getField("owner"));
       ent->getState()->setActive(stob(bp->getField("active")));
@@ -134,9 +132,8 @@ void updateEvent(Game* g, ObjectBlueprint* bp) {
 void moveEntity(Game* g, Entity* entity, std::string newOwner) {
   std::string itemName = entity->getSpec()->getName();
 
-  Entity* owner = nullptr;
   for (auto rPair : g->getRooms()) {
-    owner = rPair.second->findOwner(itemName);
+    Entity* owner = rPair.second->findOwner(itemName);
 
     if (owner != nullptr && owner->getSpec()->getName() != newOwner) {
       MoveItems move(owner, itemName);
