@@ -97,5 +97,4 @@ TEST(TalkTests, execute_not_an_npc) {
   EXPECT_EQ("You can't talk to box", talk.execute());
   delete p;
   delete room;
-
 }

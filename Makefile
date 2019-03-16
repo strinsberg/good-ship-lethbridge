@@ -42,16 +42,20 @@ clean:
 compile: $(SRC_DIR)
 	$(CXX) $(CXXFLAGS) -o $(PROGRAM) $(INCLUDE) \
 	$(SRC_DIR)/*.cpp $(SRC_DIR)/game/*.cpp
+	rm -f *.gc*
 
 $(PROGRAM_TEST): $(TEST_DIR) $(SRC_DIR)
 	$(CXX) $(CXXFLAGS) -o $(PROGRAM_TEST) $(INCLUDE) \
 	$(TEST_DIR)/*.cpp $(SRC_DIR)/*.cpp $(LINKFLAGS)
+	rm -f *.gc*
 
 tests: $(PROGRAM_TEST)
 	$(PROGRAM_TEST)
+	rm -f *.gc*
 
 memcheck: $(PROGRAM_TEST)
 	valgrind --tool=memcheck --leak-check=yes $(PROGRAM_TEST)
+	rm -f *.gc*
 
 coverage: $(PROGRAM_TEST)
 	$(PROGRAM_TEST)
