@@ -13,15 +13,16 @@
 #include <string>
 
 
+/**
+  * Any game entity that is only a spec, state, and use event. With no
+  * other special additions.
+  */
 class Item : public Entity {
  public:
   Item();
   virtual ~Item();
-
   virtual std::string describe() const;
-
   virtual std::string use(Entity* user);
-
   virtual ObjectBlueprint* makeBlueprint() const;
 
  private:

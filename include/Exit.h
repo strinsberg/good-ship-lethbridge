@@ -14,7 +14,7 @@
 
 /**
   * The Action for when the user wants to try moving the player to
-  * another room
+  * another room.
   */
 class Exit : public Action {
  public:

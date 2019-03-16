@@ -19,7 +19,6 @@ class Look : public Action {
  public:
   Look(Player* p);
   virtual ~Look();
-
   std::string execute();
 
  private:

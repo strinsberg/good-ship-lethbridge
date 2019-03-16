@@ -19,7 +19,6 @@ class Talk : public Action {
  public:
   Talk(Player* p);
   virtual ~Talk();
-
   std::string execute();
 
  private:

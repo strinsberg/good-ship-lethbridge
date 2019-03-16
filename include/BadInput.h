@@ -10,7 +10,9 @@
 #include "Command.h"
 #include <string>
 
-
+/**
+  * An object to resolve invalid input from the player
+  */
 class BadInput : public Command {
  public:
   BadInput();

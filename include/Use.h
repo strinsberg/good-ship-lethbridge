@@ -19,7 +19,6 @@ class Use : public Action {
  public:
   Use(Player* p);
   virtual ~Use();
-
   std::string execute();
 
  private:

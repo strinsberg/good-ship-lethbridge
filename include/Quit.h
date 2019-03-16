@@ -13,7 +13,6 @@ class Quit : public GameCommand {
  public:
   Quit(Game* g);
   virtual ~Quit();
-
   std::string execute();
 
  private:

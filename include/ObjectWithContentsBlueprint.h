@@ -23,7 +23,7 @@ class ObjectWithContentsBlueprint : public ObjectBlueprint {
   virtual ~ObjectWithContentsBlueprint();
 
   /**
-    * Add an ObjectBlueprint to the contents
+    * Add an ObjectBlueprint to the contents. Transfers ownership.
     * @param obj an ObjectBlueprint
     */
   void addBlueprint(ObjectBlueprint* obj);
@@ -40,12 +40,11 @@ class ObjectWithContentsBlueprint : public ObjectBlueprint {
 
   /**
   * @return a string of object data.
-  * @throw TBD if the object does not have a type
   */
   std::string toString() const;
 
  private:
-  std::vector<ObjectBlueprint*> contents;
+  std::vector<ObjectBlueprint*> contents;  // owns these objects
 
   ObjectWithContentsBlueprint(const ObjectWithContentsBlueprint&);
   ObjectWithContentsBlueprint& operator=(const ObjectWithContentsBlueprint&);

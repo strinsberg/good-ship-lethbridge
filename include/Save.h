@@ -19,7 +19,6 @@ class Save : public GameCommand {
  public:
   Save(Game* g);
   virtual ~Save();
-
   std::string execute();
 
  private:

@@ -110,6 +110,6 @@ string Game::toLower(const string& str) {
   return lower;
 }
 
-std::map<std::string, Room*> Game::getRooms() {
+std::map<std::string, Room*>& Game::getRooms() {
   return rooms;
 }

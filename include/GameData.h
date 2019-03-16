@@ -24,7 +24,8 @@ class GameData {
   std::string nextObject();
 
   /**
-    * The end of the game data.
+    * Returns a string representing EOF for game data.
+    * @return a string representing EOF for game data.
     */
   static std::string eof();
 

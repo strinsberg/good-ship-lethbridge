@@ -19,7 +19,6 @@ class Inventory : public Action {
  public:
   Inventory(Player* p);
   virtual ~Inventory();
-
   std::string execute();
 
  private:

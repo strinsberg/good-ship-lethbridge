@@ -7,13 +7,13 @@
 
 
 /**
-  * Command to load a saved game.
+  * Command to load a saved game. This looks for a file with the players name
+  * or a file starting with the name that is given to the command.
   */
 class Load : public GameCommand {
  public:
   Load(Game* g);
   virtual ~Load();
-
   std::string execute();
 
  private:

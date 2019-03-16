@@ -11,6 +11,9 @@
 #include <string>
 
 
+/**
+  * An event that ends the game successfully.
+  */
 class EndGame : public Event {
  public:
   EndGame();

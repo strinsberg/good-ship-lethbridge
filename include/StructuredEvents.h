@@ -17,7 +17,9 @@
 /**
   * A collection of sequenced events when execute is
   * called the next current events execute is called.
-  * Can be set to repeat when the last event is reached.
+  * Can be set to repeat when the last event is reached
+  * or it just repeats the final event every time it is
+  * executed.
   */
 class StructuredEvents : public EventGroup {
  public:
@@ -45,8 +47,12 @@ class StructuredEvents : public EventGroup {
     */
   void setRepeats(bool r);
 
+  /**
+    * Sets the current index in the event list to i
+    * @param i the new index.
+    */
   void setCurrentIndex(int i) {
-    currentEvent = i;
+    currentEvent = i;  // should bounds check
   }
 
  private:

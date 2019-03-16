@@ -12,6 +12,9 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
+/**
+  * An object that leads to another room.
+  */
 class Door : public Entity {
  public:
   Door();
@@ -46,7 +49,7 @@ class Door : public Entity {
 
  private:
   Room* destination;  // Does not own this
-  Room* here;
+  Room* here;  // does not own this
 
   Door(const Door& other);
   Door& operator=(const Door& other);

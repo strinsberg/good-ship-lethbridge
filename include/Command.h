@@ -11,7 +11,7 @@
 
 
 /**
-  * An interface for all user issued commands
+  * A base class for all user issued commands
   */
 class Command {
  public:

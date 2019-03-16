@@ -14,7 +14,8 @@
 #include <string>
 
 /**
-  * Event that can execute one or more events in order
+  * Event that executes one or more events all at once, but
+  * in the order they were added.
   */
 class EventGroup : public Event {
  public:

@@ -19,7 +19,6 @@ class Get : public Action {
  public:
   Get(Player* p);
   virtual ~Get();
-
   std::string execute();
 
  private:

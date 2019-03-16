@@ -21,8 +21,8 @@ class Action : public Command {
   virtual ~Action();
 
   /**
-   * @return the player
-   */
+    * @return the player
+    */
   const Player* getPlayer() const;
 
   /**

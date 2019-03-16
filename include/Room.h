@@ -38,8 +38,16 @@ class Room : public Container {
     */
   void setEnter(Event* event);
 
-
+  /**
+    * Return the atmosphere of the room.
+    * @return the atmosphere of the room
+    */
   Atmosphere getAtmosphere();
+
+  /**
+    * Set the atmosphere of the room.
+    * @param a the new value of the rooms atmosphere.
+    */
   void setAtmosphere(Atmosphere a);
 
  protected:

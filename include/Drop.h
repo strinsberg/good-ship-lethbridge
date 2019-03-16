@@ -7,7 +7,8 @@
 
 
 /**
-  * Action to drop a game object.
+  * Action to remove an item from the players inventory and
+  * place it in the player's current room.
   */
 class Drop : public Action {
  public:

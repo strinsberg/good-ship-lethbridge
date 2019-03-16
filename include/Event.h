@@ -15,7 +15,7 @@
 class Entity;
 
 /**
-  * An interface for game events
+  * Base class for all game events
   */
 class Event {
  public:

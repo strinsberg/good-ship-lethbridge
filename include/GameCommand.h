@@ -18,6 +18,10 @@
   */
 class GameCommand : public Command {
  public:
+  /**
+    * Creates a Game command with a given game.
+    * @param g the game the command is for.
+    */
   GameCommand(Game* g);
   virtual ~GameCommand();
   virtual std::string execute() = 0;

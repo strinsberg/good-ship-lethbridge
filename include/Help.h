@@ -4,7 +4,6 @@
  * @date 2019-03-05
  */
 
-
 #ifndef HELP_H
 #define HELP_H
 
@@ -20,7 +19,6 @@ class Help : public GameCommand {
  public:
   Help(Game* g);
   virtual ~Help();
-
   std::string execute();
 
  private:

@@ -10,7 +10,7 @@
 #include <string>
 
 /**
-  * Holds some general info and state for an event.
+  * Holds general info and state for an event.
   */
 class EventSpec {
  public:
