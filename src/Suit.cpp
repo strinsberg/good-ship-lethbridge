@@ -6,10 +6,11 @@
 #include"Suit.h"
 #include"Player.h"
 #include "ObjectBlueprint.h"
+#include "Atmosphere.h"
 #include <typeinfo>
 #include <string>
 
-Suit::Suit() {}
+Suit::Suit() : atmosphere(Atmosphere::OXYGEN) {}
 Suit::~Suit() {}
 
 std::string Suit::describe() const {
@@ -24,7 +25,6 @@ std::string Suit::use(Entity* user) {
       return "You need to be carrying a suit to use it!";
     }
   }
-
   return "suit authorization failed";
 }
 

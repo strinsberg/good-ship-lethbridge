@@ -79,12 +79,15 @@ TEST(TalkTests, execute_item_does_not_exist) {
 
 TEST(TalkTests, execute_not_an_npc) {
   Player* p = new Player();
+
   Item* i = new Item();
   i->getSpec()->setName("box");
   i->getState()->setActive(false);
+
   Room* room = new Room();
   room->addEntity(i);
   p->setCurrentRoom(room);
+
   Inform* tell = new Inform();
   tell->setMessage("Hi, how are you?");
   i->setEvent(tell);
@@ -93,4 +96,6 @@ TEST(TalkTests, execute_not_an_npc) {
 
   EXPECT_EQ("You can't talk to box", talk.execute());
   delete p;
+  delete room;
+
 }
