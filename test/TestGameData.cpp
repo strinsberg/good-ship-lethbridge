@@ -14,5 +14,5 @@ TEST(GameDataTests, get_next_object) {
     "{type=room, name=Captains Quaters,} {type=door, name=Broken Door,}");
   EXPECT_EQ(gd.nextObject(), "{type=room, name=Captains Quaters,}");
   EXPECT_EQ(gd.nextObject(), "{type=door, name=Broken Door,}");
-  EXPECT_EQ(gd.nextObject(), GameData::eof);
+  EXPECT_EQ(gd.nextObject(), GameData::eof());
 }

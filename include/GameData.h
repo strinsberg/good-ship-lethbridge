@@ -26,7 +26,7 @@ class GameData {
   /**
     * The end of the game data.
     */
-  static const std::string eof;
+  static std::string eof();
 
  private:
   std::string data;  // String of game data

@@ -36,7 +36,8 @@ std::string MoveItems::execute(Entity* affected) {
         return "You give a " + itemName + " to " + owner->getSpec()->getName();
       }
     }
-    throw unfinished_object_error("Move items event is not attached to a container!");
+    throw unfinished_object_error("Move items event is not "
+                                  "attached to a container!");
   }
 }
 

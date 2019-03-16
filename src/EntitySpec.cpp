@@ -19,7 +19,7 @@ bool EntitySpec::matches(std::string n) const {
     return false;
 }
 
-std::string EntitySpec:: getName() const {
+std::string EntitySpec::getName() const {
   return name;
 }
 

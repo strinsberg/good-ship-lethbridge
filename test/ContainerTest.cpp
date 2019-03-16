@@ -3,8 +3,9 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Inform.h"
-#include "gtest/gtest.h"
 #include <string>
+#include "gtest/gtest.h"
+
 
 
 TEST(TestContainer, describe) {

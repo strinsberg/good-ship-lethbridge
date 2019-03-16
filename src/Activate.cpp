@@ -17,9 +17,9 @@ Activate::~Activate() {}
 
 std::string Activate::execute(Entity* e) {
   bool on = target->getState()->getActive();
-  if (on)
+  if (on) {
     return "Already done";
-  else {
+  } else {
     target->getState()->setActive(true);
     return message;
   }

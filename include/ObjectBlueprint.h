@@ -32,13 +32,13 @@ class ObjectBlueprint {
   /**
     * @return the type of the object, ObjectBlueprint::null if no type
     */
-  const std::string& getType() const;
+  std::string getType() const;
 
   /**
     * @param key the name of the field to find.
     * @return the value of the field, or ObjectBlueprint::null.
     */
-  const std::string& getField(const std::string& key) const;
+  std::string getField(const std::string& key) const;
 
   /**
     * @param key the name of the field.
@@ -56,7 +56,7 @@ class ObjectBlueprint {
   /**
     * A constant to return for non existent fields
     */
-  static const std::string null;
+  static std::string null();
 
  private:
   std::map<std::string, std::string> record;
