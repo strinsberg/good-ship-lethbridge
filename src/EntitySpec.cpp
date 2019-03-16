@@ -6,6 +6,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
+#include <string>
 
 EntitySpec::EntitySpec(): name(""), description("") {}
 
@@ -31,5 +32,5 @@ std::string EntitySpec::getDescription()const {
 }
 
 void EntitySpec::setDescription(std::string n) {
-  description=n;
+  description = n;
 }

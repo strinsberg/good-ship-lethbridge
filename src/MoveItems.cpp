@@ -2,6 +2,7 @@
 #include "ObjectBlueprint.h"
 #include "Container.h"
 #include "Exceptions.h"
+#include <string>
 
 MoveItems::MoveItems(Entity* o, std::string name, std::istream& is,
                      std::ostream& os)
