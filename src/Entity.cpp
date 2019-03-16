@@ -8,6 +8,8 @@
 #include "Event.h"
 #include "ObjectWithContentsBlueprint.h"
 #include "Inform.h"
+#include <string>
+
 
 
 Entity::Entity():spec(nullptr), state(nullptr), event(nullptr) {

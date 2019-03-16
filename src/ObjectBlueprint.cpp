@@ -92,6 +92,6 @@ size_t ObjectBlueprint::skipWhitespace(const string& str, size_t pos) {
 string ObjectBlueprint::toLower(const string& str) {
   string lower;
   for (auto c : str)
-    lower.push_back( tolower(c) );
+    lower.push_back(tolower(c));
   return lower;
 }

@@ -17,8 +17,7 @@
 using std::map;
 using std::string;
 
-Game::Game(std::istream& is, std::ostream& os)
-  : rooms(map<string, Room*>()), player(nullptr), in(is), out(os), running(true) {
+Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()), player(nullptr), in(is), out(os), running(true) {
   // Create a player with a blank spec
   player = new Player();
   EntitySpec* spec = new EntitySpec();
@@ -44,16 +43,16 @@ void Game::setPlayer(Player* p) {
 }
 
 Room* Game::getRoom(const std::string& name) {
-  auto it = rooms.find( toLower(name) );
+  auto it = rooms.find(toLower(name));
   if (it == rooms.end())
     return nullptr;
   return it->second;
 }
 
 void Game::addRoom(const string& name, Room* room) {
-  if (rooms.find( toLower(name) ) != rooms.end())
+  if (rooms.find(toLower(name)) != rooms.end())
     throw invalid_parameter_error("There is a room with that name already!");
-  rooms[ toLower(name) ] = room;
+  rooms[toLower(name)] = room;
 }
 
 int Game::numRooms() {
@@ -84,6 +83,7 @@ void Game::run() {
       delete c;
     }
 
+
     if (player->getState()->getHidden()) {
       out << "Game Over!" << std::endl;
       out << "Thanks for playing!" << std::endl;
@@ -91,9 +91,8 @@ void Game::run() {
     }
   }
 }
-
 Event* Game::getEvent(const std::string& name) {
-  auto it = events.find( toLower(name) );
+  auto it = events.find(toLower(name));
   if (it == events.end())
     return nullptr;
   return it->second;
@@ -106,7 +105,7 @@ void Game::addEvent(const string& name, Event* event) {
 string Game::toLower(const string& str) {
   string lower;
   for (auto c : str)
-    lower.push_back( tolower(c) );
+    lower.push_back(tolower(c));
   return lower;
 }
 

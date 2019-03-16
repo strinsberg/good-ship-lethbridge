@@ -1,6 +1,7 @@
 #include "EndGame.h"
 #include "Entity.h"
 #include <sstream>
+#include <string>
 
 EndGame::EndGame() {}
 

@@ -3,7 +3,7 @@
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
  * @date 2019-03-11
  */
-
+#include <string>
 #include "GameBuilder.h"
 #include "Game.h"
 #include "Item.h"
@@ -413,14 +413,15 @@ Game* GameBuilder::newGame(std::string name) {
   Container* engiCloset = new Container();
   addEntityInfo(engiCloset,
                 "hazmat closet",
-                "the closet for radiation pretection",
+                "the closet for radiation protection",
                 true, false, false);
   engiControl->addEntity(engiCloset);
 
   Suit* hazmat = new Suit();
+  hazmat->setAtmosphere(Atmosphere::RADIATION);
   addEntityInfo(hazmat,
-                "hazmat suit",
-                "the suit pretect you from gama radiation",
+                "Hazmat suit",
+                "the suit protect you from gamma radiation",
                 true, true, false);
   engiCloset->addEntity(hazmat);
 
@@ -431,13 +432,14 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   engiControl->addEntity(spanner);
 
+
   Item* coreWrench = new Item();
   addEntityInfo(coreWrench,
                 "Core wrench",
                 "This amazing little tool is great for fixing cores",
                 true, true, false);
   spanner->addEntity(coreWrench);
-
+  engiCloset->addEntity(coreWrench);
 
 
   // engine bay object
@@ -451,9 +453,6 @@ Game* GameBuilder::newGame(std::string name) {
   engiBay->addEntity(reactor);
 
 //cargo bay object//
-
-
-
   Container* spaceCloset = new Container();
   addEntityInfo(spaceCloset,
                 "space suit closet",
@@ -504,7 +503,7 @@ Game* GameBuilder::newGame(std::string name) {
   Npc* lars = new Npc();
   addEntityInfo(lars,
                 "Lars Philbur",
-                "the flashing light you see the bridge officer is standing on the ceiling!",
+                "the flashing lights, the bridge officer is standing on the ceiling!",
                 true, false, false);
   bridge->addEntity(lars);
 
@@ -525,7 +524,9 @@ Game* GameBuilder::newGame(std::string name) {
 
   Inform* captainComputer = new Inform();
   captainComputer->getSpec()->setName("c_comp");
-  captainComputer->setMessage("good ship Lethbridge status : code red \npower down everywhere ");
+  captainComputer->setMessage("Ship Status:               NOT AVAILABLE \n"
+                              "\nALL CREW RETURN TO COMBAT POSITION"
+                             );
   computer->setEvent(captainComputer);
   g->addEvent("c_comp", captainComputer);
 
@@ -577,7 +578,7 @@ Game* GameBuilder::newGame(std::string name) {
   spannerDoorLock->setEvent(spannerLock);
   g->addEvent("spa_lock", spannerLock);
 
-  KeyLock* hallLock =new KeyLock(hallDoor, fuse);
+  KeyLock* hallLock = new KeyLock(hallDoor, fuse);
   hallLock->getSpec()->setName("spa_hall_lock");
   hallLock->setMessage("power restored to hall door");
   hallDoorPanel->setEvent(hallLock);
@@ -651,9 +652,8 @@ Game* GameBuilder::newGame(std::string name) {
 
                                "ON BORAD COMPUTER DETECTS PROTENIAL IMPACT!!\n"
                                "DISTANCE : 9714035KM\n"
-                               "PLEASE CHANGE COURSE AT COMMAND BRIDGE!!\n"
+                               "PLEASE CHANGE COURSE AT COMMAND BRIDGE!!\n");
 
-                              );
   hallComputer->setEvent(hallComputerinfo);
   g->addEvent("h_comp_inf", hallComputerinfo);
   // Engineering Events
@@ -716,22 +716,22 @@ Game* GameBuilder::newGame(std::string name) {
 
 //cargo bay even//
 
-  Inform* quick=new Inform();
+  Inform* quick = new Inform();
   quick->getSpec()->setName("b_quick");
   quick->setMessage("quick you need to get to the bridge!");
   g->addEvent("b_quick", quick);
 
-  Inform* larsCrash=new Inform();
+  Inform* larsCrash = new Inform();
   larsCrash->getSpec()->setName("b_crash");
   larsCrash->setMessage("Lars is controlled by the alien now!");
   g->addEvent("b_crash", larsCrash);
 
-  Inform* stillhere=new Inform();
+  Inform* stillhere = new Inform();
   stillhere->getSpec()->setName("b_here");
   stillhere->setMessage("what are you still here for, go save us!");
   g->addEvent("b_here", stillhere);
 
-  Inform* forget=new Inform();
+  Inform* forget = new Inform();
   forget->getSpec()->setName("b_forget");
   forget->setMessage("don't forget wear space suit!");
   g->addEvent("b_forget", forget);
@@ -742,7 +742,7 @@ Game* GameBuilder::newGame(std::string name) {
   giveCookie->setGive(true);
   g->addEvent("box of cookie", giveCookie);
 
-  Inform* stoptalk=new Inform();
+  Inform* stoptalk = new Inform();
   stoptalk->getSpec()->setName("b_stop");
   stoptalk->setMessage("stop talking to me!");
   g->addEvent("b_stop", stoptalk);
@@ -780,7 +780,7 @@ Game* GameBuilder::newGame(std::string name) {
   intosun->setMessage("you fly the ship into the sun, sacrificing your self and your crew to save the galaxy!");
   g->addEvent("b_int_sun", intosun);
 
-  EndGame* escape= new EndGame();
+  EndGame* escape = new EndGame();
   escape->getSpec()->setName("b_escape");
   escape->setMessage("you took the only escape pod, fly away! what a captain!");
   g->addEvent("b_escape", escape);
@@ -813,15 +813,10 @@ Game* GameBuilder::newGame(std::string name) {
 
 // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
-  p->setSpec( makeEntitySpec(name, "It's you!"));
-  p->setState( makeEntityState(true, false, false) );
-  p->setCurrentRoom(captains_room);
+  p->setSpec(makeEntitySpec(name, "It's you!"));
+  p->setState(makeEntityState(true, false, false));
+  p->setCurrentRoom(engiControl);
   g->setPlayer(p);
-
-
-
-
-
 
 //debugs
 

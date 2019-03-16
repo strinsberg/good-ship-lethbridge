@@ -5,6 +5,7 @@
  */
 #include "Npc.h"
 #include "Container.h"
+#include <string>
 
 Npc::Npc() {}
 
