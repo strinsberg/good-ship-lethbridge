@@ -27,8 +27,8 @@ std::string CheckSuit::execute(Entity* affected) {
       else if (here->getAtmosphere() == Atmosphere::SPACE)
         return "you suffocate in space!\n" + message;
     }
-    return "Only players can have suits so why are you checking for one?";
   }
+  return "Only players can have suits so why are you checking for one?";
 }
 
 ObjectBlueprint* CheckSuit::makeBlueprint() const {

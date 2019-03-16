@@ -33,90 +33,68 @@ Game* GameBuilder::newGame(std::string name) {
 
   // Create Rooms /////////////////////////////////////////////////////////////
   Room* captains_room = new Room();
-  addEntityInfo(captains_room,
-                "Captain's Room",
+  addEntityInfo(captains_room, "Captain's Room",
                 "The best room on the ship! You are the captain after all",
                 true, false, false);
   g->addRoom("Captain's Room", captains_room);
 
   Room* common_room = new Room();
-  addEntityInfo(common_room,
-                "Common Room",
-                "A good room for relaxing with your crew",
-                true, false, false);
+  addEntityInfo(common_room, "Common Room",
+                "A good room for relaxing with your crew", true, false, false);
   g->addRoom("Common Room", common_room);
 
   Room* spannerRoom = new Room();
-  addEntityInfo(spannerRoom,
-                "spanner Room",
-                "the room of the engineer Clem Spanner",
-                true, false, false);
+  addEntityInfo(spannerRoom, "spanner Room",
+                "the room of the engineer Clem Spanner", true, false, false);
   g->addRoom("spanner Room", spannerRoom);
 
   Room* hall = new Room();
-  addEntityInfo(hall,
-                "main hall",
-                "the main hall, it connect to everywhere",
+  addEntityInfo(hall, "main hall", "the main hall, it connect to everywhere",
                 true, false, false);
   g->addRoom("main hall", hall);
 
   Room* engiControl = new Room();
-  addEntityInfo(engiControl,
-                "engineer control room",
-                "the engine room with reactor in it",
-                true, false, false);
+  addEntityInfo(engiControl, "engineer control room",
+                "the engine room with reactor in it", true, false, false);
   g->addRoom("engineer control room", engiControl);
 
   Room* engiBay = new Room();
-  addEntityInfo(engiBay,
-                "engine bay",
-                "a room filled with gamma radiation",
+  addEntityInfo(engiBay, "engine bay", "a room filled with gamma radiation",
                 true, false, false);
   g->addRoom("engine bay", engiBay);
 
   Room* cargoBay = new Room();
-  addEntityInfo(cargoBay,
-                "Cargo bay",
-                "where the cargo is",
+  addEntityInfo(cargoBay, "Cargo bay", "where the cargo is",
                 true, false, false);
   g->addRoom("Cargo bay", cargoBay);
 
   Room* outerSpace = new Room();
-  addEntityInfo(outerSpace,
-                "Space",
-                "middle of the milky way ! the sun is getting bigger!!",
-                true, false, false);
+  addEntityInfo(outerSpace, "Space", "middle of the "
+                "milky way ! the sun is getting bigger!!", true, false, false);
   g->addRoom("Space", outerSpace);
 
   Room* bridge = new Room();
-  addEntityInfo(bridge,
-                "command bridge",
-                "the bridge is flashing with red lights!!",
-                true, false, false);
+  addEntityInfo(bridge, "command bridge",
+                "the bridge is flashing with red lights!", true, false, false);
   g->addRoom("command bridge", bridge);
 
   //Create doors /////////////////////////////////////////////////////
   Door* door = new Door();
-  addEntityInfo(door,
-                "common room door",
-                "the door lead you to the common room",
-                true, false, false);
+  addEntityInfo(door, "common room door",
+                "the door lead you to the common room", true, false, false);
   door->setHere(captains_room);
   door->setDestination(common_room);
   captains_room->addEntity(door);
 
   Door* captain_room_door = new Door();
-  addEntityInfo(captain_room_door,
-                "captain's room door",
-                "the door lead you to the captain's room",
-                true, false, false);
+  addEntityInfo(captain_room_door, "captain's room door",
+                "the door lead you to the captain's room", true, false, false);
   captain_room_door->setHere(common_room);
   captain_room_door->setDestination(captains_room);
   common_room->addEntity(captain_room_door);
 
   Door* spannerRoomDoor = new Door();
-  addEntityInfo(spannerRoomDoor,
-                "spanner room door",
+  addEntityInfo(spannerRoomDoor, "spanner room door",
                 "the door lead you to the engineer Spanner's room",
                 false, false, false);
   spannerRoomDoor->setHere(common_room);
@@ -124,120 +102,93 @@ Game* GameBuilder::newGame(std::string name) {
   common_room->addEntity(spannerRoomDoor);
 
   Door* commonRoomDoor = new Door();
-  addEntityInfo(commonRoomDoor,
-                "door to common room",
-                "the door lead you to the common room",
-                true, false, false);
+  addEntityInfo(commonRoomDoor, "door to common room",
+                "the door lead you to the common room", true, false, false);
   commonRoomDoor->setHere(spannerRoom);
   commonRoomDoor->setDestination(common_room);
   spannerRoom->addEntity(commonRoomDoor);
 
   Door* hallDoor = new Door();
-  addEntityInfo(hallDoor,
-                "hall door",
-                "the door lead you to the hallway",
-                false, false, false);
+  addEntityInfo(hallDoor, "hall door",
+                "the door lead you to the hallway", false, false, false);
   hallDoor->setHere(common_room);
   hallDoor->setDestination(hall);
   common_room->addEntity(hallDoor);
 
   Door* hcDoor = new Door();
-  addEntityInfo(hcDoor,
-                "hall to common door",
-                "the door lead you to the common",
-                true, false, false);
+  addEntityInfo(hcDoor, "hall to common door",
+                "the door lead you to the common", true, false, false);
   hcDoor->setHere(hall);
   hcDoor->setDestination(common_room);
   hall->addEntity(hcDoor);
 
   Door* engiDoor = new Door();
-  addEntityInfo(engiDoor,
-                "engineering room door",
-                "the door lead you to the engineering room",
-                false, false, false);
+  addEntityInfo(engiDoor, "engineering room door", "the door lead "
+                "you to the engineering room", false, false, false);
   engiDoor->setHere(hall);
   engiDoor->setDestination(engiControl);
   hall->addEntity(engiDoor);
 
   Door* engiToHall = new Door();
-  addEntityInfo(engiToHall,
-                "control to hall door",
-                "A door back to the hall",
+  addEntityInfo(engiToHall, "control to hall door", "A door back to the hall",
                 true, false, false);
   engiToHall->setHere(engiControl);
   engiToHall->setDestination(hall);
   engiControl->addEntity(engiToHall);
 
   Door* engiBayDoor = new Door();
-  addEntityInfo(engiBayDoor,
-                "engine bay door",
-                "A door to the engine bay."
-                " It looks pretty hefty to keep in radiation.",
-                true, false, false);
+  addEntityInfo(engiBayDoor, "engine bay door", "A door to the engine bay."
+          " It looks pretty hefty to keep in radiation.", true, false, false);
   engiBayDoor->setHere(engiControl);
   engiBayDoor->setDestination(engiBay);
   engiControl->addEntity(engiBayDoor);
 
   Door* bayToControl = new Door();
-  addEntityInfo(bayToControl,
-                "door to engine control",
-                "A door to the engine bay."
-                " It looks pretty hefty to keep in radiation.",
-                true, false, false);
+  addEntityInfo(bayToControl, "door to engine control",
+      "A door to the engine bay. It looks pretty hefty to keep in radiation.",
+      true, false, false);
   bayToControl->setHere(engiBay);
   bayToControl->setDestination(engiControl);
   engiBay->addEntity(bayToControl);
 
   Door* cargoBaydoor = new Door();
-  addEntityInfo(cargoBaydoor,
-                "door to cargo bay",
-                "A door to the cargo bay",
-                false, false, false);
+  addEntityInfo(cargoBaydoor, "door to cargo bay",
+                "A door to the cargo bay", false, false, false);
   cargoBaydoor->setHere(hall);
   cargoBaydoor->setDestination(cargoBay);
   hall->addEntity(cargoBaydoor);
 
   Door* cthDoor = new Door();
-  addEntityInfo(cthDoor,
-                "cargo to hall door",
-                "A door to the hall way",
-                true, false, false);
+  addEntityInfo(cthDoor, "cargo to hall door",
+                "A door to the hall way", true, false, false);
   cthDoor->setHere(cargoBay);
   cthDoor->setDestination(hall);
   cargoBay->addEntity(cthDoor);
 
   Door* airlockout = new Door();
-  addEntityInfo(airlockout,
-                "cargo exit airlock",
-                "the airlock to outer space",
+  addEntityInfo(airlockout, "cargo exit airlock", "the airlock to outer space",
                 true, false, false);
   airlockout->setHere(cargoBay);
   airlockout->setDestination(outerSpace);
   cargoBay->addEntity(airlockout);
 
   Door* airlockin = new Door();
-  addEntityInfo(airlockin,
-                "airlock to cargo bay",
-                "the airlock to cargo bay",
+  addEntityInfo(airlockin, "airlock to cargo bay", "the airlock to cargo bay",
                 true, false, false);
   airlockin->setHere(outerSpace);
   airlockin->setDestination(cargoBay);
   outerSpace->addEntity(airlockin);
 
   Door* bridgeLockin = new Door();
-  addEntityInfo(bridgeLockin,
-                "airlock to bridge",
-                "the airlock to the command bridge",
-                true, false, false);
+  addEntityInfo(bridgeLockin, "airlock to bridge",
+                "the airlock to the command bridge", true, false, false);
   bridgeLockin->setHere(outerSpace);
   bridgeLockin->setDestination(bridge);
   outerSpace->addEntity(bridgeLockin);
 
   Door* bridgeLockout = new Door();
-  addEntityInfo(bridgeLockout,
-                "airlock to space",
-                "the airlock to the outer space",
-                true, false, false);
+  addEntityInfo(bridgeLockout, "airlock to space",
+                "the airlock to the outer space", true, false, false);
   bridgeLockout->setHere(bridge);
   bridgeLockout->setDestination(outerSpace);
   bridge->addEntity(bridgeLockout);
@@ -246,249 +197,158 @@ Game* GameBuilder::newGame(std::string name) {
 
   // captains room objects
   Entity* box = new Container();
-  addEntityInfo(box,
-                "Box",
-                "a small metallic container, maybe filled with treasure!",
-                true, true, false);
+  addEntityInfo(box, "Box", "a small metallic container, "
+     "maybe filled with treasure!", true, true, false);
   captains_room->addEntity(box);
 
   Container* desk = new Container();
-  addEntityInfo(desk,
-                "Captains Desk",
-                "futuristic looking desk!",
+  addEntityInfo(desk, "Captains Desk", "futuristic looking desk!",
                 true, false, false);
   captains_room->addEntity(desk);
 
   Entity* bed = new Item();
-  addEntityInfo(bed,
-                "Captains Bed",
-                "your bed",
-                true, false, false);
+  addEntityInfo(bed, "Captains Bed", "your bed", true, false, false);
   captains_room->addEntity(bed);
 
   Entity* computer = new Item();
-  addEntityInfo(computer,
-                "Captains computer",
-                "Captain's personal computer terminal",
-                true, false, false);
+  addEntityInfo(computer, "Captains computer",
+                "Captain's personal computer terminal", true, false, false);
   desk->addEntity(computer);
 
   Entity* window = new Item();
-  addEntityInfo(window,
-                "window",
-                "Captain's window",
-                true, false, false);
+  addEntityInfo(window, "window", "Captain's window", true, false, false);
   captains_room->addEntity(window);
 
   // common room objects
-  Item* chair = new Item();
-  addEntityInfo(chair,
-                "chair",
-                "A nice old chair, you might be comfortable there",
-                true, false, false);
-  common_room->addEntity(chair);
-
   Container* table = new Container();
-  addEntityInfo(table,
-                "Table",
-                "An end table with a drawer",
+  addEntityInfo(table, "Table", "An end table with a drawer",
                 true, false, false);
   common_room->addEntity(table);
 
   Item* crewList = new Item();
-  addEntityInfo(crewList,
-                "crew manifest",
-                "piece paper use that contains the list of the crew members",
-                true, true, false);
+  addEntityInfo(crewList, "crew manifest", "piece paper use that contains "
+                "the list of the crew members", true, true, false);
   table->addEntity(crewList);
 
   Item* comfy_chair = new Item();
-  addEntityInfo(comfy_chair,
-                "Comfy chair",
-                "This chair deserves a Captain",
+  addEntityInfo(comfy_chair, "Comfy chair", "This chair deserves a Captain",
                 true, false, false);
   common_room->addEntity(comfy_chair);
 
   Item* hallDoorPanel = new Item();
-  addEntityInfo(hallDoorPanel,
-                "hall door panel",
-                "this is the broken, maybe replace some parts?",
-                true, false, false);
+  addEntityInfo(hallDoorPanel, "hall door panel",
+    "this is the broken, maybe replace some parts?", true, false, false);
   common_room->addEntity(hallDoorPanel);
 
   Item* spannerDoorLock = new Item();
-  addEntityInfo(spannerDoorLock,
-                "spanner door lock",
-                "combination lock for spanner's door",
-                true, false, false);
+  addEntityInfo(spannerDoorLock, "spanner door lock",
+                "combination lock for spanner's door", true, false, false);
   common_room->addEntity(spannerDoorLock);
 
 //spanner's room objects//
   Container* tool_closet = new Container();
-  addEntityInfo(tool_closet,
-                "Tool closet",
-                "A battered old tool chest. "
-                "Engineers don't like people touching their tools!",
-                true, false, false);
+  addEntityInfo(tool_closet, "Tool closet", "A battered old tool chest. "
+    "Engineers don't like people touching their tools!", true, false, false);
   spannerRoom->addEntity(tool_closet);
 
   Item* fuse = new Item();
-  addEntityInfo(fuse,
-                "Fuse",
-                "A small fuse that looks like it would "
-                "fit in a doors control panel",
-                true, true, false);
+  addEntityInfo(fuse, "Fuse", "A small fuse that looks like it would "
+                "fit in a doors control panel", true, true, false);
   tool_closet->addEntity(fuse);
 
   Container* spannerdesk = new Container();
-  addEntityInfo(spannerdesk,
-                "spanners desk",
-                "futuristic looking desk!",
+  addEntityInfo(spannerdesk, "spanners desk", "futuristic looking desk!",
                 true, false, false);
   spannerRoom->addEntity(spannerdesk);
 
   Entity* spannerbed = new Item();
-  addEntityInfo(spannerbed,
-                "Bed",
-                "Spanner's bed",
-                true, false, false);
+  addEntityInfo(spannerbed, "Bed", "Spanner's bed", true, false, false);
   spannerRoom->addEntity(spannerbed);
 
   Entity* spannerComputer = new Item();
-  addEntityInfo(spannerComputer,
-                "computer terminal",
-                "Spanner's personal computer terminal",
-                true, false, false);
+  addEntityInfo(spannerComputer, "computer terminal",
+                "Spanner's personal computer terminal", true, false, false);
   spannerdesk->addEntity(spannerComputer);
 
   //hall objects
   Entity* hallComputer = new Item();
-  addEntityInfo(hallComputer,
-                "hall computer",
-                "computer terminal in hall",
+  addEntityInfo(hallComputer, "hall computer", "computer terminal in hall",
                 true, false, false);
   hall->addEntity(hallComputer);
 
   Item* medKit = new Item();
-  addEntityInfo(medKit,
-                "medKit",
-                "use it to heal wounds",
-                true, true, false);
+  addEntityInfo(medKit, "medKit", "use it to heal wounds", true, true, false);
   hall->addEntity(medKit);
 
   Npc* barbara = new Npc();
   addEntityInfo(barbara,
-                "barbara Mcdougal",
-                "sitting on the floor, looks injured.",
+                "Barbara Mcdougal", "sitting on the floor, looks injured.",
                 true, false, false);
   hall->addEntity(barbara);
 
-  Entity* hallWindow = new Item();
-  addEntityInfo(hallWindow,
-                "hall window",
-                "a every big window in the hall way, "
-                "the ship is traveling at extreme speed! ",
-                true, false, false);
-  hall->addEntity(hallWindow);
-
-  Item* plant = new Item();
-  addEntityInfo(plant,
-                "green plant",
-                "green plant nothing special.",
-                true, true, false);
-  hall-> addEntity(plant);
-
   //engineer control
   Container* engiCloset = new Container();
-  addEntityInfo(engiCloset,
-                "hazmat closet",
-                "the closet for radiation protection",
-                true, false, false);
+  addEntityInfo(engiCloset, "hazmat closet",
+                "the closet for radiation protection", true, false, false);
   engiControl->addEntity(engiCloset);
 
   Suit* hazmat = new Suit();
   hazmat->setAtmosphere(Atmosphere::RADIATION);
-  addEntityInfo(hazmat,
-                "Hazmat suit",
-                "the suit protect you from gamma radiation",
-                true, true, false);
+  addEntityInfo(hazmat, "Hazmat suit", "the suit protect "
+                "you from gamma radiation", true, true, false);
   engiCloset->addEntity(hazmat);
 
   Npc* spanner = new Npc();
-  addEntityInfo(spanner,
-                "Clem Spanner",
-                "the engineer",
-                true, false, false);
+  addEntityInfo(spanner, "Clem Spanner", "the engineer", true, false, false);
   engiControl->addEntity(spanner);
 
   Item* coreWrench = new Item();
-  addEntityInfo(coreWrench,
-                "Core wrench",
-                "This amazing little tool is great for fixing cores",
-                true, true, false);
+  addEntityInfo(coreWrench, "Core wrench",
+    "This amazing little tool is great for fixing cores", true, true, false);
   spanner->addEntity(coreWrench);
 
   // engine bay object
   Item* reactor = new Item();
-  addEntityInfo(reactor,
-                "reactor",
-                "the fusion reactor that powers this ship",
+  addEntityInfo(reactor, "reactor", "the fusion reactor that powers this ship",
                 true, false, false);
   engiBay->addEntity(reactor);
 
 //cargo bay object//
   Container* spaceCloset = new Container();
-  addEntityInfo(spaceCloset,
-                "space suit closet",
-                "contains the space suit for Extra-vehicular Activity",
-                true, false, false);
+  addEntityInfo(spaceCloset, "space suit closet",
+    "contains a space suit for Extra-vehicular Activity", true, false, false);
   cargoBay->addEntity(spaceCloset);
 
   Suit* spaceSuit = new Suit();
   spaceSuit->setAtmosphere(Atmosphere::SPACE);
-  addEntityInfo(spaceSuit,
-                "space suit",
-                "the suit for Extra-vehicular Activity",
-                true, true, false);
+  addEntityInfo(spaceSuit, "space suit",
+                "the suit for Extra-vehicular Activity", true, true, false);
   cargoBay->addEntity(spaceSuit);
 
   Npc* Mae = new Npc();
-  addEntityInfo(Mae,
-                "Whinny Mae",
-                " the ships Doctor",
-                true, false, false);
+  addEntityInfo(Mae, "Whinny Mae", "the ships Doctor", true, false, false);
   cargoBay->addEntity(Mae);
 
   Item* cookie = new Item();
-  addEntityInfo(cookie,
-                "box of cookie",
-                "a box full of cookie, bake by aliens",
-                true, true, false);
+  addEntityInfo(cookie, "box of cookie",
+                "a box full of cookie, bake by aliens", true, true, false);
   Mae->addEntity(cookie);
 
 //space object
   Npc* alien = new Npc();
-  addEntityInfo(alien,
-                "master yoda",
-                "the Jedi meditation on a antenna",
+  addEntityInfo(alien, "master yoda", "the Jedi meditation on a antenna",
                 true, false, false);
   outerSpace->addEntity(alien);
 
   Item* lightSaber = new Item();
-  addEntityInfo(lightSaber,
-                "light saber",
-                "the very old light saber "
-                "that used to belongs to a legendary Jedi",
-                true, true, false);
+  addEntityInfo(lightSaber, "light saber", "the very old light saber "
+    "that used to belongs to a legendary Jedi", true, true, false);
   alien->addEntity(lightSaber);
 
 //bridge objects
   Npc* lars = new Npc();
-  addEntityInfo(lars,
-                "Lars Philbur",
-                "the flashing lights, the bridge "
-                "officer is standing on the ceiling!",
-                true, false, false);
+  addEntityInfo(lars, "Lars Philbur", "the flashing lights, the bridge "
+                "officer is standing on the ceiling!", true, false, false);
   bridge->addEntity(lars);
 
   Item* dummy = new Item();
@@ -518,28 +378,9 @@ Game* GameBuilder::newGame(std::string name) {
   window->setEvent(captainWindow);
   g->addEvent("c_win", captainWindow);
 
-  Inform* enter_captains_room = new Inform();
-  enter_captains_room->getSpec()->setName("c_enter");
-  enter_captains_room->setMessage("You are in the captains room");
-  captains_room->setEnter(enter_captains_room);
-  g->addEvent("c_enter", enter_captains_room);
-
   // common room events
-  Inform* enter_common_room = new Inform();
-  enter_common_room->getSpec()->setName("spa_enter");
-  enter_common_room->setMessage("You are in the common room");
-  common_room->setEnter(enter_common_room);
-  g->addEvent("spa_enter", enter_common_room);
-
-  Inform* furniture = new Inform();
-  furniture->getSpec()->setName("spa_furn");
-  furniture->setMessage("You take a moment to relax. "
-                        "Is this really the time!");
-  chair->setEvent(furniture);
-  g->addEvent("spa_furn", furniture);
-
   Inform* nice_furniture = new Inform();
-  furniture->getSpec()->setName("spa_nice");
+  nice_furniture->getSpec()->setName("spa_nice");
   nice_furniture->setMessage("This feels too good! "
                              "Your a bad captain! Save your ship!");
   comfy_chair->setEvent(nice_furniture);
@@ -548,8 +389,7 @@ Game* GameBuilder::newGame(std::string name) {
   Inform* manifest_list = new Inform();
   manifest_list->getSpec()->setName("spa_list");
   manifest_list->setMessage("Barbara Mcdougal - Biologist\nID #0791\n\n"
-                            "Clem Spanner - Engineer\nID #4396\n\n"
-                            "Whinny Mae - Doctor\nID #0341\n\n"
+    "Clem Spanner - Engineer\nID #4396\n\nWhinny Mae - Doctor\nID #0341\n\n"
                             "Lars Philbur - Bridge Officer\nID #7513\n\n");
   crewList->setEvent(manifest_list);
   g->addEvent("spa_list", manifest_list);
@@ -649,9 +489,9 @@ Game* GameBuilder::newGame(std::string name) {
 
   Inform* talkSpanner = new Inform();
   talkSpanner->getSpec()->setName("e_talk_spanner");
-  talkSpanner->setMessage("You have to go into the core while "
-                          "I operate the controls\n"
-                          "I have a core wrench you will need");
+  talkSpanner->setMessage(
+    "You have to go into the core while I operate the controls\n"
+    "I have a core wrench you will need");
   g->addEvent("e_talk_spanner", talkSpanner);
 
   Inform* askSpanner = new Inform();
@@ -668,11 +508,10 @@ Game* GameBuilder::newGame(std::string name) {
   spanner->setEvent(interSpanner);
   g->addEvent("e_inter_span", interSpanner);
 
-//engine bay event
+  //engine bay event
   Kill* fiddle = new Kill();
   fiddle->getSpec()->setName("b_fidd");
-  fiddle->setMessage("you pressed wrong button, "
-                     "segfault (core dumped) 0xFFFFF :( !!");
+  fiddle->setMessage("you pressed wrong button, segfault (core dumped) :(");
   g->addEvent("b_fidd", fiddle);
 
   CheckSuit* radSuit = new CheckSuit(engiBay);

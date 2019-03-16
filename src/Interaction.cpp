@@ -50,7 +50,7 @@ std::string Interaction::execute(Entity* affected) {
         out << options.at(ch - 1).event->execute(affected);
       else
         out << "Not a valid choice!";
-    } catch (std::invalid_argument e) {
+    } catch (const std::invalid_argument& e) {
       out << "Please enter a number!";
     }
     if (breakOut)

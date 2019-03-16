@@ -49,9 +49,10 @@ TEST(PlayerTests, DISABLED_make_blueprint) {}
 
 TEST(PlayerTests, setEquipped) {
   Player p;
-  Suit* s;
+  Suit* s = new Suit();
 
   p.setEquipped(s);
 
   EXPECT_EQ(s, p.getEquipped());
+  delete s;
 }

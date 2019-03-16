@@ -23,4 +23,5 @@ TEST(TestNpc, use) {
   info->setMessage("hi I am Steve");
   steve.setEvent(info);
   EXPECT_EQ("hi I am Steve", steve.use(Max));
+  delete Max;
 }

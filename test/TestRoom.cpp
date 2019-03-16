@@ -53,7 +53,6 @@ TEST(RoomTests, describe) {
   spec->setDescription("It's your room!");
   r.setSpec(spec);
 
-  Entity* ent;
   EXPECT_EQ("Location: Captain's Room\n"
             "It's your room!", r.describe());
 }

@@ -24,6 +24,7 @@ TEST(TestSuit, use_not_carrying) {
   Player* p = new Player;
   EXPECT_EQ("You need to be carrying a suit to use it!", s->use(p));
   delete p;
+  delete s;
 }
 
 TEST(TestSuit, describe) {
