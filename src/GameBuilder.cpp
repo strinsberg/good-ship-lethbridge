@@ -308,8 +308,6 @@ Game* GameBuilder::newGame(std::string name) {
                 true, true, false);
   table->addEntity(crewList);
 
-
-
   Item* comfy_chair = new Item();
   addEntityInfo(comfy_chair,
                 "Comfy chair",
@@ -439,7 +437,7 @@ Game* GameBuilder::newGame(std::string name) {
                 "This amazing little tool is great for fixing cores",
                 true, true, false);
   spanner->addEntity(coreWrench);
-  engiCloset->addEntity(coreWrench);
+  //engiCloset->addEntity(coreWrench);
 
 
   // engine bay object

@@ -17,7 +17,8 @@
 using std::map;
 using std::string;
 
-Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()), player(nullptr), in(is), out(os), running(true) {
+Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()),
+    player(nullptr), in(is), out(os), running(true) {
   // Create a player with a blank spec
   player = new Player();
   EntitySpec* spec = new EntitySpec();

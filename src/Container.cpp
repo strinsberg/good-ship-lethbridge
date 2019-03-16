@@ -51,7 +51,7 @@ Entity* Container::search(std::string name) const {
     for (auto itemPair : inventory) {
       if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
         if (Npc* n = dynamic_cast<Npc*>(c)) {
-          return nullptr;
+          continue;
         } else {
           Entity* e = c->search(Game::toLower(name));
           if (e!= nullptr)
@@ -76,7 +76,8 @@ Entity* Container::findOwner(std::string name) {
     }
     return nullptr;
   } else {
-    return this;}
+    return this;
+  }
 }
 
 void Container::addEntity(Entity* entity) {
