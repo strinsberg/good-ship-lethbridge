@@ -9,6 +9,8 @@
 #include "Entity.h"
 #include <iostream>
 #include <exception>
+#include <string>
+#include <vector>
 
 Interaction::Interaction(std::istream& is, std::ostream& os)
   : Event(is, os), options(std::vector<Option>()), breakOut(false) {}

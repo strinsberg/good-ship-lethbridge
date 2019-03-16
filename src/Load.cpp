@@ -16,6 +16,8 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include <utility>
 
 bool stob(const std::string& str) {
   return str == "true";
@@ -72,16 +74,16 @@ std::string Load::execute() {
 
     if (type == "item" || type == "door" || type == "npc" || type == "container"
         || type == "room") {
-      updateEntity(game, bp );
+      updateEntity(game, bp);
     } else if (type == "inform" || type == "keylock" || type == "event_group"
                || type == "interaction" ||
                type == "question_lock" || type == "move_items" || type == "check_suit"
                || type == "activate") {
-      updateEvent(game, bp );
+      updateEvent(game, bp);
     } else if (type == "structured_event") {
-      updateInteraction(game, bp );
+      updateInteraction(game, bp);
     } else if (type == "player") {
-      game->getPlayer()->setCurrentRoom( game->getRoom( bp->getField("room")) );
+      game->getPlayer()->setCurrentRoom(game->getRoom(bp->getField("room")));
     }
 
     delete bp;
@@ -96,23 +98,23 @@ std::string Load::execute() {
 
 
 void updateInteraction(Game* g, ObjectBlueprint* bp) {
-  Event* e = g->getEvent( bp->getField("name") );
+  Event* e = g->getEvent(bp->getField("name"));
   if (e != nullptr) {
     StructuredEvents* event = static_cast<StructuredEvents*>(e);
-    event->getSpec()->setDone( stob(bp->getField("done") ));
-    event->setCurrentIndex( std::stoi(bp->getField("index")) );
+    event->getSpec()->setDone(stob(bp->getField("done")));
+    event->setCurrentIndex(std::stoi(bp->getField("index")));
   }
 }
 
 void updateEntity(Game* g, ObjectBlueprint* bp) {
   Entity* ent = nullptr;
   for (auto rPair : g->getRooms()) {
-    ent = rPair.second->search( bp->getField("name") );
+    ent = rPair.second->search(bp->getField("name"));
     if (ent != nullptr) {
       moveEntity(g, ent, bp->getField("owner"));
-      ent->getState()->setActive( stob(bp->getField("active")) );
-      ent->getState()->setObtainable( stob(bp->getField("obtainable")) );
-      ent->getState()->setHidden( stob(bp->getField("hidden")) );
+      ent->getState()->setActive(stob(bp->getField("active")));
+      ent->getState()->setObtainable(stob(bp->getField("obtainable")));
+      ent->getState()->setHidden(stob(bp->getField("hidden")));
       //std::cout << ent->getSpec()->getName() << " " << stob(bp->getField("active")) << std::endl;
       return;
     }
@@ -120,9 +122,9 @@ void updateEntity(Game* g, ObjectBlueprint* bp) {
 }
 
 void updateEvent(Game* g, ObjectBlueprint* bp) {
-  Event* event = g->getEvent( bp->getField("name") );
+  Event* event = g->getEvent(bp->getField("name"));
   if (event != nullptr) {
-    event->getSpec()->setDone( stob(bp->getField("done")) );
+    event->getSpec()->setDone(stob(bp->getField("done")));
     //std::cout << event->getSpec()->getName() << " " << stob(bp->getField("done")) << std::endl;
   }
 }

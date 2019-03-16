@@ -6,7 +6,8 @@
 #include"Suit.h"
 #include"Player.h"
 #include "ObjectBlueprint.h"
-#include<typeinfo>
+#include <typeinfo>
+#include <string>
 
 Suit::Suit() {}
 Suit::~Suit() {}
@@ -15,7 +16,6 @@ std::string Suit::describe() const {
   return spec->getDescription();
 }
 std::string Suit::use(Entity* user) {
-
   if (Player* p = dynamic_cast<Player*>(user)) {
     if (p->search(this->getSpec()->getName()) != nullptr) {
       p->setEquipped(this);

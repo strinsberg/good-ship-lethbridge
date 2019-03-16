@@ -12,7 +12,7 @@ bool EntityState::getObtainable() const {
 }
 
 void EntityState::setObtainable(bool ob) {
-  obtainable=ob;
+  obtainable = ob;
 }
 
 bool EntityState::getActive() const {
@@ -20,7 +20,7 @@ bool EntityState::getActive() const {
 }
 
 void EntityState::setActive(bool a) {
-  active=a;
+  active = a;
 }
 
 bool EntityState::getHidden() const {

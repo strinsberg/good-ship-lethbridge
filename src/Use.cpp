@@ -22,8 +22,8 @@ std::string Use::execute() {
         return e->getEvent()->execute(player);
       else
         return "For some reason you can't";
-    } else if (!e->getState()->getHidden())
-      return e->use(player);
+    } else if (!e->getState()->getHidden()) {
+      return e->use(player);}
   }
 
   return "There is no " + noun;
