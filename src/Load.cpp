@@ -56,7 +56,7 @@ std::string Load::execute() {
   std::vector<ObjectBlueprint*> blueprints;
   GameData gd(data.str());
   std::string next = gd.nextObject();
-  while (next != GameData::eof) {
+  while (next != GameData::eof()) {
     next = gd.nextObject();
     ObjectBlueprint* bp = new ObjectBlueprint(next);
     blueprints.push_back(bp);
@@ -69,15 +69,18 @@ std::string Load::execute() {
   for (auto bp : blueprints) {
     std::string type = bp->getType();
     std::string name = bp->getField("name");
-    if (type == ObjectBlueprint::null)
+    if (type == ObjectBlueprint::null())
       continue;
 
-    if (type == "item" || type == "door" || type == "npc" || type == "container"
+    if (type == "item" || type == "door"
+        || type == "npc" || type == "container"
         || type == "room") {
       updateEntity(game, bp);
-    } else if (type == "inform" || type == "keylock" || type == "event_group"
-               || type == "interaction" ||
-               type == "question_lock" || type == "move_items" || type == "check_suit"
+    } else if (type == "inform" || type == "keylock"
+               || type == "event_group"
+               || type == "interaction"
+               || type == "question_lock" || type == "move_items"
+               || type == "check_suit"
                || type == "activate") {
       updateEvent(game, bp);
     } else if (type == "structured_event") {
@@ -115,7 +118,7 @@ void updateEntity(Game* g, ObjectBlueprint* bp) {
       ent->getState()->setActive(stob(bp->getField("active")));
       ent->getState()->setObtainable(stob(bp->getField("obtainable")));
       ent->getState()->setHidden(stob(bp->getField("hidden")));
-      //std::cout << ent->getSpec()->getName() << " " << stob(bp->getField("active")) << std::endl;
+
       return;
     }
   }
@@ -125,7 +128,6 @@ void updateEvent(Game* g, ObjectBlueprint* bp) {
   Event* event = g->getEvent(bp->getField("name"));
   if (event != nullptr) {
     event->getSpec()->setDone(stob(bp->getField("done")));
-    //std::cout << event->getSpec()->getName() << " " << stob(bp->getField("done")) << std::endl;
   }
 }
 
@@ -143,8 +145,9 @@ void moveEntity(Game* g, Entity* entity, std::string newOwner) {
       Entity* giveTo = nullptr;
       for (auto rPair : g->getRooms()) {
         if (rPair.second->getSpec()->getName() == newOwner) {
-          std::cout << rPair.second->getSpec()->getName() << " - " << itemName << " - " <<
-                    owner->getSpec()->getName() <<std::endl;
+          std::cout << rPair.second->getSpec()->getName();
+          std::cout << " - " << itemName << " - ";
+          std::cout << owner->getSpec()->getName() <<std::endl;
           giveTo = rPair.second;
           move.execute(giveTo);
           return;

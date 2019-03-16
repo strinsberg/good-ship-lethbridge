@@ -8,6 +8,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Exceptions.h"
+#include <string>
 
 Action::Action(Player* p) : player(p) {}
 Action::~Action() {}

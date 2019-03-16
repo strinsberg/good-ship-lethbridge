@@ -17,7 +17,6 @@ using std::stringstream;
 const char EQUAL_SEP = '=';
 const char FIELD_SEP = ',';
 
-const string ObjectBlueprint::null = "null-field";
 
 ObjectBlueprint::ObjectBlueprint() {}
 
@@ -29,17 +28,17 @@ ObjectBlueprint::ObjectBlueprint(const string& data)
 
 ObjectBlueprint::~ObjectBlueprint() {}
 
-const string& ObjectBlueprint::getType() const {
+string ObjectBlueprint::getType() const {
   auto it = record.find("type");
   if (it == record.end())
-    return null;
+    return null();
   return it->second;
 }
 
-const string& ObjectBlueprint::getField(const string& key) const {
+string ObjectBlueprint::getField(const string& key) const {
   auto it = record.find(key);
   if (it == record.end())
-    return null;
+    return null();
   return it->second;
 }
 
@@ -58,6 +57,8 @@ string ObjectBlueprint::toString() const {
   ss << '}';
   return ss.str();
 }
+
+string ObjectBlueprint::null() {return "null-field";}
 
 // Private Methods ///////////////////////////////////////////////////
 

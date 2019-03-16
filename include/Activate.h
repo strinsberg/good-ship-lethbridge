@@ -7,7 +7,6 @@
 
 class Activate : public Event {
  public:
-
   /**
     * Create an event that will activate it's target when run.
     *

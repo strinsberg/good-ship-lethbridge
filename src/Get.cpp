@@ -18,10 +18,11 @@ std::string Get::execute() {
   Entity* e = getEntity();
 
   if (e != nullptr) {
-    if (!e->getState()->getObtainable())
+    if (!e->getState()->getObtainable()) {
       return "You can't take that!";
-    else if (!e->getState()->getHidden()) {
-      Container* owner = static_cast<Container*>(player->getCurrentRoom()->findOwner(noun));
+    } else if (!e->getState()->getHidden()) {
+      Container* owner =
+          static_cast<Container*>(player->getCurrentRoom()->findOwner(noun));
       owner->removeEntity(e);
     }
 

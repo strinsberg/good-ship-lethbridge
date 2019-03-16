@@ -29,7 +29,6 @@ std::string Door::use(Entity* user) {
 
   std::stringstream ss;
   if (Player* p = dynamic_cast<Player*>(user)) {
-    p = (Player*)user;
     p->setCurrentRoom(destination);
     ss << "You use " << spec->getName() << std::endl;
     ss << destination->enter(p);
@@ -38,7 +37,8 @@ std::string Door::use(Entity* user) {
     // check entity is in room???
     here->removeEntity(user);
     destination->addEntity(user);
-    ss << user->getSpec()->getName() << " uses " << spec->getName()  << std::endl;
+    ss << user->getSpec()->getName();
+    ss << " uses " << spec->getName()  << std::endl;
     ss << destination->enter(p);
     return ss.str();
   }

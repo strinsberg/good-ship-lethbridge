@@ -123,8 +123,6 @@ Game* GameBuilder::newGame(std::string name) {
   spannerRoomDoor->setDestination(spannerRoom);
   common_room->addEntity(spannerRoomDoor);
 
-
-
   Door* commonRoomDoor = new Door();
   addEntityInfo(commonRoomDoor,
                 "door to common room",
@@ -133,7 +131,6 @@ Game* GameBuilder::newGame(std::string name) {
   commonRoomDoor->setHere(spannerRoom);
   commonRoomDoor->setDestination(common_room);
   spannerRoom->addEntity(commonRoomDoor);
-
 
   Door* hallDoor = new Door();
   addEntityInfo(hallDoor,
@@ -174,7 +171,8 @@ Game* GameBuilder::newGame(std::string name) {
   Door* engiBayDoor = new Door();
   addEntityInfo(engiBayDoor,
                 "engine bay door",
-                "A door to the engine bay. It looks pretty hefty to keep in radiation.",
+                "A door to the engine bay."
+                " It looks pretty hefty to keep in radiation.",
                 true, false, false);
   engiBayDoor->setHere(engiControl);
   engiBayDoor->setDestination(engiBay);
@@ -183,12 +181,12 @@ Game* GameBuilder::newGame(std::string name) {
   Door* bayToControl = new Door();
   addEntityInfo(bayToControl,
                 "door to engine control",
-                "A door to the engine bay. It looks pretty hefty to keep in radiation.",
+                "A door to the engine bay."
+                " It looks pretty hefty to keep in radiation.",
                 true, false, false);
   bayToControl->setHere(engiBay);
   bayToControl->setDestination(engiControl);
   engiBay->addEntity(bayToControl);
-
 
   Door* cargoBaydoor = new Door();
   addEntityInfo(cargoBaydoor,
@@ -243,10 +241,6 @@ Game* GameBuilder::newGame(std::string name) {
   bridgeLockout->setHere(bridge);
   bridgeLockout->setDestination(outerSpace);
   bridge->addEntity(bridgeLockout);
-
-
-
-
 
   // Create objects ///////////////////////////////////////////////////////////
 
@@ -329,25 +323,22 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   common_room->addEntity(spannerDoorLock);
 
-
-
 //spanner's room objects//
   Container* tool_closet = new Container();
   addEntityInfo(tool_closet,
                 "Tool closet",
-                "A battered old tool chest. Engineers don't like people touching their tools!",
+                "A battered old tool chest. "
+                "Engineers don't like people touching their tools!",
                 true, false, false);
   spannerRoom->addEntity(tool_closet);
-
-
 
   Item* fuse = new Item();
   addEntityInfo(fuse,
                 "Fuse",
-                "A small fuse that looks like it would fit in a doors control panel",
+                "A small fuse that looks like it would "
+                "fit in a doors control panel",
                 true, true, false);
   tool_closet->addEntity(fuse);
-
 
   Container* spannerdesk = new Container();
   addEntityInfo(spannerdesk,
@@ -371,7 +362,6 @@ Game* GameBuilder::newGame(std::string name) {
   spannerdesk->addEntity(spannerComputer);
 
   //hall objects
-
   Entity* hallComputer = new Item();
   addEntityInfo(hallComputer,
                 "hall computer",
@@ -396,7 +386,8 @@ Game* GameBuilder::newGame(std::string name) {
   Entity* hallWindow = new Item();
   addEntityInfo(hallWindow,
                 "hall window",
-                "a every big window in the hall way, the ship is traveling at extreme speed! ",
+                "a every big window in the hall way, "
+                "the ship is traveling at extreme speed! ",
                 true, false, false);
   hall->addEntity(hallWindow);
 
@@ -406,8 +397,8 @@ Game* GameBuilder::newGame(std::string name) {
                 "green plant nothing special.",
                 true, true, false);
   hall-> addEntity(plant);
-  //engineer control
 
+  //engineer control
   Container* engiCloset = new Container();
   addEntityInfo(engiCloset,
                 "hazmat closet",
@@ -430,19 +421,14 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   engiControl->addEntity(spanner);
 
-
   Item* coreWrench = new Item();
   addEntityInfo(coreWrench,
                 "Core wrench",
                 "This amazing little tool is great for fixing cores",
                 true, true, false);
   spanner->addEntity(coreWrench);
-  //engiCloset->addEntity(coreWrench);
-
 
   // engine bay object
-
-
   Item* reactor = new Item();
   addEntityInfo(reactor,
                 "reactor",
@@ -481,7 +467,6 @@ Game* GameBuilder::newGame(std::string name) {
   Mae->addEntity(cookie);
 
 //space object
-
   Npc* alien = new Npc();
   addEntityInfo(alien,
                 "master yoda",
@@ -492,16 +477,17 @@ Game* GameBuilder::newGame(std::string name) {
   Item* lightSaber = new Item();
   addEntityInfo(lightSaber,
                 "light saber",
-                "the very old light saber that used to belongs to a legendary Jedi",
+                "the very old light saber "
+                "that used to belongs to a legendary Jedi",
                 true, true, false);
   alien->addEntity(lightSaber);
 
 //bridge objects
-
   Npc* lars = new Npc();
   addEntityInfo(lars,
                 "Lars Philbur",
-                "the flashing lights, the bridge officer is standing on the ceiling!",
+                "the flashing lights, the bridge "
+                "officer is standing on the ceiling!",
                 true, false, false);
   bridge->addEntity(lars);
 
@@ -510,9 +496,7 @@ Game* GameBuilder::newGame(std::string name) {
   dummy->getState()->setHidden(true);
   lars->addEntity(dummy);
 
-
 // Create events ////////////////////////////////////////////////////////////
-
   // captains room events
   Kill* captainBed = new Kill();
   captainBed->getSpec()->setName("c_bed");
@@ -523,14 +507,14 @@ Game* GameBuilder::newGame(std::string name) {
   Inform* captainComputer = new Inform();
   captainComputer->getSpec()->setName("c_comp");
   captainComputer->setMessage("Ship Status:               NOT AVAILABLE \n"
-                              "\nALL CREW RETURN TO COMBAT POSITION"
-                             );
+                              "\nALL CREW RETURN TO COMBAT POSITION");
   computer->setEvent(captainComputer);
   g->addEvent("c_comp", captainComputer);
 
   Inform* captainWindow = new Inform();
   captainWindow->getSpec()->setName("c_win");
-  captainWindow->setMessage("you see endless space and some debris probably from the'Lethbridge'");
+  captainWindow->setMessage("you see endless space and some "
+                            "debris probably from the Lethbridge");
   window->setEvent(captainWindow);
   g->addEvent("c_win", captainWindow);
 
@@ -549,13 +533,15 @@ Game* GameBuilder::newGame(std::string name) {
 
   Inform* furniture = new Inform();
   furniture->getSpec()->setName("spa_furn");
-  furniture->setMessage("You take a moment to relax. Is this really the time!");
+  furniture->setMessage("You take a moment to relax. "
+                        "Is this really the time!");
   chair->setEvent(furniture);
   g->addEvent("spa_furn", furniture);
 
   Inform* nice_furniture = new Inform();
   furniture->getSpec()->setName("spa_nice");
-  nice_furniture->setMessage("This feels too good! Your a bad captain! Save your ship!");
+  nice_furniture->setMessage("This feels too good! "
+                             "Your a bad captain! Save your ship!");
   comfy_chair->setEvent(nice_furniture);
   g->addEvent("spa_nice", nice_furniture);
 
@@ -567,7 +553,6 @@ Game* GameBuilder::newGame(std::string name) {
                             "Lars Philbur - Bridge Officer\nID #7513\n\n");
   crewList->setEvent(manifest_list);
   g->addEvent("spa_list", manifest_list);
-
 
   QuestionLock* spannerLock = new QuestionLock(spannerRoomDoor,
       "enter combination: ", "4396");
@@ -597,12 +582,12 @@ Game* GameBuilder::newGame(std::string name) {
 
   Inform* spannerComputerInfo = new Inform();
   spannerComputerInfo->getSpec()->setName("s_comp");
-  spannerComputerInfo->setMessage("Biometric authentication failed! \naccess denied!!");
+  spannerComputerInfo->setMessage("Biometric authentication failed!"
+                                  " \naccess denied!!");
   spannerComputer->setEvent(spannerComputerInfo);
   g->addEvent("s_comp", spannerComputerInfo);
 
   //hall events
-
   Inform* useMed = new Inform();
   useMed->getSpec()->setName("s_med");
   useMed->setMessage("you dont need it");
@@ -637,25 +622,25 @@ Game* GameBuilder::newGame(std::string name) {
 
   Inform* hallComputerinfo = new Inform();
   hallComputerinfo->getSpec()->setName("h_comp_inf");
-  hallComputerinfo->setMessage("authorization level : 'Captain'\n\n"
-                               "               SHIP STATUS \n\n"
-                               "Engine Status:          INACTIVE(HARD REBOOT REQUIRED)\n\n"
-                               "Ship Body Integrity:    56%\n\n"
-                               "Oxygen Leak:            NO\n\n"
-                               "Crew:                   INJURY 1/5\n\n"
-                               "                        SIGNAL LOST Lars Philbur\n\n"
-                               "Stress Signal:          FAIL TO SENT (REQUIRE 'Antenna' REPLACEMENT)\n"
-                               "Life Supply:            74% OXYGEN 80% WATER 76% FOOD\n"
-                               "         ALL CREW MEMBER RETURN TO POSITION\n\n"
+  hallComputerinfo->setMessage(
+     "authorization level : 'Captain'\n\n"
+     "               SHIP STATUS \n\n"
+     "Engine Status:          INACTIVE(HARD REBOOT REQUIRED)\n\n"
+     "Ship Body Integrity:    56%\n\n"
+     "Oxygen Leak:            NO\n\n"
+     "Crew:                   INJURY 1/5\n\n"
+     "                        SIGNAL LOST Lars Philbur\n\n"
+     "Stress Signal:          FAIL TO SENT (REQUIRE 'Antenna' REPLACEMENT)\n"
+     "Life Supply:            74% OXYGEN 80% WATER 76% FOOD\n"
+     "         ALL CREW MEMBER RETURN TO POSITION\n\n"
 
-                               "ON BORAD COMPUTER DETECTS PROTENIAL IMPACT!!\n"
-                               "DISTANCE : 9714035KM\n"
-                               "PLEASE CHANGE COURSE AT COMMAND BRIDGE!!\n");
-
+     "ON BORAD COMPUTER DETECTS PROTENIAL IMPACT!!\n"
+     "DISTANCE : 9714035KM\n"
+     "PLEASE CHANGE COURSE AT COMMAND BRIDGE!!\n");
   hallComputer->setEvent(hallComputerinfo);
   g->addEvent("h_comp_inf", hallComputerinfo);
-  // Engineering Events
 
+  // Engineering Events
   MoveItems* getCoreWrench = new MoveItems(spanner, "core wrench");
   getCoreWrench->getSpec()->setName("h_wrench");
   getCoreWrench->setGive(true);
@@ -664,7 +649,8 @@ Game* GameBuilder::newGame(std::string name) {
 
   Inform* talkSpanner = new Inform();
   talkSpanner->getSpec()->setName("e_talk_spanner");
-  talkSpanner->setMessage("You have to go into the core while I operate the controls\n"
+  talkSpanner->setMessage("You have to go into the core while "
+                          "I operate the controls\n"
                           "I have a core wrench you will need");
   g->addEvent("e_talk_spanner", talkSpanner);
 
@@ -681,16 +667,18 @@ Game* GameBuilder::newGame(std::string name) {
   interSpanner->addOption("How do I fix the reactor?", askSpanner);
   spanner->setEvent(interSpanner);
   g->addEvent("e_inter_span", interSpanner);
-//engine bay event
 
+//engine bay event
   Kill* fiddle = new Kill();
   fiddle->getSpec()->setName("b_fidd");
-  fiddle->setMessage("you pressed wrong button, segfault (core dumped) 0xFFFFF :( !!");
+  fiddle->setMessage("you pressed wrong button, "
+                     "segfault (core dumped) 0xFFFFF :( !!");
   g->addEvent("b_fidd", fiddle);
 
   CheckSuit* radSuit = new CheckSuit(engiBay);
   radSuit->getSpec()->setName("b_suit");
-  radSuit->setMessage("You enter the engine bay. I hope you have a radiation suit on.");
+  radSuit->setMessage("You enter the engine bay. "
+                      "I hope you have a radiation suit on.");
   engiBay->setEnter(radSuit);
   g->addEvent("b_suit", radSuit);
 
@@ -713,7 +701,6 @@ Game* GameBuilder::newGame(std::string name) {
   g->addEvent("b_leak", reactorFix);
 
 //cargo bay even//
-
   Inform* quick = new Inform();
   quick->getSpec()->setName("b_quick");
   quick->setMessage("quick you need to get to the bridge!");
@@ -758,7 +745,6 @@ Game* GameBuilder::newGame(std::string name) {
   g->addEvent("b_mae", talkMae);
 
 //space events
-
   KeyLock* talkyoda = new KeyLock(dummy, cookie);
   talkyoda->getSpec()->setName("b_yoda");
   talkyoda->setFailMessage("its rude to interrupt a Jedi's meditation");
@@ -775,17 +761,20 @@ Game* GameBuilder::newGame(std::string name) {
   //bridge events
   EndGame* intosun = new EndGame();
   intosun->getSpec()->setName("b_int_sun");
-  intosun->setMessage("you fly the ship into the sun, sacrificing your self and your crew to save the galaxy!");
+  intosun->setMessage("you fly the ship into the sun, sacrificing your "
+                      "self and your crew to save the galaxy!");
   g->addEvent("b_int_sun", intosun);
 
   EndGame* escape = new EndGame();
   escape->getSpec()->setName("b_escape");
-  escape->setMessage("you took the only escape pod, fly away! what a captain!");
+  escape->setMessage("you took the only escape pod, "
+                     "fly away! what a captain!");
   g->addEvent("b_escape", escape);
 
   EndGame* capture = new EndGame();
   capture->getSpec()->setName("b_capture");
-  capture->setMessage("you captured lars but the contamination spreads, and devastated the galaxy!");
+  capture->setMessage("you captured lars but the contamination "
+                      "spreads, and devastated the galaxy!");
   g->addEvent("b_capture", capture);
 
   KeyLock* win = new KeyLock(dummy, lightSaber);
@@ -794,7 +783,8 @@ Game* GameBuilder::newGame(std::string name) {
 
   EndGame* killedLars = new EndGame();
   killedLars->getSpec()->setName("b_killed");
-  killedLars->setMessage("you excuted the source of the virus, the rest of your crew and the galaxy is all saved!!\n");
+  killedLars->setMessage("you excuted the source of the virus, the rest "
+                         "of your crew and the galaxy are saved!!\n");
   win->setSuccessEvent(killedLars);
   g->addEvent("b_killed", killedLars);
 
@@ -808,15 +798,12 @@ Game* GameBuilder::newGame(std::string name) {
   lars->setEvent(ending);
   g->addEvent("b_end", ending);
 
-
 // Create player ////////////////////////////////////////////////////////////
   Player* p = new Player();
   p->setSpec(makeEntitySpec(name, "It's you!"));
   p->setState(makeEntityState(true, false, false));
   p->setCurrentRoom(engiControl);
   g->setPlayer(p);
-
-//debugs
 
   // Return the game
   return g;
@@ -840,7 +827,8 @@ EntityState* GameBuilder::makeEntityState(bool active, bool obtainable,
 }
 
 void GameBuilder::addEntityInfo(Entity* entity, std::string name,
-                                std::string description, bool active, bool obtainable, bool hidden) {
+                                std::string description, bool active,
+                                bool obtainable, bool hidden) {
   entity->setSpec(makeEntitySpec(name, description));
   entity->setState(makeEntityState(active, obtainable, hidden));
 }

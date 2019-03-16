@@ -12,6 +12,7 @@ Help::Help(Game* g) :GameCommand(g) {}
 Help::~Help() {}
 std::string Help::execute() {
   std::string helptxt;
-  helptxt = "available commands are use,get,drop,inventory,look,talk,save,load,quit and exit.";
+  helptxt = "available commands are use, get, drop, "
+      "inventory, look, talk, save, load, quit, and exit.";
   return helptxt;
 }
