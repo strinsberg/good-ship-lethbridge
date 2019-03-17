@@ -1,3 +1,8 @@
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef ACTIVATE_H
 #define ACTIVATE_H
 
@@ -5,11 +10,13 @@
 #include <string>
 
 
+/**
+  * An event to activate a target entity when the event executes.
+  */
 class Activate : public Event {
  public:
   /**
     * Create an event that will activate it's target when run.
-    *
     * @param t the target entity to activate.
     */
   Activate(Entity* t,

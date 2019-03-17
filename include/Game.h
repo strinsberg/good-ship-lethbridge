@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_GAME_H
@@ -72,17 +71,37 @@ class Game {
     */
   void stop();
 
+  /**
+    * Returns an event by name from the list of game events. Does not transfer
+    * ownership of the event.
+    * @param name the name of the event
+    * @return a pointer to the event
+    */
   Event* getEvent(const std::string& name);
 
+  /**
+    * Adds an event by it's name to the games events. Does not Transfer
+    * ownership to the Game.
+    * @param name the events name
+    * @param event the event to add
+    */
   void addEvent(const std::string& name, Event* event);
 
-  std::map<std::string, Room*> getRooms();
+  /**
+    * Returns the map of the games rooms
+    */
+  std::map<std::string, Room*>& getRooms();
 
+  /**
+    * Makes all the characters in a string lowercase.
+    * @param str the string to make lowercase.
+    * @return a new lowercase version of the string.
+    */
   static std::string toLower(const std::string& str);
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
-  std::map<std::string, Event*> events; // does not own these!!!
+  std::map<std::string, Event*> events; // !!!does not own these!!!
   Player* player;  // owns player
   std::istream& in;
   std::ostream& out;

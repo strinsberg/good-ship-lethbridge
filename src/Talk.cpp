@@ -4,7 +4,6 @@
  * @date 2019-03-05
  */
 
-
 #include "Talk.h"
 #include "Entity.h"
 #include "Npc.h"

@@ -3,6 +3,7 @@
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
  * @date 2019-03-11
  */
+
 #include <string>
 #include "GameBuilder.h"
 #include "Game.h"

@@ -1,7 +1,7 @@
 /**
-* @author Max Niu & Steven Deutekom
-* @date 2019-02-26
-*/
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
 
 #ifndef CALRISSIEN_2720_ENTITY_H
 #define CALRISSIEN_2720_ENTITY_H

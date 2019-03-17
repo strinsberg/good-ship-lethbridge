@@ -1,3 +1,8 @@
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef QUIT_H
 #define QUIT_H
 
@@ -13,7 +18,6 @@ class Quit : public GameCommand {
  public:
   Quit(Game* g);
   virtual ~Quit();
-
   std::string execute();
 
  private:

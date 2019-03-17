@@ -15,7 +15,6 @@
 #include "Use.h"
 #include "Talk.h"
 #include "Help.h"
-#include "Exit.h"
 #include "Save.h"
 #include "Load.h"
 #include <string>
@@ -52,8 +51,6 @@ Command* Parser::parse() const {
     c = new Use(game->getPlayer());
   } else if (verb == "talk" || verb == "t") {
     c = new Talk(game->getPlayer());
-  } else if (verb == "exit" || verb == "e") {
-    c = new Exit(game->getPlayer());
   } else if (verb == "help" || verb == "h") {
     c = new Help(game);
   } else if (verb == "quit" || verb == "q") {

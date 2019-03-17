@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-12
+ * @date 2019-03-05
  */
 
 #ifndef DOOR_H
@@ -12,6 +11,9 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
+/**
+  * An object that leads to another room.
+  */
 class Door : public Entity {
  public:
   Door();
@@ -46,7 +48,7 @@ class Door : public Entity {
 
  private:
   Room* destination;  // Does not own this
-  Room* here;
+  Room* here;  // does not own this
 
   Door(const Door& other);
   Door& operator=(const Door& other);

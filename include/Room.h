@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-09
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_ROOM_H
@@ -38,8 +37,16 @@ class Room : public Container {
     */
   void setEnter(Event* event);
 
-
+  /**
+    * Return the atmosphere of the room.
+    * @return the atmosphere of the room
+    */
   Atmosphere getAtmosphere();
+
+  /**
+    * Set the atmosphere of the room.
+    * @param a the new value of the rooms atmosphere.
+    */
   void setAtmosphere(Atmosphere a);
 
  protected:

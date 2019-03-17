@@ -1,7 +1,6 @@
-/*
- * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_PLAYER_H
@@ -36,12 +35,25 @@ class Player : public Container {
     * @param r the room the player is now in
     */
   void setCurrentRoom(Room* r);
+
+  /**
+    * Sets the suit that the player is wearing. Does not transfer ownership.
+    * should not be set unless the suit is in the players inventory as well.
+    * suit is owned by the players inventory.
+    * @param s the new equipped suit.
+    */
   void setEquipped(Suit* s);
+
+  /**
+    * Returns the suit that is currently equipped or nullptr if
+    * no suit is equipped. Does not transfer ownership.
+    * @return the quipped suit.
+    */
   Suit* getEquipped();
 
  private:
   Room* currentRoom;  // does not own the room
-  Suit* equipped;
+  Suit* equipped;  // does not own this
   Player(const Player&);
   Player& operator=(const Player&);
 };

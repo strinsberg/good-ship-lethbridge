@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-08
+ * @date 2019-03-05
  */
 
 #ifndef EVENTGROUP_H
@@ -14,7 +13,8 @@
 #include <string>
 
 /**
-  * Event that can execute one or more events in order
+  * Event that executes one or more events all at once, but
+  * in the order they were added.
   */
 class EventGroup : public Event {
  public:

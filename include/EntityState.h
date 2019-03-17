@@ -1,12 +1,10 @@
-/*
- * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_ENTITYSTATE_H
 #define CALRISSIEN_2720_ENTITYSTATE_H
-
 
 /**
   * Holds the state of an entity

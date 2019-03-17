@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-03-05
  */
 
 #ifndef BADINPUT_H
@@ -10,7 +9,9 @@
 #include "Command.h"
 #include <string>
 
-
+/**
+  * An object to resolve invalid input from the player
+  */
 class BadInput : public Command {
  public:
   BadInput();

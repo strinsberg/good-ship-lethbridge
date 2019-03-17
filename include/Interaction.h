@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-09
+ * @date 2019-03-05
  */
 
 #ifndef INTERACTION_H
@@ -12,9 +11,19 @@
 #include <string>
 #include <vector>
 
+/**
+  * An event to interact with the player. Lists some choices
+  * and allows their selection to run associated events.
+  */
 class Interaction : public Event {
  public:
+  /**
+    * Create an Interaction object with in and out streams
+    * @param in an istream (default cin)
+    * @param out an ostream (default cout)
+    */
   Interaction(std::istream& is = std::cin, std::ostream& os = std::cout);
+
   virtual ~Interaction();
   std::string execute(Entity* affected);
   ObjectBlueprint* makeBlueprint() const;
@@ -25,16 +34,29 @@ class Interaction : public Event {
     * @param e the associated event
     */
   void addOption(std::string t, Event* e);
+
+  /**
+    * Returns if the interaction will end once you have made a choice.
+    * @return breakout
+    */
   bool getBreakOut();
+
+  /**
+    * Sets if the interaction will end once you have made a choice.
+    * @param b the new value for breakout
+    */
   void setBreakOut(bool b);
 
  private:
+  /**
+    * A struct to hold a title and an associated event.
+    */
   struct Option {
     std::string title = "";  // Menu title
     Event* event = nullptr;  // Owns this event
   };
 
-  std::vector<Option> options;
+  std::vector<Option> options;  // stores all the options in order
   bool breakOut;
 
   Interaction(const Interaction& other);

@@ -1,3 +1,8 @@
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef CALRISSIEN_2720_DROP_H
 #define CALRISSIEN_2720_DROP_H
 
@@ -7,7 +12,8 @@
 
 
 /**
-  * Action to drop a game object.
+  * Action to remove an item from the players inventory and
+  * place it in the player's current room.
   */
 class Drop : public Action {
  public:

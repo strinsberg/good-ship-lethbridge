@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-11
+ * @date 2019-03-05
  */
 
 #ifndef GAMEBUILDER_H
@@ -19,7 +18,7 @@ class GameBuilder {
   virtual ~GameBuilder();
 
   /**
-    * Create a new game and return it. Transfers ownership.
+    * Create a new game and return it. Transfers ownership to the caller.
     */
   Game* newGame(std::string name);
 

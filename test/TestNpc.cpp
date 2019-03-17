@@ -3,11 +3,13 @@
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
  * @date 2019-03-09
  */
+
 #include "Npc.h"
 #include "Container.h"
 #include "gtest/gtest.h"
 #include "Inform.h"
 #include "Player.h"
+
 TEST(TestNpc, describe) {
   Npc Max;
 
