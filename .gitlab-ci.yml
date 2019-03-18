@@ -5,6 +5,8 @@ buildTests:
    artifacts:
       paths:
          - testAdventure
+         - *.gcno
+         - *.gcda
 
 test:
    stage: test
