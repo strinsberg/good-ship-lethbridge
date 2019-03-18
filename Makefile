@@ -44,13 +44,14 @@ $(PROGRAM_TEST): $(TEST_DIR) $(SRC_DIR)
 	$(TEST_DIR)/*.cpp $(SRC_DIR)/*.cpp $(LINKFLAGS)
 
 compile: $(SRC_DIR) $(GAME_SRC_DIR)
-	$(CXX) $(CXXFLAGS) -o $(PROGRAM_GAME) $(INCLUDE) \
+	$(CXX) $(CXXFLAGS) -o $(PROGRAM) $(INCLUDE) \
 	$(SRC_DIR)/*.cpp $(GAME_SRC_DIR)/*.cpp $(LINKFLAGS)
+	rm -f *.gc*
 
 tests: $(PROGRAM_TEST)
 	$(PROGRAM_TEST)
 
-game: $(PROGRAM_GAME)
+game: $(PROGRAM)
 	$(PROGRAM_GAME)
 
 memcheck: $(PROGRAM_TEST)
