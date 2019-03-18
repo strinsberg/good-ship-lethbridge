@@ -1,7 +1,6 @@
 CXX=g++
 CXXFLAGS= -std=c++11 -g -fprofile-arcs -ftest-coverage
 
-
 LINKFLAGS= -lgtest
 
 SRC_DIR = src

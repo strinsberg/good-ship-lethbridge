@@ -2,14 +2,11 @@ buildTests:
    stage: build
    script:
       - make tests
-   artifacts:
-      paths:
-         - testAdventure
 
 test:
    stage: test
    script:
-      - testAdventure
+      - make tests
       - make coverage
       - make memcheck
       - make static
