@@ -5,12 +5,11 @@ buildTests:
    artifacts:
       paths:
          - testAdventure
-         - *.gcno
-         - *.gcda
 
 test:
    stage: test
    script:
+      - make tests
       - testAdventure
       - make coverage
       - make memcheck
