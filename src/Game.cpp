@@ -80,6 +80,7 @@ void Game::run() {
       Command* c;
       Parser p(input, this);
       c = p.parse();
+      std::cout << std::endl << "----------------------" << std::endl;
       out << c->execute() << std::endl;
       delete c;
     }

@@ -17,7 +17,11 @@ int main() {
   std::string name;
   std::getline(std::cin, name);
   std::cout << std::endl;
-  std::cout << "Welcome " << name << std::endl << std::endl;
+  std::cout << "Welcome Captain " << name << std::endl << std::endl;
+
+  std::cout << "You are awakened from sleep by a small explosion and"
+      " alarms going off! You leap out of bed, put on your uniform and...";
+  std::cout << std::endl << std::endl;
 
   GameBuilder builder;
   Game* g = builder.newGame(name);

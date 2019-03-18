@@ -124,8 +124,8 @@ Game* GameBuilder::newGame(std::string name) {
   hall->addEntity(hcDoor);
 
   Door* engiDoor = new Door();
-  addEntityInfo(engiDoor, "engineering room door", "the door lead "
-                "you to the engineering room", false, false, false);
+  addEntityInfo(engiDoor, "engine control room door", "the door lead "
+                "you to the engine control room", false, false, false);
   engiDoor->setHere(hall);
   engiDoor->setDestination(engiControl);
   hall->addEntity(engiDoor);
@@ -642,7 +642,7 @@ Game* GameBuilder::newGame(std::string name) {
   Player* p = new Player();
   p->setSpec(makeEntitySpec(name, "It's you!"));
   p->setState(makeEntityState(true, false, false));
-  p->setCurrentRoom(engiControl);
+  p->setCurrentRoom(captains_room);
   g->setPlayer(p);
 
   // Return the game
