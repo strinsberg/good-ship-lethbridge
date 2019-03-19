@@ -8,6 +8,8 @@
 #include "Player.h"
 #include "Exceptions.h"
 #include "Kill.h"
+#include "Event.h"
+#include "EndGame.h"
 #include <iostream>
 #include <sstream>
 #include "gtest/gtest.h"
@@ -69,3 +71,26 @@ TEST(GameTests, run_player_is_dead) {
   EXPECT_EQ("> You can't fly!\nGame Over!\nThanks for playing!\n", out.str());
 }
 
+TEST(GameTests, get_event) {
+  Game g;
+  Event* r = new EndGame();
+  g.addEvent("End game", r);
+  EXPECT_EQ(g.getEvent("End game"), r);
+  delete r;
+}
+
+TEST(GameTests, get_event_not_there) {
+  Game g;
+  Event* r = new EndGame();
+  g.addEvent("Gross", r);
+  EXPECT_EQ(nullptr, g.getEvent("End game"));
+  delete r;
+}
+
+TEST(GameTests, get_rooms) {
+  Game g;
+  Room* r = new Room();
+  g.addRoom("room", r);
+  auto rooms = g.getRooms();
+  EXPECT_EQ(r, rooms.find("room")->second);
+}

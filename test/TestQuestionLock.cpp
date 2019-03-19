@@ -62,3 +62,18 @@ TEST(QuestionLockTests, execute_already_done) {
   delete locked;
   delete e;
 }
+
+TEST(QuestionLockTests, make_blueprint) {
+  Item* locked = new Item();
+  locked->getState()->setActive(false);
+  std::stringstream in("$1e10"), out;
+  QuestionLock q(locked, "How much does my biography cost?", "$1e10", in, out);
+
+  ObjectBlueprint* bp = q.makeBlueprint();
+  EXPECT_EQ("{\ntype=questionlock,\nanswer=$1e10,\ndone=false,\nmessage=,"
+            "\nname=,\nquestion=How much does my biography cost?,\ntarget=,\n}",
+            bp->toString());
+
+  delete locked;
+  delete bp;
+}

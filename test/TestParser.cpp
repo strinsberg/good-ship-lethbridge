@@ -34,3 +34,72 @@ TEST(ParserTests, parse_quit) {
   EXPECT_EQ(false, g.isRunning());
   delete c;  // parser does not own the pointer it returns
 }
+
+TEST(ParserTests, parse_get) {
+  Game g;
+  Player* pl = new Player();
+  Room* r = new Room();
+  pl->setCurrentRoom(r);
+  g.addRoom("here", r);
+  g.setPlayer(pl);
+  Parser p("get box", &g);
+  Command* c = p.parse();
+  EXPECT_EQ("There is no box", c->execute());
+  delete c;
+}
+
+TEST(ParserTests, parse_drop) {
+  Game g;
+  Parser p("drop box", &g);
+  Command* c = p.parse();
+  EXPECT_EQ("You don't have that!", c->execute());
+  delete c;  // parser does not own the pointer it returns
+}
+
+TEST(ParserTests, parse_look) {
+  Game g;
+  Player* pl = new Player();
+  Room* r = new Room();
+  pl->setCurrentRoom(r);
+  g.addRoom("here", r);
+  g.setPlayer(pl);
+  Parser p("look box", &g);
+  Command* c = p.parse();
+  EXPECT_EQ("There is no box", c->execute());
+  delete c;
+}
+
+TEST(ParserTests, parse_use) {
+  Game g;
+  Player* pl = new Player();
+  Room* r = new Room();
+  pl->setCurrentRoom(r);
+  g.addRoom("here", r);
+  g.setPlayer(pl);
+  Parser p("use box", &g);
+  Command* c = p.parse();
+  EXPECT_EQ("There is no box", c->execute());
+  delete c;
+}
+
+TEST(ParserTests, parse_talk) {
+  Game g;
+  Player* pl = new Player();
+  Room* r = new Room();
+  pl->setCurrentRoom(r);
+  g.addRoom("here", r);
+  g.setPlayer(pl);
+  Parser p("talk box", &g);
+  Command* c = p.parse();
+  EXPECT_EQ("There is no box", c->execute());
+  delete c;
+}
+
+TEST(ParserTests, parse_help) {
+  Game g;
+  Parser p("help", &g);
+  Command* c = p.parse();
+  EXPECT_EQ("available commands are use, get, drop, inventory, "
+            "look, talk, save, load, quit, and exit.", c->execute());
+  delete c;  // parser does not own the pointer it returns
+}

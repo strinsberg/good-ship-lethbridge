@@ -29,6 +29,14 @@ TEST(DoorTests, set_destination) {
   delete r;
 }
 
+TEST(DoorTests, set_here) {
+  Door d;
+  Room* r = new Room();
+  d.setHere(r);
+  EXPECT_EQ(r, d.getHere());
+  delete r;
+}
+
 TEST(DoorTests, describe) {
   Door d;
   d.getSpec()->setDescription("a door to space");
@@ -117,4 +125,13 @@ TEST(DoorTests, use_no_destination) {
 
   delete start;
   delete p;
+}
+
+TEST(DoorTests, make_blueprint) {
+  Door d;
+  ObjectBlueprint* bp = d.makeBlueprint();
+  EXPECT_EQ("{\ntype=door,\nactive=true,\ndescription=,\ndestination=,\nhere=,"
+            "\nhidden=false,\nname=,\nobtainable=true,\n}\n{\ntype=inform,"
+            "\ndone=false,\nmessage=,\nname=,\nowner=,\n}", bp->toString());
+  delete bp;
 }

@@ -13,6 +13,7 @@
 #include "Event.h"
 #include "ObjectBlueprint.h"
 #include "Exceptions.h"
+#include "Item.h"
 #include <string>
 #include "gtest/gtest.h"
 
@@ -57,6 +58,22 @@ TEST(RoomTests, describe) {
             "It's your room!", r.describe());
 }
 
-TEST(RoomTests, DISABLED_make_blueprint) {
+TEST(RoomTests, make_blueprint) {
+  Room r;
+  EntitySpec* spec = new EntitySpec();
+  spec->setName("Captain's Room");
+  spec->setDescription("It's your room!");
+  r.setSpec(spec);
+  Item* i = new Item();
+  i->getSpec()->setName("box");
+
+  ObjectBlueprint* bp = r.makeBlueprint();
+  EXPECT_EQ("{\ntype=room,\nactive=true,\natmosphere=0,"
+            "\ndescription=It's your room!,\nhidden=false,"
+            "\nname=Captain's Room,\nobtainable=true,\n}\n{\ntype=inform,"
+            "\ndone=false,\nmessage=,\nname=,\nowner=Captain's Room,\n}",
+            bp->toString());
+  delete bp;
+  delete i;
 }
 

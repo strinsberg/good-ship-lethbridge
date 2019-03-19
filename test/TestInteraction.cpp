@@ -137,3 +137,24 @@ TEST(InteractionTests, make_blueprint) {
             o->toString().substr(89, 13));
   delete o;
 }
+
+TEST(InteractionTests, add_option_execute_breakout) {
+  std::stringstream in, out;
+  Interaction i(in, out);
+  i.setBreakOut(true);
+
+  Event* e = new Inform();
+  e->setMessage("You go to sleep");
+  i.addOption("Sleep", e);
+
+  in << "1\n";
+  Entity* p = new Player();
+  std::string result = i.execute(p);
+
+  EXPECT_EQ(true, i.getBreakOut());
+  EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. "
+            "Cancel\n>>> You go to sleep",
+            out.str());
+  EXPECT_EQ("", result);
+  delete p;
+}

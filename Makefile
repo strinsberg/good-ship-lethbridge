@@ -37,7 +37,7 @@ clean:
 	*.bak ???*/*.bak \
 	???*/*~ ???*/???*/*~ $(COVERAGE_RESULTS) \
 	$(PROGRAM_TEST) $(MEMCHECK_RESULTS) $(COVERAGE_DIR)  \
-	docs/code/html docs/code/doxygen.log obj bin
+	docs/code/html docs/code/doxygen.log obj bin $(PROGRAM)
 
 $(PROGRAM_TEST): $(TEST_DIR) $(SRC_DIR)
 	$(CXX) $(CXXFLAGS) -o $(PROGRAM_TEST) $(INCLUDE) \

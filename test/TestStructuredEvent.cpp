@@ -61,4 +61,22 @@ TEST(StructuredEventsTests, execute_many_repeat) {
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
-TEST(StructuredEventsTests, DISABLED_make_blueprint) {}
+TEST(StructuredEventsTests, make_blueprint) {
+  StructuredEvents s;
+
+  Event* i = new Inform();
+  i->setMessage("You can't use that!");
+  s.addEvent(i);
+
+  Event* i2 = new Inform();
+  i2->setMessage("You have died!");
+  s.addEvent(i2);
+
+  ObjectBlueprint* bp = s.makeBlueprint();
+  EXPECT_EQ("{\ntype=structured_event,\ndone=false,\nindex=0,\nmessage=,"
+            "\nname=,\n}\n{\ntype=inform,\ndone=false,"
+            "\nmessage=You can't use that!,\nname=,\nowner=,\n}\n"
+            "{\ntype=inform,\ndone=false,\nmessage=You have died!,\nname=,"
+            "\nowner=,\n}", bp->toString());
+  delete bp;
+}

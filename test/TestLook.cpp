@@ -67,3 +67,21 @@ TEST(LookTests, execute_no_item) {
   EXPECT_EQ(l.execute(), "There is no box");
   delete p;
 }
+
+TEST(LookTests, execute_just_look) {
+  Player* p = new Player();
+  Look l(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  r.getSpec()->setName("This room");
+  p->setCurrentRoom(&r);
+
+  l.setNoun("");
+  EXPECT_EQ("Location: This room\n\nContains: \nbox\n",
+            l.execute());
+  delete p;
+}

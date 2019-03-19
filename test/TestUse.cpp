@@ -115,3 +115,10 @@ TEST(UseTests, execute_inactive_locked) {
   EXPECT_EQ(true, c->getState()->getActive());
   delete p;
 }
+
+TEST(UseTests, execute_no_player) {
+  Player* p = nullptr;
+  Use u(p);
+  EXPECT_THROW(u.execute(), unfinished_object_error);
+  delete p;
+}

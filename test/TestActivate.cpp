@@ -20,6 +20,17 @@ TEST(ActivateTests, constructor_get) {
   delete i;
 }
 
+TEST(ActivateTests, set_target) {
+  Entity* i = new Item();
+  Activate a(i);
+  Item* t = new Item();
+  EXPECT_EQ(i, a.getTarget());
+  a.setTarget(t);
+  EXPECT_EQ(t, a.getTarget());
+  delete i;
+  delete t;
+}
+
 TEST(ActivateTests, execute) {
   Entity* i = new Item();
   i->getSpec()->setName("Lamp");
@@ -50,4 +61,14 @@ TEST(ActivateTests, execute_already_on) {
   delete i;
 }
 
-TEST(ActivateTests, DISABLED_make_blueprint) {}
+TEST(ActivateTests, make_blueprint) {
+  Item* target = new Item();
+  Activate a(target);
+
+  ObjectBlueprint* ob = a.makeBlueprint();
+  EXPECT_EQ("{\ntype=activate,\ndone=false,\nmessage=,\nname=,\ntarget=,\n}"
+            , ob->toString());
+
+  delete target;
+  delete ob;
+}

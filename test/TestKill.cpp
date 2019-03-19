@@ -28,3 +28,12 @@ TEST(KillTests, kill_entity) {
   EXPECT_EQ(true, toKill->getState()->getHidden());
   delete toKill;
 }
+
+TEST(KillTests, make_blueprint) {
+  Kill k;
+  k.setMessage("Why would you do that!");
+  ObjectBlueprint* bp = k.makeBlueprint();
+  EXPECT_EQ("{\ntype=kill,\ndone=false,\nmessage=Why would you do that!,"
+            "\nname=,\n}", bp->toString());
+  delete bp;
+}

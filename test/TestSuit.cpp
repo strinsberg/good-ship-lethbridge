@@ -7,6 +7,7 @@
 #include "Suit.h"
 #include "Atmosphere.h"
 #include "Exceptions.h"
+#include "Item.h"
 #include <string>
 #include "gtest/gtest.h"
 #include "Player.h"
@@ -17,6 +18,14 @@ TEST(TestSuit, use) {
   p->addEntity(s);
   EXPECT_EQ("the suit is on you", s->use(p));
   delete p;
+}
+
+TEST(TestSuit, use_not_a_player) {
+  Suit*  s = new Suit();
+  Item* p = new Item;
+  EXPECT_EQ("suit authorization failed", s->use(p));
+  delete p;
+  delete s;
 }
 
 TEST(TestSuit, use_not_carrying) {
@@ -38,4 +47,13 @@ TEST(TestSuit, getAtmosphere) {
   Atmosphere a = Atmosphere(SPACE);
   s.setAtmosphere(a);
   EXPECT_EQ(SPACE, s.getAtmosphere());
+}
+
+TEST(TestSuit, makeBlueprint) {
+  Suit s;
+  ObjectBlueprint* bp = s.makeBlueprint();
+  EXPECT_EQ("{\ntype=suit,\nactive=true,\natmosphere=0,\ndescription=,"
+            "\nhidden=false,\nname=,\nobtainable=true,\n}\n{\ntype=inform,"
+            "\ndone=false,\nmessage=,\nname=,\nowner=,\n}", bp->toString());
+  delete bp;
 }

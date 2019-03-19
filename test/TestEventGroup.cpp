@@ -44,5 +44,18 @@ TEST(EventGroupTests, constructor_execute_group) {
   EXPECT_EQ(e.execute(p), "You can't use that!\nYou have died!");
 }
 
-TEST(EventGroupTests, DISABLED_make_blueprint) {}
+TEST(EventGroupTests, make_blueprint) {
+  EventGroup eg;
+  eg.setMessage("You should go home");
+  eg.getSpec()->setName("go home");
+  Inform* i = new Inform();
+  i->setMessage("HAHAHAHAHA");
+  eg.addEvent(i);
+  ObjectBlueprint* bp = eg.makeBlueprint();
+  EXPECT_EQ("{\ntype=event_group,\ndone=false,\nmessage=You should go home,"
+            "\nname=go home,\n}\n{\ntype=inform,\ndone=false,"
+            "\nmessage=HAHAHAHAHA,\nname=,\nowner=go home,\n}",
+            bp->toString());
+  delete bp;
+}
 

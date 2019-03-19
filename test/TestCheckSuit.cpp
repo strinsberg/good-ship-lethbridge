@@ -111,3 +111,31 @@ TEST(CheckSuitTests, player_no_suit_radiation) {
   delete r;
   delete p;
 }
+
+TEST(CheckSuitTests, pass_non_player) {
+  Room* r = new Room();
+  r->setAtmosphere(Atmosphere::RADIATION);
+  CheckSuit cs(r);
+
+  Item* p = new Item();
+
+  EXPECT_EQ("Only players can have suits so why are you checking for one?",
+            cs.execute(p));
+  delete r;
+  delete p;
+}
+
+TEST(CheckSuitTests, make_blueprint) {
+  Room* r = new Room();
+  r->getSpec()->setName("this room");
+  r->setAtmosphere(Atmosphere::RADIATION);
+  CheckSuit cs(r);
+
+  ObjectBlueprint* bp = cs.makeBlueprint();
+  EXPECT_EQ("{\ntype=checksuit,\ndone=false,\nhere=this "
+            "room,\nmessage=,\nname=,\n}",
+            bp->toString());
+
+  delete r;
+  delete bp;
+}

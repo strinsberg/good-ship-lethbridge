@@ -10,16 +10,15 @@
 Drop::Drop(Player* p) : Action(p) {}
 Drop::~Drop() {}
 std::string Drop::execute() {
-  if (player->search(noun) == nullptr)
+  if (player->search(noun) == nullptr) {
     return "You don't have that!";
+  } else {
+    Entity* e = getEntity();
 
-  Entity* e = getEntity();
-
-  if (e != nullptr && !e->getState()->getHidden()) {
-    player->getCurrentRoom()->addEntity(e);
-    player->removeEntity(e);
-    return "You drop the " + noun;
+    if (e != nullptr && !e->getState()->getHidden()) {
+      player->getCurrentRoom()->addEntity(e);
+      player->removeEntity(e);
+      return "You drop the " + noun;
+    }
   }
-
-  return "There is no " + noun;
 }

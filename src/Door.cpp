@@ -11,7 +11,7 @@
 #include <typeinfo>
 #include <string>
 
-Door::Door() : destination(nullptr) {}
+Door::Door() : destination(nullptr), here(nullptr) {}
 
 Door::~Door() {}
 
@@ -47,8 +47,11 @@ std::string Door::use(Entity* user) {
 ObjectBlueprint* Door::makeBlueprint() const {
   ObjectBlueprint* bp = Entity::makeBlueprint();
   bp->setField("type", "door");
-  bp->setField("here", here->getSpec()->getName());
-  bp->setField("destination", destination->getSpec()->getName());
+  std::string h = here == nullptr ? "" : here->getSpec()->getName();
+  bp->setField("here", h);
+  std::string d =
+      destination == nullptr ? "" : destination->getSpec()->getName();
+  bp->setField("destination", d);
   return bp;
 }
 
