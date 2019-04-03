@@ -537,6 +537,7 @@ Game* GameBuilder::newGame(std::string name) {
   reactorFix->addOption("fiddle with it", fiddle);
   reactorFix->addOption("smack with wrench real hard!", Fixed);
   reactorFix->addOption("put out reactor core", leakage);
+  reactorFix->setBreakOut(true);
   reactor->setEvent(reactorFix);
   g->addEvent("b_leak", reactorFix);
 

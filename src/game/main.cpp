@@ -12,10 +12,20 @@
 int main() {
   std::cout << "Welcome to Disaster On The Good Ship Lethbridge!!!!";
   std::cout << std::endl << std::endl;
-  std::cout << "What is your name? ";
 
   std::string name;
-  std::getline(std::cin, name);
+  while (true) {
+    std::cout << "What is your name? ";
+    std::getline(std::cin, name);
+    if (name.length() > 100) {
+      std::cout << std::endl;
+      std::cout << "Invalid name: Names must be 100 characters or less!!!";
+      std::cout << std::endl;
+    } else {
+      break;
+    }
+  }
+
   std::cout << std::endl;
   std::cout << "Welcome Captain " << name << std::endl << std::endl;
 

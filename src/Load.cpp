@@ -23,6 +23,8 @@ bool stob(const std::string& str) {
   return str == "true";
 }
 
+std::string hash_name(const std::string&);
+
 void updateEntity(Game*, ObjectBlueprint*);
 void updateEvent(Game*, ObjectBlueprint*);
 void updateInteraction(Game*, ObjectBlueprint*);
@@ -37,7 +39,9 @@ std::string Load::execute() {
   // read in file data
   std::string filename;
   if (noun.empty())
-    filename = game->getPlayer()->getSpec()->getName() + ".save";
+    filename = "."
+               + hash_name(game->getPlayer()->getSpec()->getName())
+               + ".save";
   else
     filename = noun + ".save";
 
