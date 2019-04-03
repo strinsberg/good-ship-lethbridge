@@ -10,12 +10,18 @@
 #include "Parser.h"
 #include "Command.h"
 #include "Exceptions.h"
+#include "StructuredEvents.h"
+#include "MoveItems.h"
 #include <string>
 #include <map>
 #include <iostream>
 
 using std::map;
 using std::string;
+
+bool stob(const std::string& str) {
+  return str == "true";
+}
 
 Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()),
     player(nullptr), in(is), out(os), running(true) {
@@ -113,4 +119,69 @@ string Game::toLower(const string& str) {
 
 std::map<std::string, Room*>& Game::getRooms() {
   return rooms;
+}
+
+void Game::updateInteraction(ObjectBlueprint* bp) {
+  Event* e = getEvent(bp->getField("name"));
+  if (e != nullptr) {
+    StructuredEvents* event = static_cast<StructuredEvents*>(e);
+    event->getSpec()->setDone(stob(bp->getField("done")));
+    event->setCurrentIndex(std::stoi(bp->getField("index")));
+  }
+}
+
+void Game::updateEntity(ObjectBlueprint* bp) {
+  for (auto rPair : getRooms()) {
+    Entity* ent = rPair.second->search(bp->getField("name"));
+    if (ent != nullptr) {
+      moveEntity(ent, bp->getField("owner"));
+      ent->getState()->setActive(stob(bp->getField("active")));
+      ent->getState()->setObtainable(stob(bp->getField("obtainable")));
+      ent->getState()->setHidden(stob(bp->getField("hidden")));
+
+      return;
+    }
+  }
+}
+
+void Game::updateEvent(ObjectBlueprint* bp) {
+  Event* event = getEvent(bp->getField("name"));
+  if (event != nullptr) {
+    event->getSpec()->setDone(stob(bp->getField("done")));
+  }
+}
+
+void Game::moveEntity(Entity* entity, std::string newOwner) {
+  std::string itemName = entity->getSpec()->getName();
+
+  for (auto rPair : getRooms()) {
+    Entity* owner = rPair.second->findOwner(itemName);
+
+    if (owner != nullptr && owner->getSpec()->getName() != newOwner) {
+      MoveItems moveItem(owner, itemName);
+      moveItem.setGive(true);
+
+      Entity* giveTo = nullptr;
+      for (auto rPair : getRooms()) {
+        if (rPair.second->getSpec()->getName() == newOwner) {
+          std::cout << rPair.second->getSpec()->getName();
+          std::cout << " - " << itemName << " - ";
+          std::cout << owner->getSpec()->getName() <<std::endl;
+          giveTo = rPair.second;
+          moveItem.execute(giveTo);
+          return;
+        } else {
+          giveTo = rPair.second->search(newOwner);
+          if (giveTo != nullptr) {
+            moveItem.execute(giveTo);
+            return;
+          }
+        }
+      }
+    }
+  }
+}
+
+bool Game::stob(const std::string& str) {
+  return str == "true";
 }

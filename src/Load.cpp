@@ -19,19 +19,9 @@
 #include <vector>
 #include <utility>
 
-bool stob(const std::string& str) {
-  return str == "true";
-}
-
 std::string hash_name(const std::string&);
 
-void updateEntity(Game*, ObjectBlueprint*);
-void updateEvent(Game*, ObjectBlueprint*);
-void updateInteraction(Game*, ObjectBlueprint*);
-Event* findEvent(Game*, std::string);
-void moveEntity(Game*, Entity*, std::string);
-
-Load::Load(Game* g) :GameCommand(g) {}
+Load::Load(Game* g) : GameCommand(g) {}
 
 Load::~Load() {}
 
@@ -78,16 +68,16 @@ std::string Load::execute() {
     if (type == "item" || type == "door"
         || type == "npc" || type == "container"
         || type == "room") {
-      updateEntity(game, bp);
+      game->updateEntity(bp);
     } else if (type == "inform" || type == "keylock"
                || type == "event_group"
                || type == "interaction"
                || type == "question_lock" || type == "move_items"
                || type == "check_suit"
                || type == "activate") {
-      updateEvent(game, bp);
+      game->updateEvent(bp);
     } else if (type == "structured_event") {
-      updateInteraction(game, bp);
+      game->updateInteraction(bp);
     } else if (type == "player") {
       game->getPlayer()->setCurrentRoom(game->getRoom(bp->getField("room")));
     }
@@ -100,66 +90,4 @@ std::string Load::execute() {
   r->removeEntity(player);
 
   return "Loaded game " + noun;
-}
-
-
-void updateInteraction(Game* g, ObjectBlueprint* bp) {
-  Event* e = g->getEvent(bp->getField("name"));
-  if (e != nullptr) {
-    StructuredEvents* event = static_cast<StructuredEvents*>(e);
-    event->getSpec()->setDone(stob(bp->getField("done")));
-    event->setCurrentIndex(std::stoi(bp->getField("index")));
-  }
-}
-
-void updateEntity(Game* g, ObjectBlueprint* bp) {
-  for (auto rPair : g->getRooms()) {
-    Entity* ent = rPair.second->search(bp->getField("name"));
-    if (ent != nullptr) {
-      moveEntity(g, ent, bp->getField("owner"));
-      ent->getState()->setActive(stob(bp->getField("active")));
-      ent->getState()->setObtainable(stob(bp->getField("obtainable")));
-      ent->getState()->setHidden(stob(bp->getField("hidden")));
-
-      return;
-    }
-  }
-}
-
-void updateEvent(Game* g, ObjectBlueprint* bp) {
-  Event* event = g->getEvent(bp->getField("name"));
-  if (event != nullptr) {
-    event->getSpec()->setDone(stob(bp->getField("done")));
-  }
-}
-
-void moveEntity(Game* g, Entity* entity, std::string newOwner) {
-  std::string itemName = entity->getSpec()->getName();
-
-  for (auto rPair : g->getRooms()) {
-    Entity* owner = rPair.second->findOwner(itemName);
-
-    if (owner != nullptr && owner->getSpec()->getName() != newOwner) {
-      MoveItems move(owner, itemName);
-      move.setGive(true);
-
-      Entity* giveTo = nullptr;
-      for (auto rPair : g->getRooms()) {
-        if (rPair.second->getSpec()->getName() == newOwner) {
-          std::cout << rPair.second->getSpec()->getName();
-          std::cout << " - " << itemName << " - ";
-          std::cout << owner->getSpec()->getName() <<std::endl;
-          giveTo = rPair.second;
-          move.execute(giveTo);
-          return;
-        } else {
-          giveTo = rPair.second->search(newOwner);
-          if (giveTo != nullptr) {
-            move.execute(giveTo);
-            return;
-          }
-        }
-      }
-    }
-  }
 }

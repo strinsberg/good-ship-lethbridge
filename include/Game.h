@@ -99,6 +99,13 @@ class Game {
     */
   static std::string toLower(const std::string& str);
 
+  void updateEntity(ObjectBlueprint*);
+  void updateEvent(ObjectBlueprint*);
+  void updateInteraction(ObjectBlueprint*);
+  void moveEntity(Entity*, std::string);
+
+  static bool stob(const std::string& str);
+
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
   std::map<std::string, Event*> events; // !!!does not own these!!!
