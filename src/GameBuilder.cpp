@@ -217,7 +217,8 @@ Game* GameBuilder::newGame(std::string name) {
   desk->addEntity(computer);
 
   Entity* window = new Item();
-  addEntityInfo(window, "window", "Captain's window", true, false, false);
+  addEntityInfo(window, "window", "endless space and some "
+                "debris probably from the Lethbridge", true, false, false);
   captains_room->addEntity(window);
 
   // common room objects
