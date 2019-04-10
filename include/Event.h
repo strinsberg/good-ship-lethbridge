@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_EVENT_H
@@ -9,14 +8,13 @@
 
 #include "ObjectBlueprint.h"
 #include "EventSpec.h"
-#include "Entity.h"
 #include <string>
 #include <iostream>
 #include <vector>
-
+class Entity;
 
 /**
-  * An interface for game events
+  * Base class for all game events
   */
 class Event {
  public:
@@ -64,13 +62,7 @@ class Event {
     * Get the event's spec. Does not transfer ownership.
     * @return spec
     */
-  const EventSpec* getSpec() const;
-
-  /**
-   * Transfers ownership of spec to the event
-   * @param s the new spec
-   */
-  void setSpec(Event* s);
+  EventSpec* getSpec() const;
 
  protected:
   std::string message;

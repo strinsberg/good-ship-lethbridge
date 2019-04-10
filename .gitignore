@@ -37,7 +37,12 @@ bin/
 # Backup Files
 *~
 *.bak
+*.orig
 
 # codeblocks
-*.layout
-*.depend
+*layout
+*cbp
+*depend
+
+*.html
+*.save

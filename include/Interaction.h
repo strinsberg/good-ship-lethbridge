@@ -1,42 +1,66 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-09
+ * @date 2019-03-05
  */
 
 #ifndef INTERACTION_H
 #define INTERACTION_H
 
 #include "Event.h"
+#include "Entity.h"
+#include <string>
+#include <vector>
 
+/**
+  * An event to interact with the player. Lists some choices
+  * and allows their selection to run associated events.
+  */
+class Interaction : public Event {
+ public:
+  /**
+    * Create an Interaction object with in and out streams
+    * @param in an istream (default cin)
+    * @param out an ostream (default cout)
+    */
+  Interaction(std::istream& is = std::cin, std::ostream& os = std::cout);
 
-class Interaction : public Event
-{
-  public:
-    Interaction(std::istream& is = std::cin, std::ostream& os = std::cout);
-    virtual ~Interaction();
-    std::string execute(Entity* affected);
-    ObjectBlueprint* makeBlueprint() const;
+  virtual ~Interaction();
+  std::string execute(Entity* affected);
+  ObjectBlueprint* makeBlueprint() const;
 
-    /**
-      * Add a new option to the interaction. Transfers ownership of the event.
-      * @param t the title the option
-      * @param e the associated event
-      */
-    void addOption(std::string t, Event* e);
+  /**
+    * Add a new option to the interaction. Transfers ownership of the event.
+    * @param t the title the option
+    * @param e the associated event
+    */
+  void addOption(std::string t, Event* e);
 
-  private:
+  /**
+    * Returns if the interaction will end once you have made a choice.
+    * @return breakout
+    */
+  bool getBreakOut();
 
-    struct Option {
-      std::string title = "";  // Menu title
-      Event* event = nullptr;  // Owns this event
-      //~Option() {delete event;}
-    };
+  /**
+    * Sets if the interaction will end once you have made a choice.
+    * @param b the new value for breakout
+    */
+  void setBreakOut(bool b);
 
-    std::vector<Option> options;
+ private:
+  /**
+    * A struct to hold a title and an associated event.
+    */
+  struct Option {
+    std::string title = "";  // Menu title
+    Event* event = nullptr;  // Owns this event
+  };
 
-    Interaction(const Interaction& other);
-    Interaction& operator=(const Interaction& other);
+  std::vector<Option> options;  // stores all the options in order
+  bool breakOut;
+
+  Interaction(const Interaction& other);
+  Interaction& operator=(const Interaction& other);
 };
 
 #endif // INTERACTION_H

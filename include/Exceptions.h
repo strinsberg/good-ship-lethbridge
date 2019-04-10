@@ -1,8 +1,6 @@
 /**
- * CPSC 2720 Spring 2019: invalid_parameter_error
- * Copyright 2019 Dr. Anvik <john.anvik@uleth.ca>
- *
- * Adapted CPSC2720 Group Project Spring 2019
+ * @author Dr. Anvik <john.anvik@uleth.ca>
+ * @date 2019 spring
  * @author Steven Deutekom <deutekom@uleth.ca>
  * @author Max Niu <max.niu@uleth.ca>
  * @date 2019 spring

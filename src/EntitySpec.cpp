@@ -1,11 +1,14 @@
 /**
-* @author
-*
-*/
+ * CPSC2720 Group Project Spring 2019
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-02-20
+ */
+
 #include "Entity.h"
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
+#include <string>
 
 EntitySpec::EntitySpec(): name(""), description("") {}
 
@@ -18,7 +21,7 @@ bool EntitySpec::matches(std::string n) const {
     return false;
 }
 
-std::string EntitySpec:: getName() const {
+std::string EntitySpec::getName() const {
   return name;
 }
 
@@ -31,5 +34,5 @@ std::string EntitySpec::getDescription()const {
 }
 
 void EntitySpec::setDescription(std::string n) {
-  description=n;
+  description = n;
 }

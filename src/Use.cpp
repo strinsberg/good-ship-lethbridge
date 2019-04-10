@@ -5,11 +5,26 @@
  */
 
 #include "Use.h"
+#include "Activate.h"
 #include <string>
 
 
-Use::Use() {}
+Use::Use(Player* p) : Action(p) {}
+
 Use::~Use() {}
+
 std::string Use::execute() {
-  return noun;
+  Entity* e = getEntity();
+
+  if (e != nullptr) {
+    if (!e->getState()->getActive()) {
+      if (Activate* a = dynamic_cast<Activate*>(e->getEvent()))
+        return e->getEvent()->execute(player);
+      else
+        return "For some reason you can't";
+    } else if (!e->getState()->getHidden()) {
+      return e->use(player);}
+  }
+
+  return "There is no " + noun;
 }

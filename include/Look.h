@@ -1,5 +1,4 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
  * @date 2019-03-05
  */
@@ -8,23 +7,22 @@
 #define CALRISSIEN_2720_LOOK_H
 
 #include "Action.h"
+#include "Player.h"
 #include <string>
 
 
 /**
   * Action to inspect a game object.
   */
-class Look : public Action
-{
-  public:
-    Look();
-    virtual ~Look();
+class Look : public Action {
+ public:
+  Look(Player* p);
+  virtual ~Look();
+  std::string execute();
 
-    std::string execute();
-
-  private:
-    Look(const Look& other);
-    Look& operator=(const Look& other);
+ private:
+  Look(const Look& other);
+  Look& operator=(const Look& other);
 };
 
 #endif // LOOK_H

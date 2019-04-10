@@ -10,37 +10,83 @@
 #include "gtest/gtest.h"
 
 TEST(GetTests, constructor_get) {
-  Get g;
+  Player* p = new Player();
+  Get g(p);
   EXPECT_EQ(g.getNoun(), "");
-  EXPECT_EQ(g.getPlayer(), nullptr);
+  EXPECT_EQ(g.getPlayer(), p);
+  delete p;
 }
 
 TEST(GetTests, set_noun) {
-  Get g;
+  Player* p = new Player();
+  Get g(p);
   g.setNoun("Laser");
   EXPECT_EQ(g.getNoun(), "Laser");
+  delete p;
 }
 
-TEST(GetTests, set_player) {
-  Get g;
-  Player* p;  // Allows simple check for set without player being implemented
-  g.setPlayer(p);
-  EXPECT_EQ(g.getPlayer(), p);
+TEST(GetTests, execute_room_has_item) {
+  Player* p = new Player();
+  Get g(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  p->setCurrentRoom(&r);
+
+  g.setNoun("box");
+  EXPECT_EQ("You get the box", g.execute());
+  EXPECT_EQ(nullptr, r.search("box"));
+  EXPECT_EQ(c, p->search("box"));
+  delete p;
 }
 
-TEST(GetTests, DISABLED_execute_item_exists) {
-  Get g;
-  // Create a player, room, and item entity
-  // Add the item to the room
-  // Set the players current_room to room
-  // add the player and the name of the item to the get action
-  // run get.execute and see the result
-  EXPECT_EQ(g.execute(), "You take the object_name");
+
+TEST(GetTests, execute_room_has_item_not_obtainable) {
+  Player* p = new Player();
+  Get g(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  c->getState()->setObtainable(false);
+  r.addEntity(c);
+  p->setCurrentRoom(&r);
+
+  g.setNoun("box");
+  EXPECT_EQ("You can't take that!", g.execute());
+  delete p;
 }
 
-TEST(GetTests, DISABLED_execute_item_does_not_exist) {
-  Get g;
-  // Create a player, room
-  // run get.execute and see the result
-  EXPECT_EQ(g.execute(), "There is no object_name");
+TEST(GetTests, execute_player_has_item) {
+  Player* p = new Player();
+  Get g(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+  p->setCurrentRoom(&r);
+
+  g.setNoun("box");
+  EXPECT_EQ("You already have the box", g.execute());
+  EXPECT_EQ(nullptr, r.search("box"));
+  EXPECT_EQ(c, p->search("box"));
+  delete p;
+}
+
+TEST(GetTests, execute_item_does_not_exist) {
+  Player* p = new Player();
+  Get g(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  g.setNoun("box");
+  EXPECT_EQ("There is no box", g.execute());
+  delete p;
 }

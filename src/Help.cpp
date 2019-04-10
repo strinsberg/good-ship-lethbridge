@@ -5,10 +5,14 @@
  */
 
 #include "Help.h"
+#include "Game.h"
 #include <string>
 
-Help::Help() {}
+Help::Help(Game* g) :GameCommand(g) {}
 Help::~Help() {}
 std::string Help::execute() {
-  return noun;
+  std::string helptxt;
+  helptxt = "available commands are use, get, drop, "
+      "inventory, look, talk, save, load, quit, and exit.";
+  return helptxt;
 }

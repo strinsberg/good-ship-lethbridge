@@ -7,8 +7,18 @@
 #include "Drop.h"
 #include <string>
 
-Drop::Drop() {}
+Drop::Drop(Player* p) : Action(p) {}
 Drop::~Drop() {}
 std::string Drop::execute() {
-  return noun;
+  if (player->search(noun) == nullptr) {
+    return "You don't have that!";
+  } else {
+    Entity* e = getEntity();
+
+    if (e != nullptr && !e->getState()->getHidden()) {
+      player->getCurrentRoom()->addEntity(e);
+      player->removeEntity(e);
+      return "You drop the " + noun;
+    }
+  }
 }

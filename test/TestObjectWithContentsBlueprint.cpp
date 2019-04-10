@@ -4,7 +4,7 @@
  * @date 2019-03-09
  */
 
- #include "ObjectWithContentsBlueprint.h"
+#include "ObjectWithContentsBlueprint.h"
 #include "ObjectBlueprint.h"
 #include <string>
 #include <vector>
@@ -32,13 +32,16 @@ TEST(ObjectWithContentsBlueprintTests, to_string) {
   ObjectWithContentsBlueprint b("{type=room, name=Captain's Quarters,}");
 
   ObjectBlueprint* o =
-      new ObjectBlueprint("{type=fuse, name=Door fuse,}");
+    new ObjectBlueprint("{type=fuse, name=Door fuse,}");
   b.addBlueprint(o);
 
   ObjectBlueprint* o2 =
-      new ObjectBlueprint("{type=car, name=Sweet Ride,}");
+    new ObjectBlueprint("{type=car, name=Sweet Ride,}");
   b.addBlueprint(o2);
 
   EXPECT_EQ(b.begin() + 2, b.end());
-  EXPECT_EQ(b.toString(), "{\ntype=room,\nname=Captain's Quarters,\n}\n{\ntype=fuse,\nname=Door fuse,\n}\n{\ntype=car,\nname=Sweet Ride,\n}");
+  EXPECT_EQ(b.toString(),
+            "{\ntype=room,\nname=Captain's Quarters,\n}\n"
+            "{\ntype=fuse,\nname=Door fuse,\n}\n"
+            "{\ntype=car,\nname=Sweet Ride,\n}");
 }

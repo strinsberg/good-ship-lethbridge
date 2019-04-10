@@ -12,10 +12,11 @@
 #include <sstream>
 
 ObjectWithContentsBlueprint::ObjectWithContentsBlueprint()
-    : contents(std::vector<ObjectBlueprint*>()) {}
+  : contents(std::vector<ObjectBlueprint*>()) {}
 
-ObjectWithContentsBlueprint::ObjectWithContentsBlueprint(const std::string& data)
-    : ObjectBlueprint(data), contents(std::vector<ObjectBlueprint*>()) {}
+ObjectWithContentsBlueprint::ObjectWithContentsBlueprint(
+  const std::string& data)
+  : ObjectBlueprint(data), contents(std::vector<ObjectBlueprint*>()) {}
 
 ObjectWithContentsBlueprint::~ObjectWithContentsBlueprint() {
   for (auto o : contents)
@@ -27,12 +28,14 @@ void ObjectWithContentsBlueprint::addBlueprint(ObjectBlueprint* obj) {
   contents.push_back(obj);
 }
 
-const std::vector<ObjectBlueprint*>::iterator ObjectWithContentsBlueprint::begin() {
+const std::vector<ObjectBlueprint*>::iterator
+ObjectWithContentsBlueprint::begin() {
   return contents.begin();
 }
 
 
-const std::vector<ObjectBlueprint*>::iterator ObjectWithContentsBlueprint::end() {
+const std::vector<ObjectBlueprint*>::iterator
+ObjectWithContentsBlueprint::end() {
   return contents.end();
 }
 

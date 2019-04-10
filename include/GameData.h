@@ -1,3 +1,8 @@
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef GAMEDATA_H
 #define GAMEDATA_H
 
@@ -24,9 +29,10 @@ class GameData {
   std::string nextObject();
 
   /**
-    * The end of the game data.
+    * Returns a string representing EOF for game data.
+    * @return a string representing EOF for game data.
     */
-  static const std::string eof;
+  static std::string eof();
 
  private:
   std::string data;  // String of game data

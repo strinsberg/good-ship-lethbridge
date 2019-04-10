@@ -1,7 +1,6 @@
-/*
- * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_CONTAINER_H
@@ -20,6 +19,10 @@ class Container: public Entity {
  public:
   Container();
   virtual ~Container();
+
+  /**
+    * Give the description of the container and everything it has in it.
+    */
   virtual std::string describe() const;
   virtual std::string use(Entity*);
   virtual ObjectBlueprint* makeBlueprint() const;
@@ -42,7 +45,26 @@ class Container: public Entity {
     * Remove an entity from the container. Transfers ownership to caller.
     * @param entity the entity to remove
     */
-  Entity* removeEntity(const Entity& entity);
+  void removeEntity(Entity* entity);
+
+  /**
+    * Find the entity that contains an object.
+    * @param name the name of the object.
+    * @return a pointer to the entity that contains the object.
+    */
+  Entity* findOwner(std::string name);
+
+  /**
+    * Returns an iterator to the beginning of inventory.
+    * @return a amp iterator to beginning of the containers inventory.
+    */
+  std::map<std::string, Entity*>::iterator begin();
+
+  /**
+    * Returns an iterator to the end of inventory.
+    * @return a amp iterator to end of the containers inventory.
+    */
+  std::map<std::string, Entity*>::iterator end();
 
  protected:
   std::map<std::string, Entity*> inventory;  // owns the entities it contains

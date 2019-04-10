@@ -9,47 +9,79 @@
 #include "gtest/gtest.h"
 
 TEST(LookTests, constructor_get) {
-  Look l;
+  Player* p = new Player();
+  Look l(p);
   EXPECT_EQ(l.getNoun(), "");
-  EXPECT_EQ(l.getPlayer(), nullptr);
+  EXPECT_EQ(l.getPlayer(), p);
+  delete p;
 }
 
 TEST(LookTests, set_noun) {
-  Look l;
+  Player* p = new Player();
+  Look l(p);
   l.setNoun("Laser");
   EXPECT_EQ(l.getNoun(), "Laser");
+  delete p;
 }
 
-TEST(LookTests, set_player) {
-  Look l;
-  Player* p;  // Allows simple check for set without player being implemented
-  l.setPlayer(p);
-  EXPECT_EQ(l.getPlayer(), p);
+TEST(LookTests, execute_player_has_item) {
+  Player* p = new Player();
+  Look l(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+  p->setCurrentRoom(&r);
+
+  l.setNoun("box");
+  EXPECT_EQ(l.execute(), "You see a box");
+  delete p;
 }
 
-TEST(LookTests, DISABLED_execute_player_has_item) {
-  Look l;
-  // Create a player, room, and item
-  // put item in player inventory, set player room to room
-  // add player and item name to look
-  // run execute
-  EXPECT_EQ(l.execute(), "Item description");
+TEST(LookTests, execute_room_has_item) {
+  Player* p = new Player();
+  Look l(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  p->setCurrentRoom(&r);
+
+  l.setNoun("box");
+  EXPECT_EQ(l.execute(), "You see a box");
+  delete p;
 }
 
-TEST(LookTests, DISABLED_execute_room_has_item) {
-  Look l;
-  // Create a player, room, and item
-  // put item in room inventory, set player room to room
-  // add player and item name to look
-  // run execute
-  EXPECT_EQ(l.execute(), "Item Description");
+TEST(LookTests, execute_no_item) {
+  Player* p = new Player();
+  Look l(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  l.setNoun("box");
+  EXPECT_EQ(l.execute(), "There is no box");
+  delete p;
 }
 
-TEST(LookTests, DISABLED_execute_no_item) {
-  Look l;
-  // create player, and room
-  // set player room
-  // set player and item name to look
-  // run execute
-  EXPECT_EQ(l.execute(), "There is no object_name!");
+TEST(LookTests, execute_just_look) {
+  Player* p = new Player();
+  Look l(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  r.getSpec()->setName("This room");
+  p->setCurrentRoom(&r);
+
+  l.setNoun("");
+  EXPECT_EQ("Location: This room\n\nContains: \nbox\n",
+            l.execute());
+  delete p;
 }

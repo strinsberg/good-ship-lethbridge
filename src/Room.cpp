@@ -10,24 +10,24 @@
 #include "Atmosphere.h"
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "ObjectWithContentsBlueprint.h"
 #include "Exceptions.h"
 #include <string>
+#include <sstream>
 
 Room::Room() : atmosphere(Atmosphere::OXYGEN),
-               enterEvent(nullptr),
-               exitEvent(nullptr) {}
+  enterEvent(nullptr) {}
 
 Room::~Room() {
   if (enterEvent != nullptr)
     delete enterEvent;
-  if (exitEvent != nullptr)
-    delete exitEvent;
 }
 
-std::string Room::describe() {
-  if (spec == nullptr)
-    throw(unfinished_object_error("The room has no spec!"));
-  return spec->getDescription();
+std::string Room::describe() const {
+  std::stringstream ss;
+  ss << "Location: " << spec->getName() << std::endl;
+  ss << Container::describe();
+  return ss.str();
 }
 
 std::string Room::use(Entity*) {
@@ -35,7 +35,17 @@ std::string Room::use(Entity*) {
 }
 
 ObjectBlueprint* Room::makeBlueprint() const {
+  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
+                                    (Container::makeBlueprint());
 
+  bp->setField("type", "room");
+  bp->setField("atmosphere",
+               std::to_string(atmosphere));
+
+  if (enterEvent != nullptr)
+    bp->addBlueprint(enterEvent->makeBlueprint());
+
+  return bp;
 }
 
 std::string Room::enter(Entity* entity) {
@@ -44,16 +54,16 @@ std::string Room::enter(Entity* entity) {
   return enterEvent->execute(entity);
 }
 
-std::string Room::exit(Entity* entity) {
-  if (exitEvent == nullptr)
-    return "";
-  return exitEvent->execute(entity);
-}
 
 void Room::setEnter(Event* event) {
   enterEvent = event;
 }
 
-void Room::setExit(Event* event) {
-  exitEvent = event;
+
+Atmosphere Room::getAtmosphere() {
+  return atmosphere;
+}
+
+void Room::setAtmosphere(Atmosphere a) {
+  atmosphere = a;
 }

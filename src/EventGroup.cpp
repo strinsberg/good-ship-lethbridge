@@ -7,18 +7,19 @@
 #include "EventGroup.h"
 #include "Event.h"
 #include "ObjectBlueprint.h"
+#include "ObjectWithContentsBlueprint.h"
 #include "Entity.h"
 #include <string>
 #include <sstream>
 #include <vector>
 
 EventGroup::EventGroup(std::istream& is, std::ostream& os)
-    : Event(is, os), events(std::vector<Event*>()) {}
+  : Event(is, os), events(std::vector<Event*>()) {}
 
 EventGroup::~EventGroup() {
   for (auto e : events) {
     if (e != nullptr)
-    delete e;
+      delete e;
   }
 }
 
@@ -38,6 +39,19 @@ std::string EventGroup::execute(Entity* affected) {
 }
 
 ObjectBlueprint* EventGroup::makeBlueprint() const {
-  // might need an object blueprint subclass
-  // like this one that is a group of object Blueprints
+  ObjectWithContentsBlueprint* b = new ObjectWithContentsBlueprint();
+
+  b->setField("type", "event_group");
+  b->setField("message", message);
+  b->setField("name", spec->getName());
+  std::string d = spec->isDone() ? "true" : "false";
+  b->setField("done", d);
+
+  for (auto e : events) {
+    ObjectBlueprint* ebp = e->makeBlueprint();
+    ebp->setField("owner", spec->getName());
+    b->addBlueprint(ebp);
+  }
+
+  return b;
 }

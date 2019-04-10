@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-09
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_ROOM_H
@@ -14,7 +13,6 @@
 #include "ObjectBlueprint.h"
 #include <string>
 
-
 /**
   * Base class for all areas of the game
   */
@@ -22,7 +20,7 @@ class Room : public Container {
  public:
   Room();
   virtual ~Room();
-  virtual std::string describe();
+  virtual std::string describe() const;
   virtual std::string use(Entity*);
   virtual ObjectBlueprint* makeBlueprint() const;
 
@@ -33,12 +31,6 @@ class Room : public Container {
   virtual std::string enter(Entity* entity);
 
   /**
-    * Take action when an entity leaves the room. Does not transfer ownership to Room.
-    * @param entity the entity leaving the room
-    */
-  virtual std::string exit(Entity* entity);
-
-  /**
     * Set an event to execute when the room is entered. Transfers ownership
     * to this room.
     * @param event the event
@@ -46,16 +38,20 @@ class Room : public Container {
   void setEnter(Event* event);
 
   /**
-    * Set an event to execute when the room is exited. Transfers ownership
-    * to this room.
-    * @param event the event
+    * Return the atmosphere of the room.
+    * @return the atmosphere of the room
     */
-  void setExit(Event* event);
+  Atmosphere getAtmosphere();
+
+  /**
+    * Set the atmosphere of the room.
+    * @param a the new value of the rooms atmosphere.
+    */
+  void setAtmosphere(Atmosphere a);
 
  protected:
   Atmosphere atmosphere;
   Event* enterEvent;  // owns these events
-  Event* exitEvent;
 
  private:
   Room(const Room&);

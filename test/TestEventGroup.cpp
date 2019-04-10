@@ -15,7 +15,7 @@
 TEST(EventGroupTests, constructor_get) {
   EventGroup e;
   EXPECT_EQ(e.getMessage(), "");
-  EXPECT_EQ(e.getSpec(), nullptr);
+  EXPECT_EQ(e.getSpec()->getName(), "");
 }
 
 TEST(EventGroupTests, constructor_add_event_execute) {
@@ -25,8 +25,8 @@ TEST(EventGroupTests, constructor_add_event_execute) {
   i->setMessage("You can't use that!");
   e.addEvent(i);
 
-  Entity* ent;
-  EXPECT_EQ(e.execute(ent), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(e.execute(p), "You can't use that!");
 }
 
 TEST(EventGroupTests, constructor_execute_group) {
@@ -40,9 +40,22 @@ TEST(EventGroupTests, constructor_execute_group) {
   i2->setMessage("You have died!");
   e.addEvent(i2);
 
-  Entity* ent;
-  EXPECT_EQ(e.execute(ent), "You can't use that!\nYou have died!");
+  Entity* p;
+  EXPECT_EQ(e.execute(p), "You can't use that!\nYou have died!");
 }
 
-TEST(EventGroupTests, DISABLED_make_blueprint) {}
+TEST(EventGroupTests, make_blueprint) {
+  EventGroup eg;
+  eg.setMessage("You should go home");
+  eg.getSpec()->setName("go home");
+  Inform* i = new Inform();
+  i->setMessage("HAHAHAHAHA");
+  eg.addEvent(i);
+  ObjectBlueprint* bp = eg.makeBlueprint();
+  EXPECT_EQ("{\ntype=event_group,\ndone=false,\nmessage=You should go home,"
+            "\nname=go home,\n}\n{\ntype=inform,\ndone=false,"
+            "\nmessage=HAHAHAHAHA,\nname=,\nowner=go home,\n}",
+            bp->toString());
+  delete bp;
+}
 

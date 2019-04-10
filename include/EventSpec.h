@@ -1,12 +1,15 @@
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef EVENTSPEC_H
 #define EVENTSPEC_H
-#include <string>
-using namespace std;
 
 #include <string>
 
 /**
-  * Holds some general info and state for an event.
+  * Holds general info and state for an event.
   */
 class EventSpec {
  public:

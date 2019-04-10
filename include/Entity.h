@@ -1,12 +1,8 @@
-/*
- * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
- */
 /**
-* @author Max Niu & Steven Deutekom
-* @date 2019-02-26
-*/
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
+ */
+
 #ifndef CALRISSIEN_2720_ENTITY_H
 #define CALRISSIEN_2720_ENTITY_H
 
@@ -42,7 +38,7 @@ class Entity {
     * Transfers ownership of the blueprint to the caller.
     * @return the blueprint.
     */
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
+  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * @return the spec
@@ -80,7 +76,7 @@ class Entity {
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  Event* event;
+  Event* event;  // owns this
 
  private:
   Entity(const Entity&);

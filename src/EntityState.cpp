@@ -1,3 +1,9 @@
+/**
+ * CPSC2720 Group Project Spring 2019
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-02-20
+ */
+
 #include "Entity.h"
 #include "EntitySpec.h"
 #include "EntityState.h"
@@ -12,7 +18,7 @@ bool EntityState::getObtainable() const {
 }
 
 void EntityState::setObtainable(bool ob) {
-  obtainable=ob;
+  obtainable = ob;
 }
 
 bool EntityState::getActive() const {
@@ -20,7 +26,7 @@ bool EntityState::getActive() const {
 }
 
 void EntityState::setActive(bool a) {
-  active=a;
+  active = a;
 }
 
 bool EntityState::getHidden() const {
