@@ -45,3 +45,4 @@ bin/
 *depend
 
 *.html
+*.save
