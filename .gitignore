@@ -41,3 +41,8 @@ bin/
 # codeblocks
 *.layout
 *.depend
+*.cbp
+*.cpb
+Calrissien.cbp
+
+*.save
