@@ -1,7 +1,6 @@
-/*
- * CPSC2720 Group Project Spring 2019
- * Steven Deutekom <deutekom@uleth.ca>
- * Max Niu <max.niu@uleth.ca>
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+ * @date 2019-03-05
  */
 
 #ifndef CALRISSIEN_2720_GAME_H
@@ -9,6 +8,7 @@
 
 #include "Room.h"
 #include "Player.h"
+#include "Event.h"
 #include <string>
 #include <map>
 #include <iostream>
@@ -44,7 +44,7 @@ class Game {
     * @param name the name of the room
     * @return the room with given name or nullptr
     */
-  Room* getRoom(std::string name) const;
+  Room* getRoom(const std::string& name);
 
   /**
     * Add a room to the game. Transfers ownership to this game.
@@ -61,7 +61,7 @@ class Game {
   int numRooms();
 
   /**
-    * Returns weather the game is running or not.
+    * Returns wether the game is running or not.
     * @return running
     */
   bool isRunning();
@@ -69,10 +69,46 @@ class Game {
   /**
     * Sets running to false
     */
-  int stop();
+  void stop();
+
+  /**
+    * Returns an event by name from the list of game events. Does not transfer
+    * ownership of the event.
+    * @param name the name of the event
+    * @return a pointer to the event
+    */
+  Event* getEvent(const std::string& name);
+
+  /**
+    * Adds an event by it's name to the games events. Does not Transfer
+    * ownership to the Game.
+    * @param name the events name
+    * @param event the event to add
+    */
+  void addEvent(const std::string& name, Event* event);
+
+  /**
+    * Returns the map of the games rooms
+    */
+  std::map<std::string, Room*>& getRooms();
+
+  /**
+    * Makes all the characters in a string lowercase.
+    * @param str the string to make lowercase.
+    * @return a new lowercase version of the string.
+    */
+  static std::string toLower(const std::string& str);
+
+  void updateEntity(ObjectBlueprint*);
+  void updateEvent(ObjectBlueprint*);
+  void updateInteraction(ObjectBlueprint*);
+  void moveEntity(Entity*, std::string);
+
+  static bool stob(const std::string& str);
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
+  std::map<std::string, Event*> events; // !!!does not own these!!!
   Player* player;  // owns player
   std::istream& in;
   std::ostream& out;

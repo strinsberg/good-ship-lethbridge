@@ -14,8 +14,8 @@
 
 TEST(InformTests, constructor_get) {
   Inform i;
-  EXPECT_EQ(i.getMessage(), "");
-  EXPECT_EQ(i.getSpec(), nullptr);
+  EXPECT_EQ("", i.getMessage());
+  EXPECT_EQ("", i.getSpec()->getName());
 }
 
 TEST(InformTests, set_message) {
@@ -37,8 +37,8 @@ TEST(InformTests, execute) {
   Inform i;
   i.setMessage(message);
 
-  Entity* e;
-  EXPECT_EQ(i.execute(e), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(i.execute(p), "You can't use that!");
 }
 
 TEST(InformTests, make_blueprint) {

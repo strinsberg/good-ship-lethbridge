@@ -9,36 +9,103 @@
 #include "gtest/gtest.h"
 
 TEST(InventoryTests, constructor_get) {
-  Inventory i;
+  Player* p = new Player();
+  Inventory i(p);
   EXPECT_EQ(i.getNoun(), "");
-  EXPECT_EQ(i.getPlayer(), nullptr);
+  EXPECT_EQ(i.getPlayer(), p);
+  delete p;
 }
 
 TEST(InventoryTests, set_noun) {
-  Inventory i;
+  Player* p = new Player();
+  Inventory i(p);
   i.setNoun("Laser");
   EXPECT_EQ(i.getNoun(), "Laser");
+  delete p;
 }
 
-TEST(InventoryTests, set_player) {
-  Inventory i;
-  Player* p;  // Allows simple check for set without player being implemented
-  i.setPlayer(p);
-  EXPECT_EQ(i.getPlayer(), p);
+TEST(InventoryTests, execute_item_in_inventory) {
+  Player* p = new Player();
+  Inventory i(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+
+  i.setNoun("");
+  EXPECT_EQ("You have:\nbox -> a box", i.execute());
+  delete p;
 }
 
-TEST(InventoryTests, DISABLED_execute_have_items) {
-  Inventory i;
-  // Create a player
-  // create a couple items
-  // add them to the players inventory
-  // run i.execute and compare
-  EXPECT_EQ(i.execute(), "You are carrying:\nobject1\nobject2");
+TEST(InventoryTests, execute_multiple_items_in_inventory) {
+  Player* p = new Player();
+  Inventory i(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+
+  Container* c2 = new Container();
+  c2->getSpec()->setName("gold");
+  c2->getSpec()->setDescription("a shiny coin");
+  p->addEntity(c2);
+
+  i.setNoun("");
+  EXPECT_EQ("You have:\nbox -> a box\ngold -> a shiny coin", i.execute());
+  delete p;
 }
 
-TEST(InventoryTests, DISABLED_execute_no_items) {
-  Inventory i;
-  // Create a player
-  // run i.execute and compare
-  EXPECT_EQ(i.execute(), "You don't have anything!");
+TEST(InventoryTests, execute_no_items) {
+  Player* p = new Player();
+  Inventory i(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  i.setNoun("");
+  EXPECT_EQ("You don't have anything!", i.execute());
+  delete p;
 }
+
+TEST(InventoryTests, execute_search_item_in_inventory) {
+  Player* p = new Player();
+  Inventory i(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+
+  i.setNoun("box");
+  EXPECT_EQ("You have that", i.execute());
+  delete p;
+}
+
+TEST(InventoryTests, execute_search_item_not_in_inventory) {
+  Player* p = new Player();
+  Inventory i(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+
+  i.setNoun("gold");
+  EXPECT_EQ("You don't have that", i.execute());
+  delete p;
+}
+

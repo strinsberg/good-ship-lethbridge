@@ -9,37 +9,65 @@
 #include "gtest/gtest.h"
 
 TEST(DropTests, constructor_get) {
-  Drop d;
+  Player* p = new Player();
+  Drop d(p);
   EXPECT_EQ(d.getNoun(), "");
-  EXPECT_EQ(d.getPlayer(), nullptr);
+  EXPECT_EQ(d.getPlayer(), p);
+  delete p;
 }
 
 TEST(DropTests, set_noun) {
-  Drop d;
+  Player* p = new Player();
+  Drop d(p);
   d.setNoun("Laser");
   EXPECT_EQ(d.getNoun(), "Laser");
+  delete p;
 }
 
-TEST(DropTests, set_player) {
-  Drop d;
-  Player* p;  // Allows simple check for set without player being implemented
-  d.setPlayer(p);
-  EXPECT_EQ(d.getPlayer(), p);
+TEST(DropTests, execute_player_has_item) {
+  Player* p = new Player();
+  Drop d(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  p->addEntity(c);
+  p->setCurrentRoom(&r);
+
+  d.setNoun("box");
+  EXPECT_EQ("You drop the box", d.execute());
+  EXPECT_EQ(c, r.search("box"));
+  EXPECT_EQ(nullptr, p->search("box"));
+  delete p;
 }
 
-TEST(DropTests, DISABLED_execute_item_exists) {
-  Drop d;
-  // Create a player, room, and item entity
-  // Add the item to the player
-  // Set the players current_room to room
-  // add the player and the name of the item to the get action
-  // run get.execute and see the result
-  EXPECT_EQ(d.execute(), "You drop the object_name");
+TEST(DropTests, execute_room_has_item) {
+  Player* p = new Player();
+  Drop d(p);
+
+  Room r;
+  Container* c = new Container();
+  c->getSpec()->setName("box");
+  c->getSpec()->setDescription("a box");
+  r.addEntity(c);
+  p->setCurrentRoom(&r);
+
+  d.setNoun("box");
+  EXPECT_EQ("You don't have that!", d.execute());
+  EXPECT_EQ(c, r.search("box"));
+  EXPECT_EQ(nullptr, p->search("box"));
+  delete p;
 }
 
-TEST(DropTests, DISABLED_execute_item_does_not_exits) {
-  Drop d;
-  // Create a player
-  // run get.execute and see the result
-  EXPECT_EQ(d.execute(), "You don't have object_name");
+TEST(DropTests, execute_item_does_not_exits) {
+  Player* p = new Player();
+  Drop d(p);
+
+  Room r;
+  p->setCurrentRoom(&r);
+
+  d.setNoun("box");
+  EXPECT_EQ("You don't have that!", d.execute());
+  delete p;
 }

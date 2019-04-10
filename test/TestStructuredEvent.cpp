@@ -17,7 +17,7 @@ TEST(StructuredEventsTests, constructor_get) {
   EXPECT_EQ(s.getCurrentIndex(), 0);
   EXPECT_EQ(s.getRepeats(), true);
   EXPECT_EQ(s.getMessage(), "");
-  EXPECT_EQ(s.getSpec(), nullptr);
+  EXPECT_EQ("", s.getSpec()->getName());
 }
 
 TEST(StructuredEventsTests, set_repeats) {
@@ -34,10 +34,10 @@ TEST(StructuredEventsTests, execute_one_no_repeat) {
   i->setMessage("You can't use that!");
   s.addEvent(i);
 
-  Entity* ent;
-  EXPECT_EQ(s.execute(ent), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(ent), "Nothing Happens");
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
@@ -52,13 +52,31 @@ TEST(StructuredEventsTests, execute_many_repeat) {
   i2->setMessage("You have died!");
   s.addEvent(i2);
 
-  Entity* ent;
-  EXPECT_EQ(s.execute(ent), "You can't use that!");
+  Entity* p;
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
-  EXPECT_EQ(s.execute(ent), "You have died!");
+  EXPECT_EQ(s.execute(p), "You have died!");
   EXPECT_EQ(s.getCurrentIndex(), 2);
-  EXPECT_EQ(s.execute(ent), "You can't use that!");
+  EXPECT_EQ(s.execute(p), "You can't use that!");
   EXPECT_EQ(s.getCurrentIndex(), 1);
 }
 
-TEST(StructuredEventsTests, DISABLED_make_blueprint) {}
+TEST(StructuredEventsTests, make_blueprint) {
+  StructuredEvents s;
+
+  Event* i = new Inform();
+  i->setMessage("You can't use that!");
+  s.addEvent(i);
+
+  Event* i2 = new Inform();
+  i2->setMessage("You have died!");
+  s.addEvent(i2);
+
+  ObjectBlueprint* bp = s.makeBlueprint();
+  EXPECT_EQ("{\ntype=structured_event,\ndone=false,\nindex=0,\nmessage=,"
+            "\nname=,\n}\n{\ntype=inform,\ndone=false,"
+            "\nmessage=You can't use that!,\nname=,\nowner=,\n}\n"
+            "{\ntype=inform,\ndone=false,\nmessage=You have died!,\nname=,"
+            "\nowner=,\n}", bp->toString());
+  delete bp;
+}

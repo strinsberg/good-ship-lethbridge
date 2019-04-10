@@ -28,8 +28,8 @@ TEST(ObjectBlueprintTests, set_field) {
 
 TEST(ObjectBlueprintTests, get_null_type_fields) {
   ObjectBlueprint b;
-  EXPECT_EQ(b.getType(), ObjectBlueprint::null);
-  EXPECT_EQ(b.getField("ham"), ObjectBlueprint::null);
+  EXPECT_EQ(b.getType(), ObjectBlueprint::null());
+  EXPECT_EQ(b.getField("ham"), ObjectBlueprint::null());
 }
 
 TEST(ObjectBlueprintTests, toString) {

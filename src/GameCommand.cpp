@@ -7,9 +7,14 @@
 #include "GameCommand.h"
 #include "Game.h"
 
-GameCommand::GameCommand() {}
+GameCommand::GameCommand(Game* g) : game(g) {}
+
 GameCommand::~GameCommand() {}
 
-Game* GameCommand::getGame() {}
+Game* GameCommand::getGame() {
+  return game;
+}
 
-void GameCommand::setGame(Game* g) {}
+void GameCommand::setGame(Game* g) {
+  game = g;
+}

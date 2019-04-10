@@ -5,10 +5,23 @@
  */
 
 #include "Look.h"
+#include "Entity.h"
+#include "Exceptions.h"
 #include <string>
 
-Look::Look() {}
+Look::Look(Player* p) : Action(p) {}
+
 Look::~Look() {}
+
 std::string Look::execute() {
-  return noun;
+  if (noun == "")
+    return player->getCurrentRoom()->describe();
+
+  Entity* e = getEntity();
+
+  std::string str("You see ");
+  if (e != nullptr)
+    return str + e->describe();
+
+  return "There is no " + noun;
 }

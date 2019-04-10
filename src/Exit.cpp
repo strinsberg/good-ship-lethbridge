@@ -6,11 +6,24 @@
 
 #include "Exit.h"
 #include "Entity.h"
+#include "Door.h"
 #include <string>
 
-Exit::Exit() {}
+Exit::Exit(Player* p) : Action(p) {}
 Exit::~Exit() {}
 
 std::string Exit::execute() {
-  return noun;  // for tdd
+  Entity* e = player->getCurrentRoom()->search(noun);
+  if (e != nullptr) {
+    if (!e->getState()->getActive()) {
+      return "For some reason you can't";
+    }
+    if (Door* d = dynamic_cast<Door*>(e)) {
+      Room* r = d->getDestination();
+      player->setCurrentRoom(r);
+      return r->enter(player);
+    }
+    return noun + " is not an exit!";
+  }
+  return "There is no exit " + noun;
 }

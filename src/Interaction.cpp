@@ -6,13 +6,19 @@
 
 #include "Interaction.h"
 #include "ObjectWithContentsBlueprint.h"
+#include "Entity.h"
 #include <iostream>
 #include <exception>
+#include <string>
+#include <vector>
 
 Interaction::Interaction(std::istream& is, std::ostream& os)
-    : Event(is, os), options(std::vector<Option>()) {}
+  : Event(is, os), options(std::vector<Option>()), breakOut(false) {}
 
-Interaction::~Interaction() {}
+Interaction::~Interaction() {
+  for (auto o : options)
+    delete o.event;
+}
 
 void Interaction::addOption(std::string t, Event* e) {
   Option o;
@@ -22,25 +28,35 @@ void Interaction::addOption(std::string t, Event* e) {
 }
 
 std::string Interaction::execute(Entity* affected) {
-  out << "Please choose an option number:" << std::endl;
+  while (true) {
+    out << "Please choose an option number:" << std::endl;
 
-  size_t i;
-  for (i = 0; i < options.size(); i++) {
-   out << i + 1 << ". ";
-   out << options[i].title << std::endl;
+    size_t i;
+    for (i = 0; i < options.size(); i++) {
+      out << i + 1 << ". ";
+      out << options[i].title << std::endl;
+    }
+    out << i + 1 << ". Cancel" << std::endl;
+    out << ">>> ";
+
+    std::string choice;
+
+    getline(in, choice);
+    try {
+      int ch = std::stoi(choice);
+      if (ch == options.size() + 1)
+        return "Done";
+      else if (ch <= options.size() && ch > 0)
+        out << options.at(ch - 1).event->execute(affected);
+      else
+        out << "Not a valid choice!";
+    } catch (const std::invalid_argument& e) {
+      out << "Please enter a number!";
+    }
+    if (breakOut)
+      return "";
+    out << std::endl << std::endl;
   }
-  out << i + 1 << ". Cancel" << std::endl;
-  out << ">>> ";
-
-  size_t choice;
-
-  in >> choice;  // What happens if this tries to get a string?
-  if (choice == options.size() + 1)
-    return "canceled";
-  else if (choice <= options.size() && choice > 0)
-    return options.at(choice - 1).event->execute(affected);
-  else
-    return "Not a valid choice!";
 }
 
 ObjectBlueprint* Interaction::makeBlueprint() const {
@@ -53,13 +69,22 @@ ObjectBlueprint* Interaction::makeBlueprint() const {
     std::string d = spec->isDone() ? "true" : "false";
     b->setField("done", d);
   }
+  std::string bo = breakOut ? "true" : "false";
+  b->setField("break_out", bo);
 
   for (auto o : options) {
-    b->addBlueprint(o.event->makeBlueprint());
+    ObjectBlueprint* ebp = o.event->makeBlueprint();
+    ebp->setField("owner", spec->getName());
+    b->addBlueprint(ebp);
   }
 
   return b;
 }
 
+void Interaction::setBreakOut(bool b) {
+  breakOut = b;
+}
 
-
+bool Interaction::getBreakOut() {
+  return breakOut;
+}

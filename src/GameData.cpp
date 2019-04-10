@@ -9,7 +9,7 @@
 
 using std::string;
 
-const std::string GameData::eof = "end-of-data";
+std::string GameData::eof() {return "end-of-data";}
 
 GameData::GameData(const string& str) : data(str), begin(0), end(0) {}
 
@@ -19,7 +19,7 @@ string GameData::nextObject() {
   begin = data.find('{', end);
 
   if (begin == string::npos)
-    return eof;
+    return eof();
 
   end = data.find('}', begin);
 

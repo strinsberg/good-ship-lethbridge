@@ -1,5 +1,4 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
  * @date 2019-02-27
  */
@@ -9,6 +8,7 @@
 
 #include "ObjectBlueprint.h"
 #include <vector>
+#include <string>
 
 
 /**
@@ -22,7 +22,7 @@ class ObjectWithContentsBlueprint : public ObjectBlueprint {
   virtual ~ObjectWithContentsBlueprint();
 
   /**
-    * Add an ObjectBlueprint to the contents
+    * Add an ObjectBlueprint to the contents. Transfers ownership.
     * @param obj an ObjectBlueprint
     */
   void addBlueprint(ObjectBlueprint* obj);
@@ -37,14 +37,13 @@ class ObjectWithContentsBlueprint : public ObjectBlueprint {
     */
   const std::vector<ObjectBlueprint*>::iterator end();
 
-    /**
-    * @return a string of object data.
-    * @throw TBD if the object does not have a type
-    */
+  /**
+  * @return a string of object data.
+  */
   std::string toString() const;
 
  private:
-  std::vector<ObjectBlueprint*> contents;
+  std::vector<ObjectBlueprint*> contents;  // owns these objects
 
   ObjectWithContentsBlueprint(const ObjectWithContentsBlueprint&);
   ObjectWithContentsBlueprint& operator=(const ObjectWithContentsBlueprint&);

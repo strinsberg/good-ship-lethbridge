@@ -13,11 +13,12 @@
 
 
 Event::Event(std::istream& is, std::ostream& os)
-  : message(""), spec(nullptr), in(is), out(os) {}
+  : message(""), spec(nullptr), in(is), out(os) {
+  spec = new EventSpec();
+}
 
 Event::~Event() {
-  if (spec != nullptr)
-    delete spec;
+  delete spec;
 }
 
 void Event::setMessage(const std::string& m) {
@@ -29,9 +30,10 @@ const std::string& Event::getMessage() const {
 }
 
 void Event::setSpec(EventSpec* s) {
+  delete spec;
   spec = s;
 }
 
-const EventSpec* Event::getSpec() const {
+EventSpec* Event::getSpec() const {
   return spec;
 }

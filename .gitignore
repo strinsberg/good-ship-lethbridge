@@ -37,12 +37,12 @@ bin/
 # Backup Files
 *~
 *.bak
+*.orig
 
 # codeblocks
-*.layout
-*.depend
-*.cbp
-*.cpb
-Calrissien.cbp
+*layout
+*cbp
+*depend
 
+*.html
 *.save
