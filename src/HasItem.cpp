@@ -12,14 +12,13 @@ HasItem::HasItem(std::string id) : itemId(id) {}
 HasItem::~HasItem() {}
 
 bool HasItem::test(Entity* target) const {
-  try {
-    Container* c = static_cast<Container*>(target);
-    Entity* item = c->search(itemId);  // wont work yet
+  if (Container* c = dynamic_cast<Container*>(target)) {
+    Entity* item = c->search(itemId);  // checks name so will be false for now
     if (item != nullptr)
       return true;
     else
       return false;
-  } catch (...) {
+  } else {
     return false;
   }
 }
