@@ -12,6 +12,7 @@
 class EntityState {
  public:
   EntityState();
+  EntityState(bool active, bool obtainable, bool hidden);
   virtual ~EntityState();
 
   /**
