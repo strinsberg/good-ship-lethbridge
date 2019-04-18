@@ -1,6 +1,6 @@
 /**
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-19
  */
 
 #ifndef CALRISSIEN_2720_EVENT_H
@@ -25,6 +25,12 @@ class Event : public Serializable {
     * @param out an ostream (default cout)
     */
   Event(std::istream& is = std::cin, std::ostream& os = std::cout);
+
+  /**
+    * Creates an event with a given ID.
+    * @param id a unique string id
+    */
+  Event(std::string id);
   virtual ~Event();
 
   /**
@@ -67,11 +73,20 @@ class Event : public Serializable {
 
   void serialize(std::ostream& out) {out << "temp";}
 
+  std::string getId() const;
+  bool isDone() const;
+  void setDone(bool done);
+  void subscribe(Event*);
+
  protected:
   std::string message;
   EventSpec* spec;  // owns this object
   std::istream& in;
   std::ostream& out;
+
+  std::string id;
+  bool done;
+  std::vector<Event*> observers;  // does not own these
 
  private:
   Event(const Event&);
