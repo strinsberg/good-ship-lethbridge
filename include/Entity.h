@@ -6,6 +6,7 @@
 #ifndef CALRISSIEN_2720_ENTITY_H
 #define CALRISSIEN_2720_ENTITY_H
 
+#include "Serializable.h"
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "ObjectBlueprint.h"
@@ -16,7 +17,7 @@
 /**
   * Abstract class for a base game entity.
   */
-class Entity {
+class Entity : public Serializable {
  public:
   Entity();
   virtual ~Entity();
@@ -72,6 +73,8 @@ class Entity {
     * @return the event
     */
   Event* getEvent() const;
+
+  void serialize(std::ostream& out) {out << "temp";}
 
  protected:
   EntitySpec* spec;  // owns this

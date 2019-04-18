@@ -10,12 +10,19 @@
 
 
 /**
-  * Holds information about an entity
+  * Holds information about an entity.
   */
 class EntitySpec {
  public:
   EntitySpec();
+
+  /**
+    * Create a new EntityState with given values for the states.
+    * @param id a unique string id for the Entity
+    * @param description the static description of the Entity
+    */
   EntitySpec(std::string id, std::string description);
+
   virtual ~EntitySpec();
 
   /**

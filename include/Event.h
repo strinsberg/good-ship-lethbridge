@@ -6,6 +6,7 @@
 #ifndef CALRISSIEN_2720_EVENT_H
 #define CALRISSIEN_2720_EVENT_H
 
+#include "Serializable.h"
 #include "ObjectBlueprint.h"
 #include "EventSpec.h"
 #include <string>
@@ -16,7 +17,7 @@ class Entity;
 /**
   * Base class for all game events
   */
-class Event {
+class Event : public Serializable {
  public:
   /**
     * Create an Event object with in and out streams
@@ -63,6 +64,8 @@ class Event {
     * @return spec
     */
   EventSpec* getSpec() const;
+
+  void serialize(std::ostream& out) {out << "temp";}
 
  protected:
   std::string message;

@@ -12,7 +12,15 @@
 class EntityState {
  public:
   EntityState();
+
+  /**
+    * Create a new EntityState with given values for the states.
+    * @param active if the Entity is active
+    * @param obtainable if the Entity is obtainable
+    * @param hidden if the entity is hidden. Defaults to false.
+    */
   EntityState(bool active, bool obtainable, bool hidden=false);
+
   virtual ~EntityState();
 
   /**
