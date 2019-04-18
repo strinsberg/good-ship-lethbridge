@@ -12,7 +12,7 @@
 class HasItem : public Conditional
 {
   public:
-    HasItem();
+    HasItem(std::string itemId);
     virtual ~HasItem();
 
     /**

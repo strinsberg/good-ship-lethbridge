@@ -4,14 +4,22 @@
  */
 
 #include "HasItem.h"
+#include "Entity.h"
+#include "Container.h"
 
 HasItem::HasItem(std::string id) : itemId(id) {}
 
 HasItem::~HasItem() {}
 
-bool HasItem::test(Entity* target) {
-  Entity* item = target->search(itemId);  // wont work yet
-  if (item != nullptr)
-    return true;
-  return false;
+bool HasItem::test(Entity* target) const {
+  try {
+    Container* c = static_cast<Container*>(target);
+    Entity* item = c->search(itemId);  // wont work yet
+    if (item != nullptr)
+      return true;
+    else
+      return false;
+  } catch (...) {
+    return false;
+  }
 }
