@@ -8,11 +8,18 @@
 #include "EntityState.h"
 #include "Exceptions.h"
 
-TEST(TestEntityState, EntityState) {
+TEST(TestEntityState, EntityState_default) {
   EntityState e;
   EXPECT_EQ(true, e.getActive());
   EXPECT_EQ(true, e.getObtainable());
   EXPECT_EQ(false, e.getHidden());
+}
+
+TEST(TestEntityState, EntityState_constructor) {
+  EntityState e(false, false, true);
+  EXPECT_EQ(false, e.getActive());
+  EXPECT_EQ(false, e.getObtainable());
+  EXPECT_EQ(true, e.getHidden());
 }
 
 TEST(TestEntityState, setObtainable) {

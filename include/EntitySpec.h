@@ -15,14 +15,8 @@
 class EntitySpec {
  public:
   EntitySpec();
+  EntitySpec(std::string id, std::string description);
   virtual ~EntitySpec();
-
-  /**
-    * Check to see if this spec matches a name
-    * @param n the name to check
-    * @return true if it is a match, otherwise false
-    */
-  bool matches(std::string n) const;
 
   /**
     * @return the name
@@ -36,6 +30,17 @@ class EntitySpec {
   void setName(std::string n);
 
   /**
+    * @return the id
+    */
+  std::string getId() const;
+
+  /**
+    * Set the id
+    * @param id the new id
+    */
+  void setId(std::string id);
+
+  /**
     * @return the description
     */
   std::string getDescription() const;
@@ -47,6 +52,7 @@ class EntitySpec {
   void setDescription(std::string n);
 
  private:
+  std::string id;
   std::string name;
   std::string description;
 

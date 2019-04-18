@@ -12,14 +12,10 @@
 
 EntitySpec::EntitySpec(): name(""), description("") {}
 
-EntitySpec::~EntitySpec() {}
+EntitySpec::EntitySpec(std::string i, std::string desc)
+    : id(i), description(desc) {}
 
-bool EntitySpec::matches(std::string n) const {
-  if (n == name)
-    return true;
-  else
-    return false;
-}
+EntitySpec::~EntitySpec() {}
 
 std::string EntitySpec::getName() const {
   return name;
@@ -27,6 +23,14 @@ std::string EntitySpec::getName() const {
 
 void EntitySpec::setName(std::string n) {
   name = n;
+}
+
+std::string EntitySpec::getId() const {
+  return id;
+}
+
+void EntitySpec::setId(std::string i) {
+  id = i;
 }
 
 std::string EntitySpec::getDescription()const {

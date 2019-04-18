@@ -15,23 +15,27 @@ TEST(TestEntitySpec, EntitySpec) {
   EXPECT_EQ("", e.getName());
   EXPECT_EQ("", e.getDescription());
 }
-//this test the matches function
-TEST(TestEntitySpec, matches) {
-  EntitySpec e;
-  e.setName("max");
-  EXPECT_TRUE(e.matches("max"));
+
+TEST(TestEntitySpec, EntitySpec_constructor) {
+  EntitySpec e("steve240", "a smelly old programmer");
+  EXPECT_EQ("steve240", e.getId());
+  EXPECT_EQ("a smelly old programmer", e.getDescription());
 }
-TEST(TestEntitySpec, matches_fail) {
-  EntitySpec e;
-  e.setName("max");
-  EXPECT_FALSE(e.matches("tim"));
-}
+
 //this test both set and get name
 TEST(TestEntitySpec, getName) {
   EntitySpec e;
   e.setName("max");
   EXPECT_EQ("max", e.getName());
 }
+
+//this test both set and get name
+TEST(TestEntitySpec, set_get_id) {
+  EntitySpec e;
+  e.setId("123max");
+  EXPECT_EQ("123max", e.getId());
+}
+
 //this test both set and get descriptions
 TEST(TestEntitySpec, getDescription) {
   EntitySpec e;

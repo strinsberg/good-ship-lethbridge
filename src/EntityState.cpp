@@ -9,7 +9,10 @@
 #include "EntityState.h"
 #include "Event.h"
 
-EntityState::EntityState():obtainable(true), active(true), hidden(false) {}
+EntityState::EntityState() : active(true), obtainable(true), hidden(false) {}
+
+EntityState::EntityState(bool act, bool obt, bool hid)
+    : active(act), obtainable(obt), hidden(hid) {}
 
 EntityState::~EntityState() {}
 

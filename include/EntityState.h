@@ -12,7 +12,7 @@
 class EntityState {
  public:
   EntityState();
-  EntityState(bool active, bool obtainable, bool hidden);
+  EntityState(bool active, bool obtainable, bool hidden=false);
   virtual ~EntityState();
 
   /**
@@ -49,9 +49,9 @@ class EntityState {
   void setHidden(bool);
 
  private:
-  bool obtainable;
   bool active;
   bool hidden;
+  bool obtainable;
 
   EntityState(const EntityState&);
   EntityState& operator=(const EntityState&);
