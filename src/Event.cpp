@@ -17,6 +17,11 @@ Event::Event(std::istream& is, std::ostream& os)
   spec = new EventSpec();
 }
 
+Event::Event(std::string ID)
+    : id(ID), message(""), in(std::cin), out(std::cout) {
+  spec = new EventSpec();
+}
+
 Event::~Event() {
   delete spec;
 }
