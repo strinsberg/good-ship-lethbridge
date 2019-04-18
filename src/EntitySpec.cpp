@@ -12,8 +12,8 @@
 
 EntitySpec::EntitySpec(): name(""), description("") {}
 
-EntitySpec::EntitySpec(std::string i, std::string desc)
-    : id(i), description(desc) {}
+EntitySpec::EntitySpec(std::string i, std::string n, std::string desc)
+    : id(i), name(n), description(desc) {}
 
 EntitySpec::~EntitySpec() {}
 

@@ -13,9 +13,12 @@
 #include "ObjectWithContentsBlueprint.h"
 #include <string>
 
-Player::Player() : currentRoom(nullptr), equipped(nullptr) {}
+Player::Player() : currentRoom(nullptr), equipped(nullptr) , suit(nullptr) {}
 
-Player::~Player() {}
+Player::~Player() {
+    if (suit != nullptr)
+        delete suit;
+}
 
 std::string Player::describe() const {
   return spec->getDescription();

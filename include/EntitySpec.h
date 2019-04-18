@@ -19,9 +19,10 @@ class EntitySpec {
   /**
     * Create a new EntityState with given values for the states.
     * @param id a unique string id for the Entity
+    * @param name the name of the Entity
     * @param description the static description of the Entity
     */
-  EntitySpec(std::string id, std::string description);
+  EntitySpec(std::string id, std::string name, std::string description);
 
   virtual ~EntitySpec();
 

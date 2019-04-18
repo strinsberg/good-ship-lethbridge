@@ -12,6 +12,7 @@
 #include "ObjectBlueprint.h"
 #include "Event.h"
 #include <string>
+#include <map>
 
 
 /**
@@ -25,7 +26,7 @@ class Entity : public Serializable {
   /**
     * @return a description of the entity.
     */
-  virtual std::string describe() const = 0;
+  virtual std::string describe() const;
 
   /**
     * Use the entity. Does not transfer ownership to Entity.
@@ -76,10 +77,14 @@ class Entity : public Serializable {
 
   void serialize(std::ostream& out) {out << "temp";}
 
+  void addEvent(Event* event);
+  std::string runEvent(std::string verb, Entity* user);
+
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
   Event* event;  // owns this
+  std::map<std::string, Event*> events;  // owns these
 
  private:
   Entity(const Entity&);

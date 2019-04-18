@@ -17,8 +17,9 @@ TEST(TestEntitySpec, EntitySpec) {
 }
 
 TEST(TestEntitySpec, EntitySpec_constructor) {
-  EntitySpec e("steve240", "a smelly old programmer");
-  EXPECT_EQ("steve240", e.getId());
+  EntitySpec e("player240", "steve", "a smelly old programmer");
+  EXPECT_EQ("player240", e.getId());
+  EXPECT_EQ("steve", e.getName());
   EXPECT_EQ("a smelly old programmer", e.getDescription());
 }
 
