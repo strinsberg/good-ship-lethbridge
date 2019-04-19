@@ -9,7 +9,6 @@
 #include "Room.h"
 #include "Player.h"
 #include "Container.h"
-#include "KeyLock.h"
 #include "Entity.h"
 #include <string>
 #include "gtest/gtest.h"

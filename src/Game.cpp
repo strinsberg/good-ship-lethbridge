@@ -11,7 +11,6 @@
 #include "Command.h"
 #include "Exceptions.h"
 #include "StructuredEvents.h"
-#include "MoveItems.h"
 #include <string>
 #include <map>
 #include <iostream>

@@ -12,15 +12,10 @@
 #include "Door.h"
 #include "Kill.h"
 #include "Inform.h"
-#include "QuestionLock.h"
-#include "KeyLock.h"
 #include "Interaction.h"
 #include "Npc.h"
-#include "MoveItems.h"
 #include "EventGroup.h"
-#include "CheckSuit.h"
 #include "StructuredEvents.h"
-#include "EndGame.h"
 
 GameBuilder::GameBuilder() {}
 

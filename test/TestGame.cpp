@@ -9,7 +9,6 @@
 #include "Exceptions.h"
 #include "Kill.h"
 #include "Event.h"
-#include "EndGame.h"
 #include <iostream>
 #include <sstream>
 #include "gtest/gtest.h"

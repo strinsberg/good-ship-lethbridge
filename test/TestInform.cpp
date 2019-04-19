@@ -5,7 +5,6 @@
  */
 
 #include "Inform.h"
-#include "EventSpec.h"
 #include "ObjectBlueprint.h"
 #include "Entity.h"
 #include <string>

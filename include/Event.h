@@ -8,7 +8,6 @@
 
 #include "Serializable.h"
 #include "ObjectBlueprint.h"
-#include "EventSpec.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -41,8 +40,6 @@ class Event : public Serializable {
   void subscribe(Event*);
 
  protected:
-  EventSpec* spec;
-
   std::string id;
   bool done;
   std::vector<Event*> observers;  // does not own these

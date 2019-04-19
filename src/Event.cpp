@@ -7,7 +7,6 @@
 
 #include "Event.h"
 #include "ObjectBlueprint.h"
-#include "EventSpec.h"
 #include <string>
 #include <iostream>
 

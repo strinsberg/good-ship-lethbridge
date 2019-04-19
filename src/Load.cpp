@@ -12,7 +12,6 @@
 #include "Event.h"
 #include "Action.h"
 #include "StructuredEvents.h"
-#include "MoveItems.h"
 #include <sstream>
 #include <fstream>
 #include <string>
