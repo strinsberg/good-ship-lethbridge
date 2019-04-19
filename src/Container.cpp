@@ -28,7 +28,7 @@ std::string Container::describe()const {
     ss << std::endl << "Contains: "<< std::endl;
   }
   for (auto e : inventory) {
-    ss << e.first << std::endl;
+    ss << e.second->getSpec()->getDescription() << std::endl;
   }
   ss.str();
   return  spec->getDescription() + ss.str();
@@ -64,11 +64,11 @@ Entity* Container::searchById(std::string id) {
 }
 
 void Container::addEntity(Entity* entity) {
-  inventory[ Game::toLower(entity->getSpec()->getName()) ] = entity;
+  inventory[ Game::toLower(entity->getSpec()->getId()) ] = entity;
 }
 
 void Container::removeEntity(Entity* entity) {
-  inventory.erase(Game::toLower(entity->getSpec()->getName()));
+  inventory.erase(Game::toLower(entity->getSpec()->getId()));
 }
 
 

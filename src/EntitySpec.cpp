@@ -41,8 +41,8 @@ void EntitySpec::setDescription(std::string n) {
   description = n;
 }
 
-bool EntitySpec::matches(std::string name) {
-  if (name.find(name) != std::string::npos || description.find(name) != std::string::npos)
+bool EntitySpec::matches(std::string n) {
+  if (name.find(n) != std::string::npos || description.find(n) != std::string::npos)
     return true;
   else
     return false;
