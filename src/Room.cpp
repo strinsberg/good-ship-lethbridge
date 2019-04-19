@@ -15,13 +15,9 @@
 #include <string>
 #include <sstream>
 
-Room::Room() : atmosphere(Atmosphere::OXYGEN),
-  enterEvent(nullptr) {}
+Room::Room() : atmosphere(Atmosphere::OXYGEN) {}
 
-Room::~Room() {
-  if (enterEvent != nullptr)
-    delete enterEvent;
-}
+Room::~Room() {}
 
 std::string Room::describe() const {
   std::stringstream ss;
@@ -31,16 +27,8 @@ std::string Room::describe() const {
 }
 
 std::string Room::enter(Entity* entity) {
-  if (enterEvent == nullptr)
-    return "";
-  return enterEvent->execute(entity);
+  return "Enter Unimplemented";
 }
-
-
-void Room::setEnter(Event* event) {
-  enterEvent = event;
-}
-
 
 Atmosphere Room::getAtmosphere() {
   return atmosphere;

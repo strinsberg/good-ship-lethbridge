@@ -29,7 +29,7 @@ TEST(ExitTests, set_noun) {
 }
 
 TEST(ExitTests, execute_exit_exists) {
-  Room* start = new Room();
+/*  Room* start = new Room();
   Room* end = new Room();
   Inform* enter = new Inform();
   enter->setMessage("You are now in the end room");

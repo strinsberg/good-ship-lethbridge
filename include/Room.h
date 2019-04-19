@@ -29,13 +29,6 @@ class Room : public Container {
   virtual std::string enter(Entity* entity);
 
   /**
-    * Set an event to execute when the room is entered. Transfers ownership
-    * to this room.
-    * @param event the event
-    */
-  void setEnter(Event* event);
-
-  /**
     * Return the atmosphere of the room.
     * @return the atmosphere of the room
     */
@@ -49,7 +42,6 @@ class Room : public Container {
 
  protected:
   Atmosphere atmosphere;
-  Event* enterEvent;  // owns these events
 
  private:
   Room(const Room&);

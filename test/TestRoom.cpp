@@ -26,10 +26,6 @@ TEST(RoomTests, constructor_get) {
 TEST(RoomTests, enter) {
   Room r;
 
-  Event* e = new Inform();
-  e->setMessage("This place smells bad!");
-  r.setEnter(e);
-
   Entity* ent;
   EXPECT_EQ("This place smells bad!", r.enter(ent));
 }
