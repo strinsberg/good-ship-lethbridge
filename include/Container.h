@@ -18,6 +18,7 @@
 class Container: public Entity {
  public:
   Container();
+  Container(std::string id) : Entity(id) {}
   virtual ~Container();
 
   /**

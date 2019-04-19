@@ -1,3 +1,8 @@
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>
+ * @date 2019-04-19
+ */
+
 #ifndef CONDITIONALEVENT_H
 #define CONDITIONALEVENT_H
 

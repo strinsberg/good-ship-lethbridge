@@ -21,6 +21,7 @@
 class Entity : public Serializable {
  public:
   Entity();
+  Entity(std::string id) : Entity() {spec->setId(id);}
   virtual ~Entity();
 
   /**

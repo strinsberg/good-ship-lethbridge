@@ -13,7 +13,7 @@ HasItem::~HasItem() {}
 
 bool HasItem::test(Entity* target) const {
   if (Container* c = dynamic_cast<Container*>(target)) {
-    Entity* item = c->search(itemId);  // checks name so will be false for now
+    Entity* item = c->searchById(itemId);
     if (item != nullptr)
       return true;
     else

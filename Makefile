@@ -18,7 +18,7 @@ COVERAGE_DIR = coverage
 
 STATIC_ANALYSIS = cppcheck
 
-STYLE_CHECK = cpplint.py
+STYLE_CHECK = cpplint
 
 PROGRAM = adventureGame
 PROGRAM_TEST = testAdventure
