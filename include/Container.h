@@ -33,7 +33,7 @@ class Container: public Entity {
     */
   Entity* search(std::string name) const;
 
-  Entity* searchById(std::string id) const;
+  Entity* searchById(std::string id);
 
   /**
     * Add an entity to the container. Transfers ownership to this container.
@@ -46,6 +46,14 @@ class Container: public Entity {
     * @param entity the entity to remove
     */
   void removeEntity(Entity* entity);
+
+  /**
+    * Remove an entity from the container, if it is there. Transfers ownership.
+    * Designed to be a search and remove when you want to remove if found.
+    * @param id the id of the entity to remove
+    * @return the entity or nullptr
+    */
+  Entity* searchAndRemove(std::string id);
 
   /**
     * Returns an iterator to the beginning of inventory.
@@ -63,6 +71,8 @@ class Container: public Entity {
   std::map<std::string, Entity*> inventory;  // owns the entities it contains
 
  private:
+  std::pair<Container*, Entity*> findEntity(std::string id);
+
   Container(const Container&);
   Container& operator=(const Container&);
 };

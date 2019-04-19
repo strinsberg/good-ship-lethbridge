@@ -54,6 +54,7 @@ class Entity : public Serializable {
 
   void addEvent(std::string verb, Event* event);
   std::string runEvent(std::string verb, Entity* user);
+  bool matches(std::string name);
 
  protected:
   EntitySpec* spec;  // owns this

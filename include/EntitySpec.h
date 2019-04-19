@@ -59,6 +59,8 @@ class EntitySpec {
     */
   void setDescription(std::string n);
 
+  bool matches(std::string name);
+
  private:
   std::string id;
   std::string name;

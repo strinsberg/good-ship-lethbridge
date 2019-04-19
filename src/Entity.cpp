@@ -57,3 +57,7 @@ std::string Entity::runEvent(std::string verb, Entity* user) {
     return "Nothing happens";
   return it->second->execute(user);
 }
+
+bool Entity::matches(std::string name) {
+  return spec->matches(name);
+}
