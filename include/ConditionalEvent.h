@@ -8,7 +8,7 @@
 class ConditionalEvent : public Event
 {
   public:
-    ConditionalEvent();
+    ConditionalEvent(std::string id);
     virtual ~ConditionalEvent();
 
     void setCondition(Conditional*);

@@ -7,6 +7,7 @@
 #define INTERACTION_H
 
 #include "Event.h"
+#include "Interactable.h"
 #include "Entity.h"
 #include <string>
 #include <vector>
@@ -15,18 +16,17 @@
   * An event to interact with the player. Lists some choices
   * and allows their selection to run associated events.
   */
-class Interaction : public Event {
+class Interaction : public Event, public Interactable {
  public:
   /**
     * Create an Interaction object with in and out streams
     * @param in an istream (default cin)
     * @param out an ostream (default cout)
     */
-  Interaction(std::istream& is = std::cin, std::ostream& os = std::cout);
+  Interaction(std::string id);
 
   virtual ~Interaction();
   std::string execute(Entity* affected);
-  ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Add a new option to the interaction. Transfers ownership of the event.
@@ -39,13 +39,13 @@ class Interaction : public Event {
     * Returns if the interaction will end once you have made a choice.
     * @return breakout
     */
-  bool getBreakOut();
+  bool getBreakout();
 
   /**
     * Sets if the interaction will end once you have made a choice.
     * @param b the new value for breakout
     */
-  void setBreakOut(bool b);
+  void setBreakout(bool b);
 
  private:
   /**

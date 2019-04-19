@@ -11,22 +11,10 @@
 #include <string>
 #include <vector>
 
-StructuredEvents::StructuredEvents(std::istream& is, std::ostream& os)
-  : EventGroup(is, os), currentEvent(0), repeats(true) {}
+StructuredEvents::StructuredEvents(std::string id, bool re)
+  : EventGroup(id), currentEvent(0), repeats(re) {}
 
 StructuredEvents::~StructuredEvents() {}
-
-int StructuredEvents::getCurrentIndex() {
-  return currentEvent;
-}
-
-bool StructuredEvents::getRepeats() {
-  return repeats;
-}
-
-void StructuredEvents::setRepeats(bool r) {
-  repeats = r;
-}
 
 std::string StructuredEvents::execute(Entity* affected) {
   if (currentEvent == events.size()) {
@@ -37,23 +25,4 @@ std::string StructuredEvents::execute(Entity* affected) {
   }
 
   return events[currentEvent++]->execute(affected);
-}
-
-ObjectBlueprint* StructuredEvents::makeBlueprint() const {
-  ObjectWithContentsBlueprint* b = new ObjectWithContentsBlueprint();
-
-  b->setField("type", "structured_event");
-  b->setField("message", message);
-  b->setField("name", spec->getName());
-  std::string d = spec->isDone() ? "true" : "false";
-  b->setField("done", d);
-  b->setField("index", std::to_string(currentEvent));
-
-  for (auto e : events) {
-    ObjectBlueprint* ebp = e->makeBlueprint();
-    ebp->setField("owner", spec->getName());
-    b->addBlueprint(ebp);
-  }
-
-  return b;
 }

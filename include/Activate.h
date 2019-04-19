@@ -25,7 +25,6 @@ class Activate : public Event {
 
   virtual ~Activate();
   virtual std::string execute(Entity* e);
-  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Set the entity to activate

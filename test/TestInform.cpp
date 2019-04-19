@@ -12,49 +12,9 @@
 #include <vector>
 #include "gtest/gtest.h"
 
-TEST(InformTests, constructor_get) {
-  Inform i;
-  EXPECT_EQ("", i.getMessage());
-  EXPECT_EQ("", i.getSpec()->getName());
-}
-
-TEST(InformTests, set_message) {
-  std::string message("You can't use that!");
-  Inform i;
-  i.setMessage(message);
-  EXPECT_EQ(i.getMessage(), "You can't use that!");
-}
-
-TEST(InformTests, set_spec) {
-  Inform i;
-  EventSpec* spec = new EventSpec();
-  i.setSpec(spec);
-  EXPECT_EQ(i.getSpec(), spec);
-}
-
-TEST(InformTests, execute) {
-  std::string message("You can't use that!");
-  Inform i;
-  i.setMessage(message);
-
-  Entity* p;
-  EXPECT_EQ(i.execute(p), "You can't use that!");
-}
-
-TEST(InformTests, make_blueprint) {
-  Inform i;
-  i.setMessage("You can't use that!");
-
-  EventSpec* e = new EventSpec();
-  e->setName("no_use");
-  e->setDone(false);
-  i.setSpec(e);
-
-  ObjectBlueprint* b = i.makeBlueprint();
-  EXPECT_EQ(b->getType(), "inform");
-  EXPECT_EQ(b->getField("message"), "You can't use that!");
-  EXPECT_EQ(b->getField("name"), "no_use");
-  EXPECT_EQ(b->getField("done"), "false");
-
-  delete b;
+TEST(InformTests, constructor_execute) {
+  Inform i("id123", "You can't use that!");
+  Entity* e = new Entity();
+  EXPECT_EQ("You can't use that!", i.execute(e));
+  delete e;
 }

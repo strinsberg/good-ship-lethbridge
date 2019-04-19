@@ -10,24 +10,10 @@
 #include <string>
 #include <vector>
 
-Inform::Inform(std::istream& is, std::ostream& os) : Event(is, os) {}
+Inform::Inform(std::string id, std::string msg) : Event(id), message(msg) {}
 
 Inform::~Inform() {}
 
 std::string Inform::execute(Entity* affected) {
   return message;
-}
-
-ObjectBlueprint* Inform::makeBlueprint() const {
-  ObjectBlueprint* b = new ObjectBlueprint();
-
-  b->setField("type", "inform");
-  b->setField("message", message);
-  if (spec != nullptr) {
-    b->setField("name", spec->getName());
-    std::string d = spec->isDone() ? "true" : "false";
-    b->setField("done", d);
-  }
-
-  return b;
 }

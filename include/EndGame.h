@@ -15,11 +15,10 @@
   */
 class EndGame : public Event {
  public:
-  EndGame();
+  EndGame(std::string id);
   virtual ~EndGame();
 
   std::string execute(Entity* affected);
-  ObjectBlueprint* makeBlueprint() const;
 
  private:
   EndGame(const EndGame& other);

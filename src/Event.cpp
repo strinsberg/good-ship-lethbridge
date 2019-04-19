@@ -12,36 +12,11 @@
 #include <iostream>
 
 
-Event::Event(std::istream& is, std::ostream& os)
-  : message(""), spec(nullptr), in(is), out(os) {
-  spec = new EventSpec();
-}
-
 Event::Event(std::string ID)
-    : id(ID), message(""), in(std::cin), out(std::cout) {
-  spec = new EventSpec();
+    : id(ID) {
 }
 
-Event::~Event() {
-  delete spec;
-}
-
-void Event::setMessage(const std::string& m) {
-  message = m;
-}
-
-const std::string& Event::getMessage() const {
-  return message;
-}
-
-void Event::setSpec(EventSpec* s) {
-  delete spec;
-  spec = s;
-}
-
-EventSpec* Event::getSpec() const {
-  return spec;
-}
+Event::~Event() {}
 
 std::string Event::getId() const {
   return id;

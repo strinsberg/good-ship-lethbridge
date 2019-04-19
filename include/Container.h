@@ -34,6 +34,7 @@ class Container: public Entity {
   Entity* search(std::string name) const;
 
   Entity* searchById(std::string id) const;
+
   /**
     * Add an entity to the container. Transfers ownership to this container.
     * @param entity the entity to add

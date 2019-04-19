@@ -18,10 +18,9 @@
   */
 class EventGroup : public Event {
  public:
-  EventGroup(std::istream& is = std::cin, std::ostream& os = std::cout);
+  EventGroup(std::string id);
   virtual ~EventGroup();
   virtual std::string execute(Entity* affected);
-  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Add an event to the back of the group.

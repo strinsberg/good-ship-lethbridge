@@ -22,11 +22,13 @@ class Inform : public Event {
     * @param in an istream (default cin)
     * @param out an ostream (default cout)
     */
-  Inform(std::istream& is = std::cin, std::ostream& os = std::cout);
+  Inform(std::string id, std::string message);
 
   virtual ~Inform();
   std::string execute(Entity* affected);
-  ObjectBlueprint* makeBlueprint() const;
+
+  protected:
+    std::string message;
 
  private:
   Inform(const Inform& other);

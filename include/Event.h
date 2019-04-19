@@ -20,13 +20,6 @@ class Entity;
 class Event : public Serializable {
  public:
   /**
-    * Create an Event object with in and out streams
-    * @param in an istream (default cin)
-    * @param out an ostream (default cout)
-    */
-  Event(std::istream& is = std::cin, std::ostream& os = std::cout);
-
-  /**
     * Creates an event with a given ID.
     * @param id a unique string id
     */
@@ -40,37 +33,6 @@ class Event : public Serializable {
     */
   virtual std::string execute(Entity* affected) = 0;
 
-  /**
-    * Create a blueprint of the event that can be used to serialize it.
-    * Transfers ownership of the blueprint to the caller.
-    * @return the blueprint.
-    */
-  virtual ObjectBlueprint* makeBlueprint() const = 0;
-
-  /**
-    * Set the message to be displayed when the event is executed
-    * @param m the message
-    */
-  void setMessage(const std::string& m);
-
-  /**
-    * Return events message
-    * @return message
-    */
-  const std::string& getMessage() const;
-
-  /**
-    * Set the spec. Transfers ownership to the Event.
-    * @param s the spec
-    */
-  void setSpec(EventSpec* s);
-
-  /**
-    * Get the event's spec. Does not transfer ownership.
-    * @return spec
-    */
-  EventSpec* getSpec() const;
-
   void serialize(std::ostream& out) {out << "temp";}
 
   std::string getId() const;
@@ -79,10 +41,7 @@ class Event : public Serializable {
   void subscribe(Event*);
 
  protected:
-  std::string message;
-  EventSpec* spec;  // owns this object
-  std::istream& in;
-  std::ostream& out;
+  EventSpec* spec;
 
   std::string id;
   bool done;

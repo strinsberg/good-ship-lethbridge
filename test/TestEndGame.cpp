@@ -12,14 +12,14 @@
 
 TEST(EndGameTest, execute) {
   Entity* i = new Entity();
-  EndGame eg;
+  EndGame eg("eg123");
   eg.setMessage("You win!!!");
   EXPECT_EQ("You win!!!\n", eg.execute(i));
   delete i;
 }
 
 TEST(EndGameTest, make_blueprint) {
-  EndGame eg;
+  EndGame eg("eg123");
   eg.setMessage("You win!!!");
   ObjectBlueprint* bp = eg.makeBlueprint();
   EXPECT_EQ("{\ntype=end_game,\ndone=false,\nmessage=You win!!!,\nname=,\n}",

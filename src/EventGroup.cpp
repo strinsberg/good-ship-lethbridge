@@ -13,8 +13,8 @@
 #include <sstream>
 #include <vector>
 
-EventGroup::EventGroup(std::istream& is, std::ostream& os)
-  : Event(is, os), events(std::vector<Event*>()) {}
+EventGroup::EventGroup(std::string id)
+  : Event(id), events(std::vector<Event*>()) {}
 
 EventGroup::~EventGroup() {
   for (auto e : events) {
@@ -36,22 +36,4 @@ std::string EventGroup::execute(Entity* affected) {
   }
 
   return ss.str();
-}
-
-ObjectBlueprint* EventGroup::makeBlueprint() const {
-  ObjectWithContentsBlueprint* b = new ObjectWithContentsBlueprint();
-
-  b->setField("type", "event_group");
-  b->setField("message", message);
-  b->setField("name", spec->getName());
-  std::string d = spec->isDone() ? "true" : "false";
-  b->setField("done", d);
-
-  for (auto e : events) {
-    ObjectBlueprint* ebp = e->makeBlueprint();
-    ebp->setField("owner", spec->getName());
-    b->addBlueprint(ebp);
-  }
-
-  return b;
 }

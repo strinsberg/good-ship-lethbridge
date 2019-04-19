@@ -64,7 +64,7 @@ TEST(GameTests, run_player_is_dead) {
   std::stringstream in, out;
   in << "fly box\nslip disk";
   Game g(in, out);
-  Kill k;
+  Kill k("id123", "Not possible!");
   k.execute(g.getPlayer());
   g.run();
   EXPECT_EQ(true, g.getPlayer()->getState()->getHidden());
@@ -73,7 +73,7 @@ TEST(GameTests, run_player_is_dead) {
 
 TEST(GameTests, get_event) {
   Game g;
-  Event* r = new EndGame();
+  Event* r = new Kill("id123", "Not possible!");
   g.addEvent("End game", r);
   EXPECT_EQ(g.getEvent("End game"), r);
   delete r;
@@ -81,7 +81,7 @@ TEST(GameTests, get_event) {
 
 TEST(GameTests, get_event_not_there) {
   Game g;
-  Event* r = new EndGame();
+  Event* r = new Kill("id123", "Not possible!");
   g.addEvent("Gross", r);
   EXPECT_EQ(nullptr, g.getEvent("End game"));
   delete r;

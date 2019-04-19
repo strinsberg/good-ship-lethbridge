@@ -16,31 +16,13 @@
 #include "gtest/gtest.h"
 
 
-TEST(InteractionTests, constructor_get) {
-  Interaction i;
-  EXPECT_EQ(i.getMessage(), "");
-  EXPECT_EQ(i.getSpec()->getName(), "");
-}
-
-TEST(InteractionTests, set_message) {
-  Interaction i;
-  i.setMessage("You can't use that!");
-  EXPECT_EQ(i.getMessage(), "You can't use that!");
-}
-
-TEST(InteractionTests, set_spec) {
-  Interaction i;
-  EventSpec* spec = new EventSpec();
-  i.setSpec(spec);
-  EXPECT_EQ(i.getSpec(), spec);
-}
-
 TEST(InteractionTests, add_option_execute) {
   std::stringstream in, out;
-  Interaction i(in, out);
+  Interaction i("id123");
+  i.setIn(in);
+  i.setOut(out);
 
-  Event* e = new Inform();
-  e->setMessage("You go to sleep");
+  Event* e = new Inform("id456", "You can't use that!");
   i.addOption("Sleep", e);
 
   in << "1\n2";
@@ -58,10 +40,11 @@ TEST(InteractionTests, add_option_execute) {
 
 TEST(InteractionTests, execute_cancel) {
   std::stringstream in, out;
-  Interaction i(in, out);
+  Interaction i("id123");
+  i.setIn(in);
+  i.setOut(out);
 
-  Event* e = new Inform();
-  e->setMessage("You go to sleep");
+  Event* e = new Inform("id456", "You can't use that!");
   i.addOption("Sleep", e);
 
   in << "2";
@@ -76,10 +59,11 @@ TEST(InteractionTests, execute_cancel) {
 
 TEST(InteractionTests, execute_bad_choice) {
   std::stringstream in, out;
-  Interaction i(in, out);
+  Interaction i("id123");
+  i.setIn(in);
+  i.setOut(out);
 
-  Event* e = new Inform();
-  e->setMessage("You go to sleep");
+  Event* e = new Inform("id456", "You can't use that!");
   i.addOption("Sleep", e);
 
   in << "20\n2";
@@ -96,10 +80,11 @@ TEST(InteractionTests, execute_bad_choice) {
 
 TEST(InteractionTests, execute_bad_choice_not_number) {
   std::stringstream in, out;
-  Interaction i(in, out);
+  Interaction i("id123");
+  i.setIn(in);
+  i.setOut(out);
 
-  Event* e = new Inform();
-  e->setMessage("You go to sleep");
+  Event* e = new Inform("id456", "You can't use that!");
   i.addOption("Sleep", e);
 
   in << "steve\n2";
@@ -114,44 +99,21 @@ TEST(InteractionTests, execute_bad_choice_not_number) {
   delete p;
 }
 
-TEST(InteractionTests, make_blueprint) {
-  Interaction i;
-  i.setMessage("This interaction");
-
-  EventSpec* e = new EventSpec();
-  e->setName("blank");
-  e->setDone(false);
-  i.setSpec(e);
-
-  Event* in = new Inform();
-  in->setMessage("You go to sleep");
-  i.addOption("Sleep", in);
-
-  ObjectBlueprint* o = i.makeBlueprint();
-  EXPECT_EQ(o->getType(), "interaction");
-  EXPECT_EQ(o->getField("message"), "This interaction");
-  EXPECT_EQ(o->getField("name"), "blank");
-  EXPECT_EQ(o->getField("done"), "false");
-
-  EXPECT_EQ("{\ntype=inform",
-            o->toString().substr(89, 13));
-  delete o;
-}
-
 TEST(InteractionTests, add_option_execute_breakout) {
   std::stringstream in, out;
-  Interaction i(in, out);
-  i.setBreakOut(true);
+  Interaction i("id123");
+  i.setBreakout(true);
+  i.setIn(in);
+  i.setOut(out);
 
-  Event* e = new Inform();
-  e->setMessage("You go to sleep");
+  Event* e = new Inform("id456", "You can't use that!");
   i.addOption("Sleep", e);
 
   in << "1\n";
   Entity* p = new Player();
   std::string result = i.execute(p);
 
-  EXPECT_EQ(true, i.getBreakOut());
+  EXPECT_EQ(true, i.getBreakout());
   EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. "
             "Cancel\n>>> You go to sleep",
             out.str());

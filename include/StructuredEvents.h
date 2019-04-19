@@ -22,37 +22,9 @@
   */
 class StructuredEvents : public EventGroup {
  public:
-  StructuredEvents(std::istream& is = std::cin, std::ostream& os = std::cout);
+  StructuredEvents(std::string id, bool repeats=false);
   virtual ~StructuredEvents();
   std::string execute(Entity* affected);
-  ObjectBlueprint* makeBlueprint() const;
-
-  /**
-    * Return the index of the current event.
-    * @return currentEvent
-    */
-  int getCurrentIndex();
-
-  /**
-    * Returns if the events repeat when you get to the end
-    * or is done.
-    * @return repeats
-    */
-  bool getRepeats();
-
-  /**
-    * Set weather the events repeat when they finish
-    * @param r if the events repeat
-    */
-  void setRepeats(bool r);
-
-  /**
-    * Sets the current index in the event list to i
-    * @param i the new index.
-    */
-  void setCurrentIndex(int i) {
-    currentEvent = i;  // should bounds check
-  }
 
  private:
   int currentEvent;

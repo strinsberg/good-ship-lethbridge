@@ -6,18 +6,17 @@
 #ifndef KILL_H
 #define KILL_H
 
-#include "Event.h"
+#include "Inform.h"
 #include <string>
 
 /**
   * An event to kill an entity. Sets the entities hidden value to true.
   */
-class Kill : public Event {
+class Kill : public Inform {
  public:
-  Kill();
+  Kill(std::string id, std::string message);
   virtual ~Kill();
   std::string execute(Entity* affected);
-  ObjectBlueprint* makeBlueprint() const;
 
  private:
   Kill(const Kill& other);

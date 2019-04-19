@@ -122,16 +122,16 @@ std::map<std::string, Room*>& Game::getRooms() {
 }
 
 void Game::updateInteraction(ObjectBlueprint* bp) {
-  Event* e = getEvent(bp->getField("name"));
+/*  Event* e = getEvent(bp->getField("name"));
   if (e != nullptr) {
     StructuredEvents* event = static_cast<StructuredEvents*>(e);
     event->getSpec()->setDone(stob(bp->getField("done")));
     event->setCurrentIndex(std::stoi(bp->getField("index")));
-  }
+  }*/
 }
 
 void Game::updateEntity(ObjectBlueprint* bp) {
-  for (auto rPair : getRooms()) {
+/*  for (auto rPair : getRooms()) {
     Entity* ent = rPair.second->search(bp->getField("name"));
     if (ent != nullptr) {
       moveEntity(ent, bp->getField("owner"));
@@ -141,14 +141,14 @@ void Game::updateEntity(ObjectBlueprint* bp) {
 
       return;
     }
-  }
+  }*/
 }
 
 void Game::updateEvent(ObjectBlueprint* bp) {
-  Event* event = getEvent(bp->getField("name"));
+ /* Event* event = getEvent(bp->getField("name"));
   if (event != nullptr) {
     event->getSpec()->setDone(stob(bp->getField("done")));
-  }
+  }*/
 }
 
 void Game::moveEntity(Entity* entity, std::string newOwner) {

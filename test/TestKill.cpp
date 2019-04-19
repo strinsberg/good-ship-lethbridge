@@ -12,28 +12,13 @@
 #include <string>
 #include "gtest/gtest.h"
 
-TEST(KillTests, constructor_get) {
-  Kill k;
-  EXPECT_EQ("", k.getMessage());
-  EXPECT_EQ(false, k.getSpec()->isDone());
-}
 
 TEST(KillTests, kill_entity) {
-  Kill k;
-  k.setMessage("Why would you do that!");
+  Kill k("id123", "Why would you do that!");
   Entity* toKill = new Entity();
   toKill->getSpec()->setName("Ted");
 
   EXPECT_EQ("Why would you do that!\nTed is Dead!", k.execute(toKill));
   EXPECT_EQ(true, toKill->getState()->getHidden());
   delete toKill;
-}
-
-TEST(KillTests, make_blueprint) {
-  Kill k;
-  k.setMessage("Why would you do that!");
-  ObjectBlueprint* bp = k.makeBlueprint();
-  EXPECT_EQ("{\ntype=kill,\ndone=false,\nmessage=Why would you do that!,"
-            "\nname=,\n}", bp->toString());
-  delete bp;
 }

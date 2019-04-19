@@ -10,7 +10,7 @@
 #include <iostream>
 #include <string>
 
-Kill::Kill() {}
+Kill::Kill(std::string id, std::string message) : Inform(id, message) {}
 
 Kill::~Kill() {}
 
@@ -20,14 +20,4 @@ std::string Kill::execute(Entity* affected) {
   ss << message << std::endl;
   ss << affected->getSpec()->getName() << " is Dead!";
   return ss.str();
-}
-
-ObjectBlueprint* Kill::makeBlueprint() const {
-  ObjectBlueprint* bp = new ObjectBlueprint();
-  bp->setField("type", "kill");
-  bp->setField("message", message);
-  bp->setField("name", spec->getName());
-  std::string d = spec->isDone() ? "true" : "false";
-  bp->setField("done", d);
-  return bp;
 }

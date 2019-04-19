@@ -12,8 +12,8 @@
 #include <string>
 #include <vector>
 
-Interaction::Interaction(std::istream& is, std::ostream& os)
-  : Event(is, os), options(std::vector<Option>()), breakOut(false) {}
+Interaction::Interaction(std::string id)
+  : Event(id), options(std::vector<Option>()), breakOut(false) {}
 
 Interaction::~Interaction() {
   for (auto o : options)
@@ -29,62 +29,40 @@ void Interaction::addOption(std::string t, Event* e) {
 
 std::string Interaction::execute(Entity* affected) {
   while (true) {
-    out << "Please choose an option number:" << std::endl;
+    *out << "Please choose an option number:" << std::endl;
 
     size_t i;
     for (i = 0; i < options.size(); i++) {
-      out << i + 1 << ". ";
-      out << options[i].title << std::endl;
+      *out << i + 1 << ". ";
+      *out << options[i].title << std::endl;
     }
-    out << i + 1 << ". Cancel" << std::endl;
-    out << ">>> ";
+    *out << i + 1 << ". Cancel" << std::endl;
+    *out << ">>> ";
 
     std::string choice;
 
-    getline(in, choice);
+    getline(*in, choice);
     try {
       int ch = std::stoi(choice);
       if (ch == options.size() + 1)
         return "Done";
       else if (ch <= options.size() && ch > 0)
-        out << options.at(ch - 1).event->execute(affected);
+        *out << options.at(ch - 1).event->execute(affected);
       else
-        out << "Not a valid choice!";
+        *out << "Not a valid choice!";
     } catch (const std::invalid_argument& e) {
-      out << "Please enter a number!";
+      *out << "Please enter a number!";
     }
     if (breakOut)
       return "";
-    out << std::endl << std::endl;
+    *out << std::endl << std::endl;
   }
 }
 
-ObjectBlueprint* Interaction::makeBlueprint() const {
-  ObjectWithContentsBlueprint* b = new ObjectWithContentsBlueprint();
-
-  b->setField("type", "interaction");
-  b->setField("message", message);
-  if (spec != nullptr) {
-    b->setField("name", spec->getName());
-    std::string d = spec->isDone() ? "true" : "false";
-    b->setField("done", d);
-  }
-  std::string bo = breakOut ? "true" : "false";
-  b->setField("break_out", bo);
-
-  for (auto o : options) {
-    ObjectBlueprint* ebp = o.event->makeBlueprint();
-    ebp->setField("owner", spec->getName());
-    b->addBlueprint(ebp);
-  }
-
-  return b;
-}
-
-void Interaction::setBreakOut(bool b) {
+void Interaction::setBreakout(bool b) {
   breakOut = b;
 }
 
-bool Interaction::getBreakOut() {
+bool Interaction::getBreakout() {
   return breakOut;
 }

@@ -21,7 +21,6 @@ TEST(TestNpc, use) {
   Npc steve;
   Player* Max = new Player();
 
-  Event* info = new Inform();
-  info->setMessage("hi I am Steve");
+  Event* info = new Inform("id123", "hi I am Steve");
   delete Max;
 }

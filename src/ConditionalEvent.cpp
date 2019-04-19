@@ -1,7 +1,7 @@
 #include "ConditionalEvent.h"
 
-ConditionalEvent::ConditionalEvent()
-    : condition(nullptr), success(nullptr), failure(nullptr) {}
+ConditionalEvent::ConditionalEvent(std::string id)
+    : Event(id), condition(nullptr), success(nullptr), failure(nullptr) {}
 
 ConditionalEvent::~ConditionalEvent() {
     if (condition != nullptr)
