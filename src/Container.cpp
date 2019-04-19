@@ -51,6 +51,8 @@ ObjectBlueprint* Container:: makeBlueprint() const {
   return bp;
 }
 
+// Needs to change so that name is searched for with iteration
+// as things will be stored by id soon
 Entity* Container::search(std::string name) const {
   auto it = inventory.find(Game::toLower(name));
   if (it == inventory.end()) {
@@ -60,6 +62,25 @@ Entity* Container::search(std::string name) const {
           continue;
         } else {
           Entity* e = c->search(Game::toLower(name));
+          if (e!= nullptr)
+            return e;
+        }
+      }
+    }
+    return nullptr;
+  } else {
+    return it->second;}
+}
+
+Entity* Container::searchById(std::string id) const {
+  auto it = inventory.find(Game::toLower(id));
+  if (it == inventory.end()) {
+    for (auto itemPair : inventory) {
+      if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
+        if (Npc* n = dynamic_cast<Npc*>(c)) {
+          continue;
+        } else {
+          Entity* e = c->search(Game::toLower(id));
           if (e!= nullptr)
             return e;
         }
