@@ -28,7 +28,7 @@ TEST(TalkTests, set_noun) {
 }
 
 
-TEST(TalkTests, execute_item_exists) {
+TEST(TalkTests, DISABLED_execute_item_exists) {
 /*  Player* p = new Player();
   Npc* npc = new Npc();
   npc->getSpec()->setName("ted");
@@ -46,7 +46,7 @@ TEST(TalkTests, execute_item_exists) {
   delete room;*/
 }
 
-TEST(TalkTests, execute_inactive) {
+TEST(TalkTests, DISABLED_execute_inactive) {
 /*  Player* p = new Player();
   Npc* npc = new Npc();
   npc->getSpec()->setName("ted");
@@ -65,7 +65,7 @@ TEST(TalkTests, execute_inactive) {
   delete room;*/
 }
 
-TEST(TalkTests, execute_item_does_not_exist) {
+TEST(TalkTests, DISABLED_execute_item_does_not_exist) {
   Player* p = new Player();
   Room* room = new Room();
   p->setCurrentRoom(room);
@@ -77,7 +77,7 @@ TEST(TalkTests, execute_item_does_not_exist) {
   delete room;
 }
 
-TEST(TalkTests, execute_not_an_npc) {
+TEST(TalkTests, DISABLED_execute_not_an_npc) {
 /*  Player* p = new Player();
 
   Entity* i = new Entity();

@@ -29,7 +29,7 @@ TEST(UseTests, set_noun) {
   delete p;
 }
 
-TEST(UseTests, execute_player_has_item) {
+TEST(UseTests, DISABLED_execute_player_has_item) {
   Player* p = new Player();
   Use u(p);
 
@@ -45,7 +45,7 @@ TEST(UseTests, execute_player_has_item) {
   delete p;
 }
 
-TEST(UseTests, execute_room_has_item) {
+TEST(UseTests, DISABLED_execute_room_has_item) {
   Player* p = new Player();
   Use u(p);
 
@@ -61,7 +61,7 @@ TEST(UseTests, execute_room_has_item) {
   delete p;
 }
 
-TEST(UseTests, execute_inactive) {
+TEST(UseTests, DISABLED_execute_inactive) {
   Player* p = new Player();
   Use u(p);
 
@@ -78,7 +78,7 @@ TEST(UseTests, execute_inactive) {
   delete p;
 }
 
-TEST(UseTests, execute_no_item) {
+TEST(UseTests, DISABLED_execute_no_item) {
   Player* p = new Player();
   Use u(p);
 
@@ -90,7 +90,7 @@ TEST(UseTests, execute_no_item) {
   delete p;
 }
 
-TEST(UseTests, execute_inactive_locked) {
+TEST(UseTests, DISABLED_execute_inactive_locked) {
 /*  Player* p = new Player();
   Use u(p);
 
@@ -115,7 +115,7 @@ TEST(UseTests, execute_inactive_locked) {
   delete p;*/
 }
 
-TEST(UseTests, execute_no_player) {
+TEST(UseTests, DISABLED_execute_no_player) {
   Player* p = nullptr;
   Use u(p);
   EXPECT_THROW(u.execute(), unfinished_object_error);

@@ -16,7 +16,7 @@
 #include "gtest/gtest.h"
 
 
-TEST(InteractionTests, add_option_execute) {
+TEST(InteractionTests, DISABLED_add_option_execute) {
   std::stringstream in, out;
   Interaction i("id123");
   i.setIn(in);
@@ -99,7 +99,7 @@ TEST(InteractionTests, execute_bad_choice_not_number) {
   delete p;
 }
 
-TEST(InteractionTests, add_option_execute_breakout) {
+TEST(InteractionTests, DISABLED_add_option_execute_breakout) {
   std::stringstream in, out;
   Interaction i("id123");
   i.setBreakout(true);

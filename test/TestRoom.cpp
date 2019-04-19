@@ -23,14 +23,14 @@ TEST(RoomTests, constructor_get) {
   EXPECT_EQ(true, r.getState()->getObtainable());
 }
 
-TEST(RoomTests, enter) {
+TEST(RoomTests, DISABLED_enter) {
   Room r;
 
   Entity* ent;
   EXPECT_EQ("This place smells bad!", r.enter(ent));
 }
 
-TEST(RoomTests, enter_null) {
+TEST(RoomTests, DISABLED_enter_null) {
   Room r;
   Entity* ent;
   EXPECT_EQ("", r.enter(ent));

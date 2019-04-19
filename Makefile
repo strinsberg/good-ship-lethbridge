@@ -1,7 +1,7 @@
 CXX=g++
 CXXFLAGS= -std=c++11 -g -fprofile-arcs -ftest-coverage
 
-LINKFLAGS= -lgtest
+LINKFLAGS= -lgtest -lpthread
 
 SRC_DIR = src
 GAME_SRC_DIR = src/game
@@ -49,19 +49,19 @@ compile: $(SRC_DIR) $(GAME_SRC_DIR)
 	rm -f *.gc*
 
 tests: $(PROGRAM_TEST)
-	$(PROGRAM_TEST)
+	./$(PROGRAM_TEST)
 
 game: $(PROGRAM)
-	$(PROGRAM_GAME)
+	./$(PROGRAM)
 
 memcheck: $(PROGRAM_TEST)
-	valgrind --tool=memcheck --leak-check=yes $(PROGRAM_TEST)
+	valgrind --tool=memcheck --leak-check=yes ./$(PROGRAM_TEST)
 
 fullmemcheck: $(PROGRAM_TEST)
-	valgrind --tool=memcheck --leak-check=full $(PROGRAM_TEST)
+	valgrind --tool=memcheck --leak-check=full ./$(PROGRAM_TEST)
 
 coverage: $(PROGRAM_TEST)
-	$(PROGRAM_TEST)
+	./$(PROGRAM_TEST)
 	# Determine code coverage
 	$(LCOV) --capture --gcov-tool $(GCOV) --directory . --output-file $(COVERAGE_RESULTS)
 	# Only show code coverage for the source code files (not library files)

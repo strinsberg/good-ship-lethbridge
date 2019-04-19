@@ -24,7 +24,7 @@ TEST(InventoryTests, set_noun) {
   delete p;
 }
 
-TEST(InventoryTests, execute_item_in_inventory) {
+TEST(InventoryTests, DISABLED_execute_item_in_inventory) {
   Player* p = new Player();
   Inventory i(p);
 
@@ -41,7 +41,7 @@ TEST(InventoryTests, execute_item_in_inventory) {
   delete p;
 }
 
-TEST(InventoryTests, execute_multiple_items_in_inventory) {
+TEST(InventoryTests, DISABLED_execute_multiple_items_in_inventory) {
   Player* p = new Player();
   Inventory i(p);
 

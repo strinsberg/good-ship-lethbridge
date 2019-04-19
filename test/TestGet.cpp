@@ -25,7 +25,7 @@ TEST(GetTests, set_noun) {
   delete p;
 }
 
-TEST(GetTests, execute_room_has_item) {
+TEST(GetTests, DISABLED_execute_room_has_item) {
   Player* p = new Player();
   Get g(p);
 
@@ -44,7 +44,7 @@ TEST(GetTests, execute_room_has_item) {
 }
 
 
-TEST(GetTests, execute_room_has_item_not_obtainable) {
+TEST(GetTests, DISABLED_execute_room_has_item_not_obtainable) {
   Player* p = new Player();
   Get g(p);
 
@@ -61,7 +61,7 @@ TEST(GetTests, execute_room_has_item_not_obtainable) {
   delete p;
 }
 
-TEST(GetTests, execute_player_has_item) {
+TEST(GetTests, DISABLED_execute_player_has_item) {
   Player* p = new Player();
   Get g(p);
 
