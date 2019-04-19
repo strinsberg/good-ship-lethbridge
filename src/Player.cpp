@@ -24,28 +24,12 @@ std::string Player::describe() const {
   return spec->getDescription();
 }
 
-std::string Player::use(Entity*) {
-  return "Have some self respect! Don't use yourself!";
-}
-
 Room* Player::getCurrentRoom() const {
   return currentRoom;
 }
 
 void Player::setCurrentRoom(Room* r) {
   currentRoom = r;
-}
-
-ObjectBlueprint* Player::makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
-                                    (Container::makeBlueprint());
-
-  bp->setField("type", "player");
-  bp->setField("room", currentRoom->getSpec()->getName());
-  std::string s = equipped == nullptr ? "none" : equipped->getSpec()->getName();
-  bp->setField("suit", s);
-
-  return bp;
 }
 
 void Player::setEquipped(Suit* s) {

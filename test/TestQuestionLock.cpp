@@ -5,12 +5,12 @@
  */
 
 #include "QuestionLock.h"
-#include "Item.h"
+#include "Entity.h"
 #include "Entity.h"
 #include "gtest/gtest.h"
 
 TEST(QuestionLockTests, constructor_get) {
-  Item* locked = new Item();
+  Entity* locked = new Entity();
   QuestionLock q(locked, "How much does my biography cost?", "$1e10");
   EXPECT_EQ(locked, q.getTarget());
   EXPECT_EQ("How much does my biography cost?", q.getQuestion());
@@ -20,12 +20,12 @@ TEST(QuestionLockTests, constructor_get) {
 }
 
 TEST(QuestionLockTests, execute_right_answer) {
-  Item* locked = new Item();
+  Entity* locked = new Entity();
   locked->getState()->setActive(false);
   std::stringstream in("$1e10"), out;
   QuestionLock q(locked, "How much does my biography cost?", "$1e10", in, out);
 
-  Entity* e = new Item();
+  Entity* e = new Entity();
   EXPECT_EQ("Correct!", q.execute(e));
   EXPECT_EQ("How much does my biography cost? ", out.str());
   EXPECT_EQ(true, q.getSpec()->isDone());
@@ -36,12 +36,12 @@ TEST(QuestionLockTests, execute_right_answer) {
 }
 
 TEST(QuestionLockTests, execute_wrong_answer) {
-  Item* locked = new Item();
+  Entity* locked = new Entity();
   locked->getState()->setActive(false);
   std::stringstream in("$25"), out;
   QuestionLock q(locked, "How much does my biography cost?", "$1e10", in, out);
 
-  Entity* e = new Item();
+  Entity* e = new Entity();
   EXPECT_EQ("Nope!", q.execute(e));
   EXPECT_EQ("How much does my biography cost? ", out.str());
   EXPECT_EQ(false, locked->getState()->getActive());
@@ -51,11 +51,11 @@ TEST(QuestionLockTests, execute_wrong_answer) {
 }
 
 TEST(QuestionLockTests, execute_already_done) {
-  Item* locked = new Item();
+  Entity* locked = new Entity();
   QuestionLock q(locked, "How much does my biography cost?", "$1e10");
   q.getSpec()->setDone(true);
 
-  Entity* e = new Item();
+  Entity* e = new Entity();
   EXPECT_EQ("Your so smart", q.execute(e));
   EXPECT_EQ(true, q.getSpec()->isDone());
 
@@ -64,7 +64,7 @@ TEST(QuestionLockTests, execute_already_done) {
 }
 
 TEST(QuestionLockTests, make_blueprint) {
-  Item* locked = new Item();
+  Entity* locked = new Entity();
   locked->getState()->setActive(false);
   std::stringstream in("$1e10"), out;
   QuestionLock q(locked, "How much does my biography cost?", "$1e10", in, out);

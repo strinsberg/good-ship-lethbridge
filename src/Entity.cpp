@@ -12,17 +12,14 @@
 #include <string>
 
 
-
-Entity::Entity():spec(nullptr), state(nullptr), event(nullptr) {
+Entity::Entity():spec(nullptr), state(nullptr) {
   spec = new EntitySpec();
   state = new EntityState();
-  event = new Inform();
 }
 
 Entity::~Entity() {
   delete spec;
   delete state;
-  delete event;
 }
 
 std::string Entity::describe() const {
@@ -47,32 +44,16 @@ void Entity::setState(EntityState* s) {
   state = s;
 }
 
-void Entity::setEvent(Event* e) {
-  delete event;
-  event = e;
+void Entity::addEvent(std::string verb, Event* event) {
+  auto it = events.find(verb);
+  if (it != events.end())
+    delete it->second;
+  events[verb] = event;
 }
 
-Event* Entity::getEvent() const {
-  return event;
-}
-
-ObjectBlueprint* Entity::makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = new ObjectWithContentsBlueprint();
-
-  bp->setField("type", "entity");
-  bp->setField("description", spec->getDescription());
-  bp->setField("name", spec->getName());
-
-  std::string act = state->getActive() ? "true" : "false";
-  bp->setField("active", act);
-  std::string obt = state->getObtainable() ? "true" : "false";
-  bp->setField("obtainable", obt);
-  std::string hid = state->getHidden() ? "true" : "false";
-  bp->setField("hidden", hid);
-
-  ObjectBlueprint* ebp = event->makeBlueprint();
-  ebp->setField("owner", spec->getName());
-  bp->addBlueprint(ebp);
-
-  return bp;
+std::string Entity::runEvent(std::string verb, Entity* user) {
+  auto it = events.find(verb);
+  if (it != events.end())
+    return "Nothing happens";
+  return it->second->execute(user);
 }

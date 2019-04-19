@@ -7,7 +7,7 @@
 #include <string>
 #include "GameBuilder.h"
 #include "Game.h"
-#include "Item.h"
+#include "Entity.h"
 #include "Entity.h"
 #include "Door.h"
 #include "Kill.h"
@@ -31,7 +31,7 @@ Game* GameBuilder::newGame(std::string name) {
   Game* g = new Game();
 
   // for AddEntityInfo(name,description,active,obtainable,hidden) //
-
+/*
   // Create Rooms /////////////////////////////////////////////////////////////
   Room* captains_room = new Room();
   addEntityInfo(captains_room, "Captain's Room",
@@ -207,16 +207,16 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   captains_room->addEntity(desk);
 
-  Entity* bed = new Item();
+  Entity* bed = new Entity();
   addEntityInfo(bed, "Captains Bed", "your bed", true, false, false);
   captains_room->addEntity(bed);
 
-  Entity* computer = new Item();
+  Entity* computer = new Entity();
   addEntityInfo(computer, "Captains computer",
                 "Captain's personal computer terminal", true, false, false);
   desk->addEntity(computer);
 
-  Entity* window = new Item();
+  Entity* window = new Entity();
   addEntityInfo(window, "window", "endless space and some "
                 "debris probably from the Lethbridge", true, false, false);
   captains_room->addEntity(window);
@@ -227,22 +227,22 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   common_room->addEntity(table);
 
-  Item* crewList = new Item();
+  Entity* crewList = new Entity();
   addEntityInfo(crewList, "crew manifest", "piece paper use that contains "
                 "the list of the crew members", true, true, false);
   table->addEntity(crewList);
 
-  Item* comfy_chair = new Item();
+  Entity* comfy_chair = new Entity();
   addEntityInfo(comfy_chair, "Comfy chair", "This chair deserves a Captain",
                 true, false, false);
   common_room->addEntity(comfy_chair);
 
-  Item* hallDoorPanel = new Item();
+  Entity* hallDoorPanel = new Entity();
   addEntityInfo(hallDoorPanel, "hall door panel",
     "this is the broken, maybe replace some parts?", true, false, false);
   common_room->addEntity(hallDoorPanel);
 
-  Item* spannerDoorLock = new Item();
+  Entity* spannerDoorLock = new Entity();
   addEntityInfo(spannerDoorLock, "spanner door lock",
                 "combination lock for spanner's door", true, false, false);
   common_room->addEntity(spannerDoorLock);
@@ -253,7 +253,7 @@ Game* GameBuilder::newGame(std::string name) {
     "Engineers don't like people touching their tools!", true, false, false);
   spannerRoom->addEntity(tool_closet);
 
-  Item* fuse = new Item();
+  Entity* fuse = new Entity();
   addEntityInfo(fuse, "Fuse", "A small fuse that looks like it would "
                 "fit in a doors control panel", true, true, false);
   tool_closet->addEntity(fuse);
@@ -263,22 +263,22 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   spannerRoom->addEntity(spannerdesk);
 
-  Entity* spannerbed = new Item();
+  Entity* spannerbed = new Entity();
   addEntityInfo(spannerbed, "Bed", "Spanner's bed", true, false, false);
   spannerRoom->addEntity(spannerbed);
 
-  Entity* spannerComputer = new Item();
+  Entity* spannerComputer = new Entity();
   addEntityInfo(spannerComputer, "computer terminal",
                 "Spanner's personal computer terminal", true, false, false);
   spannerdesk->addEntity(spannerComputer);
 
   //hall objects
-  Entity* hallComputer = new Item();
+  Entity* hallComputer = new Entity();
   addEntityInfo(hallComputer, "hall computer", "computer terminal in hall",
                 true, false, false);
   hall->addEntity(hallComputer);
 
-  Item* medKit = new Item();
+  Entity* medKit = new Entity();
   addEntityInfo(medKit, "medKit", "use it to heal wounds", true, true, false);
   hall->addEntity(medKit);
 
@@ -304,13 +304,13 @@ Game* GameBuilder::newGame(std::string name) {
   addEntityInfo(spanner, "Clem Spanner", "the engineer", true, false, false);
   engiControl->addEntity(spanner);
 
-  Item* coreWrench = new Item();
+  Entity* coreWrench = new Entity();
   addEntityInfo(coreWrench, "Core wrench",
     "This amazing little tool is great for fixing cores", true, true, false);
   spanner->addEntity(coreWrench);
 
   // engine bay object
-  Item* reactor = new Item();
+  Entity* reactor = new Entity();
   addEntityInfo(reactor, "reactor", "the fusion reactor that powers this ship",
                 true, false, false);
   engiBay->addEntity(reactor);
@@ -331,7 +331,7 @@ Game* GameBuilder::newGame(std::string name) {
   addEntityInfo(Mae, "Whinny Mae", "the ships Doctor", true, false, false);
   cargoBay->addEntity(Mae);
 
-  Item* cookie = new Item();
+  Entity* cookie = new Entity();
   addEntityInfo(cookie, "box of cookie",
                 "a box full of cookie, bake by aliens", true, true, false);
   Mae->addEntity(cookie);
@@ -342,7 +342,7 @@ Game* GameBuilder::newGame(std::string name) {
                 true, false, false);
   outerSpace->addEntity(alien);
 
-  Item* lightSaber = new Item();
+  Entity* lightSaber = new Entity();
   addEntityInfo(lightSaber, "light saber", "the very old light saber "
     "that used to belongs to a legendary Jedi", true, true, false);
   alien->addEntity(lightSaber);
@@ -353,7 +353,7 @@ Game* GameBuilder::newGame(std::string name) {
                 "officer is standing on the ceiling!", true, false, false);
   bridge->addEntity(lars);
 
-  Item* dummy = new Item();
+  Entity* dummy = new Entity();
   dummy->getState()->setActive(false);
   dummy->getState()->setHidden(true);
   lars->addEntity(dummy);
@@ -646,7 +646,7 @@ Game* GameBuilder::newGame(std::string name) {
   p->setState(makeEntityState(true, false, false));
   p->setCurrentRoom(captains_room);
   g->setPlayer(p);
-
+*/
   // Return the game
   return g;
 }

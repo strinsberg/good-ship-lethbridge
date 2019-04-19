@@ -8,7 +8,7 @@
 #include "Door.h"
 #include "Room.h"
 #include "Inform.h"
-#include "Item.h"
+#include "Entity.h"
 #include <sstream>
 #include "gtest/gtest.h"
 
@@ -105,7 +105,7 @@ TEST(ExitTests, execute_exit_does_not_exists) {
 TEST(ExitTests, execute_not_an_exit) {
   Room* start = new Room();
   Room* end = new Room();
-  Item* i = new Item();
+  Entity* i = new Entity();
   i->getSpec()->setName("box");
   start->addEntity(i);
 

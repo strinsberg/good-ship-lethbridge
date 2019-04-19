@@ -29,20 +29,6 @@ class Entity : public Serializable {
   virtual std::string describe() const;
 
   /**
-    * Use the entity. Does not transfer ownership to Entity.
-    * @param user The user of the entity.
-    * @return a description of the result.
-    */
-  virtual std::string use(Entity* user) = 0;
-
-  /**
-    * Create a blueprint of the entity that can be used to serialize it.
-    * Transfers ownership of the blueprint to the caller.
-    * @return the blueprint.
-    */
-  virtual ObjectBlueprint* makeBlueprint() const;
-
-  /**
     * @return the spec
     */
   EntitySpec* getSpec() const;
@@ -64,26 +50,14 @@ class Entity : public Serializable {
     */
   void setState(EntityState* s);
 
-  /**
-    * Transfers ownership of event to the entity.
-    * @param e the new event
-    */
-  void setEvent(Event* e);
-
-  /**
-    * @return the event
-    */
-  Event* getEvent() const;
-
   void serialize(std::ostream& out) {out << "temp";}
 
-  void addEvent(Event* event);
+  void addEvent(std::string verb, Event* event);
   std::string runEvent(std::string verb, Entity* user);
 
  protected:
   EntitySpec* spec;  // owns this
   EntityState* state;  // owns this
-  Event* event;  // owns this
   std::map<std::string, Event*> events;  // owns these
 
  private:

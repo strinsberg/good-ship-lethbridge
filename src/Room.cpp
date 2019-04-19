@@ -30,24 +30,6 @@ std::string Room::describe() const {
   return ss.str();
 }
 
-std::string Room::use(Entity*) {
-  return "You can't use a room!";
-}
-
-ObjectBlueprint* Room::makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
-                                    (Container::makeBlueprint());
-
-  bp->setField("type", "room");
-  bp->setField("atmosphere",
-               std::to_string(atmosphere));
-
-  if (enterEvent != nullptr)
-    bp->addBlueprint(enterEvent->makeBlueprint());
-
-  return bp;
-}
-
 std::string Room::enter(Entity* entity) {
   if (enterEvent == nullptr)
     return "";

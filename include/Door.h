@@ -19,8 +19,6 @@ class Door : public Entity {
   Door();
   virtual ~Door();
   virtual std::string describe() const;
-  virtual std::string use(Entity* user);
-  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Set a destination for the door to lead to.

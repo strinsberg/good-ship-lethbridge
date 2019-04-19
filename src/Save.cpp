@@ -15,7 +15,7 @@ std::string hash_name(const std::string&);
 Save::Save(Game* g) :GameCommand(g) {}
 Save::~Save() {}
 std::string Save::execute() {
-  std::ofstream fs;
+/*  std::ofstream fs;
   fs.open("." + hash_name(game->getPlayer()->getSpec()->getName()) + ".save",
           std::ios::trunc);  //might not be optimal with multi word player names
   for (auto r : game->getRooms()) {
@@ -27,7 +27,7 @@ std::string Save::execute() {
   fs << pbp->toString();
   delete pbp;
   fs.close();
-  // should have error code to check if file operations are successful
+  // should have error code to check if file operations are successful*/
   return "Game saved!!!";
 }
 

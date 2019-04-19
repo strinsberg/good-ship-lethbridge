@@ -39,25 +39,6 @@ TEST(PlayerTests, describe) {
   EXPECT_EQ("That's You!", p.describe());
 }
 
-TEST(PlayerTests, use) {
-  Player p;
-  Entity* ent;
-  EXPECT_EQ("Have some self respect! Don't use yourself!", p.use(ent));
-}
-
-TEST(PlayerTests, make_blueprint) {
-  Player p;
-  Room* r = new Room();
-  p.setCurrentRoom(r);
-  ObjectBlueprint* bp = p.makeBlueprint();
-  EXPECT_EQ("{\ntype=player,\nactive=true,\ndescription=,\nhidden=false,"
-            "\nname=,\nobtainable=true,\nroom=,\nsuit=none,\n}\n"
-            "{\ntype=inform,\ndone=false,\nmessage=,\nname=,\nowner=,\n}",
-             bp->toString());
-  delete bp;
-  delete r;
-}
-
 TEST(PlayerTests, setEquipped) {
   Player p;
   Suit* s = new Suit();

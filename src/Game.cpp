@@ -153,13 +153,13 @@ void Game::updateEvent(ObjectBlueprint* bp) {
 
 void Game::moveEntity(Entity* entity, std::string newOwner) {
   std::string itemName = entity->getSpec()->getName();
-
+/*
   for (auto rPair : getRooms()) {
     Entity* owner = rPair.second->findOwner(itemName);
 
     if (owner != nullptr && owner->getSpec()->getName() != newOwner) {
-      MoveItems moveItem(owner, itemName);
-      moveItem.setGive(true);
+      MoveEntitys moveEntity(owner, itemName);
+      moveEntity.setGive(true);
 
       Entity* giveTo = nullptr;
       for (auto rPair : getRooms()) {
@@ -168,18 +168,18 @@ void Game::moveEntity(Entity* entity, std::string newOwner) {
           std::cout << " - " << itemName << " - ";
           std::cout << owner->getSpec()->getName() <<std::endl;
           giveTo = rPair.second;
-          moveItem.execute(giveTo);
+          moveEntity.execute(giveTo);
           return;
         } else {
           giveTo = rPair.second->search(newOwner);
           if (giveTo != nullptr) {
-            moveItem.execute(giveTo);
+            moveEntity.execute(giveTo);
             return;
           }
         }
       }
     }
-  }
+  }*/
 }
 
 bool Game::stob(const std::string& str) {

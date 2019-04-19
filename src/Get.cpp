@@ -11,7 +11,7 @@ Get::Get(Player* p) : Action(p) {}
 Get::~Get() {}
 
 std::string Get::execute() {
-  if (player->search(noun) != nullptr) {
+/*  if (player->search(noun) != nullptr) {
     return "You already have the " + noun;
   }
 
@@ -29,6 +29,6 @@ std::string Get::execute() {
       player->addEntity(e);
       return "You get the " + noun;
   }
-
+*/
   return "There is no " + noun;
 }

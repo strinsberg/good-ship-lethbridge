@@ -6,7 +6,7 @@
 
 #include "Kill.h"
 #include "Event.h"
-#include "Item.h"
+#include "Entity.h"
 #include "Container.h"
 #include "Player.h"
 #include <string>
@@ -21,7 +21,7 @@ TEST(KillTests, constructor_get) {
 TEST(KillTests, kill_entity) {
   Kill k;
   k.setMessage("Why would you do that!");
-  Entity* toKill = new Item();
+  Entity* toKill = new Entity();
   toKill->getSpec()->setName("Ted");
 
   EXPECT_EQ("Why would you do that!\nTed is Dead!", k.execute(toKill));

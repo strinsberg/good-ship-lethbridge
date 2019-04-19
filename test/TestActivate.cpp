@@ -6,13 +6,13 @@
 
 #include "Activate.h"
 #include "Event.h"
-#include "Item.h"
+#include "Entity.h"
 #include "EntityState.h"
 #include <string>
 #include "gtest/gtest.h"
 
 TEST(ActivateTests, constructor_get) {
-  Entity* i = new Item();
+  Entity* i = new Entity();
   Activate a(i);
   EXPECT_EQ("", a.getMessage());
   EXPECT_EQ(i, a.getTarget());
@@ -21,9 +21,9 @@ TEST(ActivateTests, constructor_get) {
 }
 
 TEST(ActivateTests, set_target) {
-  Entity* i = new Item();
+  Entity* i = new Entity();
   Activate a(i);
-  Item* t = new Item();
+  Entity* t = new Entity();
   EXPECT_EQ(i, a.getTarget());
   a.setTarget(t);
   EXPECT_EQ(t, a.getTarget());
@@ -32,11 +32,11 @@ TEST(ActivateTests, set_target) {
 }
 
 TEST(ActivateTests, execute) {
-  Entity* i = new Item();
+  Entity* i = new Entity();
   i->getSpec()->setName("Lamp");
   i->getState()->setActive(false);
 
-  Entity* e = new Item();
+  Entity* e = new Entity();
 
   Activate a(i);
   a.setMessage("You turn on the lamp");
@@ -48,10 +48,10 @@ TEST(ActivateTests, execute) {
 }
 
 TEST(ActivateTests, execute_already_on) {
-  Entity* i = new Item();
+  Entity* i = new Entity();
   i->getSpec()->setName("Lamp");
 
-  Entity* e = new Item();
+  Entity* e = new Entity();
 
   Activate a(i);
   a.setMessage("You turn on the lamp");
@@ -62,7 +62,7 @@ TEST(ActivateTests, execute_already_on) {
 }
 
 TEST(ActivateTests, make_blueprint) {
-  Item* target = new Item();
+  Entity* target = new Entity();
   Activate a(target);
 
   ObjectBlueprint* ob = a.makeBlueprint();

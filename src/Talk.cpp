@@ -13,7 +13,7 @@
 Talk::Talk(Player* p) : Action(p) {}
 Talk::~Talk() {}
 std::string Talk::execute() {
-  Entity* e = player->getCurrentRoom()->search(noun);
+/*  Entity* e = player->getCurrentRoom()->search(noun);
   if (e == nullptr)
     return "There is no " + noun;
 
@@ -23,6 +23,6 @@ std::string Talk::execute() {
     } else {
       return noun + " can't talk right now";
     }
-  }
+  }*/
   return "You can't talk to " + noun;
 }

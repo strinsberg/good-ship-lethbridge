@@ -23,16 +23,5 @@ TEST(TestNpc, use) {
 
   Event* info = new Inform();
   info->setMessage("hi I am Steve");
-  steve.setEvent(info);
-  EXPECT_EQ("hi I am Steve", steve.use(Max));
   delete Max;
-}
-
-TEST(testNpc, make_bluprint) {
-  Npc steve;
-  ObjectBlueprint* bp = steve.makeBlueprint();
-  EXPECT_EQ("{\ntype=container,\nactive=true,\ndescription=,\nhidden=false,"
-            "\nname=,\nobtainable=true,\n}\n{\ntype=inform,\ndone=false,"
-            "\nmessage=,\nname=,\nowner=,\n}", bp->toString());
-  delete bp;
 }

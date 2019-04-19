@@ -17,7 +17,5 @@ class Npc : public Container {
   Npc();
   ~Npc();
   std::string describe() const;
-  std::string use(Entity* user);
-  ObjectBlueprint* makeBlueprint()const;
 };
 #endif //NPC_H

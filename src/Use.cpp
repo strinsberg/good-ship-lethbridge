@@ -15,7 +15,7 @@ Use::~Use() {}
 
 std::string Use::execute() {
   Entity* e = getEntity();
-
+/*
   if (e != nullptr) {
     if (!e->getState()->getActive()) {
       if (Activate* a = dynamic_cast<Activate*>(e->getEvent()))
@@ -25,6 +25,6 @@ std::string Use::execute() {
     } else if (!e->getState()->getHidden()) {
       return e->use(player);}
   }
-
+*/
   return "There is no " + noun;
 }

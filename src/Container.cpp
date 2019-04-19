@@ -33,23 +33,7 @@ std::string Container::describe()const {
   ss.str();
   return  spec->getDescription() + ss.str();
 }
-std::string Container::use(Entity*) {
-  return "you can't use containers";
-}
-ObjectBlueprint* Container:: makeBlueprint() const {
-  ObjectWithContentsBlueprint* bp = static_cast<ObjectWithContentsBlueprint*>
-                                    (Entity::makeBlueprint());
-  bp->setField("type", "container");
 
-  // for loop to add all items with this container as owner to the blueprint
-  for (auto iPair : inventory) {
-    ObjectBlueprint* ebp = iPair.second->makeBlueprint();
-    ebp->setField("owner", spec->getName());
-    bp->addBlueprint(ebp);
-  }
-
-  return bp;
-}
 
 // Needs to change so that name is searched for with iteration
 // as things will be stored by id soon
@@ -89,22 +73,6 @@ Entity* Container::searchById(std::string id) const {
     return nullptr;
   } else {
     return it->second;}
-}
-
-Entity* Container::findOwner(std::string name) {
-  auto it = inventory.find(Game::toLower(name));
-  if (it == inventory.end()) {
-    for (auto itemPair : inventory) {
-      if (Container* c = dynamic_cast<Container*>(itemPair.second)) {
-        Entity* e = c->search(Game::toLower(name));
-        if (e!= nullptr)
-          return c;
-      }
-    }
-    return nullptr;
-  } else {
-    return this;
-  }
 }
 
 void Container::addEntity(Entity* entity) {

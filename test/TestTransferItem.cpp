@@ -6,13 +6,13 @@
 #include "TransferItem.h"
 #include "Player.h"
 #include "Container.h"
-#include "Item.h"
+#include "Entity.h"
 #include "gtest/gtest.h"
 
 TEST(TransferItemEventTests, normal) {
   Player* p = new Player();
   Container* c = new Container();
-  Item* i = new Item();
+  Entity* i = new Entity();
   i->getSpec()->setId("item456");
   c->addEntity(i);
   TransferItem t("ti123", c, "item456", true);

@@ -15,9 +15,3 @@ Npc::~Npc() {}
 std::string Npc::describe()const {
   return spec->getDescription();
 }
-std::string Npc::use(Entity* user) {
-  return event->execute(user);
-}
-ObjectBlueprint* Npc::makeBlueprint()const {
-  return Container::makeBlueprint();
-}

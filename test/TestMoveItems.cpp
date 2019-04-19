@@ -6,7 +6,7 @@
 
 #include "MoveItems.h"
 #include "Event.h"
-#include "Item.h"
+#include "Entity.h"
 #include "Container.h"
 #include "Player.h"
 #include "Exceptions.h"
@@ -14,7 +14,7 @@
 #include "gtest/gtest.h"
 
 TEST(MoveItemsTests, constructor_get) {
-  Item* owner = new Item();
+  Entity* owner = new Entity();
   MoveItems m(owner, "coin");
   EXPECT_EQ(owner, m.getOwner());
   EXPECT_EQ("coin", m.getItemName());
@@ -24,7 +24,7 @@ TEST(MoveItemsTests, constructor_get) {
 }
 
 TEST(MoveItemsTests, constructor_execute_give_to_player) {
-  Item* item = new Item();
+  Entity* item = new Entity();
   item->getSpec()->setName("coin");
   Container* c = new Container();
   c->getSpec()->setName("Ted");
@@ -45,7 +45,7 @@ TEST(MoveItemsTests, constructor_execute_give_to_player) {
 }
 
 TEST(MoveItemsTests, constructor_execute_take_from_player) {
-  Item* item = new Item();
+  Entity* item = new Entity();
   item->getSpec()->setName("coin");
   Container* c = new Container();
   c->getSpec()->setName("Ted");
@@ -64,7 +64,7 @@ TEST(MoveItemsTests, constructor_execute_take_from_player) {
 }
 
 TEST(MoveItemsTests, constructor_already_done) {
-  Item* item = new Item();
+  Entity* item = new Entity();
   item->getSpec()->setName("coin");
   Container* c = new Container();
   c->getSpec()->setName("ted");
@@ -84,7 +84,7 @@ TEST(MoveItemsTests, constructor_already_done) {
 }
 
 TEST(MoveItemsTests, make_blueprint) {
-  Item* item = new Item();
+  Entity* item = new Entity();
   item->getSpec()->setName("coin");
   Container* c = new Container();
   c->getSpec()->setName("Ted");
@@ -104,7 +104,7 @@ TEST(MoveItemsTests, make_blueprint) {
 }
 
 TEST(MoveItemsTests, DISABLED_execute_throws) {
-  Item* item = new Item();
+  Entity* item = new Entity();
   item->getSpec()->setName("coin");
   Player* p = new Player();
 

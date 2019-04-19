@@ -6,12 +6,12 @@
 
 #include "EndGame.h"
 #include "Event.h"
-#include "Item.h"
+#include "Entity.h"
 #include <string>
 #include "gtest/gtest.h"
 
 TEST(EndGameTest, execute) {
-  Item* i = new Item();
+  Entity* i = new Entity();
   EndGame eg;
   eg.setMessage("You win!!!");
   EXPECT_EQ("You win!!!\n", eg.execute(i));

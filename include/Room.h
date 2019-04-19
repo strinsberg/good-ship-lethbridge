@@ -21,8 +21,6 @@ class Room : public Container {
   Room();
   virtual ~Room();
   virtual std::string describe() const;
-  virtual std::string use(Entity*);
-  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Take action when an entity enters the room. Does not transfer ownership to Room.

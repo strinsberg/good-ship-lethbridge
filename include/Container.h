@@ -24,8 +24,6 @@ class Container: public Entity {
     * Give the description of the container and everything it has in it.
     */
   virtual std::string describe() const;
-  virtual std::string use(Entity*);
-  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * See if an entity with the given name is in the container.
@@ -47,13 +45,6 @@ class Container: public Entity {
     * @param entity the entity to remove
     */
   void removeEntity(Entity* entity);
-
-  /**
-    * Find the entity that contains an object.
-    * @param name the name of the object.
-    * @return a pointer to the entity that contains the object.
-    */
-  Entity* findOwner(std::string name);
 
   /**
     * Returns an iterator to the beginning of inventory.

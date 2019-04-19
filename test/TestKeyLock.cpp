@@ -5,15 +5,15 @@
  */
 
 #include "KeyLock.h"
-#include "Item.h"
+#include "Entity.h"
 #include "Entity.h"
 #include "Container.h"
 #include "Inform.h"
 #include "gtest/gtest.h"
 
 TEST(TestKeyLock, constructor_get) {
-  Entity* locked = new Item();
-  Entity* key = new Item();
+  Entity* locked = new Entity();
+  Entity* key = new Entity();
 
   KeyLock l(locked, key);
 
@@ -27,9 +27,9 @@ TEST(TestKeyLock, constructor_get) {
 }
 
 TEST(TestKeyLock, set_key) {
-  Entity* locked = new Item();
-  Entity* key = new Item();
-  Entity* newKey = new Item();
+  Entity* locked = new Entity();
+  Entity* key = new Entity();
+  Entity* newKey = new Entity();
 
   KeyLock l(locked, key);
   EXPECT_EQ(key, l.getKey());
@@ -42,11 +42,11 @@ TEST(TestKeyLock, set_key) {
 }
 
 TEST(TestKeyLock, constructor_execute_have_key) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(false);
 
-  Entity* key = new Item();
+  Entity* key = new Entity();
   Container* c = new Container();
   c->addEntity(key);
 
@@ -62,11 +62,11 @@ TEST(TestKeyLock, constructor_execute_have_key) {
 }
 
 TEST(TestKeyLock, constructor_execute_have_key_already_done) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(true);
 
-  Entity* key = new Item();
+  Entity* key = new Entity();
   Container* c = new Container();
   c->addEntity(key);
 
@@ -81,11 +81,11 @@ TEST(TestKeyLock, constructor_execute_have_key_already_done) {
 }
 
 TEST(TestKeyLock, constructor_execute_no_key) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(true);
 
-  Entity* key = new Item();
+  Entity* key = new Entity();
   Container* c = new Container();
 
   KeyLock l(locked, key);
@@ -100,12 +100,12 @@ TEST(TestKeyLock, constructor_execute_no_key) {
 }
 
 TEST(TestKeyLock, constructor_execute_not_a_container) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(true);
 
-  Entity* key = new Item();
-  Entity* item = new Item();
+  Entity* key = new Entity();
+  Entity* item = new Entity();
 
   KeyLock l(locked, key);
   l.setMessage("You now have access");
@@ -119,11 +119,11 @@ TEST(TestKeyLock, constructor_execute_not_a_container) {
 }
 
 TEST(TestKeyLock, success_event) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(false);
 
-  Entity* key = new Item();
+  Entity* key = new Entity();
   Container* c = new Container();
   c->addEntity(key);
 
@@ -143,11 +143,11 @@ TEST(TestKeyLock, success_event) {
 }
 
 TEST(TestKeyLock, constructor_execute_fail_message) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(true);
 
-  Entity* key = new Item();
+  Entity* key = new Entity();
   Container* c = new Container();
 
   KeyLock l(locked, key);
@@ -164,11 +164,11 @@ TEST(TestKeyLock, constructor_execute_fail_message) {
 }
 
 TEST(KeyLockTests, makeBlueprint) {
-  Entity* locked = new Item();
+  Entity* locked = new Entity();
   locked->getSpec()->setName("Lamp");
   locked->getState()->setActive(true);
 
-  Entity* key = new Item();
+  Entity* key = new Entity();
 
   KeyLock kl(locked, key);
   ObjectBlueprint* bp = kl.makeBlueprint();

@@ -9,7 +9,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Inform.h"
-#include "Item.h"
+#include "Entity.h"
 #include "Room.h"
 #include "Npc.h"
 #include <string>
@@ -22,17 +22,10 @@ TEST(TestContainer, describe) {
   EntitySpec * e = new EntitySpec();
   e->setDescription("this is a spec");
   c.setSpec(e);
-  Item* i = new Item();
+  Entity* i = new Entity();
   i->getSpec()->setName("Steve");
   c.addEntity(i);
   EXPECT_EQ("this is a spec\nContains: \nsteve\n", c.describe());
-}
-
-TEST(TestContainer, use) {
-  Container c;
-  Entity* e = new Item();
-  EXPECT_EQ("you can't use containers", c.use(e));
-  delete e;
 }
 
 TEST(TestContainer, searchnotfind) {
@@ -65,7 +58,7 @@ TEST(TestContainer, search_NPC) {
 
 TEST(TestContainer, search_nested) {
   Container* c = new Container();
-  Item* i = new Item();
+  Entity* i = new Entity();
   i->getSpec()->setName("box");
   c->addEntity(i);
   Room* r = new Room();
@@ -90,10 +83,6 @@ TEST(TestContainer, removeEntity) {
 }
 
 TEST(TestContainer, set_event) {
-  Container c;
-  Inform* i = new Inform();
-  c.setEvent(i);
-  EXPECT_EQ(i, c.getEvent());
 }
 
 TEST(TestContainer, set_state) {
@@ -117,41 +106,3 @@ TEST(TestContainer, container_iterator) {
   it++;
   EXPECT_EQ(c.end(), it);
 }
-
-TEST(TestContainer, make_blueprint) {
-  Container c;
-  Item* i = new Item();
-  i->getSpec()->setName("box");
-  c.addEntity(i);
-  ObjectBlueprint* bp = c.makeBlueprint();
-  EXPECT_EQ("{\ntype=container,\nactive=true,\ndescription=,\nhidden=false,"
-            "\nname=,\nobtainable=true,\n}\n{\ntype=inform,\ndone=false,"
-            "\nmessage=,\nname=,\nowner=,\n}\n{\ntype=item,\nactive=true,"
-            "\ndescription=,\nhidden=false,\nname=box,\nobtainable=true,"
-            "\nowner=,\n}\n{\ntype=inform,\ndone=false,\nmessage=,\nname=,"
-            "\nowner=box,\n}", bp->toString());
-  delete bp;
-}
-
-TEST(TestContainer, find_owner) {
-  Container* c = new Container();
-  Item* i = new Item();
-  i->getSpec()->setName("box");
-  c->addEntity(i);
-  Room* r = new Room();
-  r->addEntity(c);
-  EXPECT_EQ(c, r->findOwner("box"));
-  delete r;
-}
-
-TEST(TestContainer, find_owner_not_there) {
-  Container* c = new Container();
-  Item* i = new Item();
-  i->getSpec()->setName("box");
-  c->addEntity(i);
-  Room* r = new Room();
-  r->addEntity(c);
-  EXPECT_EQ(nullptr, r->findOwner("tape"));
-  delete r;
-}
-

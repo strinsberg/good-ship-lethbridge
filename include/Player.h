@@ -21,8 +21,6 @@ class Player : public Container {
   Player();
   virtual ~Player();
   virtual std::string describe() const;
-  virtual std::string use(Entity*);
-  virtual ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Returns the room the player is currently in. Does not transfer ownership.
