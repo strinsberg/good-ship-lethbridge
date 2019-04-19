@@ -50,7 +50,11 @@ TEST(TesrContainer, search_find_addEntity) {
 TEST(TestContainer, search_NPC) {
   Container* c = new Container();
   Npc* i = new Npc();
-  i->getSpec()->setName("Steve");
+  i->getSpec()->setId("id456");
+  Entity* e = new Entity();
+  e->getSpec()->setId("id123");
+  e->getSpec()->setName("box");
+  i->addEntity(e);
   c->addEntity(i);
   EXPECT_EQ(nullptr, c->search("box"));
   delete c;
@@ -129,6 +133,18 @@ TEST(TestContainer, removeEntity) {
   c.removeEntity(e);
   EXPECT_EQ(nullptr, c.search("container"));
   delete e;
+}
+
+TEST(TestContainer, searchById_item_in_NPC) {
+  Container* c = new Container();
+  Npc* i = new Npc();
+  i->getSpec()->setId("id456");
+  Entity* e = new Entity();
+  e->getSpec()->setId("id123");
+  i->addEntity(e);
+  c->addEntity(i);
+  EXPECT_EQ(nullptr, c->searchById("id123"));
+  delete c;
 }
 
 TEST(TestContainer, container_iterator) {

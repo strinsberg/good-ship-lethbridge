@@ -34,9 +34,6 @@ std::string Container::describe()const {
   return  spec->getDescription() + ss.str();
 }
 
-
-// Needs to change so that name is searched for with iteration
-// as things will be stored by id soon
 Entity* Container::search(std::string name) const {
   for (auto entry : inventory) {
     if (entry.second->matches(Game::toLower(name))) {
@@ -71,7 +68,6 @@ void Container::removeEntity(Entity* entity) {
   inventory.erase(Game::toLower(entity->getSpec()->getId()));
 }
 
-
 Entity* Container::searchAndRemove(std::string id) {
   std::pair<Container*, Entity*> entityPair = findEntity(id);
   if (entityPair.first != nullptr) {
@@ -89,6 +85,7 @@ std::map<std::string, Entity*>::iterator Container::end() {
   return inventory.end();
 }
 
+// Private ///////////////////////////////////////////////////////////
 
 std::pair<Container*, Entity*> Container::findEntity(std::string id) {
   std::string ID = Game::toLower(id);

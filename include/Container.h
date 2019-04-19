@@ -27,12 +27,18 @@ class Container: public Entity {
 
   /**
     * See if an entity with the given name is in the container.
-    * Does not transfer ownership.
+    * Searches sub containers. Does not transfer ownership.
     * @param name the name of the entity to search for
     * @return a pointer to the entity or nullptr
     */
   Entity* search(std::string name) const;
 
+  /**
+    * See if an entity with the given id is in the container.
+    * Searches sub containers. Does not transfer ownership.
+    * @param id the id of the entity to search for
+    * @return a pointer to the entity or nullptr
+    */
   Entity* searchById(std::string id);
 
   /**
@@ -43,13 +49,14 @@ class Container: public Entity {
 
   /**
     * Remove an entity from the container. Transfers ownership to caller.
+    * Does not go into sub containers.
     * @param entity the entity to remove
     */
   void removeEntity(Entity* entity);
 
   /**
     * Remove an entity from the container, if it is there. Transfers ownership.
-    * Designed to be a search and remove when you want to remove if found.
+    * Searches and removes from sub containers.
     * @param id the id of the entity to remove
     * @return the entity or nullptr
     */
