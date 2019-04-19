@@ -19,6 +19,7 @@
 class Room : public Container {
  public:
   Room();
+  Room(std::string id) : Container(id), atmosphere(Atmosphere::OXYGEN) {}
   virtual ~Room();
   virtual std::string describe() const;
 

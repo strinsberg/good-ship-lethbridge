@@ -9,7 +9,7 @@
 #include "Player.h"
 #include "Entity.h"
 #include "Entity.h"
-#include "ObjectBlueprint.h"
+#include "TransferItem.h"
 #include "Inform.h"
 #include <string>
 #include "gtest/gtest.h"
@@ -43,26 +43,25 @@ TEST(DoorTests, describe) {
 }
 
 TEST(DoorTests, use_normal) {
-/*  Door d;
+  Door d;
 
-  Player* p = new Player();
-  Room* start = new Room();
-  Room* end = new Room();
+  Player* p = new Player("id123");
+  Room* start = new Room("id456");
+  Room* end = new Room("id789");
 
-  Inform* i = new Inform();
-  i->setMessage("You made it to the end");
-  end->setEnter(i);
+  Inform* i = new Inform("inf123", "You made it to the end");
+  end->addEvent("enter", i);
 
   p->setCurrentRoom(start);
   d.setDestination(end);
   d.getSpec()->setName("rusty door");
 
-  EXPECT_EQ("You use rusty door\nYou made it to the end", d.use(p));
+  EXPECT_EQ("You use rusty door\nYou made it to the end", d.runEvent("use", p));
   EXPECT_EQ(end, p->getCurrentRoom());
 
   delete start;
   delete end;
-  delete p;*/
+  delete p;
 }
 
 TEST(DoorTests, use_not_active) {

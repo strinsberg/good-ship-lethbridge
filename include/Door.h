@@ -8,7 +8,7 @@
 
 #include "Entity.h"
 #include "Room.h"
-#include "ObjectBlueprint.h"
+#include "Game.h"
 #include <string>
 
 /**
@@ -17,6 +17,7 @@
 class Door : public Entity {
  public:
   Door();
+  Door(std::string id);
   virtual ~Door();
   virtual std::string describe() const;
 
@@ -47,6 +48,15 @@ class Door : public Entity {
  private:
   Room* destination;  // Does not own this
   Room* here;  // does not own this
+
+  struct MoveEntity : public Event {
+    MoveEntity(std::string id, Room* h, Room* t) : Event(id), here(h), there(t) {}
+    std::string execute(Entity* e) {
+      there->addEntity(here->searchAndRemove(Game::toLower(e->getSpec()->getId())));
+    }
+    Room* here;
+    Room* there;
+  };
 
   Door(const Door& other);
   Door& operator=(const Door& other);

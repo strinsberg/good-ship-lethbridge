@@ -5,13 +5,17 @@
  */
 
 #include "Door.h"
-#include "ObjectBlueprint.h"
 #include "Player.h"
+#include "TransferItem.h"
 #include <sstream>
 #include <typeinfo>
 #include <string>
 
 Door::Door() : destination(nullptr), here(nullptr) {}
+
+Door::Door(std::string id) : Entity(id), destination(nullptr), here(nullptr) {
+  this->addEvent("use", new MoveEntity("hidden1472342", destination, here));
+}
 
 Door::~Door() {}
 
@@ -20,6 +24,8 @@ std::string Door::describe() const {
 }
 
 void Door::setDestination(Room* room) {
+  auto it = events.find("use");
+  it->second->here = room;
   destination = room;
 }
 
@@ -28,6 +34,7 @@ Room* Door::getDestination() {
 }
 
 void Door::setHere(Room* room) {
+  events["use"]->here = room;
   here = room;
 }
 
