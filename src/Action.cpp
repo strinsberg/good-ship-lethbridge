@@ -22,11 +22,11 @@ Entity* Action::findEntity(Player* p, std::string n) {
     throw unfinished_object_error("Action has no Player!");
 
   Entity* e = p->search(n);
-  if (e != nullptr)
+  if (e != nullptr && !e->getState()->getHidden())
     return e;
 
   e = p->getCurrentRoom()->search(n);
-  if (e != nullptr)
+  if (e != nullptr && !e->getState()->getHidden())
     return e;
 
   return nullptr;

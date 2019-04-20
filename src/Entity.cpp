@@ -53,7 +53,7 @@ void Entity::addEvent(std::string verb, Event* event) {
 
 std::string Entity::runEvent(std::string verb, Entity* user) {
   auto it = events.find(verb);
-  if (it != events.end())
+  if (it == events.end())
     return "Nothing happens";
   return it->second->execute(user);
 }

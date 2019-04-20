@@ -2,20 +2,20 @@
 #define MOVEPLAYER_H
 
 #include "Event.h"
-#include "Room.h"
+#include "Door.h"
 #include <string>
 
 
 class MovePlayer : public Event
 {
   public:
-    MovePlayer(std::string id, Room* destination);
+    MovePlayer(std::string id, Door* destination);
     virtual ~MovePlayer();
 
     std::string execute(Entity* target);
 
   protected:
-    Room* destination;
+    Door* door;
 
   private:
     MovePlayer(const MovePlayer& other);

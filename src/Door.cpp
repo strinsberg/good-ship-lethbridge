@@ -12,7 +12,7 @@
 #include <string>
 
 Door::Door(std::string id, Room* h, Room* d) : Entity(id), destination(d), here(h) {
-  this->addEvent("use", new MovePlayer("hidden1472342", destination));
+  addEvent("use", new MovePlayer("hidden1472342", this));
 }
 
 Door::~Door() {}
