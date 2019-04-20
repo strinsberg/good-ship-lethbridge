@@ -1,6 +1,6 @@
 /**
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 
@@ -19,10 +19,8 @@
 class Suit :public Entity {
  public:
   Suit();
-  ~Suit();
+  virtual ~Suit();
   std::string describe() const;
-  std::string use(Entity* user);
-  ObjectBlueprint* makeBlueprint() const;
 
   /**
     * Return the atmosphere the suit protects a player from.
@@ -38,6 +36,9 @@ class Suit :public Entity {
 
  private:
   Atmosphere atmosphere;
+
+  Suit(const Suit& other);
+  Suit& operator=(const Suit& other);
 };
 
 

@@ -17,9 +17,6 @@ class OwnedEvent : public Event
     OwnedEvent(std::string id, Entity* owner);
     virtual ~OwnedEvent();
 
-    //virtual std::string execute(Entity* target) = 0;
-    ObjectBlueprint* makeBlueprint() const {}
-
   protected:
     Entity* owner;  // Does not own this
 
