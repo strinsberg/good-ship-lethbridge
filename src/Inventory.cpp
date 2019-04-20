@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 #include "Inventory.h"
@@ -10,7 +9,9 @@
 #include <iostream>
 
 Inventory::Inventory(Player* p) :Action(p) {}
+
 Inventory::~Inventory() {}
+
 std::string Inventory::execute() {
   if (player->begin() == player->end())
     return "You don't have anything!";
@@ -20,7 +21,7 @@ std::string Inventory::execute() {
     ss << "You have:" << std::endl;
 
     for (auto it = player->begin(); it != player->end(); it++) {
-      ss << it->first << " -> " << it->second->describe();
+      ss << it->second->getSpec()->getName() << " -> " << it->second->describe();
 
       it++;
       if (it != player->end())

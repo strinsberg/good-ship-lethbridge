@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 #include "Inventory.h"
@@ -24,14 +23,14 @@ TEST(InventoryTests, set_noun) {
   delete p;
 }
 
-TEST(InventoryTests, DISABLED_execute_item_in_inventory) {
+TEST(InventoryTests, execute_item_in_inventory) {
   Player* p = new Player();
   Inventory i(p);
 
   Room r;
   p->setCurrentRoom(&r);
 
-  Container* c = new Container();
+  Container* c = new Container("id123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
@@ -41,19 +40,19 @@ TEST(InventoryTests, DISABLED_execute_item_in_inventory) {
   delete p;
 }
 
-TEST(InventoryTests, DISABLED_execute_multiple_items_in_inventory) {
+TEST(InventoryTests, execute_multiple_items_in_inventory) {
   Player* p = new Player();
   Inventory i(p);
 
   Room r;
   p->setCurrentRoom(&r);
 
-  Container* c = new Container();
+  Container* c = new Container("id123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
 
-  Container* c2 = new Container();
+  Container* c2 = new Container("id456");
   c2->getSpec()->setName("gold");
   c2->getSpec()->setDescription("a shiny coin");
   p->addEntity(c2);
@@ -82,7 +81,7 @@ TEST(InventoryTests, execute_search_item_in_inventory) {
   Room r;
   p->setCurrentRoom(&r);
 
-  Container* c = new Container();
+  Container* c = new Container("id123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
@@ -99,7 +98,7 @@ TEST(InventoryTests, execute_search_item_not_in_inventory) {
   Room r;
   p->setCurrentRoom(&r);
 
-  Container* c = new Container();
+  Container* c = new Container("id123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
