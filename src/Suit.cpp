@@ -5,7 +5,6 @@
 
 #include"Suit.h"
 #include"Player.h"
-#include "ObjectBlueprint.h"
 #include "Atmosphere.h"
 #include "EquipSuit.h"
 #include <typeinfo>

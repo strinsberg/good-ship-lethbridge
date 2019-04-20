@@ -12,27 +12,31 @@
 #include "Player.h"
 
 TEST(TestSuit, use) {
-/*  Suit*  s = new Suit();
-  Player* p = new Player;
+  Suit*  s = new Suit();
+  s->getSpec()->setId("suit123");
+  s->getSpec()->setName("hazmat suit");
+  Player* p = new Player();
   p->addEntity(s);
-  EXPECT_EQ("the suit is on you", s->use(p));
-  delete p;*/
+  EXPECT_EQ("You are now wearing the hazmat suit", s->runEvent("use", p));
+  delete p;
 }
 
 TEST(TestSuit, use_not_a_player) {
- /* Suit*  s = new Suit();
-  Entity* p = new Entity;
-  EXPECT_EQ("suit authorization failed", s->use(p));
+  Suit*  s = new Suit();
+  s->getSpec()->setId("suit123");
+  s->getSpec()->setName("hazmat suit");
+  Entity* p = new Entity();
+  EXPECT_EQ("That can't wear a suit!", s->runEvent("use", p));
   delete p;
-  delete s;*/
 }
 
 TEST(TestSuit, use_not_carrying) {
-/*  Suit*  s = new Suit();
+  Suit*  s = new Suit();
+  s->getSpec()->setId("suit123");
+  s->getSpec()->setName("hazmat suit");
   Player* p = new Player;
-  EXPECT_EQ("You need to be carrying a suit to use it!", s->use(p));
+  EXPECT_EQ("You need to be carrying a suit to equip it!", s->runEvent("use", p));
   delete p;
-  delete s;*/
 }
 
 TEST(TestSuit, describe) {
