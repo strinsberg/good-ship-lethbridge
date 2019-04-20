@@ -6,14 +6,12 @@
 
 #include "Room.h"
 #include "Entity.h"
-#include "Event.h"
 #include "Inform.h"
-#include "Container.h"
 #include "Atmosphere.h"
-#include "Event.h"
-#include "ObjectBlueprint.h"
-#include "Exceptions.h"
-#include "Entity.h"
+#include "Protected.h"
+#include "ConditionalEvent.h"
+#include "Kill.h"
+#include "Player.h"
 #include <string>
 #include "gtest/gtest.h"
 
@@ -23,17 +21,31 @@ TEST(RoomTests, constructor_get) {
   EXPECT_EQ(true, r.getState()->getObtainable());
 }
 
-TEST(RoomTests, DISABLED_enter) {
-  Room r;
+TEST(RoomTests, enter_no_event) {
+  Room r("room123");
+  r.getSpec()->setName("Common room");
+  r.getSpec()->setDescription("A good place for the crew to relax");
 
-  Entity* ent;
-  EXPECT_EQ("This place smells bad!", r.enter(ent));
+  EXPECT_EQ("Common room\nA good place for the crew to relax", r.enter(nullptr));
 }
 
-TEST(RoomTests, DISABLED_enter_null) {
-  Room r;
-  Entity* ent;
-  EXPECT_EQ("", r.enter(ent));
+TEST(RoomTests, enter_custom_event) {
+  Room r("room123");
+  r.getSpec()->setName("Common room");
+  r.getSpec()->setDescription("A good place for the crew to relax");
+
+  Protected* pro = new Protected(Atmosphere::RADIATION);
+  ConditionalEvent* cond = new ConditionalEvent("cond123");
+  cond->setCondition(pro);
+  cond->setSuccess(new Inform("inf123","Good thing your protected from the radiation"));
+  cond->setFailure(new Kill("kill123", "You are not protected from the radiation!"));
+
+  r.addEvent("enter", cond);
+
+  Player* p = new Player("p123");
+  p->getSpec()->setName("Steve");
+  EXPECT_EQ("You are not protected from the radiation!\nSteve is Dead!", r.enter(p));
+  delete p;
 }
 
 TEST(RoomTests, describe) {
@@ -45,4 +57,10 @@ TEST(RoomTests, describe) {
 
   EXPECT_EQ("Location: Captain's Room\n"
             "It's your room!", r.describe());
+}
+
+TEST(RoomTests, set_get_atmosphere) {
+  Room r;
+  r.setAtmosphere(Atmosphere::SPACE);
+  EXPECT_EQ(Atmosphere::SPACE, r.getAtmosphere());
 }

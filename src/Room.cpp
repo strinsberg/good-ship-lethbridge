@@ -27,7 +27,14 @@ std::string Room::describe() const {
 }
 
 std::string Room::enter(Entity* entity) {
-  return "Enter Unimplemented";
+  if (events.find("enter") == events.end()) {
+    std::stringstream ss;
+    ss << spec->getName() << std::endl;
+    ss << spec->getDescription();
+    return ss.str();
+  } else {
+    return runEvent("enter", entity);
+  }
 }
 
 Atmosphere Room::getAtmosphere() {
