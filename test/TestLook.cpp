@@ -68,7 +68,7 @@ TEST(LookTests, execute_no_item) {
   delete p;
 }
 
-TEST(LookTests, DISABLED_execute_just_look) {
+TEST(LookTests, execute_just_look) {
   Player* p = new Player();
   Look l(p);
 
@@ -78,10 +78,11 @@ TEST(LookTests, DISABLED_execute_just_look) {
   c->getSpec()->setDescription("a box");
   r.addEntity(c);
   r.getSpec()->setName("This room");
+  r.getSpec()->setDescription("A regular room like you've seen before");
   p->setCurrentRoom(&r);
 
   l.setNoun("");
-  EXPECT_EQ("Location: This room\n\nContains: \nbox\n",
+  EXPECT_EQ("Location: This room\nA regular room like you've seen before\nThere is a box",
             l.execute());
   delete p;
 }

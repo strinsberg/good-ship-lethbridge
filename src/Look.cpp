@@ -21,7 +21,7 @@ std::string Look::execute() {
 
   std::string str("You see ");
   if (e != nullptr)
-    return str + e->describe();
+    return str + e->getSpec()->getDescription();
 
   return "There is no " + noun;
 }

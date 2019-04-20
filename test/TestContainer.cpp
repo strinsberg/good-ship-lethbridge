@@ -18,15 +18,15 @@
 
 
 TEST(TestContainer, describe) {
-  Container c;
+  Container c("id123");
   EntitySpec * e = new EntitySpec();
-  e->setDescription("this is a spec");
+  e->setDescription("A fancy box embossed with your name");
   c.setSpec(e);
   Entity* i = new Entity();
   i->getSpec()->setId("id123");
-  i->getSpec()->setDescription("steve");
+  i->getSpec()->setDescription("a jeweled watch");
   c.addEntity(i);
-  EXPECT_EQ("this is a spec\nContains: \nsteve\n", c.describe());
+  EXPECT_EQ("A fancy box embossed with your name\nThere is a jeweled watch", c.describe());
 }
 
 TEST(TestContainer, search_not_find) {

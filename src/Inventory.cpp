@@ -21,7 +21,7 @@ std::string Inventory::execute() {
     ss << "You have:" << std::endl;
 
     for (auto it = player->begin(); it != player->end(); it++) {
-      ss << it->second->getSpec()->getName() << " -> " << it->second->describe();
+      ss << it->second->getSpec()->getName() << " -> " << it->second->getSpec()->getDescription();
 
       it++;
       if (it != player->end())

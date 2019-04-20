@@ -24,14 +24,20 @@ Container::~Container() {
 
 std::string Container::describe()const {
   std::stringstream ss;
-  if (inventory.size() > 0) {
-    ss << std::endl << "Contains: "<< std::endl;
-  }
+
+  ss << spec->getDescription();
+  if (inventory.size() > 0)
+    ss << "\n";
+
+  size_t i = 0;
   for (auto e : inventory) {
-    ss << e.second->getSpec()->getDescription() << std::endl;
+    ss << "There is " << e.second->getSpec()->getDescription();
+    if (i < inventory.size() - 1)
+      ss << "\n";
+    i++;
   }
-  ss.str();
-  return  spec->getDescription() + ss.str();
+
+  return ss.str();
 }
 
 Entity* Container::search(std::string name) const {
