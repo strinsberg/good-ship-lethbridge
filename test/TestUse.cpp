@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 #include "Use.h"
@@ -29,39 +28,39 @@ TEST(UseTests, set_noun) {
   delete p;
 }
 
-TEST(UseTests, DISABLED_execute_player_has_item) {
+TEST(UseTests, execute_player_has_item_no_use_event) {
   Player* p = new Player();
   Use u(p);
 
   Room r;
-  Container* c = new Container();
+  Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
   p->setCurrentRoom(&r);
 
   u.setNoun("box");
-  EXPECT_EQ(u.execute(), "you can't use containers");
+  EXPECT_EQ(u.execute(), "Nothing happens");
   delete p;
 }
 
-TEST(UseTests, DISABLED_execute_room_has_item) {
+TEST(UseTests, execute_room_has_item) {
   Player* p = new Player();
   Use u(p);
 
   Room r;
-  Container* c = new Container();
+  Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   r.addEntity(c);
   p->setCurrentRoom(&r);
 
   u.setNoun("box");
-  EXPECT_EQ(u.execute(), "you can't use containers");
+  EXPECT_EQ(u.execute(), "Nothing happens");
   delete p;
 }
 
-TEST(UseTests, DISABLED_execute_inactive) {
+TEST(UseTests, execute_inactive) {
   Player* p = new Player();
   Use u(p);
 
@@ -78,7 +77,7 @@ TEST(UseTests, DISABLED_execute_inactive) {
   delete p;
 }
 
-TEST(UseTests, DISABLED_execute_no_item) {
+TEST(UseTests, execute_no_item) {
   Player* p = new Player();
   Use u(p);
 
@@ -88,31 +87,6 @@ TEST(UseTests, DISABLED_execute_no_item) {
   u.setNoun("box");
   EXPECT_EQ(u.execute(), "There is no box");
   delete p;
-}
-
-TEST(UseTests, DISABLED_execute_inactive_locked) {
-/*  Player* p = new Player();
-  Use u(p);
-
-  Room r;
-  Container* c = new Container();
-  c->getSpec()->setName("box");
-  c->getSpec()->setDescription("a box");
-  c->getState()->setActive(false);
-  r.addEntity(c);
-  p->setCurrentRoom(&r);
-
-  Entity* item = new Entity();
-  p->addEntity(item);
-
-  KeyLock* lock = new KeyLock(c, item);
-  lock->setMessage("You can now open the box!");
-  c->setEvent(lock);
-
-  u.setNoun("box");
-  EXPECT_EQ(u.execute(), "You can now open the box!");
-  EXPECT_EQ(true, c->getState()->getActive());
-  delete p;*/
 }
 
 TEST(UseTests, execute_no_player) {

@@ -1,6 +1,6 @@
 /**
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 #ifndef CALRISSIEN_2720_PLAYER_H

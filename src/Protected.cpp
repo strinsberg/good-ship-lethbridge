@@ -1,5 +1,9 @@
-#include "Protected.h"
+/**
+ * @author Steven Deutekom <deutekom@uleth.ca>
+ * @date 2019-04-20
+ */
 
+#include "Protected.h"
 #include "Atmosphere.h"
 #include "Suit.h"
 #include "Player.h"
