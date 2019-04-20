@@ -15,7 +15,7 @@ std::string EquipSuit::execute(Entity* e) {
   if (Player* player = dynamic_cast<Player*>(e)) {
     if (player->searchById(suit->getSpec()->getId()) != nullptr) {
       player->removeEntity(suit);
-      player->setEquipped(suit);
+      player->wearSuit(suit);
       return "You are now wearing the " + suit->getSpec()->getName();
     } else {
       return "You need to be carrying a suit to equip it!";

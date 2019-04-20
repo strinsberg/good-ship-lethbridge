@@ -36,14 +36,6 @@ class Player : public Container {
   void setCurrentRoom(Room* r);
 
   /**
-    * Sets the suit that the player is wearing. Does not transfer ownership.
-    * should not be set unless the suit is in the players inventory as well.
-    * suit is owned by the players inventory.
-    * @param s the new equipped suit.
-    */
-  void setEquipped(Suit* s);
-
-  /**
     * Puts on the given suit. Transfers ownership so it must be removed
     * from wherever it is before being equipped. If there is a currently
     * equipped suit it will be removed and put in the players inventory.
@@ -56,8 +48,7 @@ class Player : public Container {
     * no suit is equipped. Does not transfer ownership.
     * @return the quipped suit.
     */
-  Suit* getEquipped();
-  //Suit* getSuit();  // rename getEquipped when the time comes
+  Suit* getSuit();
 
   /**
     * Takes off the currently equipped suit, if applicable, and puts it in
@@ -67,8 +58,8 @@ class Player : public Container {
 
  private:
   Room* currentRoom;  // does not own the room
-  Suit* equipped;  // does not own this
   Suit* suit;  // owns this
+
   Player(const Player&);
   Player& operator=(const Player&);
 };

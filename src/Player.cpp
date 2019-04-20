@@ -12,7 +12,7 @@
 #include "ObjectWithContentsBlueprint.h"
 #include <string>
 
-Player::Player() : currentRoom(nullptr), equipped(nullptr) , suit(nullptr) {}
+Player::Player() : currentRoom(nullptr), suit(nullptr) {}
 
 Player::~Player() {
     if (suit != nullptr)
@@ -31,10 +31,17 @@ void Player::setCurrentRoom(Room* r) {
   currentRoom = r;
 }
 
-void Player::setEquipped(Suit* s) {
-  equipped = s;
+void Player::wearSuit(Suit* s) {
+  removeSuit();
+  suit = s;
 }
 
-Suit* Player::getEquipped() {
-  return equipped;
+Suit* Player::getSuit() {
+  return suit;
+}
+
+void Player::removeSuit() {
+  if (suit != nullptr)
+    addEntity(suit);
+    suit = nullptr;
 }

@@ -1,6 +1,6 @@
 /**
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-18
  */
 
 #include "Entity.h"

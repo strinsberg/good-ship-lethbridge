@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-10
+ * @date 2019-03-10, 2019-04-20
  */
 
 #include "Player.h"
@@ -39,12 +38,24 @@ TEST(PlayerTests, describe) {
   EXPECT_EQ("That's You!", p.describe());
 }
 
-TEST(PlayerTests, setEquipped) {
+TEST(PlayerTests, wear_suit_none_equipped) {
   Player p;
   Suit* s = new Suit();
 
-  p.setEquipped(s);
+  p.wearSuit(s);
 
-  EXPECT_EQ(s, p.getEquipped());
-  delete s;
+  EXPECT_EQ(s, p.getSuit());
+}
+
+TEST(PlayerTests, wear_suit_already_wearing_one) {
+  Player* p("player123");
+  Suit* s = new Suit();
+  s->getSpec()->setId("suit123");
+  p.wearSuit(s);
+
+  Suit* s2 = new Suit();
+  p.wearSuit(s2);
+
+  EXPECT_EQ(s2, p.getSuit());
+  EXPECT_EQ(s, p.searchById("suit123"));
 }

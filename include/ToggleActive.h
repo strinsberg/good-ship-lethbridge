@@ -12,10 +12,13 @@
 class ToggleActive : public OwnedEvent
 {
   public:
-    ToggleActive(std::string id, Entity* owner);
+    ToggleActive(std::string id, Entity* owner, bool oneTime=true);
     virtual ~ToggleActive();
 
     std::string execute(Entity* target);
+
+  protected:
+    bool once;
 
   private:
     ToggleActive(const ToggleActive& other);

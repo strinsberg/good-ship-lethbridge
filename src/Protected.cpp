@@ -11,7 +11,7 @@ Protected::~Protected() {}
 
 bool Protected::test(Entity* target) const {
   if (Player* p = dynamic_cast<Player*>(target)) {
-    Suit* suit = p->getEquipped();  // rename when player is changed
+    Suit* suit = p->getSuit();
     if (suit != nullptr)
       return suit->getAtmosphere() == atmosphere;
     else
