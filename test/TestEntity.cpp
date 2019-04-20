@@ -44,6 +44,20 @@ TEST(EntityTests, add_run_event) {
   EXPECT_EQ("You should eat healthy food!", e.runEvent("use", &e));
 }
 
+TEST(EntityTests, run_no_event) {
+  Entity e;
+  EXPECT_EQ("Nothing happens", e.runEvent("use", &e));
+}
+
+TEST(EntityTests, add_run_event_delete_old) {
+  Entity e;
+    Inform* inf = new Inform("inform456", "You should eat junk food!");
+  e.addEvent("use", inf);
+  Inform* inf2 = new Inform("inform123", "You should eat healthy food!");
+  e.addEvent("use", inf2);
+  EXPECT_EQ("You should eat healthy food!", e.runEvent("use", &e));
+}
+
 TEST(EntityTests, matches) {
   Entity e;
   EntitySpec* spec = new EntitySpec("spec123", "Apple", "Healthy food");
