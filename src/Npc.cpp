@@ -6,12 +6,11 @@
 
 #include "Npc.h"
 #include "Container.h"
+#include "Inform.h"
 #include <string>
 
-Npc::Npc() {}
+Npc::Npc(std::string id) : Container(id) {
+  addEvent("talk", new Inform("hidden02925327", "They don't have anything to say!"));
+}
 
 Npc::~Npc() {}
-
-std::string Npc::describe()const {
-  return spec->getDescription();
-}

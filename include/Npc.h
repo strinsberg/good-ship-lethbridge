@@ -14,8 +14,7 @@
   */
 class Npc : public Container {
  public:
-  Npc();
+  Npc(std::string id);
   ~Npc();
-  std::string describe() const;
 };
 #endif //NPC_H

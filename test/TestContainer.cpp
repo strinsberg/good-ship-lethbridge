@@ -49,7 +49,7 @@ TEST(TesrContainer, search_find_addEntity) {
 
 TEST(TestContainer, search_NPC) {
   Container* c = new Container();
-  Npc* i = new Npc();
+  Npc* i = new Npc("npc123");
   i->getSpec()->setId("id456");
   Entity* e = new Entity();
   e->getSpec()->setId("id123");
@@ -137,7 +137,7 @@ TEST(TestContainer, removeEntity) {
 
 TEST(TestContainer, searchById_item_in_NPC) {
   Container* c = new Container();
-  Npc* i = new Npc();
+  Npc* i = new Npc("npc123");
   i->getSpec()->setId("id456");
   Entity* e = new Entity();
   e->getSpec()->setId("id123");
