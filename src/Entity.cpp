@@ -7,8 +7,6 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
-#include "ObjectWithContentsBlueprint.h"
-#include "Inform.h"
 #include <string>
 
 
