@@ -19,7 +19,7 @@
 class Player : public Container {
  public:
   Player();
-  Player(std::string id) : Container(id) {}
+  Player(std::string id);
   virtual ~Player();
   virtual std::string describe() const;
 

@@ -14,9 +14,11 @@
 
 Player::Player() : currentRoom(nullptr), suit(nullptr) {}
 
+Player::Player(std::string id) : Container(id), currentRoom(nullptr), suit(nullptr) {}
+
 Player::~Player() {
-    if (suit != nullptr)
-        delete suit;
+  if (suit != nullptr)
+      delete suit;
 }
 
 std::string Player::describe() const {
@@ -41,7 +43,8 @@ Suit* Player::getSuit() {
 }
 
 void Player::removeSuit() {
-  if (suit != nullptr)
+  if (suit != nullptr) {
     addEntity(suit);
     suit = nullptr;
+  }
 }

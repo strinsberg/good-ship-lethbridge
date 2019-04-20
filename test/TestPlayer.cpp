@@ -48,7 +48,7 @@ TEST(PlayerTests, wear_suit_none_equipped) {
 }
 
 TEST(PlayerTests, wear_suit_already_wearing_one) {
-  Player* p("player123");
+  Player p("player123");
   Suit* s = new Suit();
   s->getSpec()->setId("suit123");
   p.wearSuit(s);
