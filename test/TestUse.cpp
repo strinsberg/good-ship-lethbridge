@@ -115,9 +115,8 @@ TEST(UseTests, DISABLED_execute_inactive_locked) {
   delete p;*/
 }
 
-TEST(UseTests, DISABLED_execute_no_player) {
+TEST(UseTests, execute_no_player) {
   Player* p = nullptr;
   Use u(p);
   EXPECT_THROW(u.execute(), unfinished_object_error);
-  delete p;
 }

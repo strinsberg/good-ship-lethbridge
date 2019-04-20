@@ -5,6 +5,7 @@
  */
 
 #include "Drop.h"
+#include "Exceptions.h"
 #include <string>
 #include "gtest/gtest.h"
 

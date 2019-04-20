@@ -21,6 +21,19 @@ TEST(DoorTests, describe) {
   EXPECT_EQ("a door to space", d.describe());
 }
 
+TEST(DoorTests, get_here_destination) {
+  Room* start = new Room("id456");
+  Room* end = new Room("id789");
+
+  Door d("door123", start, end);
+
+  EXPECT_EQ(start, d.getHere());
+  EXPECT_EQ(end, d.getDestination());
+
+  delete start;
+  delete end;
+}
+
 TEST(DoorTests, use_normal) {
   Player* p = new Player("id123");
   Room* start = new Room("id456");
