@@ -1,7 +1,7 @@
 /**
  * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-20
  */
 
 #include "gtest/gtest.h"
@@ -22,21 +22,21 @@ TEST(TestEntityState, EntityState_constructor) {
   EXPECT_EQ(true, e.getHidden());
 }
 
-TEST(TestEntityState, setObtainable) {
+TEST(TestEntityState, set_get_obtainable) {
   EntityState e;
   e.setObtainable(false);
 
   EXPECT_EQ(false, e.getObtainable());
 }
 
-TEST(TestEntityState, setActive) {
+TEST(TestEntityState, set_get_active) {
   EntityState e;
   e.setActive(false);
 
   EXPECT_EQ(false, e.getActive());
 }
 
-TEST(TestEntityState, setHidden) {
+TEST(TestEntityState, set_get_hidden) {
   EntityState e;
   e.setHidden(true);
 
