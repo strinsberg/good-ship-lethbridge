@@ -11,18 +11,17 @@
 
 
 Talk::Talk(Player* p) : Action(p) {}
-Talk::~Talk() {}
-std::string Talk::execute() {
-/*  Entity* e = player->getCurrentRoom()->search(noun);
-  if (e == nullptr)
-    return "There is no " + noun;
 
-  if (Npc* npc = dynamic_cast<Npc*>(e)) {
-    if (npc->getState()->getActive()) {
-      return npc->use(player);
-    } else {
+Talk::~Talk() {}
+
+std::string Talk::execute() {
+  Entity* e = getEntity();
+  if (e != nullptr){
+    if (e->getState()->getActive())
+      return e->runEvent("talk", player);
+    else
       return noun + " can't talk right now";
-    }
-  }*/
-  return "You can't talk to " + noun;
+  } else {
+    return "There is no " + noun + "!";
+  }
 }

@@ -27,74 +27,82 @@ TEST(TalkTests, set_noun) {
   delete p;
 }
 
-
-TEST(TalkTests, DISABLED_execute_item_exists) {
-/*  Player* p = new Player();
-  Npc* npc = new Npc();
+TEST(TalkTests, execute_npc_has_talk_event) {
+  Player* p = new Player("player123");
+  Npc* npc = new Npc("npc123");
   npc->getSpec()->setName("ted");
   Room* room = new Room();
   room->addEntity(npc);
   p->setCurrentRoom(room);
-  Inform* tell = new Inform();
-  tell->setMessage("Hi, how are you?");
-  npc->setEvent(tell);
+  Inform* tell = new Inform("inf123", "Hi, how are you?");
+  npc->addEvent("talk", tell);
   Talk talk(p);
   talk.setNoun("ted");
 
   EXPECT_EQ("Hi, how are you?", talk.execute());
   delete p;
-  delete room;*/
+  delete room;
 }
 
-TEST(TalkTests, DISABLED_execute_inactive) {
-/*  Player* p = new Player();
-  Npc* npc = new Npc();
+TEST(TalkTests, execute_npc_default_talk) {
+  Player* p = new Player("player123");
+  Npc* npc = new Npc("npc123");
+  npc->getSpec()->setName("ted");
+  Room* room = new Room();
+  room->addEntity(npc);
+  p->setCurrentRoom(room);
+  Talk talk(p);
+  talk.setNoun("ted");
+
+  EXPECT_EQ("They don't have anything to say!", talk.execute());
+  delete p;
+  delete room;
+}
+
+TEST(TalkTests, execute_inactive) {
+  Player* p = new Player("player123");
+  Npc* npc = new Npc("npc123");
   npc->getSpec()->setName("ted");
   npc->getState()->setActive(false);
   Room* room = new Room();
   room->addEntity(npc);
   p->setCurrentRoom(room);
-  Inform* tell = new Inform();
-  tell->setMessage("Hi, how are you?");
-  npc->setEvent(tell);
+  Inform* tell = new Inform("inf123", "Hi, how are you?");
+  npc->addEvent("talk", tell);
   Talk talk(p);
   talk.setNoun("ted");
 
   EXPECT_EQ("ted can't talk right now", talk.execute());
   delete p;
-  delete room;*/
+  delete room;
 }
 
-TEST(TalkTests, DISABLED_execute_item_does_not_exist) {
+TEST(TalkTests, execute_item_does_not_exist) {
   Player* p = new Player();
   Room* room = new Room();
   p->setCurrentRoom(room);
   Talk talk(p);
   talk.setNoun("ted");
 
-  EXPECT_EQ("There is no ted", talk.execute());
+  EXPECT_EQ("There is no ted!", talk.execute());
   delete p;
   delete room;
 }
 
-TEST(TalkTests, DISABLED_execute_not_an_npc) {
-/*  Player* p = new Player();
+TEST(TalkTests, execute_has_no_talk) {
+  Player* p = new Player();
 
   Entity* i = new Entity();
   i->getSpec()->setName("box");
-  i->getState()->setActive(false);
 
   Room* room = new Room();
   room->addEntity(i);
   p->setCurrentRoom(room);
 
-  Inform* tell = new Inform();
-  tell->setMessage("Hi, how are you?");
-  i->setEvent(tell);
   Talk talk(p);
   talk.setNoun("box");
 
-  EXPECT_EQ("You can't talk to box", talk.execute());
+  EXPECT_EQ("Nothing happens", talk.execute());
   delete p;
-  delete room;*/
+  delete room;
 }
