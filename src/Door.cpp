@@ -6,15 +6,13 @@
 
 #include "Door.h"
 #include "Player.h"
-#include "TransferItem.h"
+#include "MovePlayer.h"
 #include <sstream>
 #include <typeinfo>
 #include <string>
 
-Door::Door() : destination(nullptr), here(nullptr) {}
-
-Door::Door(std::string id) : Entity(id), destination(nullptr), here(nullptr) {
-  this->addEvent("use", new MoveEntity("hidden1472342", destination, here));
+Door::Door(std::string id, Room* h, Room* d) : Entity(id), destination(d), here(h) {
+  this->addEvent("use", new MovePlayer("hidden1472342", destination));
 }
 
 Door::~Door() {}
@@ -23,19 +21,8 @@ std::string Door::describe() const {
   return spec->getDescription();
 }
 
-void Door::setDestination(Room* room) {
-  auto it = events.find("use");
-  it->second->here = room;
-  destination = room;
-}
-
 Room* Door::getDestination() {
   return destination;
-}
-
-void Door::setHere(Room* room) {
-  events["use"]->here = room;
-  here = room;
 }
 
 Room* Door::getHere() {

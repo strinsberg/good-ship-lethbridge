@@ -16,28 +16,15 @@
   */
 class Door : public Entity {
  public:
-  Door();
-  Door(std::string id);
+  Door(std::string id, Room* here, Room* destination);
   virtual ~Door();
   virtual std::string describe() const;
-
-  /**
-    * Set a destination for the door to lead to.
-    * @param room the destination room
-    */
-  void setDestination(Room* room);
 
   /**
     * Get the room the door leads to
     * @return destination
     */
   Room* getDestination();
-
-  /**
-    * Set a location of the door
-    * @param room the location of the room
-    */
-  void setHere(Room* room);
 
   /**
     * Get the room the door is in
@@ -47,16 +34,7 @@ class Door : public Entity {
 
  private:
   Room* destination;  // Does not own this
-  Room* here;  // does not own this
-
-  struct MoveEntity : public Event {
-    MoveEntity(std::string id, Room* h, Room* t) : Event(id), here(h), there(t) {}
-    std::string execute(Entity* e) {
-      there->addEntity(here->searchAndRemove(Game::toLower(e->getSpec()->getId())));
-    }
-    Room* here;
-    Room* there;
-  };
+  Room* here;  // Does not own this
 
   Door(const Door& other);
   Door& operator=(const Door& other);
