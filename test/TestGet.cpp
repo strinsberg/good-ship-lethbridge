@@ -1,7 +1,7 @@
 /**
  * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 #include "Get.h"
@@ -25,12 +25,12 @@ TEST(GetTests, set_noun) {
   delete p;
 }
 
-TEST(GetTests, DISABLED_execute_room_has_item) {
+TEST(GetTests, execute_room_has_item) {
   Player* p = new Player();
   Get g(p);
 
   Room r;
-  Container* c = new Container();
+  Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   r.addEntity(c);
@@ -44,12 +44,12 @@ TEST(GetTests, DISABLED_execute_room_has_item) {
 }
 
 
-TEST(GetTests, DISABLED_execute_room_has_item_not_obtainable) {
+TEST(GetTests, execute_room_has_item_not_obtainable) {
   Player* p = new Player();
   Get g(p);
 
   Room r;
-  Container* c = new Container();
+  Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   c->getState()->setObtainable(false);
@@ -61,12 +61,12 @@ TEST(GetTests, DISABLED_execute_room_has_item_not_obtainable) {
   delete p;
 }
 
-TEST(GetTests, DISABLED_execute_player_has_item) {
+TEST(GetTests, execute_player_has_item) {
   Player* p = new Player();
   Get g(p);
 
   Room r;
-  Container* c = new Container();
+  Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);

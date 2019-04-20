@@ -11,7 +11,7 @@ Get::Get(Player* p) : Action(p) {}
 Get::~Get() {}
 
 std::string Get::execute() {
-/*  if (player->search(noun) != nullptr) {
+  if (player->search(noun) != nullptr) {
     return "You already have the " + noun;
   }
 
@@ -21,14 +21,10 @@ std::string Get::execute() {
     if (!e->getState()->getObtainable()) {
       return "You can't take that!";
     } else if (!e->getState()->getHidden()) {
-      Container* owner =
-          static_cast<Container*>(player->getCurrentRoom()->findOwner(noun));
-      owner->removeEntity(e);
-    }
-
-      player->addEntity(e);
+      player->addEntity(player->getCurrentRoom()->searchAndRemove(e->getSpec()->getId()));
       return "You get the " + noun;
+    }
   }
-*/
+
   return "There is no " + noun;
 }

@@ -17,3 +17,14 @@ TEST(InformTests, constructor_execute) {
   EXPECT_EQ("You can't use that!", i.execute(e));
   delete e;
 }
+
+TEST(InformTests, get_id) {
+  Inform i("id123", "You can't use that!");
+  EXPECT_EQ("id123", i.getId());
+}
+
+TEST(InformTests, set_get_done) {
+  Inform i("id123", "You can't use that!");
+  i.setDone(true);
+  EXPECT_TRUE(i.isDone());
+}

@@ -26,11 +26,11 @@ class Event : public Serializable {
   virtual ~Event();
 
   /**
-    * Resolve the event on a list of entities. Does not transfer ownership of the entities.
-    * @param affected the entities to resolve the event on
+    * Execute the event on the given entity. Does not transfer ownership of the entities.
+    * @param affected the entity affected by the event
     * @return a description of the results.
     */
-  virtual std::string execute(Entity* affected) = 0;
+  virtual std::string execute(Entity* affected);
 
   void serialize(std::ostream& out) {out << "temp";}
 

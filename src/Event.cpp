@@ -6,14 +6,11 @@
 
 
 #include "Event.h"
-#include "ObjectBlueprint.h"
 #include <string>
 #include <iostream>
 
 
-Event::Event(std::string ID)
-    : id(ID) {
-}
+Event::Event(std::string ID) : id(ID) {}
 
 Event::~Event() {}
 
@@ -31,4 +28,8 @@ void Event::setDone(bool d) {
 
 void Event::subscribe(Event* e) {
   observers.push_back(e);
+}
+
+std::string Event::execute(Entity* e) {
+
 }

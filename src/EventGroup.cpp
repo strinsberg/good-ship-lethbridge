@@ -32,7 +32,9 @@ std::string EventGroup::execute(Entity* affected) {
 
   for (size_t i = 0; i < events.size(); i++) {
     std::string end = i < events.size() - 1 ? "\n" : "";
-    ss << events[i]->execute(affected) << end;
+    std::string result = events[i]->execute(affected);
+    if (!result.empty())
+      ss << result << end;
   }
 
   return ss.str();
