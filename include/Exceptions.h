@@ -57,7 +57,20 @@ class unfinished_object_error: public std::runtime_error {
   /**
   * @param errMessage An error message.
   */
-  explicit unfinished_object_error(const char* errMessage) :
+  explicit unfinished_object_error(std::string errMessage) :
+    std::runtime_error(errMessage) {
+  }
+};
+
+/**
+* Exception for when a file doesn't open properly.
+*/
+class my_file_error: public std::runtime_error {
+ public:
+  /**
+  * @param errMessage An error message.
+  */
+  explicit my_file_error(std::string errMessage) :
     std::runtime_error(errMessage) {
   }
 };

@@ -23,10 +23,13 @@ class GameBuilder {
   Game* newGame(std::string name);
 
  private:
-  EntitySpec* makeEntitySpec(std::string name, std::string description);
-  EntityState* makeEntityState(bool active, bool obtainable, bool hidden);
-  void addEntityInfo(Entity* entity, std::string name, std::string description,
-                     bool active, bool obtainable, bool hidden);
+  std::string getFileData(std::string filename);
+  void makeBlueprints(std::string data, std::vector<ObjectBlueprint*> blueprints);
+  bool stob(const std::string& str);
+  void setUpEntity(Entity* entity, ObjectBlueprint* bp);
+
+  void makeRooms(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
+  void makeDoors(std::map<std::string, Room*>& rooms, std::vector<ObjectBlueprint*>& blueprints);
 
   GameBuilder(const GameBuilder& other);
   GameBuilder& operator=(const GameBuilder& other);

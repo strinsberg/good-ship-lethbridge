@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-20
  */
 
 #include "Parser.h"
@@ -82,7 +81,7 @@ TEST(ParserTests, parse_use) {
   delete c;
 }
 
-TEST(ParserTests, DISABLED_parse_talk) {
+TEST(ParserTests, parse_talk) {
   Game g;
   Player* pl = new Player();
   Room* r = new Room();
@@ -91,7 +90,7 @@ TEST(ParserTests, DISABLED_parse_talk) {
   g.setPlayer(pl);
   Parser p("talk box", &g);
   Command* c = p.parse();
-  EXPECT_EQ("There is no box", c->execute());
+  EXPECT_EQ("There is no box!", c->execute());
   delete c;
 }
 
