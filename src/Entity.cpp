@@ -18,6 +18,9 @@ Entity::Entity():spec(nullptr), state(nullptr) {
 Entity::~Entity() {
   delete spec;
   delete state;
+  for (auto it : events) {
+    delete it.second;
+  }
 }
 
 std::string Entity::describe() const {

@@ -26,7 +26,11 @@ TEST(TestContainer, describe) {
   i->getSpec()->setId("id123");
   i->getSpec()->setDescription("a jeweled watch");
   c.addEntity(i);
-  EXPECT_EQ("A fancy box embossed with your name\nThere is a jeweled watch", c.describe());
+  Entity* i2 = new Entity();
+  i2->getSpec()->setId("id456");
+  i2->getSpec()->setDescription("a slimy biscuit");
+  c.addEntity(i2);
+  EXPECT_EQ("A fancy box embossed with your name\nThere is a jeweled watch\nThere is a slimy biscuit", c.describe());
 }
 
 TEST(TestContainer, search_not_find) {
