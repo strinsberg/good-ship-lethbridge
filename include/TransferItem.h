@@ -6,20 +6,23 @@
 #ifndef TRANSFERITEM_H
 #define TRANSFERITEM_H
 
-#include "OwnedEvent.h"
+#include "Event.h"
+#include "Container.h"
+#include "Entity.h"
 #include <string>
 
 
-class TransferItem : public OwnedEvent
+class TransferItem : public Event
 {
   public:
-    TransferItem(std::string id, Entity* owner,
+    TransferItem(std::string id, Container* owner,
                  std::string itemId, bool toTarget=false);
     virtual ~TransferItem();
 
     std::string execute(Entity* target);
 
   private:
+    Container* owner;  // does not own this
     std::string itemId;
     bool toTarget;
 
