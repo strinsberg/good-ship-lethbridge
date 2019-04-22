@@ -77,7 +77,15 @@ void EventFactory::makeEvents() {
   }
 
   // Go through and deal with all subscriptions
-
+  // requires all events to be created
+  for (auto bp : blueprints) {
+    std::string subjectId = bp->getField("subject");
+    if (subjectId != ObjectBlueprint::null()) {
+      Event* subject = events.find(subjectId)->second;
+      Event* observer = events.find(bp->getField("id"))->second;
+      subject->subscribe(observer);
+    }
+  }
 }
 
 // Base Events
