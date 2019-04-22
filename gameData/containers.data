@@ -1,0 +1,17 @@
+{
+type=container,
+id=captbox,
+name=box,
+description=a small metal case. maybe there is treasure in it!,
+here=rmcapt,
+}
+{
+type=container,
+id=captdesk,
+name=desk,
+description=a futuristic looking desk.,
+here=rmcapt,
+obtainable=false,
+}
+
+

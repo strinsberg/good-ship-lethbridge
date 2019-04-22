@@ -1,8 +1,16 @@
 {
 type=door,
-id=r1r2,
+id=drcaptcom,
 name=common room door,
 description=a door,
-here=r1,
-there=r2,
+here=rmcapt,
+there=rmcommon,
+}
+{
+type=door,
+id=drcomcapt,
+name=common room door,
+description=a door to the common room,
+here=rmcommon,
+there=rmcapt,
 }

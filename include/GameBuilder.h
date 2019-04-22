@@ -29,7 +29,10 @@ class GameBuilder {
   void setUpEntity(Entity* entity, ObjectBlueprint* bp);
 
   void makeRooms(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
-  void makeDoors(std::map<std::string, Room*>& rooms, std::vector<ObjectBlueprint*>& blueprints);
+  void makeDoors(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
+  void makeContainers(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
+  void makeNpcs(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
+  void makeEntities(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
 
   GameBuilder(const GameBuilder& other);
   GameBuilder& operator=(const GameBuilder& other);

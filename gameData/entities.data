@@ -1,0 +1,24 @@
+{
+type=entity,
+id=captbed,
+name=bed,
+description=a cosy bed with your name on it,
+here=rmcapt,
+obtainable=false,
+}
+{
+type=entity,
+id=captcomp,
+name=computer,
+description=a personal computer terminal,
+here=rmcapt,
+obtainable=false,
+}
+{
+type=entity,
+id=captwin,
+name=window,
+description=a window with view of space.,
+here=rmcapt,
+obtainable=false,
+}

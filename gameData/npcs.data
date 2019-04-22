@@ -1,0 +1,7 @@
+{
+type=npc,
+id=temp123,
+name=joey,
+description=what on earth is this guy doing here?,
+here=rmcommon,
+}

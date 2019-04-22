@@ -55,10 +55,10 @@ Room* Game::getRoom(const std::string& id) {
   return it->second;
 }
 
-void Game::addRoom(const string& name, Room* room) {
-  if (rooms.find(toLower(name)) != rooms.end())
-    throw invalid_parameter_error("There is a room with that name already!");
-  rooms[toLower(name)] = room;
+void Game::addRoom(const string& id, Room* room) {
+  if (rooms.find(toLower(id)) != rooms.end())
+    throw invalid_parameter_error("There is a room with that id already!");
+  rooms[toLower(id)] = room;
 }
 
 int Game::numRooms() {
