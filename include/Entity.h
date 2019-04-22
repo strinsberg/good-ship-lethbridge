@@ -55,6 +55,7 @@ class Entity : public Serializable {
 
   void addEvent(std::string verb, Event* event);
   std::string runEvent(std::string verb, Entity* user);
+  bool hasEvent(std::string verb);
   bool matches(std::string name);
 
  protected:

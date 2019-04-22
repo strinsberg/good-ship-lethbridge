@@ -20,8 +20,12 @@ std::string Look::execute() {
   Entity* e = getEntity();
 
   std::string str("You see ");
-  if (e != nullptr)
-    return str + e->getSpec()->getDescription();
+  if (e != nullptr) {
+    if (e->hasEvent("look"))
+      return e->runEvent("look", player);
+    else
+      return str + e->getSpec()->getDescription();
+  }
 
   return "There is no " + noun;
 }

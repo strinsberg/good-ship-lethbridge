@@ -59,6 +59,14 @@ std::string Entity::runEvent(std::string verb, Entity* user) {
   return it->second->execute(user);
 }
 
+bool Entity::hasEvent(std::string verb) {
+  auto it = events.find(verb);
+  if (it == events.end())
+    return false;
+  else
+    return true;
+}
+
 bool Entity::matches(std::string name) {
   return spec->matches(name);
 }

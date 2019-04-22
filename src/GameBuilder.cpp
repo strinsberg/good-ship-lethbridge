@@ -11,6 +11,7 @@
 #include "ObjectBlueprint.h"
 #include "GameData.h"
 #include "Exceptions.h"
+#include "EventFactory.h"
 #include <sstream>
 #include <string>
 #include <fstream>
@@ -57,6 +58,10 @@ Game* GameBuilder::newGame(std::string name) {
   makeNpcs(blueprints, rooms);
 
   // make events
+  std::string eventData = getFileData("gameData/events.data");
+  makeBlueprints(eventData, blueprints);
+  EventFactory ef(blueprints, rooms);
+  ef.makeEvents();
 
   // Create player
   // Eventually make this something that comes from a text file as well
