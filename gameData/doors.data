@@ -2,7 +2,7 @@
 type=door,
 id=drcaptcom,
 name=common room door,
-description=a door,
+description=a door to the common room,
 here=rmcapt,
 there=rmcommon,
 }
@@ -10,7 +10,108 @@ there=rmcommon,
 type=door,
 id=drcomcapt,
 name=common room door,
-description=a door to the common room,
+description=a door to the captains room,
 here=rmcommon,
 there=rmcapt,
 }
+{
+type=door,
+id=drcomspan,
+name=spanner's room door,
+description=a door to spanner's room,
+here=rmcommon,
+there=rmspan,
+active=false,
+}
+{
+type=door,
+id=drcomhall,
+name=hall door,
+description=a door to the main hall,
+here=rmcommon,
+there=rmhall1,
+active=false,
+}
+{
+type=door,
+id=drhallcontrol,
+name=engine control room door,
+description=a door to the engine control room,
+here=rmhall1,
+there=rmcontrol,
+active=false,
+}
+{
+type=door,
+id=drhallcargo,
+name=cargo bay door,
+description=a door to the cargo bay,
+here=rmhall1,
+there=rmcargo,
+active=false,
+}
+{
+type=door,
+id=drhallcom,
+name=common room door,
+description=a door to the common room,
+here=rmhall1,
+there=rmcommon,
+}
+{
+type=door,
+id=drcontrolbay,
+name=engine bay door,
+description=a door to the engine bay,
+here=rmcontrol,
+there=rmengibay,
+}
+{
+type=door,
+id=drcontrolhall,
+name=hall door,
+description=a door to the main hall,
+here=rmcontrol,
+there=rmhall1,
+}
+{
+type=door,
+id=drbaycontrol,
+name=engine control room door,
+description=a door to the engine control room,
+here=rmengibay,
+there=rmcontrol,
+}
+{
+type=door,
+id=drcargospace,
+name=cargo airlock,
+description=an airlock to space.,
+here=rmcargo,
+there=rmspace1,
+}
+{
+type=door,
+id=drspacebridge,
+name=bridge airlock,
+description=an airlock to the bridge,
+here=rmspace1,
+there=rmbridge,
+}
+{
+type=door,
+id=drspacecargo,
+name=cargo bay airlock,
+description=an airlock to the cargo bay,
+here=rmspace1,
+there=rmcargo,
+}
+{
+type=door,
+id=drbridgespace,
+name=bridge airlock,
+description=an airlock to space,
+here=rmbridge,
+there=rmspace1,
+}
+

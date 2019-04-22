@@ -10,3 +10,45 @@ id=rmcommon,
 name=Common room,
 description=a good place for the crew to relax after a long shift.,
 }
+{
+type=room,
+id=rmspan,
+name=Clem Spanner's room,
+description=the room of the ships engineer. there is grease on everything.,
+}
+{
+type=room,
+id=rmhall1,
+name=Main hall,
+description=a hall that connects different parts of the ship. the door to the bridge looks smashed beyond repair.,
+}
+{
+type=room,
+id=rmcontrol,
+name=Engine control room,
+description=a room with all the controls for the engine and power systems.,
+}
+{
+type=room,
+id=rmengibay,
+name=Engine Bay,
+description=a large compartment to house the engines. it is filled with gamma radiation.,
+}
+{
+type=room,
+id=rmcargo,
+name=Cargo bay,
+description=where you store all your cargo. the disaster has toppled many containers.,
+}
+{
+type=room,
+id=rmspace1,
+name=Outer space,
+description=the middle of the milky way. a nearby star appears to be getting closer.,
+}
+{
+type=room,
+id=rmbridge,
+name=Bridge,
+description=the ships command bridge. red warning lights are flashing everywhere.,
+}
