@@ -15,6 +15,7 @@
 #include "ToggleActive.h"
 #include "Door.h"
 #include "MovePlayer.h"
+#include "EquipSuit.h"
 
 bool stob(const std::string& str) {
   return str == "true";
@@ -83,18 +84,25 @@ Event* EventFactory::makeToggleActive(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeMovePlayer(ObjectBlueprint* bp) {
-  std::string door = bp->getField("door");
-  Entity* ent = findEntity(door);
+  std::string doorId = bp->getField("door");
+  Entity* ent = findEntity(doorId);
 
-  Door* d = dynamic_cast<Door*>(ent);
-  MovePlayer* tog = new MovePlayer(bp->getField("id"), d);
+  Door* door = dynamic_cast<Door*>(ent);
+  MovePlayer* mp = new MovePlayer(bp->getField("id"), door);
 
-  addToOwner(tog, bp);
-  return tog;
+  addToOwner(mp, bp);
+  return mp;
 }
 
 Event* EventFactory::makeEquipSuit(ObjectBlueprint* bp) {
+  std::string suitId = bp->getField("suit");
+  Entity* ent = findEntity(suitId);
 
+  Suit* suit = dynamic_cast<Suit*>(ent);
+  EquipSuit* es = new EquipSuit(bp->getField("id"), suit);
+
+  addToOwner(es, bp);
+  return es;
 }
 
 
