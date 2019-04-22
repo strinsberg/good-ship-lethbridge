@@ -16,9 +16,23 @@
 #include "Door.h"
 #include "MovePlayer.h"
 #include "EquipSuit.h"
+#include "Conditional.h"
+#include "Question.h"
+#include "Protected.h"
+#include "HasItem.h"
+#include "Atmosphere.h"
 
 bool stob(const std::string& str) {
   return str == "true";
+}
+
+Atmosphere sToAtmos(std::string& str) {
+  if (str == "radiation")
+    return Atmosphere::RADIATION;
+  else if (str == "space")
+    return Atmosphere::SPACE;
+  else
+    return Atmosphere::OXYGEN;
 }
 
 EventFactory::EventFactory(std::vector<ObjectBlueprint*>& blue,
@@ -128,7 +142,30 @@ Event* EventFactory::makeInteraction(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeConditionalEvent(ObjectBlueprint* bp) {
+  ConditionalEvent* ce = new ConditionalEvent(bp->getField("id"));
+  addToOwner(ce, bp);
+  return ce;
+}
 
+void EventFactory::makeCondition(ObjectBlueprint* bp) {
+  Conditional* cond;
+  std::string subtype = bp->getField("subtype");
+  std::string id = bp->getField("id");
+  if (subtype == "question") {
+    cond = new Question(bp->getField("question"), bp->getField("answer"));
+  } else if (subtype == "protected") {
+    std::string atmos = bp->getField("atmosphere");
+    Atmosphere atmosphere = sToAtmos(atmos);
+    cond = new Protected(atmosphere);
+  } else if (subtype == "hasitem") {
+    cond = new HasItem(bp->getField("item"));
+  } else {
+    throw unfinished_object_error("Error: conditional doens't have valid subtype! ID: " + id + " subtype: " + subtype);
+  }
+
+  Event* event = events.find(bp->getField("event"))->second;
+  ConditionalEvent* owner = dynamic_cast<ConditionalEvent*>(event);
+  owner->setCondition(cond);
 }
 
 // Private ///////////////////////////////////////////////////////////////////

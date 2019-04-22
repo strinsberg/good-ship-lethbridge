@@ -9,6 +9,7 @@
 #include "ObjectBlueprint.h"
 #include "Room.h"
 #include "Event.h"
+#include "Conditional.h"
 #include <vector>
 #include <map>
 #include <string>
@@ -34,6 +35,9 @@ class EventFactory
     Event* makeStructuredEvent(ObjectBlueprint* bp);
     Event* makeInteraction(ObjectBlueprint* bp);
     Event* makeConditionalEvent(ObjectBlueprint* bp);
+
+    // other event related objects
+    void makeCondition(ObjectBlueprint* bp);
 
   protected:
     std::vector<ObjectBlueprint*>& blueprints;

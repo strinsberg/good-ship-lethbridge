@@ -6,6 +6,8 @@
 #ifndef CALRISSIEN_2720_ATMOSPHERE_H
 #define CALRISSIEN_2720_ATMOSPHERE_H
 
+#include <string>
+
 /**
   * Enumeration for types of atmosphere
   */
