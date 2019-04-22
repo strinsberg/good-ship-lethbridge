@@ -9,15 +9,16 @@
 #include "OwnedEvent.h"
 
 
-class ToggleActive : public OwnedEvent
+class ToggleActive : public Event
 {
   public:
-    ToggleActive(std::string id, Entity* owner, bool oneTime=true);
+    ToggleActive(std::string id, Entity* target, bool oneTime=true);
     virtual ~ToggleActive();
 
-    std::string execute(Entity* target);
+    std::string execute(Entity* affected);
 
   protected:
+    Entity* target;
     bool once;
 
   private:

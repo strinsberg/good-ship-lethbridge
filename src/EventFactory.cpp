@@ -12,6 +12,7 @@
 #include "StructuredEvents.h"
 #include "ConditionalEvent.h"
 #include "TransferItem.h"
+#include "ToggleActive.h"
 
 bool stob(const std::string& str) {
   return str == "true";
@@ -57,7 +58,7 @@ Event* EventFactory::makeKill(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeTransferItem(ObjectBlueprint* bp) {
-  std::string other = bp->getField("owner");
+  std::string other = bp->getField("other");
   Entity* ent = findEntity(other);
 
   Container* con = dynamic_cast<Container*>(ent);
@@ -69,7 +70,14 @@ Event* EventFactory::makeTransferItem(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeToggleActive(ObjectBlueprint* bp) {
+  std::string target = bp->getField("target");
+  Entity* ent = findEntity(target);
 
+  bool once = stob(bp->getField("once"));
+  ToggleActive* tog = new ToggleActive(bp->getField("id"), ent, once);
+
+  addToOwner(tog, bp);
+  return tog;
 }
 
 Event* EventFactory::makeMovePlayer(ObjectBlueprint* bp) {

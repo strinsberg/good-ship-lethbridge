@@ -5,18 +5,18 @@
 
 #include "ToggleActive.h"
 
-ToggleActive::ToggleActive(std::string id, Entity* owner, bool oneTime)
-    : OwnedEvent(id, owner), once(oneTime) {}
+ToggleActive::ToggleActive(std::string id, Entity* targ, bool oneTime)
+    : Event(id), target(targ), once(oneTime) {}
 
 ToggleActive::~ToggleActive() {}
 
-std::string ToggleActive::execute(Entity* target) {
+std::string ToggleActive::execute(Entity* affected) {
   if (!done) {
-    bool active = owner->getState()->getActive();
+    bool active = target->getState()->getActive();
     if (active)
-      owner->getState()->setActive(false);
+      target->getState()->setActive(false);
     else
-      owner->getState()->setActive(true);
+      target->getState()->setActive(true);
     if (once)
       done = true;
   }
