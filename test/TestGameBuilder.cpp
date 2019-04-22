@@ -57,3 +57,13 @@ TEST(GameBuilderTests, DISABLED_npc_hall) {
   EXPECT_EQ("barbara mcdougal", r->searchById("npcbarb")->getSpec()->getName());
   delete g;
 }
+
+TEST(GameBuilderTests, event_room1) {
+  GameBuilder gb;
+  Game* g = gb.newGame("steve");
+  Player* p = g->getPlayer();
+  Room* r = g->getRoom("rmcapt");
+  Entity* e = r->searchById("captwin");
+  EXPECT_EQ("you see endless space. a small cloud of debris is floating neaby.", e->runEvent("look", p));
+  delete g;
+}
