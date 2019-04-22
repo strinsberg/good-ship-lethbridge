@@ -48,8 +48,7 @@ void EventFactory::makeEvents() {
 
 // Base Events
 Event* EventFactory::makeInform(ObjectBlueprint* bp) {
-  std::string id = bp->getField("id");
-  Inform* inf = new Inform(id, bp->getField("message"));
+  Inform* inf = new Inform(bp->getField("id"), bp->getField("message"));
   addToOwner(inf, bp);
   return inf;
 }
@@ -108,15 +107,24 @@ Event* EventFactory::makeEquipSuit(ObjectBlueprint* bp) {
 
 // Composite events
 Event* EventFactory::makeEventGroup(ObjectBlueprint* bp) {
-
+  EventGroup* eg = new EventGroup(bp->getField("id"));
+  addToOwner(eg, bp);
+  return eg;
 }
 
 Event* EventFactory::makeStructuredEvent(ObjectBlueprint* bp) {
-
+  bool repeats = stob(bp->getField("repeats"));
+  StructuredEvents* se = new StructuredEvents(bp->getField("id"), repeats);
+  addToOwner(se, bp);
+  return se;
 }
 
 Event* EventFactory::makeInteraction(ObjectBlueprint* bp) {
-
+  Interaction* inter = new Interaction(bp->getField("id"));
+  bool breakout = stob(bp->getField("breakout"));
+  inter->setBreakout(breakout);
+  addToOwner(inter, bp);
+  return inter;
 }
 
 Event* EventFactory::makeConditionalEvent(ObjectBlueprint* bp) {
