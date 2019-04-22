@@ -15,14 +15,14 @@
 class TransferItem : public Event
 {
   public:
-    TransferItem(std::string id, Container* owner,
+    TransferItem(std::string id, Container* other,
                  std::string itemId, bool toTarget=false);
     virtual ~TransferItem();
 
     std::string execute(Entity* target);
 
   private:
-    Container* owner;  // does not own this
+    Container* other;  // does not own this
     std::string itemId;
     bool toTarget;
 

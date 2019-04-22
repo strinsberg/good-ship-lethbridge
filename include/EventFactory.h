@@ -41,6 +41,7 @@ class EventFactory
     std::map<std::string, Event*> events;
 
   private:
+    Entity* findEntity(std::string entityId);
     void addToOwner(Event* event, ObjectBlueprint* bp);
 
     EventFactory(const EventFactory& other);

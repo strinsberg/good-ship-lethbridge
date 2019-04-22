@@ -11,6 +11,11 @@
 #include "EventGroup.h"
 #include "StructuredEvents.h"
 #include "ConditionalEvent.h"
+#include "TransferItem.h"
+
+bool stob(const std::string& str) {
+  return str == "true";
+}
 
 EventFactory::EventFactory(std::vector<ObjectBlueprint*>& blue,
                            std::map<std::string, Room*>& rms)
@@ -52,7 +57,15 @@ Event* EventFactory::makeKill(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeTransferItem(ObjectBlueprint* bp) {
+  std::string other = bp->getField("owner");
+  Entity* ent = findEntity(other);
 
+  Container* con = dynamic_cast<Container*>(ent);
+  bool toTarget = stob(bp->getField("totarget"));
+  TransferItem* ti = new TransferItem(bp->getField("id"), con, bp->getField("itemId"), toTarget);
+
+  addToOwner(ti, bp);
+  return ti;
 }
 
 Event* EventFactory::makeToggleActive(ObjectBlueprint* bp) {
@@ -86,6 +99,19 @@ Event* EventFactory::makeConditionalEvent(ObjectBlueprint* bp) {
 }
 
 // Private ///////////////////////////////////////////////////////////////////
+
+Entity* EventFactory::findEntity(std::string entityId) {
+  for (auto it : rooms) {
+    if (it.second->getSpec()->getId() == entityId)
+      return it.second;
+
+    Entity* ent = it.second->searchById(entityId);
+    if (ent != nullptr) {
+      return ent;
+    }
+  }
+  return nullptr;
+}
 
 void EventFactory::addToOwner(Event* event, ObjectBlueprint* bp) {
   std::string ownerId = bp->getField("entity");

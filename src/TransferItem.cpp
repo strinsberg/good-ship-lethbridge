@@ -6,9 +6,9 @@
 #include "TransferItem.h"
 #include "Container.h"
 
-TransferItem::TransferItem(std::string id, Container* own,
+TransferItem::TransferItem(std::string id, Container* o,
                  std::string iID, bool to)
-      : Event(id), owner(own), itemId(iID), toTarget(to) {}
+      : Event(id), other(o), itemId(iID), toTarget(to) {}
 
 TransferItem::~TransferItem() {}
 
@@ -19,7 +19,7 @@ std::string TransferItem::execute(Entity* target) {
   if (Container* con = dynamic_cast<Container*>(target)) {
     Entity* item;
     if (toTarget) {
-      item = owner->searchAndRemove(itemId);
+      item = other->searchAndRemove(itemId);
       if (item != nullptr) {
         con->addEntity(item);
         done = true;
@@ -30,7 +30,7 @@ std::string TransferItem::execute(Entity* target) {
     } else {
       item = con->searchAndRemove(itemId);
       if (item != nullptr) {
-        owner->addEntity(item);
+        other->addEntity(item);
         done = true;
         return item->getSpec()->getDescription() + " was taken from you";
       } else {

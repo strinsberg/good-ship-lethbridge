@@ -18,10 +18,6 @@
 using std::map;
 using std::string;
 
-bool stob(const std::string& str) {
-  return str == "true";
-}
-
 Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()),
     player(nullptr), in(is), out(os), running(true) {
   // Create a player with a blank spec
