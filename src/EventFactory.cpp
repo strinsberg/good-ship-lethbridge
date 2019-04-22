@@ -42,22 +42,42 @@ EventFactory::EventFactory(std::vector<ObjectBlueprint*>& blue,
 EventFactory::~EventFactory() {}
 
 void EventFactory::makeEvents() {
-  // for each blueprint make an event
-  // add it to the events map
+  // Convert the blueprints into objects
   for (auto bp : blueprints) {
-    Event* event;
+    Event* event = nullptr;
     std::string type = bp->getType();
     if (type == "inform")
       event = makeInform(bp);
     else if (type == "kill")
       event = makeKill(bp);
+    else if (type == "transfer")
+      event = makeTransferItem(bp);
+    else if (type == "toggle")
+      event = makeToggleActive(bp);
+    else if (type == "moveplayer")
+      event = makeMovePlayer(bp);
+    else if (type == "equipsuit")
+      event = makeEquipSuit(bp);
+    else if (type == "group")
+      event = makeEventGroup(bp);
+    else if (type == "structured")
+      event = makeStructuredEvent(bp);
+    else if (type == "interaction")
+      event = makeInteraction(bp);
+    else if (type == "conditionalEvent")
+      event = makeConditionalEvent(bp);
+    else if (type == "condition")
+      makeCondition(bp);
     else
       throw unfinished_object_error("Error: Event type not found! ID: " + bp->getField("id") + " Type: " + type);
+
     // Add to events map for easy lookup while building
-    events[bp->getField("id")] = event;
+    if (type != "condition")
+      events[bp->getField("id")] = event;
   }
 
   // Go through and deal with all subscriptions
+
 }
 
 // Base Events
