@@ -2,8 +2,8 @@
 #include "Player.h"
 #include "Door.h"
 
-MovePlayer::MovePlayer(std::string id, Door* owner)
-    : Event(id), door(owner) {}
+MovePlayer::MovePlayer(std::string id, Door* mover)
+    : Event(id), door(mover) {}
 
 MovePlayer::~MovePlayer() {}
 

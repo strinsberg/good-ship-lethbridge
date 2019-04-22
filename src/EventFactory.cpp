@@ -13,6 +13,8 @@
 #include "ConditionalEvent.h"
 #include "TransferItem.h"
 #include "ToggleActive.h"
+#include "Door.h"
+#include "MovePlayer.h"
 
 bool stob(const std::string& str) {
   return str == "true";
@@ -81,7 +83,14 @@ Event* EventFactory::makeToggleActive(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeMovePlayer(ObjectBlueprint* bp) {
+  std::string door = bp->getField("door");
+  Entity* ent = findEntity(door);
 
+  Door* d = dynamic_cast<Door*>(ent);
+  MovePlayer* tog = new MovePlayer(bp->getField("id"), d);
+
+  addToOwner(tog, bp);
+  return tog;
 }
 
 Event* EventFactory::makeEquipSuit(ObjectBlueprint* bp) {

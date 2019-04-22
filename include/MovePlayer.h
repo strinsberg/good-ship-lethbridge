@@ -9,7 +9,7 @@
 class MovePlayer : public Event
 {
   public:
-    MovePlayer(std::string id, Door* destination);
+    MovePlayer(std::string id, Door* mover);
     virtual ~MovePlayer();
 
     std::string execute(Entity* target);
