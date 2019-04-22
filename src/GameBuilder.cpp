@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-11
+ * @date 2019-03-11, 2019-04-20
  */
 
 #include "GameBuilder.h"
@@ -138,6 +137,22 @@ void GameBuilder::setUpEntity(Entity* entity, ObjectBlueprint* bp) {
     state->setHidden(stob(hid));
 }
 
+Container* GameBuilder::findHere(std::map<std::string, Room*>& rooms, std::string ownerId) {
+  for (auto it : rooms) {
+    // If the owner is a room
+    if (it.second->getSpec()->getId() == ownerId)
+      return it.second;
+
+    // If the owner is some other container
+    Entity* ent = it.second->searchById(ownerId);
+    if (ent != nullptr) {
+      Container* con = dynamic_cast<Container*>(ent);
+      return con;
+    }
+  }
+  return nullptr;
+}
+
 // Factory methods ///////////////////////////////////////////////////////////
 
 void GameBuilder::makeRooms(std::vector<ObjectBlueprint*>& blueprints,
@@ -167,7 +182,9 @@ void GameBuilder::makeDoors(std::vector<ObjectBlueprint*>& blueprints,
 void GameBuilder::makeContainers(std::vector<ObjectBlueprint*>& blueprints,
                                  std::map<std::string, Room*>& rooms) {
   for (auto bp : blueprints) {
-    Room* here = rooms.find(bp->getField("here"))->second;
+    // does not adequately address what happens when an entity is
+    // in a container and not just a room
+    Container* here = findHere(rooms, bp->getField("here"));
     Container* container = new Container(bp->getField("id"));
     setUpEntity(container, bp);
     here->addEntity(container);
@@ -177,7 +194,7 @@ void GameBuilder::makeContainers(std::vector<ObjectBlueprint*>& blueprints,
 void GameBuilder::makeNpcs(std::vector<ObjectBlueprint*>& blueprints,
                                  std::map<std::string, Room*>& rooms) {
   for (auto bp : blueprints) {
-    Room* here = rooms.find(bp->getField("here"))->second;
+    Container* here = findHere(rooms, bp->getField("here"));
     Npc* npc = new Npc(bp->getField("id"));
     setUpEntity(npc, bp);
     npc->getState()->setObtainable(false);
@@ -188,7 +205,7 @@ void GameBuilder::makeNpcs(std::vector<ObjectBlueprint*>& blueprints,
 void GameBuilder::makeEntities(std::vector<ObjectBlueprint*>& blueprints,
                                  std::map<std::string, Room*>& rooms) {
   for (auto bp : blueprints) {
-    Room* here = rooms.find(bp->getField("here"))->second;
+    Container* here = findHere(rooms, bp->getField("here"));
     Entity* ent;
 
     if (false) // add in other types like suit

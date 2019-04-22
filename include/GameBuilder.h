@@ -1,6 +1,6 @@
 /**
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-20
  */
 
 #ifndef GAMEBUILDER_H
@@ -27,6 +27,7 @@ class GameBuilder {
   void makeBlueprints(std::string data, std::vector<ObjectBlueprint*>& blueprints);
   bool stob(const std::string& str);
   void setUpEntity(Entity* entity, ObjectBlueprint* bp);
+  Container* findHere(std::map<std::string, Room*>& rooms, std::string ownerId);
 
   void makeRooms(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
   void makeDoors(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);

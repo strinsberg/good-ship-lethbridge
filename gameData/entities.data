@@ -11,7 +11,7 @@ type=entity,
 id=captcomp,
 name=computer,
 description=a personal computer terminal,
-here=rmcapt,
+here=captdesk,
 obtainable=false,
 }
 {

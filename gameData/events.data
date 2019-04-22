@@ -1,0 +1,21 @@
+{
+type=kill,
+id=sleepcaptbed,
+message=you sleep through the whole disaster,
+entity=captbed,
+verb=use,
+}
+{
+type=inform,
+id=captcompinform,
+message=Ship status:    NOT AVAILABLE\n\nALL CREW RETURN TO COMBAT POSITIONS!,
+entity=captcomp,
+verb=use,
+}
+{
+type=inform,
+id=captcompinform,
+message=you see endless space. a small cloud of debris is floating neaby.,
+entity=captwin,
+verb=look,
+}
