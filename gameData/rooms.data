@@ -1,0 +1,12 @@
+{
+type=room,
+id=r1,
+name=Captain's room,
+description=The best room on the ship. You are the captain after all!,
+}
+{
+type=room,
+id=r2,
+name=Common room,
+description=a good place for the crew to relax after a long shift.,
+}

@@ -24,7 +24,7 @@ class GameBuilder {
 
  private:
   std::string getFileData(std::string filename);
-  void makeBlueprints(std::string data, std::vector<ObjectBlueprint*> blueprints);
+  void makeBlueprints(std::string data, std::vector<ObjectBlueprint*>& blueprints);
   bool stob(const std::string& str);
   void setUpEntity(Entity* entity, ObjectBlueprint* bp);
 

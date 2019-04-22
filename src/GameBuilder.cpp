@@ -4,24 +4,17 @@
  * @date 2019-03-11
  */
 
-#include <string>
 #include "GameBuilder.h"
 #include "Game.h"
-#include "Entity.h"
-#include "Entity.h"
+#include "Room.h"
 #include "Door.h"
-#include "Kill.h"
-#include "Inform.h"
-#include "Interaction.h"
-#include "Npc.h"
-#include "EventGroup.h"
-#include "StructuredEvents.h"
 #include "ObjectBlueprint.h"
 #include "GameData.h"
 #include "Exceptions.h"
 #include <sstream>
 #include <string>
 #include <fstream>
+#include <iostream>
 
 GameBuilder::GameBuilder() {}
 
@@ -33,18 +26,22 @@ Game* GameBuilder::newGame(std::string name) {
   std::vector<ObjectBlueprint*> blueprints;
 
   // make rooms
-  std::map<std::string, Room*> rooms;
-  std::string roomData = getFileData("room.data");
+  std::map<std::string, Room*>& rooms = g->getRooms();
+  std::string roomData = getFileData("gameData/rooms.data");
   makeBlueprints(roomData, blueprints);
   makeRooms(blueprints, rooms);
 
   // make doors
-  std::string doorData = getFileData("door.data");
+  std::string doorData = getFileData("gameData/doors.data");
   makeBlueprints(doorData, blueprints);
   makeDoors(rooms, blueprints);
 
   // Connect all the objects together
 
+  Player* p = new Player();
+  p->setCurrentRoom(rooms.find("r1")->second);
+  p->getSpec()->setName(name);
+  g->setPlayer(p);
 
   // Return the game
   return g;
@@ -67,15 +64,15 @@ std::string GameBuilder::getFileData(std::string filename) {
   return data.str();
 }
 
-void GameBuilder::makeBlueprints(std::string data, std::vector<ObjectBlueprint*> blueprints) {
+void GameBuilder::makeBlueprints(std::string data, std::vector<ObjectBlueprint*>& blueprints) {
   GameData gd(data);
   blueprints.clear();
 
   std::string next = gd.nextObject();
   while (next != GameData::eof()) {
-    next = gd.nextObject();
     ObjectBlueprint* bp = new ObjectBlueprint(next);
     blueprints.push_back(bp);
+    next = gd.nextObject();
   }
 }
 
@@ -84,6 +81,7 @@ bool GameBuilder::stob(const std::string& str) {
 }
 
 void GameBuilder::setUpEntity(Entity* entity, ObjectBlueprint* bp) {
+
   EntitySpec* spec = entity->getSpec();
   std::string id = bp->getField("id");
   std::string name = bp->getField("name");

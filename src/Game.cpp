@@ -48,8 +48,8 @@ void Game::setPlayer(Player* p) {
   player = p;
 }
 
-Room* Game::getRoom(const std::string& name) {
-  auto it = rooms.find(toLower(name));
+Room* Game::getRoom(const std::string& id) {
+  auto it = rooms.find(toLower(id));
   if (it == rooms.end())
     return nullptr;
   return it->second;

@@ -6,12 +6,25 @@
 
 #include "GameBuilder.h"
 #include "Game.h"
+#include "Player.h"
+#include "Room.h"
 #include "gtest/gtest.h"
 
-// Add to tests as you know what you are doing in each room
-TEST(GameBuilderTests, DISABLED_one_room_and_player) {
-  Game* g = GameBuilder().newGame("Steve");
-  Room* r = g->getRoom("Captain's Room");
-  EXPECT_EQ("Captain's Room", r->getSpec()->getName());
-  delete g;
+// All these tests run based on the default gameData
+// If the game data is changed for the first couple rooms
+// The tests will need to be altered.
+
+TEST(GameBuilderTests, start_in_room1) {
+  GameBuilder gb;
+  Game* g = gb.newGame("steve");
+  Player* p = g->getPlayer();
+  EXPECT_EQ(g->getRoom("r1"), p->getCurrentRoom());
+}
+
+TEST(GameBuilderTests, door_in_room1) {
+  GameBuilder gb;
+  Game* g = gb.newGame("steve");
+  Player* p = g->getPlayer();
+  Room* r = g->getRoom("r1");
+  EXPECT_EQ("common room door", r->searchById("r1r2")->getSpec()->getName());
 }

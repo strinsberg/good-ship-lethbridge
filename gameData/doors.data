@@ -1,0 +1,8 @@
+{
+type=door,
+id=r1r2,
+name=common room door,
+description=a door,
+here=r1,
+there=r2,
+}
