@@ -1,38 +1,36 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-23
  */
 
 #include "Container.h"
 #include "Entity.h"
-#include "EntitySpec.h"
-#include "EntityState.h"
 #include "Inform.h"
-#include "Entity.h"
 #include "Room.h"
 #include "Npc.h"
 #include <string>
-#include <gtest/gtest.h>
-
+#include "gtest/gtest.h"
 
 
 TEST(TestContainer, describe) {
   Container c("id123");
-  EntitySpec * e = new EntitySpec();
-  e->setDescription("A fancy box embossed with your name");
-  c.setSpec(e);
+  c.getSpec()->setDescription("A fancy box embossed with your name");
+
   Entity* i = new Entity();
   i->getSpec()->setId("id123");
   i->getSpec()->setName("watch");
   i->getSpec()->setDescription("a jeweled watch");
   c.addEntity(i);
+
   Entity* i2 = new Entity();
   i2->getSpec()->setId("id456");
   i2->getSpec()->setName("biscuit");
   i2->getSpec()->setDescription("a slimy biscuit");
   c.addEntity(i2);
-  EXPECT_EQ("A fancy box embossed with your name\nwatch -> a jeweled watch\nbiscuit -> a slimy biscuit", c.describe());
+
+  EXPECT_EQ("A fancy box embossed with your name\n"
+            "watch -> a jeweled watch\nbiscuit -> a slimy biscuit",
+            c.describe());
 }
 
 TEST(TestContainer, search_not_find) {
@@ -44,24 +42,26 @@ TEST(TesrContainer, search_find_addEntity) {
   Container c("id123");
 
   Entity* e = new Container("id923427");
-  EntitySpec *s = new EntitySpec();
-  s->setName("container");
-  e->setSpec(s);
+  e->getSpec()->setName("container");
 
   c.addEntity(e);
   std::string name = e->getSpec()->getName();
+
   EXPECT_EQ(e, c.search(name));
 }
 
 TEST(TestContainer, search_NPC) {
   Container* c = new Container("id345");
+
   Npc* i = new Npc("npc123");
   i->getSpec()->setId("id456");
+
   Entity* e = new Entity();
   e->getSpec()->setId("id123");
   e->getSpec()->setName("box");
   i->addEntity(e);
   c->addEntity(i);
+
   EXPECT_EQ(nullptr, c->search("box"));
   delete c;
 }
@@ -71,8 +71,10 @@ TEST(TestContainer, search_nested) {
   Entity* i = new Entity();
   i->getSpec()->setName("box");
   c->addEntity(i);
+
   Room* r = new Room("rm2344");
   r->addEntity(c);
+
   EXPECT_EQ(i, r->search("box"));
   delete r;
 }

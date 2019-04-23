@@ -1,12 +1,8 @@
-/**
- * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
- */
-
-#ifndef CALRISSIEN_2720_CONTAINER_H
-#define CALRISSIEN_2720_CONTAINER_H
+#ifndef DGSL_CONTAINER_H
+#define DGSL_CONTAINER_H
 
 #include "Entity.h"
+#include <utility>
 #include <string>
 #include <map>
 
@@ -21,28 +17,29 @@ class Container: public Entity {
  public:
   /**
     * Create a container with a given id and blank spec and state.
+    * @param id a unique id.
     */
   Container(std::string id);
   virtual ~Container();
 
   /**
-    * Give the description of the container and everything it has in it.
+    * Give the description of the container and it's top level contents.
     */
   virtual std::string describe() const;
 
   /**
     * See if an entity with the given name is in the container.
     * Searches sub containers. Does not transfer ownership.
-    * @param name the name of the entity to search for
-    * @return a pointer to the entity or nullptr
+    * @param name a word or phrase that matches an entity.
+    * @return a pointer to the entity or nullptr.
     */
   Entity* search(std::string name) const;
 
   /**
     * See if an entity with the given id is in the container.
     * Searches sub containers. Does not transfer ownership.
-    * @param id the id of the entity to search for
-    * @return a pointer to the entity or nullptr
+    * @param id the id of the entity to search for.
+    * @return a pointer to the entity or nullptr.
     */
   Entity* searchById(std::string id);
 
@@ -53,34 +50,42 @@ class Container: public Entity {
   void addEntity(Entity* entity);
 
   /**
-    * Remove an entity from the container. Transfers ownership to caller.
-    * Does not go into sub containers.
-    * @param entity the entity to remove
+    * Remove an entity from the container. Does not go into sub containers.
+    * Use this when you already have a pointer to the container and the
+    * entity. Use searchAndRemove if you have an entity id and you don't know
+    * for sure that it is in the container (in a sub container).
+    * @param entity a pointer to the entity to remove
     */
   void removeEntity(Entity* entity);
 
   /**
     * Remove an entity from the container, if it is there. Transfers ownership.
-    * Searches and removes from sub containers.
-    * @param id the id of the entity to remove
-    * @return the entity or nullptr
+    * Searches and removes from sub containers. Use this when you want to look
+    * for an entity by id in a container and then remove it. You don't need to
+    * know if it is in a sub container.
+    * @param id the id of the entity to remove.
+    * @return the entity or nullptr.
     */
   Entity* searchAndRemove(std::string id);
 
   /**
     * Returns an iterator to the beginning of inventory.
-    * @return a amp iterator to beginning of the containers inventory.
+    * @return a map iterator to beginning of the containers inventory.
     */
   std::map<std::string, Entity*>::iterator begin();
 
   /**
     * Returns an iterator to the end of inventory.
-    * @return a amp iterator to end of the containers inventory.
+    * @return a map iterator to end of the containers inventory.
     */
   std::map<std::string, Entity*>::iterator end();
 
  protected:
-  std::map<std::string, Entity*> inventory;  // owns the entities it contains
+  /**
+    * Storage for all the entities in the container. Key is entity id.
+    * These are owned by the container.
+    */
+  std::map<std::string, Entity*> inventory;
 
  private:
   std::pair<Container*, Entity*> findEntity(std::string id);

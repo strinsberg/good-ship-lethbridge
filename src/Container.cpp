@@ -7,6 +7,7 @@
 #include "Entity.h"
 #include "Game.h"  // eventually move toLower to a library
 #include "Npc.h"
+#include <utility>
 #include <string>
 #include <sstream>
 #include <map>
@@ -31,7 +32,8 @@ std::string Container::describe() const {
   // Add descriptions for all contained entities at the top level only
   size_t i = 0;
   for (auto e : inventory) {
-    ss << e.second->getSpec()->getName() << " -> " << e.second->getSpec()->getDescription();
+    ss << e.second->getSpec()->getName() << " -> ";
+    ss << e.second->getSpec()->getDescription();
     if (i < inventory.size() - 1)
       ss << "\n";
     i++;
