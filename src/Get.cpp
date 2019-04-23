@@ -1,11 +1,11 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-21
  */
 
 #include "Get.h"
 #include <string>
+#include <iostream>
 
 Get::Get(Player* p) : Action(p) {}
 Get::~Get() {}
@@ -15,7 +15,8 @@ std::string Get::execute() {
     return "You already have the " + noun;
   }
 
-  Entity* e = getEntity();
+  Entity* e = player->getCurrentRoom()->search(noun);
+  //std::cout << e->getSpec()->getName() << " " << e->getState() << " "<< e->getState()->getObtainable() << std::endl;
 
   if (e != nullptr) {
     if (!e->getState()->getObtainable()) {

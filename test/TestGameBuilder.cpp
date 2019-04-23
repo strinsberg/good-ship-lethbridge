@@ -48,12 +48,12 @@ TEST(GameBuilderTests, entity_room1) {
   delete g;
 }
 
-TEST(GameBuilderTests, DISABLED_npc_hall) {
+TEST(GameBuilderTests, npc_hall) {
   GameBuilder gb;
   Game* g = gb.newGame("steve");
   Player* p = g->getPlayer();
   Room* r = g->getRoom("rmhall1");
-  EXPECT_EQ("barbara mcdougal", r->searchById("npcbarb")->getSpec()->getName());
+  EXPECT_EQ("barbara mcdougal", r->searchById("bmcdoug")->getSpec()->getName());
   delete g;
 }
 

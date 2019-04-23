@@ -22,7 +22,7 @@ Container::~Container() {
   }
 }
 
-std::string Container::describe()const {
+std::string Container::describe() const {
   std::stringstream ss;
 
   ss << spec->getDescription();
@@ -31,7 +31,7 @@ std::string Container::describe()const {
 
   size_t i = 0;
   for (auto e : inventory) {
-    ss << "There is " << e.second->getSpec()->getDescription();
+    ss << e.second->describe();
     if (i < inventory.size() - 1)
       ss << "\n";
     i++;

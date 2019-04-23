@@ -38,7 +38,7 @@ type=entity,
 id=crewmanifest,
 name=crew manifest,
 description=information about the ships crew.,
-here=endtable,
+here=rmcapt,
 }
 {
 type=entity,

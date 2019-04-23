@@ -82,7 +82,7 @@ TEST(LookTests, execute_just_look) {
   p->setCurrentRoom(&r);
 
   l.setNoun("");
-  EXPECT_EQ("Location: This room\nA regular room like you've seen before\nThere is a box",
+  EXPECT_EQ("Location: This room\nA regular room like you've seen before\na box",
             l.execute());
   delete p;
 }

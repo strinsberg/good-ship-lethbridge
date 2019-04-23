@@ -24,7 +24,8 @@ Entity::~Entity() {
 }
 
 std::string Entity::describe() const {
-  return spec->getDescription();
+  std::cout << state->getObtainable() << std::endl;
+  return spec->getName() + " -> " + spec->getDescription();
 }
 
 EntitySpec* Entity::getSpec() const {

@@ -19,7 +19,8 @@ TEST(EntityTests, constructor) {
 TEST(EntityTests, describe) {
   Entity e;
   e.getSpec()->setDescription("Healthy food");
-  EXPECT_EQ("Healthy food", e.describe());
+  e.getSpec()->setName("Apple");
+  EXPECT_EQ("Apple -> Healthy food", e.describe());
 }
 
 TEST(EntityTests, set_get_spec) {

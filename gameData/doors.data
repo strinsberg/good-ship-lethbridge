@@ -36,6 +36,16 @@ there=rmhall1,
 active=false,
 }
 
+// spanners room ////////////////////////////////////////////////////////////
+{
+type=door,
+id=drspancom,
+name=common room door,
+description=a door to the common room,
+here=rmspan,
+there=rmcommon,
+}
+
 // hall /////////////////////////////////////////////////////////////////////
 {
 type=door,

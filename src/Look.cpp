@@ -24,7 +24,7 @@ std::string Look::execute() {
     if (e->hasEvent("look"))
       return e->runEvent("look", player);
     else
-      return str + e->getSpec()->getDescription();
+      return str + e->describe();
   }
 
   return "There is no " + noun;

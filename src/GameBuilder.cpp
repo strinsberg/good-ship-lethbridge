@@ -112,7 +112,7 @@ void GameBuilder::makeBlueprints(std::string data, std::vector<ObjectBlueprint*>
   }
 }
 
-bool GameBuilder::stob(const std::string& str) {
+bool GameBuilder::stob(std::string str) {
   return str == "true";
 }
 
@@ -142,6 +142,8 @@ void GameBuilder::setUpEntity(Entity* entity, ObjectBlueprint* bp) {
     state->setObtainable(stob(obt));
   if (hid != ObjectBlueprint::null())
     state->setHidden(stob(hid));
+
+  std::cout << name << " " << state->getActive() << " " << state->getObtainable() << " " << state->getHidden() << std::endl;
 }
 
 Container* GameBuilder::findHere(std::map<std::string, Room*>& rooms, std::string ownerId) {

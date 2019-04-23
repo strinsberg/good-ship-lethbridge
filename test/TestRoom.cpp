@@ -55,8 +55,13 @@ TEST(RoomTests, describe) {
   spec->setDescription("It's your room!");
   r.setSpec(spec);
 
+  Entity* e = new Entity("id123");
+  e->getSpec()->setDescription("something fun");
+  e->getSpec()->setName("party");
+  r.addEntity(e);
+
   EXPECT_EQ("Location: Captain's Room\n"
-            "It's your room!", r.describe());
+            "It's your room!\nparty -> something fun", r.describe());
 }
 
 TEST(RoomTests, set_get_atmosphere) {

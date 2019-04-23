@@ -25,7 +25,7 @@ class GameBuilder {
  private:
   std::string getFileData(std::string filename);
   void makeBlueprints(std::string data, std::vector<ObjectBlueprint*>& blueprints);
-  bool stob(const std::string& str);
+  bool stob(std::string str);
   void setUpEntity(Entity* entity, ObjectBlueprint* bp);
   Container* findHere(std::map<std::string, Room*>& rooms, std::string ownerId);
   Atmosphere sToAtmos(std::string str);
