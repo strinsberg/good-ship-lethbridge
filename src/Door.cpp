@@ -10,7 +10,9 @@
 #include <typeinfo>
 #include <string>
 
-Door::Door(std::string id, Room* h, Room* d) : Entity(id), destination(d), here(h) {
+
+Door::Door(std::string id, Room* h, Room* d)
+    : Entity(id), destination(d), here(h) {
   addEvent("use", new MovePlayer("hidden1472342", this));
 }
 

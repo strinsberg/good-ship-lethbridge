@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-12
+ * @date 2019-03-12, 2019-04-23
  */
 
 #include "Door.h"
@@ -14,6 +13,7 @@
 #include "Use.h"
 #include <string>
 #include "gtest/gtest.h"
+
 
 TEST(DoorTests, describe) {
   Door d("id123", nullptr, nullptr);
