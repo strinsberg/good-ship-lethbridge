@@ -11,7 +11,7 @@
 #include "gtest/gtest.h"
 
 TEST(TalkTests, constructor_get) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Talk t(p);
   EXPECT_EQ(t.getNoun(), "");
   EXPECT_EQ(t.getPlayer(), p);
@@ -19,7 +19,7 @@ TEST(TalkTests, constructor_get) {
 }
 
 TEST(TalkTests, set_noun) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Talk t(p);
   t.setNoun("Laser");
   EXPECT_EQ(t.getNoun(), "Laser");
@@ -30,7 +30,7 @@ TEST(TalkTests, execute_npc_has_talk_event) {
   Player* p = new Player("player123");
   Npc* npc = new Npc("npc123");
   npc->getSpec()->setName("ted");
-  Room* room = new Room();
+  Room* room = new Room("id7193");
   room->addEntity(npc);
   p->setCurrentRoom(room);
   Inform* tell = new Inform("inf123", "Hi, how are you?");
@@ -47,7 +47,7 @@ TEST(TalkTests, execute_npc_default_talk) {
   Player* p = new Player("player123");
   Npc* npc = new Npc("npc123");
   npc->getSpec()->setName("ted");
-  Room* room = new Room();
+  Room* room = new Room("id7193");
   room->addEntity(npc);
   p->setCurrentRoom(room);
   Talk talk(p);
@@ -63,7 +63,7 @@ TEST(TalkTests, execute_inactive) {
   Npc* npc = new Npc("npc123");
   npc->getSpec()->setName("ted");
   npc->getState()->setActive(false);
-  Room* room = new Room();
+  Room* room = new Room("id7193");
   room->addEntity(npc);
   p->setCurrentRoom(room);
   Inform* tell = new Inform("inf123", "Hi, how are you?");
@@ -77,8 +77,8 @@ TEST(TalkTests, execute_inactive) {
 }
 
 TEST(TalkTests, execute_item_does_not_exist) {
-  Player* p = new Player();
-  Room* room = new Room();
+  Player* p = new Player("id7193");
+  Room* room = new Room("id78y9");
   p->setCurrentRoom(room);
   Talk talk(p);
   talk.setNoun("ted");
@@ -89,12 +89,12 @@ TEST(TalkTests, execute_item_does_not_exist) {
 }
 
 TEST(TalkTests, execute_has_no_talk) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
 
   Entity* i = new Entity();
   i->getSpec()->setName("box");
 
-  Room* room = new Room();
+  Room* room = new Room("idh983");
   room->addEntity(i);
   p->setCurrentRoom(room);
 

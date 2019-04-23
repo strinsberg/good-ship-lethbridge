@@ -36,14 +36,14 @@ TEST(TestContainer, describe) {
 }
 
 TEST(TestContainer, search_not_find) {
-  Container c;
+  Container c("id123");
   EXPECT_EQ(nullptr, c.search("entity"));
 }
 
 TEST(TesrContainer, search_find_addEntity) {
-  Container c;
+  Container c("id123");
 
-  Entity* e = new Container();
+  Entity* e = new Container("id923427");
   EntitySpec *s = new EntitySpec();
   s->setName("container");
   e->setSpec(s);
@@ -54,7 +54,7 @@ TEST(TesrContainer, search_find_addEntity) {
 }
 
 TEST(TestContainer, search_NPC) {
-  Container* c = new Container();
+  Container* c = new Container("id345");
   Npc* i = new Npc("npc123");
   i->getSpec()->setId("id456");
   Entity* e = new Entity();
@@ -67,44 +67,44 @@ TEST(TestContainer, search_NPC) {
 }
 
 TEST(TestContainer, search_nested) {
-  Container* c = new Container();
+  Container* c = new Container("id345");
   Entity* i = new Entity();
   i->getSpec()->setName("box");
   c->addEntity(i);
-  Room* r = new Room();
+  Room* r = new Room("rm2344");
   r->addEntity(c);
   EXPECT_EQ(i, r->search("box"));
   delete r;
 }
 
 TEST(TestContainer, searchById_nested) {
-  Container* c = new Container();
+  Container* c = new Container("id765");
   Entity* i = new Entity();
   i->getSpec()->setId("id123");
   c->addEntity(i);
-  Room* r = new Room();
+  Room* r = new Room("rm2344");
   r->addEntity(c);
   EXPECT_EQ(i, r->searchById("id123"));
   delete r;
 }
 
 TEST(TestContainer, searchById_not_found) {
-  Container* c = new Container();
+  Container* c = new Container("id9876");
   Entity* i = new Entity();
   i->getSpec()->setId("id456");
   c->addEntity(i);
-  Room* r = new Room();
+  Room* r = new Room("rm2344");
   r->addEntity(c);
   EXPECT_EQ(nullptr, r->searchById("id123"));
   delete r;
 }
 
 TEST(TestContainer, searchAndRemove_found) {
-  Container* c = new Container();
+  Container* c = new Container("id765");
   Entity* i = new Entity();
   i->getSpec()->setId("id123");
   c->addEntity(i);
-  Room* r = new Room();
+  Room* r = new Room("rm2344");
   r->addEntity(c);
   Entity* found = r->searchAndRemove("id123");
   EXPECT_EQ(i, found);
@@ -114,11 +114,11 @@ TEST(TestContainer, searchAndRemove_found) {
 }
 
 TEST(TestContainer, searchAndRemove_not_found) {
-  Container* c = new Container();
+  Container* c = new Container("id876");
   Entity* i = new Entity();
   i->getSpec()->setId("id123");
   c->addEntity(i);
-  Room* r = new Room();
+  Room* r = new Room("rm2344");
   r->addEntity(c);
   Entity* found = r->searchAndRemove("id456");
   EXPECT_EQ(nullptr, found);
@@ -127,9 +127,9 @@ TEST(TestContainer, searchAndRemove_not_found) {
 }
 
 TEST(TestContainer, removeEntity) {
-  Container c;
+  Container c("id8765");
 
-  Entity* e = new Container();
+  Entity* e = new Container("id98964");
   EntitySpec *s = new EntitySpec();
   s->setName("container");
   e->setSpec(s);
@@ -142,7 +142,7 @@ TEST(TestContainer, removeEntity) {
 }
 
 TEST(TestContainer, searchById_item_in_NPC) {
-  Container* c = new Container();
+  Container* c = new Container("id734629");
   Npc* i = new Npc("npc123");
   i->getSpec()->setId("id456");
   Entity* e = new Entity();
@@ -154,9 +154,9 @@ TEST(TestContainer, searchById_item_in_NPC) {
 }
 
 TEST(TestContainer, container_iterator) {
-  Container c;
+  Container c("id23947");
 
-  Entity* e = new Container();
+  Entity* e = new Container("id4820");
   EntitySpec *s = new EntitySpec();
   s->setName("container");
   e->setSpec(s);

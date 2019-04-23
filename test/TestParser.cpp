@@ -36,8 +36,8 @@ TEST(ParserTests, parse_quit) {
 
 TEST(ParserTests, parse_get) {
   Game g;
-  Player* pl = new Player();
-  Room* r = new Room();
+  Player* pl = new Player("id7193");
+  Room* r = new Room("idf7f7");
   pl->setCurrentRoom(r);
   g.addRoom("here", r);
   g.setPlayer(pl);
@@ -57,8 +57,8 @@ TEST(ParserTests, parse_drop) {
 
 TEST(ParserTests, parse_look) {
   Game g;
-  Player* pl = new Player();
-  Room* r = new Room();
+  Player* pl = new Player("idg78");
+  Room* r = new Room("idj98j9");
   pl->setCurrentRoom(r);
   g.addRoom("here", r);
   g.setPlayer(pl);
@@ -70,8 +70,8 @@ TEST(ParserTests, parse_look) {
 
 TEST(ParserTests, parse_use) {
   Game g;
-  Player* pl = new Player();
-  Room* r = new Room();
+  Player* pl = new Player("id7193");
+  Room* r = new Room("idh9h9");
   pl->setCurrentRoom(r);
   g.addRoom("here", r);
   g.setPlayer(pl);
@@ -83,8 +83,8 @@ TEST(ParserTests, parse_use) {
 
 TEST(ParserTests, parse_talk) {
   Game g;
-  Player* pl = new Player();
-  Room* r = new Room();
+  Player* pl = new Player("id7193");
+  Room* r = new Room("idg767");
   pl->setCurrentRoom(r);
   g.addRoom("here", r);
   g.setPlayer(pl);

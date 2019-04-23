@@ -22,14 +22,14 @@ TEST(GameTests, constructor) {
 
 TEST(GameTests, get_set_player) {
   Game g;
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   g.setPlayer(p);
   EXPECT_EQ(g.getPlayer(), p);
 }
 
 TEST(GameTests, get_add_room) {
   Game g;
-  Room* r = new Room();
+  Room* r = new Room("id7193");
   g.addRoom("Captains Quaters", r);
   EXPECT_EQ(g.getRoom("Captains Quaters"), r);
   EXPECT_EQ(g.numRooms(), 1);
@@ -42,11 +42,11 @@ TEST(GameTests, get_room_not_there) {
 
 TEST(GameTests, add_room_throws) {
   Game g;
-  Room* r = new Room();
+  Room* r = new Room("id7193");
   g.addRoom("Captains Quaters", r);
   EXPECT_EQ(g.getRoom("Captains Quaters"), r);
 
-  Room* r2 = new Room();
+  Room* r2 = new Room("idjoji98");
   EXPECT_THROW(g.addRoom("Captains Quaters", r2), invalid_parameter_error);
   delete r2;
 }
@@ -88,7 +88,7 @@ TEST(GameTests, get_event_not_there) {
 
 TEST(GameTests, get_rooms) {
   Game g;
-  Room* r = new Room();
+  Room* r = new Room("id7193");
   g.addRoom("room", r);
   auto rooms = g.getRooms();
   EXPECT_EQ(r, rooms.find("room")->second);

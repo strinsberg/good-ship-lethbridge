@@ -15,7 +15,7 @@
 #include <string>
 #include <sstream>
 
-Room::Room() : atmosphere(Atmosphere::OXYGEN) {}
+Room::Room(std::string id) : Container(id), atmosphere(Atmosphere::OXYGEN) {}
 
 Room::~Room() {}
 

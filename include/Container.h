@@ -7,18 +7,22 @@
 #define CALRISSIEN_2720_CONTAINER_H
 
 #include "Entity.h"
-#include "ObjectBlueprint.h"
 #include <string>
 #include <map>
 
 
 /**
-  * Base class for all entities that can contain other entities
+  * Base class for all entities that can contain other entities.
+  *
+  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+  * @date 2019-03-05, 2019-04-23
   */
 class Container: public Entity {
  public:
-  Container();
-  Container(std::string id) : Entity(id) {}
+  /**
+    * Create a container with a given id and blank spec and state.
+    */
+  Container(std::string id);
   virtual ~Container();
 
   /**

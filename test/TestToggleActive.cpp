@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 
 TEST(ToggleActiveEventTests, execute_active) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   ToggleActive* tog = new ToggleActive("toggle123", p);
 
   EXPECT_EQ("", tog->execute(p));
@@ -20,7 +20,7 @@ TEST(ToggleActiveEventTests, execute_active) {
 }
 
 TEST(ToggleActiveEventTests, execute_inactive) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   p->getState()->setActive(false);
   ToggleActive* tog = new ToggleActive("toggle123", p);
 
@@ -31,7 +31,7 @@ TEST(ToggleActiveEventTests, execute_inactive) {
 }
 
 TEST(ToggleActiveEventTests, execute_toggle) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   ToggleActive* tog = new ToggleActive("toggle123", p, false);
 
   tog->execute(p);

@@ -13,7 +13,7 @@
 
 TEST(ProtectedTests, constructor_and_test_true) {
   Protected pro(Atmosphere::RADIATION);
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Suit* s = new Suit();
   s->setAtmosphere(Atmosphere::RADIATION);
   p->addEntity(s);
@@ -24,7 +24,7 @@ TEST(ProtectedTests, constructor_and_test_true) {
 
 TEST(ProtectedTests, constructor_and_test_false) {
   Protected pro(Atmosphere::RADIATION);
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Suit* s = new Suit();
   s->setAtmosphere(Atmosphere::OXYGEN);
   p->addEntity(s);
@@ -35,7 +35,7 @@ TEST(ProtectedTests, constructor_and_test_false) {
 
 TEST(ProtectedTests, constructor_and_test_no_suit) {
   Protected pro(Atmosphere::RADIATION);
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   EXPECT_FALSE(pro.test(p));
   delete p;
 }

@@ -1,20 +1,19 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-23
  */
 
 #include "Container.h"
 #include "Entity.h"
-#include "Game.h"
-#include "ObjectWithContentsBlueprint.h"
+#include "Game.h"  // eventually move toLower to a library
 #include "Npc.h"
 #include <string>
-#include <iostream>
 #include <sstream>
 #include <map>
 
-Container::Container() : inventory(std::map<std::string, Entity*>()) {}
+
+Container::Container(std::string id)
+    : Entity(id), inventory(std::map<std::string, Entity*>()) {}
 
 Container::~Container() {
   for (auto e : inventory) {
@@ -24,11 +23,12 @@ Container::~Container() {
 
 std::string Container::describe() const {
   std::stringstream ss;
-
+  // Give container description
   ss << spec->getDescription();
   if (inventory.size() > 0)
     ss << "\n";
 
+  // Add descriptions for all contained entities at the top level only
   size_t i = 0;
   for (auto e : inventory) {
     ss << e.second->getSpec()->getName() << " -> " << e.second->getSpec()->getDescription();
@@ -41,13 +41,17 @@ std::string Container::describe() const {
 
 Entity* Container::search(std::string name) const {
   for (auto entry : inventory) {
+    // If this is the object you want return it
     if (entry.second->matches(Game::toLower(name))) {
       return entry.second;
+    // If the object is not what you want and it is a container search it
     } else if (Container* con = dynamic_cast<Container*>(entry.second)) {
       if (Npc* n = dynamic_cast<Npc*>(con)) {
+        // Can't see items in Npcs
         continue;
       } else {
         Entity* e = con->search(Game::toLower(name));
+        // If you find the entity return it
         if (e != nullptr)
           return e;
       }
@@ -58,6 +62,7 @@ Entity* Container::search(std::string name) const {
 
 Entity* Container::searchById(std::string id) {
   std::pair<Container*, Entity*> entityPair = findEntity(id);
+
   if (entityPair.first != nullptr) {
     return entityPair.second;
   } else {
@@ -75,6 +80,7 @@ void Container::removeEntity(Entity* entity) {
 
 Entity* Container::searchAndRemove(std::string id) {
   std::pair<Container*, Entity*> entityPair = findEntity(id);
+
   if (entityPair.first != nullptr) {
     entityPair.first->removeEntity(entityPair.second);
     return entityPair.second;

@@ -26,7 +26,7 @@ TEST(InteractionTests, add_option_execute) {
   i.addOption("Sleep", e);
 
   in << "1\n2";
-  Entity* p = new Player();
+  Entity* p = new Player("id7193");
   std::string result = i.execute(p);
 
   EXPECT_EQ("Please choose an option number:\n"
@@ -48,7 +48,7 @@ TEST(InteractionTests, execute_cancel) {
   i.addOption("Sleep", e);
 
   in << "2";
-  Entity* p = new Player();
+  Entity* p = new Player("id7193");
   std::string result = i.execute(p);
 
   EXPECT_EQ("Please choose an option number:\n1. Sleep\n2. Cancel\n>>> ",
@@ -67,7 +67,7 @@ TEST(InteractionTests, execute_bad_choice) {
   i.addOption("Sleep", e);
 
   in << "20\n2";
-  Entity* p = new Player();
+  Entity* p = new Player("id7193");
   std::string result = i.execute(p);
 
   EXPECT_EQ("Please choose an option number:\n"
@@ -88,7 +88,7 @@ TEST(InteractionTests, execute_bad_choice_not_number) {
   i.addOption("Sleep", e);
 
   in << "steve\n2";
-  Entity* p = new Player();
+  Entity* p = new Player("id7193");
   std::string result = i.execute(p);
 
   EXPECT_EQ("Please choose an option number:\n"
@@ -110,7 +110,7 @@ TEST(InteractionTests, add_option_execute_breakout) {
   i.addOption("Sleep", e);
 
   in << "1\n";
-  Entity* p = new Player();
+  Entity* p = new Player("id7193");
   std::string result = i.execute(p);
 
   EXPECT_EQ(true, i.getBreakout());

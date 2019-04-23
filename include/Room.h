@@ -10,16 +10,15 @@
 #include "Container.h"
 #include "Atmosphere.h"
 #include "Event.h"
-#include "ObjectBlueprint.h"
 #include <string>
+
 
 /**
   * Base class for all areas of the game
   */
 class Room : public Container {
  public:
-  Room();
-  Room(std::string id) : Container(id), atmosphere(Atmosphere::OXYGEN) {}
+  Room(std::string id);
   virtual ~Room();
   virtual std::string describe() const;
 

@@ -16,7 +16,7 @@
 #include "gtest/gtest.h"
 
 TEST(RoomTests, constructor_get) {
-  Room r;
+  Room r("id7193");
   EXPECT_EQ("", r.getSpec()->getName());
   EXPECT_EQ(true, r.getState()->getObtainable());
 }
@@ -49,7 +49,7 @@ TEST(RoomTests, enter_custom_event) {
 }
 
 TEST(RoomTests, describe) {
-  Room r;
+  Room r("id7193");
   EntitySpec* spec = new EntitySpec();
   spec->setName("Captain's Room");
   spec->setDescription("It's your room!");
@@ -65,7 +65,7 @@ TEST(RoomTests, describe) {
 }
 
 TEST(RoomTests, set_get_atmosphere) {
-  Room r;
+  Room r("id7193");
   r.setAtmosphere(Atmosphere::SPACE);
   EXPECT_EQ(Atmosphere::SPACE, r.getAtmosphere());
 }

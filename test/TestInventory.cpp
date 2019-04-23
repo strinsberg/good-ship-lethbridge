@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 
 TEST(InventoryTests, constructor_get) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
   EXPECT_EQ(i.getNoun(), "");
   EXPECT_EQ(i.getPlayer(), p);
@@ -16,7 +16,7 @@ TEST(InventoryTests, constructor_get) {
 }
 
 TEST(InventoryTests, set_noun) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
   i.setNoun("Laser");
   EXPECT_EQ(i.getNoun(), "Laser");
@@ -24,10 +24,10 @@ TEST(InventoryTests, set_noun) {
 }
 
 TEST(InventoryTests, execute_item_in_inventory) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
 
-  Room r;
+  Room r("idh98u98u");
   p->setCurrentRoom(&r);
 
   Container* c = new Container("id123");
@@ -41,10 +41,10 @@ TEST(InventoryTests, execute_item_in_inventory) {
 }
 
 TEST(InventoryTests, execute_multiple_items_in_inventory) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
 
-  Room r;
+  Room r("id78y9u");
   p->setCurrentRoom(&r);
 
   Container* c = new Container("id123");
@@ -63,10 +63,10 @@ TEST(InventoryTests, execute_multiple_items_in_inventory) {
 }
 
 TEST(InventoryTests, execute_no_items) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
 
-  Room r;
+  Room r("idh98i");
   p->setCurrentRoom(&r);
 
   i.setNoun("");
@@ -75,10 +75,10 @@ TEST(InventoryTests, execute_no_items) {
 }
 
 TEST(InventoryTests, execute_search_item_in_inventory) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
 
-  Room r;
+  Room r("id7huh09");
   p->setCurrentRoom(&r);
 
   Container* c = new Container("id123");
@@ -92,10 +92,10 @@ TEST(InventoryTests, execute_search_item_in_inventory) {
 }
 
 TEST(InventoryTests, execute_search_item_not_in_inventory) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Inventory i(p);
 
-  Room r;
+  Room r("id7h989");
   p->setCurrentRoom(&r);
 
   Container* c = new Container("id123");

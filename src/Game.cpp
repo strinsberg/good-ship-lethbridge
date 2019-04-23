@@ -21,7 +21,7 @@ using std::string;
 Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()),
     player(nullptr), in(is), out(os), running(true) {
   // Create a player with a blank spec
-  player = new Player();
+  player = new Player("blankstartingplayer1230u90egidf");
   EntitySpec* spec = new EntitySpec();
   spec->setName("None");
   spec->setDescription("None");

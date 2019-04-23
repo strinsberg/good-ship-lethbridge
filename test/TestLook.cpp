@@ -9,7 +9,7 @@
 #include "gtest/gtest.h"
 
 TEST(LookTests, constructor_get) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Look l(p);
   EXPECT_EQ(l.getNoun(), "");
   EXPECT_EQ(l.getPlayer(), p);
@@ -17,7 +17,7 @@ TEST(LookTests, constructor_get) {
 }
 
 TEST(LookTests, set_noun) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Look l(p);
   l.setNoun("Laser");
   EXPECT_EQ(l.getNoun(), "Laser");
@@ -25,11 +25,11 @@ TEST(LookTests, set_noun) {
 }
 
 TEST(LookTests, execute_player_has_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Look l(p);
 
-  Room r;
-  Container* c = new Container();
+  Room r("id7h9h9");
+  Container* c = new Container("idhu9h");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
@@ -41,11 +41,11 @@ TEST(LookTests, execute_player_has_item) {
 }
 
 TEST(LookTests, execute_room_has_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Look l(p);
 
-  Room r;
-  Container* c = new Container();
+  Room r("id4d54e");
+  Container* c = new Container("id5f657");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   r.addEntity(c);
@@ -57,10 +57,10 @@ TEST(LookTests, execute_room_has_item) {
 }
 
 TEST(LookTests, execute_no_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Look l(p);
 
-  Room r;
+  Room r("idh870");
   p->setCurrentRoom(&r);
 
   l.setNoun("box");
@@ -69,11 +69,11 @@ TEST(LookTests, execute_no_item) {
 }
 
 TEST(LookTests, execute_just_look) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Look l(p);
 
-  Room r;
-  Container* c = new Container();
+  Room r("idg68");
+  Container* c = new Container("idd57");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   r.addEntity(c);

@@ -67,7 +67,7 @@ Game* GameBuilder::newGame(std::string name) {
   // Eventually make this something that comes from a text file as well
   // because if you ever let people make their own world they will want to
   // specify where the player starts and items etc.
-  Player* p = new Player();
+  Player* p = new Player("defaultstaritngplayer2039ru090");
   p->setCurrentRoom(rooms.find("rmcapt")->second);
   p->getSpec()->setName(name);
   g->setPlayer(p);

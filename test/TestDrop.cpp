@@ -10,7 +10,7 @@
 #include "gtest/gtest.h"
 
 TEST(DropTests, constructor_get) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Drop d(p);
   EXPECT_EQ(d.getNoun(), "");
   EXPECT_EQ(d.getPlayer(), p);
@@ -18,7 +18,7 @@ TEST(DropTests, constructor_get) {
 }
 
 TEST(DropTests, set_noun) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Drop d(p);
   d.setNoun("Laser");
   EXPECT_EQ(d.getNoun(), "Laser");
@@ -26,11 +26,11 @@ TEST(DropTests, set_noun) {
 }
 
 TEST(DropTests, execute_player_has_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Drop d(p);
 
-  Room r;
-  Container* c = new Container();
+  Room r("id7193");
+  Container* c = new Container("id98u9");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   p->addEntity(c);
@@ -44,11 +44,11 @@ TEST(DropTests, execute_player_has_item) {
 }
 
 TEST(DropTests, execute_room_has_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Drop d(p);
 
-  Room r;
-  Container* c = new Container();
+  Room r("id7193");
+  Container* c = new Container("idh98");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   r.addEntity(c);
@@ -62,10 +62,10 @@ TEST(DropTests, execute_room_has_item) {
 }
 
 TEST(DropTests, execute_item_does_not_exits) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Drop d(p);
 
-  Room r;
+  Room r("id7193");
   p->setCurrentRoom(&r);
 
   d.setNoun("box");

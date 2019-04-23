@@ -13,7 +13,7 @@
 #include "gtest/gtest.h"
 
 TEST(UseTests, constructor_get) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Use u(p);
   EXPECT_EQ(u.getNoun(), "");
   EXPECT_EQ(u.getPlayer(), p);
@@ -21,7 +21,7 @@ TEST(UseTests, constructor_get) {
 }
 
 TEST(UseTests, set_noun) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Use u(p);
   u.setNoun("Laser");
   EXPECT_EQ(u.getNoun(), "Laser");
@@ -29,10 +29,10 @@ TEST(UseTests, set_noun) {
 }
 
 TEST(UseTests, execute_player_has_item_no_use_event) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Use u(p);
 
-  Room r;
+  Room r("id7h77y89y");
   Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
@@ -45,10 +45,10 @@ TEST(UseTests, execute_player_has_item_no_use_event) {
 }
 
 TEST(UseTests, execute_room_has_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Use u(p);
 
-  Room r;
+  Room r("id78y80");
   Container* c = new Container("cont123");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
@@ -61,11 +61,11 @@ TEST(UseTests, execute_room_has_item) {
 }
 
 TEST(UseTests, execute_inactive) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Use u(p);
 
-  Room r;
-  Container* c = new Container();
+  Room r("id7g68h");
+  Container* c = new Container("id7476");
   c->getSpec()->setName("box");
   c->getSpec()->setDescription("a box");
   c->getState()->setActive(false);
@@ -78,10 +78,10 @@ TEST(UseTests, execute_inactive) {
 }
 
 TEST(UseTests, execute_no_item) {
-  Player* p = new Player();
+  Player* p = new Player("id7193");
   Use u(p);
 
-  Room r;
+  Room r("idh78y80");
   p->setCurrentRoom(&r);
 
   u.setNoun("box");

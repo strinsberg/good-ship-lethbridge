@@ -14,14 +14,14 @@
 #include "Suit.h"
 
 TEST(PlayerTests, constructor_get) {
-  Player p;
+  Player p("id7193");
   EXPECT_EQ(nullptr, p.getCurrentRoom());
 }
 
 TEST(PlayerTests, set_room) {
-  Player p;
+  Player p("id7193");
 
-  Room* r = new Room();
+  Room* r = new Room("id6t9");
   p.setCurrentRoom(r);
 
   EXPECT_EQ(r, p.getCurrentRoom());
@@ -29,7 +29,7 @@ TEST(PlayerTests, set_room) {
 }
 
 TEST(PlayerTests, describe) {
-  Player p;
+  Player p("id7193");
 
   EntitySpec* spec = new EntitySpec();
   spec->setDescription("That's You!");
@@ -39,7 +39,7 @@ TEST(PlayerTests, describe) {
 }
 
 TEST(PlayerTests, wear_suit_none_equipped) {
-  Player p;
+  Player p("id7193");
   Suit* s = new Suit();
 
   p.wearSuit(s);

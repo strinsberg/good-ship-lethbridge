@@ -8,11 +8,8 @@
 #include "Container.h"
 #include "Atmosphere.h"
 #include "Event.h"
-#include "ObjectBlueprint.h"
-#include "ObjectWithContentsBlueprint.h"
 #include <string>
 
-Player::Player() : currentRoom(nullptr), suit(nullptr) {}
 
 Player::Player(std::string id) : Container(id), currentRoom(nullptr), suit(nullptr) {}
 
