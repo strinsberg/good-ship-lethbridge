@@ -28,6 +28,7 @@ class GameBuilder {
   bool stob(const std::string& str);
   void setUpEntity(Entity* entity, ObjectBlueprint* bp);
   Container* findHere(std::map<std::string, Room*>& rooms, std::string ownerId);
+  Atmosphere sToAtmos(std::string str);
 
   void makeRooms(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
   void makeDoors(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);

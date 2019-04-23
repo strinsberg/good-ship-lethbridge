@@ -160,6 +160,15 @@ Container* GameBuilder::findHere(std::map<std::string, Room*>& rooms, std::strin
   return nullptr;
 }
 
+Atmosphere GameBuilder::sToAtmos(std::string str) {
+  if (str == "radiation")
+    return Atmosphere::RADIATION;
+  else if (str == "space")
+    return Atmosphere::SPACE;
+  else
+    return Atmosphere::OXYGEN;
+}
+
 // Factory methods ///////////////////////////////////////////////////////////
 
 void GameBuilder::makeRooms(std::vector<ObjectBlueprint*>& blueprints,
@@ -215,8 +224,10 @@ void GameBuilder::makeEntities(std::vector<ObjectBlueprint*>& blueprints,
     Container* here = findHere(rooms, bp->getField("here"));
     Entity* ent;
 
-    if (false) // add in other types like suit
-      ent = nullptr;
+    std::string type = bp->getType();
+    if (type == "suit")
+      // only do it if the suit has no atmoshpere
+      ent = new Suit(sToAtmos(bp->getField("atmosphere")));
     else
       ent = new Entity(bp->getField("id"));
 

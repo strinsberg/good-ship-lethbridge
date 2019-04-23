@@ -18,7 +18,7 @@
   */
 class Suit :public Entity {
  public:
-  Suit();
+  Suit(Atmosphere atmosphere=Atmosphere::OXYGEN);
   virtual ~Suit();
   std::string describe() const;
 

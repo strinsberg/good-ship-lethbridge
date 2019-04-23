@@ -10,7 +10,7 @@
 #include <typeinfo>
 #include <string>
 
-Suit::Suit() : atmosphere(Atmosphere::OXYGEN) {
+Suit::Suit(Atmosphere atmos) : atmosphere(atmos) {
   addEvent("use", new EquipSuit("hidden45824987", this));
 }
 
