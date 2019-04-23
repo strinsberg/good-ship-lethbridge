@@ -127,3 +127,108 @@ verb=hidden2j24d802,
 subject=infhallpanelsuccess,
 }
 
+// spanner's room ///////////////////////////////////////////////////////////
+{
+type=inform,
+id=inffuse,
+message=careful you don't want to break it!,
+entity=hallfuse,
+verb=use,
+}
+{
+type=kill,
+id=sleepspan,
+message=you slept through the disaster!,
+entity=spanbed,
+verb=use,
+}
+{
+type=inform,
+id=infspancomp,
+message=biometric authentication failed! access denied!,
+entity=spancomp,
+verb=use,
+}
+
+// Hall /////////////////////////////////////////////////////////////////////
+{
+type=inform,
+id=infmedkit,
+message=your already in good health!,
+entity=medkit,
+verb=use,
+}
+// talk to barbara
+{
+type=conditionalevent,
+id=talkbarb,
+entity=bmcdoug,
+verb=talk,
+}
+{
+type=condition,
+subtype=hasitem,
+id=medkittest,
+itemid=medkit,
+other=bmcdoug,
+event=talkbarb,
+}
+{
+type=inform,
+id=healbarbsuccess,
+message='I feel so much better now. you better get to the engine control room. Clem needs your help.',
+event=talkbarb,
+ownertype=conditional,
+condition=success,
+}
+{
+type=inform,
+id=healbarbfailure,
+message='ohh... I need some medicine.',
+event=talkbarb,
+ownertype=conditional,
+condition=failure,
+}
+{
+type=transfer,
+id=takemedkit,
+itemid=medkit,
+other=bmcdoug,
+entity=bmcdoug,
+totarget=false,
+verb=hidden203f0usda03j2,
+subject=healbarbsuccess,
+}
+// end talk barbara
+{
+type=inform,
+id=infhallcomp,
+message=authorization level : 'Captain'\n\nSHIP STATUS \n\nEngine Status:          INACTIVE(HARD REBOOT REQUIRED)\n\nShip Body Integrity:    56%\n\nOxygen Leak:            NO\n\nCrew:                   INJURY 2/5\n\nSIGNAL LOST Lars Philbur\n\nStress Signal:          FAIL TO SENT (REQUIRE 'Antenna' REPLACEMENT)\nLife Supply:            74% OXYGEN 80% WATER 76% FOOD\nALL CREW MEMBER RETURN TO POSITION\n\nON BORAD COMPUTER DETECTS PROTENIAL IMPACT!!\nDISTANCE : 9714035KM\nPLEASE CHANGE COURSE AT COMMAND BRIDGE!!,
+entity=hallcomp,
+verb=use,
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

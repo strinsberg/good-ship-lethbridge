@@ -32,6 +32,7 @@ std::string TransferItem::execute(Entity* target) {
       if (item != nullptr) {
         other->addEntity(item);
         done = true;
+        item->getState()->setHidden(true);
         return item->getSpec()->getDescription() + " was taken from you";
       } else {
         return "You don't have what you need!";

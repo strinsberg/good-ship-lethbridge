@@ -38,6 +38,10 @@ void ConditionalEvent::setFailure(Event* f) {
 std::string ConditionalEvent::execute(Entity* e) {
   if (condition->test(e))
     return success->execute(e);
-  else
-    return failure->execute(e);
+  else {
+    if (failure != nullptr)
+      return failure->execute(e);
+    else
+      return "";
+  }
 }
