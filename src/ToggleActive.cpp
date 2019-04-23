@@ -19,6 +19,7 @@ std::string ToggleActive::execute(Entity* affected) {
       target->getState()->setActive(true);
     if (once)
       done = true;
+    return Event::execute(affected);
   }
   return "";
 }

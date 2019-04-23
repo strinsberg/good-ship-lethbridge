@@ -21,6 +21,8 @@
 #include "Protected.h"
 #include "HasItem.h"
 #include "Atmosphere.h"
+#include <string>
+#include <iostream>
 
 bool stob(const std::string& str) {
   return str == "true";
@@ -64,7 +66,7 @@ void EventFactory::makeEvents() {
       event = makeStructuredEvent(bp);
     else if (type == "interaction")
       event = makeInteraction(bp);
-    else if (type == "conditionalEvent")
+    else if (type == "conditionalevent")
       event = makeConditionalEvent(bp);
     else if (type == "condition")
       makeCondition(bp);
@@ -84,6 +86,7 @@ void EventFactory::makeEvents() {
       Event* subject = events.find(subjectId)->second;
       Event* observer = events.find(bp->getField("id"))->second;
       subject->subscribe(observer);
+      std::cout << subject->getId() << " " << observer->getId() << std::endl;
     }
   }
 }
@@ -107,7 +110,7 @@ Event* EventFactory::makeTransferItem(ObjectBlueprint* bp) {
 
   Container* con = dynamic_cast<Container*>(ent);
   bool toTarget = stob(bp->getField("totarget"));
-  TransferItem* ti = new TransferItem(bp->getField("id"), con, bp->getField("itemId"), toTarget);
+  TransferItem* ti = new TransferItem(bp->getField("id"), con, bp->getField("itemid"), toTarget);
 
   addToOwner(ti, bp);
   return ti;
@@ -226,7 +229,7 @@ void EventFactory::addToOwner(Event* event, ObjectBlueprint* bp) {
   // If the event is part of a composite event
   } else {
     ownerId = bp->getField("event");
-    std::string ownerType = bp->getField("ownerType");
+    std::string ownerType = bp->getField("ownertype");
 
     auto it = events.find(ownerId);
     if (ownerType == "interaction") {

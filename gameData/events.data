@@ -15,10 +15,105 @@ verb=use,
 }
 {
 type=inform,
-id=captcompinform,
+id=infcaptwin,
 message=you see endless space. a small cloud of debris is floating neaby.,
 entity=captwin,
 verb=look,
 }
 
 // common room //////////////////////////////////////////////////////////////
+{
+type=inform,
+id=infcomfy,
+message=this feels way too good. your a bad captain. save your ship.,
+entity=comfychair,
+verb=use,
+}
+{
+type=inform,
+id=infmanifest,
+message=Barbara Mcdougal - Biologist\nID #0791\n\nClem Spanner - Engineer\nID #4396\n\nWhinny Mae - Doctor\nID #0341\n\nLars Philbur - Bridge Officer\nID #7513\n\n,
+entity=crewmanifest,
+verb=use,
+}
+// spanner door lock
+{
+type=conditionalevent,
+id=spancomboevent,
+entity=spanlock,
+verb=use,
+}
+{
+type=condition,
+subtype=question,
+id=spanlockquestion,
+question=enter combination,
+answer=4396,
+event=spancomboevent,
+}
+{
+type=inform,
+id=infspanlocksuccess,
+message=spanner's door is now active.,
+event=spancomboevent,
+ownertype=conditional,
+condition=success,
+}
+{
+type=inform,
+id=infspanlockfailure,
+message=permission denied!,
+event=spancomboevent,
+ownertype=conditional,
+condition=failure,
+}
+{
+type=toggle,
+id=togglespandoor,
+target=drcomspan,
+entity=drcomspan,
+once=false,
+verb=hidden489hf49,
+subject=infspanlocksuccess,
+}
+// hall door panel
+{
+type=conditionalevent,
+id=hallpanelevent,
+entity=doorpanel,
+verb=use,
+}
+{
+type=condition,
+subtype=hasitem,
+id=doorpaneltest,
+itemid=hallfuse,
+other=doorpanel,
+event=hallpanelevent,
+}
+{
+type=inform,
+id=infhallpanelsuccess,
+message=hall door now active.,
+event=hallpanelevent,
+ownertype=conditional,
+condition=success,
+}
+{
+type=inform,
+id=infhallpanelfailure,
+message=you don't have what you need!,
+event=hallpanelevent,
+ownertype=conditional,
+condition=failure,
+}
+{
+type=toggle,
+id=togglehalldoor,
+target=drcomhall,
+entity=drcomhall,
+once=true,
+verb=hidden0mf4082,
+subject=infhallpanelsuccess,
+}
+

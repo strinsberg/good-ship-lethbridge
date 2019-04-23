@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <iostream>
 
 
 Event::Event(std::string ID) : id(ID), done(false), observers(std::vector<Event*>()) {}
@@ -35,10 +36,12 @@ std::string Event::execute(Entity* e) {
   std::stringstream ss;
   for (auto it = observers.begin(); it != observers.end(); ++it) {
     std::string result = (*it)->execute(e);
-    if (!result.empty())
+    std::cout << (*it)->getId() << std::endl;
+    if (!result.empty()) {
       ss << result;
-    if (it + 1 != observers.end())
-      ss << "\n";
+      if (it + 1 != observers.end())
+        ss << "\n";
+    }
   }
   return ss.str();
 }
