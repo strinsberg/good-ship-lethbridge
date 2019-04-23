@@ -1,21 +1,20 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-23
  */
 
 #include "Command.h"
 #include <string>
 
-using std::string;
 
-Command::Command() : noun("") {}
+Command::Command(std::string n) : noun(n) {}
+
 Command::~Command() {}
 
-void Command::setNoun(const string& n) {
-  noun = n;
+void Command::setNoun(string n) {
+    noun = n;
 }
 
-const std::string& Command::getNoun() const {
-  return noun;
+std::string Command::getNoun() const {
+    return noun;
 }

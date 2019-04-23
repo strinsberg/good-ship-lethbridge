@@ -6,7 +6,9 @@
 #include "BadInput.h"
 #include <string>
 
+
 BadInput::BadInput() {}
+
 BadInput::~BadInput() {}
 
 std::string BadInput::execute() {
