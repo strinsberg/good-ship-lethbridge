@@ -362,13 +362,120 @@ message=i guess some people are just bad in a disaster. your not a very good cap
 event=talkwmae,
 ownertype=structured,
 }
+// end talk mae
 
+// space ////////////////////////////////////////////////////////////////////
 
+// talk yoda
+{
+type=conditionalevent,
+id=talkyoda,
+entity=yoda,
+verb=talk,
+}
+{
+type=condition,
+subtype=hasitem,
+id=havecookies,
+itemid=boxcookies,
+event=talkyoda,
+ownertype=conditional,
+}
+{
+type=inform,
+id=talkyodasuccess,
+message='mmm... cookies you have!'.,
+event=talkyoda,
+ownertype=conditional,
+condition=success,
+}
+{
+type=inform,
+id=talkyodafailure,
+message=he ignores you. it's rude to interupt a meditating jedi.,
+event=talkyoda,
+ownertype=conditional,
+condition=failure,
+}
+{
+type=transfer,
+id=takecookies,
+other=yoda,
+itemid=boxcookies,
+entity=yoda,
+verb=hidden904j4jf20903,
+totarget=false,
+subject=talkyodasuccess,
+}
+// end talk yoda
 
+// bridge ///////////////////////////////////////////////////////////////////
 
-
-
-
-
-
+// talk lars
+{
+type=interaction,
+id=talklars,
+entity=lphilbur,
+verb=talk,
+breakout=true,
+}
+// kill option
+{
+type=conditionalevent,
+id=killlars,
+event=talklars,
+optiontext=kill lars,
+ownertype=interaction,
+}
+{
+type=condition,
+subtype=hasitem,
+id=havesaber,
+itemid=saber,
+event=killlars,
+ownertype=conditional,
+}
+{
+type=kill,
+id=killlarssuccess,
+message=you slice up the alien infested lars with the light saber. your ship and the galaxy are saved.,
+event=killlars,
+ownertype=conditional,
+condition=success,
+}
+{
+type=kill,
+id=killarsfailure,
+message=you advance on lars only to realize you have no weapons. the alien infested nightmare tears you to shreds. your faliure spells doom for the whole galaxy.,
+event=killlars,
+ownertype=conditional,
+condition=failure,
+}
+// capture option
+{
+type=kill,
+id=capturelars,
+message=you successfully capture lars and put him in the brig. in short time the alien contamination spreads to your crew and the galaxy. oops!,
+event=talklars,
+optiontext=capture lars,
+ownertype=interaction,
+}
+// fly into sun
+{
+type=kill,
+id=capturelars,
+message=with courage like no other you fly the ship into a nearby star. the alien infestation is destroyed and the galaxy is saved! what heart!,
+event=talklars,
+optiontext=capture lars,
+ownertype=interaction,
+}
+// escape
+{
+type=kill,
+id=capturelars,
+message=seeing the horror before you makes you so afraid. you take the only escape pod. a cowardly act leaving your crew to die. you'll get yours when the alien contamination spreads. there is no where to run.,
+event=talklars,
+optiontext=take the escape pod,
+ownertype=interaction,
+}
 
