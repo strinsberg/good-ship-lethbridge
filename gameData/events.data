@@ -214,14 +214,90 @@ id=entercontrol,
 message='I'm glad your here! I need some help!',
 entity=rmcontrol,
 verb=enter,
+once=true,
 }
-
-
-
-
-
-
-
+// talk spanner
+{
+type=inform,
+id=talkspan,
+message='the reactor is malfunctioning and the chamber is flooded with gamma radiation! I need you to go in and fix it while I operate the controls!',
+entity=cspan,
+verb=talk,
+}
+// engine bay ///////////////////////////////////////////////////////////////
+// enter raditaion environment
+{
+type=conditionalevent,
+id=enterbay,
+entity=rmengibay,
+verb=enter,
+}
+{
+type=condition,
+subtype=protected,
+id=hazmatcheck,
+atmosphere=radiation,
+event=enterbay,
+ownertype=conditional,
+}
+{
+type=inform,
+id=hazmatsuccess,
+message=good thing your wearing the right equipment. all kinds of toxic radiation is leaking from the damaged reactor.,
+event=enterbay,
+ownertype=conditional,
+condition=success,
+}
+{
+type=kill,
+id=hazmatfailure,
+message=you aren't protected from the gamma radiation. you melt like a popsicle in the hot sun!,
+event=enterbay,
+ownertype=conditional,
+condition=failure,
+}
+// reactor interaction
+{
+type=interaction,
+id=fixreactor,
+entity=reactor,
+verb=use,
+breakout=true,
+}
+{
+type=kill,
+id=fiddlereactor,
+message=you have no idea what your doing! you press a button and the whole thing blows up!,
+event=fixreactor,
+optiontext=fiddle with it,
+ownertype=interaction,
+}
+{
+type=inform,
+id=smackreactor,
+message=hey! that works everytime. two thumbs up! power has been restored to the rest of the ship.,
+event=fixreactor,
+optiontext=smack it real hard,
+ownertype=interaction,
+}
+{
+type=toggle,
+id=togglecargodoor,
+target=drhallcargo,
+entity=drhallcargo,
+once=true,
+verb=hidden435jof38213,
+subject=smackreactor,
+}
+{
+type=kill,
+id=dumpcore,
+message=core dumped! the ship loses all power and drifts into a nearby star. you never know maybe it's a good thing.,
+event=fixreactor,
+optiontext=dump core,
+ownertype=interaction,
+}
+// end reactor interaction
 
 
 
