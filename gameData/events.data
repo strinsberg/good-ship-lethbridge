@@ -176,7 +176,7 @@ event=talkbarb,
 {
 type=inform,
 id=healbarbsuccess,
-message='I feel so much better now. you better get to the engine control room. Clem needs your help.',
+message='I'm glad you had the medkit. I feel so much better now. you better get to the engine control room. Clem needs your help.',
 event=talkbarb,
 ownertype=conditional,
 condition=success,
@@ -207,8 +207,14 @@ message=authorization level : 'Captain'\n\nSHIP STATUS \n\nEngine Status:       
 entity=hallcomp,
 verb=use,
 }
-
-
+// Control room /////////////////////////////////////////////////////////////
+{
+type=inform,
+id=entercontrol,
+message='I'm glad your here! I need some help!',
+entity=rmcontrol,
+verb=enter,
+}
 
 
 

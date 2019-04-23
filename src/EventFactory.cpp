@@ -74,8 +74,14 @@ void EventFactory::makeEvents() {
       throw unfinished_object_error("Error: Event type not found! ID: " + bp->getField("id") + " Type: " + type);
 
     // Add to events map for easy lookup while building
-    if (type != "condition")
+    if (type != "condition") {
+      std::string oneTime = bp->getField("once");
+      if (oneTime != ObjectBlueprint::null()) {
+        bool once = stob(oneTime);
+        event->setOnce(once);
+      }
       events[bp->getField("id")] = event;
+    }
   }
 
   // Go through and deal with all subscriptions

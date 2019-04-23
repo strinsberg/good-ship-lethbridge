@@ -37,11 +37,13 @@ class Event : public Serializable {
   std::string getId() const;
   bool isDone() const;
   void setDone(bool done);
+  void setOnce(bool oneTime);
   void subscribe(Event*);
 
  protected:
   std::string id;
   bool done;
+  bool once;
   std::vector<Event*> observers;  // does not own these
 
  private:

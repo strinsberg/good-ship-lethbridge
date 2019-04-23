@@ -12,7 +12,7 @@
 #include <iostream>
 
 
-Event::Event(std::string ID) : id(ID), done(false), observers(std::vector<Event*>()) {}
+Event::Event(std::string ID) : id(ID), done(false), once(false), observers(std::vector<Event*>()) {}
 
 Event::~Event() {}
 
@@ -26,6 +26,10 @@ bool Event::isDone() const {
 
 void Event::setDone(bool d) {
   done = d;
+}
+
+void Event::setOnce(bool o) {
+  once = o;
 }
 
 void Event::subscribe(Event* e) {
@@ -42,5 +46,7 @@ std::string Event::execute(Entity* e) {
         ss << "\n";
     }
   }
+  if (once)
+    done = true;
   return ss.str();
 }
