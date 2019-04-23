@@ -1,3 +1,4 @@
+// captains room ////////////////////////////////////////////////////////////
 {
 type=container,
 id=captbox,
@@ -11,6 +12,80 @@ id=captdesk,
 name=desk,
 description=a futuristic looking desk.,
 here=rmcapt,
+obtainable=false,
+}
+
+// common room //////////////////////////////////////////////////////////////
+{
+type=container,
+id=endtable,
+name=table,
+description=an end table with drawers.,
+here=rmcommon,
+obtainable=false,
+}
+{
+type=container,
+id=doorpanel,
+name=door panel,
+description=an open electrical panel next to the hall door. it looks broken. maybe replace some parts.,
+here=rmcommon,
+obtainable=false,
+}
+
+// spanners room ////////////////////////////////////////////////////////////
+{
+type=container,
+id=spanchest,
+name=tool chest,
+description=a large red metallic tool chest.,
+here=rmspan,
+obtainable=false,
+}
+{
+type=container,
+id=spandesk,
+name=spanner's desk,
+description=an antique rolltop desk. surprisingly clean compared to everything else.,
+here=rmspan,
+obtainable=false,
+}
+
+// hall /////////////////////////////////////////////////////////////////////
+{
+type=container,
+id=hallplant,
+name=potted plant,
+description=a large bushy fern. looks a little askew.,
+here=rmhall1,
+obtainable=false,
+}
+
+// control room /////////////////////////////////////////////////////////////
+{
+type=container,
+id=engicloset,
+name=hazmat suit closet,
+description=a closet for hazmat suits.,
+here=rmcontrol,
+obtainable=false,
+}
+
+// cargo bay ////////////////////////////////////////////////////////////////
+{
+type=container,
+id=cargocloset,
+name=space suit closet,
+description=a closet holding space suits,
+here=rmcargo,
+obtainable=false,
+}
+{
+type=container,
+id=cargocrate,
+name=crate,
+description=a huge crate filled with your precious cargo.,
+here=rmcargo,
 obtainable=false,
 }
 

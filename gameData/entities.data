@@ -1,3 +1,4 @@
+// captains room entities ///////////////////////////////////////////////////
 {
 type=entity,
 id=captbed,
@@ -22,3 +23,157 @@ description=a window with view of space.,
 here=rmcapt,
 obtainable=false,
 }
+
+// common room entities /////////////////////////////////////////////////////
+{
+type=entity,
+id=comfychair,
+name=comfy chair,
+description=a chair that deserves a captain.,
+here=rmcommon,
+obtainable=false,
+}
+{
+type=entity,
+id=crewmanifest,
+name=crew manifest,
+description=information about the ships crew.,
+here=endtable,
+}
+{
+type=entity,
+id=spanlock,
+name=spanner's door lock,
+description=a combination lock for spanner's door.,
+here=rmcommon,
+obtainable=false,
+}
+
+// spanners room entities ///////////////////////////////////////////////////
+{
+type=entity,
+id=hallfuse,
+name=fuse,
+description=a fuse that would probably be good for fixing electrical problems.,
+here=spanchest,
+}
+{
+type=entity,
+id=spanbed,
+name=spanner's bed,
+description=a less comfortable looking bed than yours.,
+here=rmspan,
+obtainable=false,
+}
+{
+type=entity,
+id=spancomp,
+name=spanner's computer,
+description=a personal computer terminal.,
+here=spandesk,
+obtainable=false,
+}
+
+// hall entities ////////////////////////////////////////////////////////////
+{
+type=entity,
+id=medkit,
+name=medkit,
+description=a kit containing all sorts of stuff to heal people.,
+here=rmhall1,
+}
+{
+type=entity,
+id=brokedoor,
+name=bridge door,
+description=a totally unusable door.,
+here=rmhall1,
+obtainable=false,
+}
+{
+type=entity,
+id=egg1,
+name=small note,
+description=an old looking peice of paper with dirt on it.,
+here=hallplant,
+hidden=true,
+}
+{
+type=entity,
+id=hallcomp,
+name=hall computer,
+description=a computer terminal.,
+here=rmhall1,
+obtainable=false,
+}
+
+// engine control entities //////////////////////////////////////////////////
+{
+type=suit,
+id=hazmat,
+name=hazmat suit,
+description=a suit that protects from gamma radiation.,
+here=engicloset,
+atmosphere=radiation,
+}
+{
+type=entity,
+id=wrench,
+name=core wrench,
+description=a serious tool for fixing engine cores.,
+here=cspan,
+}
+{
+type=entity,
+id=engipanel,
+name=engineering controls,
+description=a large console that takes up most of the room. it has a lot of buttons and displays.,
+here=rmcontrol,
+obtainable=false,
+}
+
+// engine bay entities //////////////////////////////////////////////////////
+{
+type=entity,
+id=reactor,
+name=reactor,
+description=the fusion reactor that powers the ship.,
+here=rmengibay,
+obtainable=false,
+}
+
+// cargo bay ////////////////////////////////////////////////////////////////
+{
+type=suit,
+id=spacesuit,
+name=space suit,
+description=a suit to allow you to go into space.,
+here=cargocloset,
+atmosphere=space,
+}
+{
+type=entity,
+id=boxcookies,
+name=box of cookies,
+description=a small box of delicious looking cookies.,
+here=wmae,
+}
+
+// space ////////////////////////////////////////////////////////////////////
+{
+type=entity,
+id=saber,
+name=light saber,
+description=an ancient light saber. it used to belong to a legendary jedi.,
+here=yoda,
+}
+
+// bridge ///////////////////////////////////////////////////////////////////
+{
+type=entity,
+id=bridgecomp,
+name=bridge controls,
+description=a bank of controls for various things on the ship.,
+here=rmbridge,
+}
+

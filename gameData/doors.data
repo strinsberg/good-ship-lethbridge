@@ -1,3 +1,4 @@
+// captains room ////////////////////////////////////////////////////////////
 {
 type=door,
 id=drcaptcom,
@@ -6,10 +7,12 @@ description=a door to the common room,
 here=rmcapt,
 there=rmcommon,
 }
+
+// common room ////////////////////////////////////////////////////////////
 {
 type=door,
 id=drcomcapt,
-name=common room door,
+name=captain's room door,
 description=a door to the captains room,
 here=rmcommon,
 there=rmcapt,
@@ -32,6 +35,8 @@ here=rmcommon,
 there=rmhall1,
 active=false,
 }
+
+// hall /////////////////////////////////////////////////////////////////////
 {
 type=door,
 id=drhallcontrol,
@@ -58,6 +63,8 @@ description=a door to the common room,
 here=rmhall1,
 there=rmcommon,
 }
+
+// control room /////////////////////////////////////////////////////////////
 {
 type=door,
 id=drcontrolbay,
@@ -74,6 +81,8 @@ description=a door to the main hall,
 here=rmcontrol,
 there=rmhall1,
 }
+
+// engine bay ///////////////////////////////////////////////////////////////
 {
 type=door,
 id=drbaycontrol,
@@ -82,6 +91,8 @@ description=a door to the engine control room,
 here=rmengibay,
 there=rmcontrol,
 }
+
+// cargo bay ////////////////////////////////////////////////////////////////
 {
 type=door,
 id=drcargospace,
@@ -92,12 +103,23 @@ there=rmspace1,
 }
 {
 type=door,
+id=drcargohall1,
+name=hall door,
+description=a door to the main hall.,
+here=rmcargo,
+there=rmhall1,
+}
+
+// space ////////////////////////////////////////////////////////////////////
+{
+type=door,
 id=drspacebridge,
 name=bridge airlock,
 description=an airlock to the bridge,
 here=rmspace1,
 there=rmbridge,
 }
+
 {
 type=door,
 id=drspacecargo,
@@ -106,6 +128,8 @@ description=an airlock to the cargo bay,
 here=rmspace1,
 there=rmcargo,
 }
+
+// bridge ///////////////////////////////////////////////////////////////////
 {
 type=door,
 id=drbridgespace,

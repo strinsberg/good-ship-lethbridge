@@ -1,7 +1,35 @@
 {
 type=npc,
-id=temp123,
-name=joey,
-description=what on earth is this guy doing here?,
-here=rmcommon,
+id=bmcdoug,
+name=barbara mcdougal,
+description=your science officer. she is sitting on the floor and looks injured.,
+here=rmhall1,
+}
+{
+type=npc,
+id=cspan,
+name=clem spanner,
+description=your engineer. he looks stressed!,
+here=rmhall1,
+}
+{
+type=npc,
+id=wmae,
+name=whinny mae,
+description=the ships doctor. she looks injured too (are the writers of this game sexist?).,
+here=rmcargo,
+}
+{
+type=npc,
+id=yoda,
+name=master yoda,
+description=the iconic jedi is meditating on one of your ships antenna.,
+here=rmspace1,
+}
+{
+type=npc,
+id=lphilbur,
+name=lars philbur,
+description=the bridge officer. he is upside down standing on the ceiling!,
+here=rmbridge,
 }

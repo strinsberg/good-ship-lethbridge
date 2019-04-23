@@ -1,3 +1,4 @@
+// captains room ////////////////////////////////////////////////////////////
 {
 type=kill,
 id=sleepcaptbed,
@@ -19,3 +20,5 @@ message=you see endless space. a small cloud of debris is floating neaby.,
 entity=captwin,
 verb=look,
 }
+
+// common room //////////////////////////////////////////////////////////////

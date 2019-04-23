@@ -1,3 +1,4 @@
+// area 1 ///////////////////////////////////////////////////////////////////
 {
 type=room,
 id=rmcapt,
@@ -16,6 +17,8 @@ id=rmspan,
 name=Clem Spanner's room,
 description=the room of the ships engineer. there is grease on everything.,
 }
+
+// area 2 ///////////////////////////////////////////////////////////////////
 {
 type=room,
 id=rmhall1,
@@ -34,6 +37,8 @@ id=rmengibay,
 name=Engine Bay,
 description=a large compartment to house the engines. it is filled with gamma radiation.,
 }
+
+// area 3 ///////////////////////////////////////////////////////////////////
 {
 type=room,
 id=rmcargo,
