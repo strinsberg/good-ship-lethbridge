@@ -36,7 +36,6 @@ std::string Event::execute(Entity* e) {
   std::stringstream ss;
   for (auto it = observers.begin(); it != observers.end(); ++it) {
     std::string result = (*it)->execute(e);
-    std::cout << (*it)->getId() << std::endl;
     if (!result.empty()) {
       ss << result;
       if (it + 1 != observers.end())

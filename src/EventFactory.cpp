@@ -86,7 +86,6 @@ void EventFactory::makeEvents() {
       Event* subject = events.find(subjectId)->second;
       Event* observer = events.find(bp->getField("id"))->second;
       subject->subscribe(observer);
-      std::cout << subject->getId() << " " << observer->getId() << std::endl;
     }
   }
 }
