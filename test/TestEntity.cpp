@@ -3,12 +3,12 @@
  * @date 2019-04-17
  */
 
-
 #include "Entity.h"
 #include "Inform.h"
 #include <string>
 #include <vector>
 #include "gtest/gtest.h"
+
 
 TEST(EntityTests, constructor) {
   Entity e;
@@ -43,6 +43,13 @@ TEST(EntityTests, add_run_event) {
   Inform* inf = new Inform("inform123", "You should eat healthy food!");
   e.addEvent("use", inf);
   EXPECT_EQ("You should eat healthy food!", e.runEvent("use", &e));
+}
+
+TEST(EntityTests, has_event) {
+  Entity e;
+  Inform* inf = new Inform("inform123", "You should eat healthy food!");
+  e.addEvent("use", inf);
+  EXPECT_TRUE(e.hasEvent("use"));
 }
 
 TEST(EntityTests, run_no_event) {

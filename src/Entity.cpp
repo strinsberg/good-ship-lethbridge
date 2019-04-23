@@ -15,6 +15,10 @@ Entity::Entity():spec(nullptr), state(nullptr) {
   state = new EntityState();
 }
 
+Entity::Entity(std::string id) : Entity() {
+  spec->setId(id);
+}
+
 Entity::~Entity() {
   delete spec;
   delete state;
@@ -24,7 +28,6 @@ Entity::~Entity() {
 }
 
 std::string Entity::describe() const {
-  //std::cout << state->getObtainable() << std::endl;
   return spec->getName() + " -> " + spec->getDescription();
 }
 
@@ -53,11 +56,11 @@ void Entity::addEvent(std::string verb, Event* event) {
   events[verb] = event;
 }
 
-std::string Entity::runEvent(std::string verb, Entity* user) {
+std::string Entity::runEvent(std::string verb, Entity* affected) {
   auto it = events.find(verb);
   if (it == events.end())
     return "Nothing happens";
-  return it->second->execute(user);
+  return it->second->execute(affected);
 }
 
 bool Entity::hasEvent(std::string verb) {
@@ -68,6 +71,6 @@ bool Entity::hasEvent(std::string verb) {
     return true;
 }
 
-bool Entity::matches(std::string name) {
-  return spec->matches(name);
+bool Entity::matches(std::string noun) {
+  return spec->matches(noun);
 }
