@@ -224,7 +224,9 @@ message='the reactor is malfunctioning and the chamber is flooded with gamma rad
 entity=cspan,
 verb=talk,
 }
+
 // engine bay ///////////////////////////////////////////////////////////////
+
 // enter raditaion environment
 {
 type=conditionalevent,
@@ -299,11 +301,67 @@ ownertype=interaction,
 }
 // end reactor interaction
 
+// cargo bay ////////////////////////////////////////////////////////////////
 
-
-
-
-
+// talk whinny
+{
+type=structured,
+id=talkwmae,
+entity=wmae,
+verb=talk,
+repeats=false,
+}
+{
+type=inform,
+id=talkmae1,
+message=quick you need to get to the bridge. lars is being controlled by an alien.,
+event=talkwmae,
+ownertype=structured,
+}
+{
+type=inform,
+id=talkmae2,
+message=i'll be ok. just go!.,
+event=talkwmae,
+ownertype=structured,
+}
+{
+type=inform,
+id=talkmae3,
+message=why are you still talking to me! you have to save the ship!,
+event=talkwmae,
+ownertype=structured,
+}
+{
+type=inform,
+id=talkmae4,
+message=the door to the bridge is broken you will have to go outside the ship and use the bridge airlock!,
+event=talkwmae,
+ownertype=structured,
+}
+{
+type=inform,
+id=talkmae5,
+message=don't forget a space suit!,
+event=talkwmae,
+ownertype=structured,
+}
+{
+type=transfer,
+id=talkmae6,
+other=wmae,
+itemid=boxcookies,
+totarget=true,
+event=talkwmae,
+ownertype=structured,
+}
+{
+type=inform,
+id=talkmae7,
+message=i guess some people are just bad in a disaster. your not a very good captain!,
+event=talkwmae,
+ownertype=structured,
+}
 
 
 
