@@ -1,10 +1,5 @@
-/**
- * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
- */
-
-#ifndef CALRISSIEN_2720_DROP_H
-#define CALRISSIEN_2720_DROP_H
+#ifndef DGSL_DROP_H
+#define DGSL_DROP_H
 
 #include "Action.h"
 #include "Player.h"
@@ -12,8 +7,11 @@
 
 
 /**
-  * Action to remove an item from the players inventory and
-  * place it in the player's current room.
+  * Action to remove an item from the players inventory and place it in the
+  * player's current room.
+  *
+  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+  * @date 2019-03-05
   */
 class Drop : public Action {
  public:
@@ -22,8 +20,8 @@ class Drop : public Action {
   std::string execute();
 
  private:
-  Drop(const Drop& other);
-  Drop& operator=(const Drop& other);
+  Drop(const Drop&);
+  Drop& operator=(const Drop&);
 };
 
 #endif // DROP_H

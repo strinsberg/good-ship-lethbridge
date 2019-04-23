@@ -1,13 +1,13 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
+ * @date 2019-03-05, 2019-04-23
  */
 
 #include "Drop.h"
 #include "Exceptions.h"
 #include <string>
 #include "gtest/gtest.h"
+
 
 TEST(DropTests, constructor_get) {
   Player* p = new Player("id7193");
