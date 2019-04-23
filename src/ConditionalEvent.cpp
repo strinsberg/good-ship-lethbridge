@@ -4,17 +4,18 @@
  */
 
 #include "ConditionalEvent.h"
+#include <string>
 
 ConditionalEvent::ConditionalEvent(std::string id)
     : Event(id), condition(nullptr), success(nullptr), failure(nullptr) {}
 
 ConditionalEvent::~ConditionalEvent() {
-    if (condition != nullptr)
-      delete condition;
-    if (success != nullptr)
-      delete success;
-    if (failure != nullptr)
-      delete failure;
+  if (condition != nullptr)
+    delete condition;
+  if (success != nullptr)
+    delete success;
+  if (failure != nullptr)
+    delete failure;
 }
 
 void ConditionalEvent::setCondition(Conditional* c) {
@@ -36,9 +37,9 @@ void ConditionalEvent::setFailure(Event* f) {
 }
 
 std::string ConditionalEvent::execute(Entity* e) {
-  if (condition->test(e))
+  if (condition->test(e)) {
     return success->execute(e);
-  else {
+  } else {
     if (failure != nullptr)
       return failure->execute(e);
     else

@@ -11,7 +11,7 @@ Command::Command(std::string n) : noun(n) {}
 
 Command::~Command() {}
 
-void Command::setNoun(string n) {
+void Command::setNoun(std::string n) {
     noun = n;
 }
 
