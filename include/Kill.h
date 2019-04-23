@@ -14,11 +14,13 @@
   */
 class Kill : public Inform {
  public:
-  Kill(std::string id, std::string message);
+  Kill(std::string id, std::string message, bool isEnd=false);
   virtual ~Kill();
   std::string execute(Entity* affected);
 
  private:
+  bool ending;
+
   Kill(const Kill& other);
   Kill& operator=(const Kill& other);
 };

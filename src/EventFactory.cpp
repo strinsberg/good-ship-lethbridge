@@ -104,7 +104,7 @@ Event* EventFactory::makeInform(ObjectBlueprint* bp) {
 }
 
 Event* EventFactory::makeKill(ObjectBlueprint* bp) {
-  Kill* k = new Kill(bp->getField("id"), bp->getField("message"));
+  Kill* k = new Kill(bp->getField("id"), bp->getField("message"), stob(bp->getField("ending")));
   addToOwner(k, bp);
   return k;
 }

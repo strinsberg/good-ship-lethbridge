@@ -67,7 +67,7 @@ TEST(GameTests, run_player_is_dead) {
   k.execute(g.getPlayer());
   g.run();
   EXPECT_EQ(true, g.getPlayer()->getState()->getHidden());
-  EXPECT_EQ("> You can't fly!\nGame Over!\nThanks for playing!\n", out.str());
+  EXPECT_EQ("> You can't fly!\n\nGame Over!\nThanks for playing!\n", out.str());
 }
 
 TEST(GameTests, get_event) {

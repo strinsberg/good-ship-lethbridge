@@ -10,14 +10,15 @@
 #include <iostream>
 #include <string>
 
-Kill::Kill(std::string id, std::string message) : Inform(id, message) {}
+Kill::Kill(std::string id, std::string message, bool isEnd) : Inform(id, message), ending(isEnd) {}
 
 Kill::~Kill() {}
 
 std::string Kill::execute(Entity* affected) {
   std::stringstream ss;
   affected->getState()->setHidden(true);
-  ss << message << std::endl;
-  ss << affected->getSpec()->getName() << " is Dead!";
+  ss << message;
+  if (!ending)
+    ss << std::endl << affected->getSpec()->getName() << " is Dead!";
   return ss.str();
 }

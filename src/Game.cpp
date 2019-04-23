@@ -88,7 +88,7 @@ void Game::run() {
 
 
     if (player->getState()->getHidden()) {
-      out << "Game Over!" << std::endl;
+      out << std::endl << "Game Over!" << std::endl;
       out << "Thanks for playing!" << std::endl;
       running = false;
     }

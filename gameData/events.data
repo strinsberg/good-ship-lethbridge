@@ -459,6 +459,7 @@ message=you successfully capture lars and put him in the brig. in short time the
 event=talklars,
 optiontext=capture lars,
 ownertype=interaction,
+ending=true,
 }
 // fly into sun
 {
@@ -468,6 +469,7 @@ message=with courage like no other you fly the ship into a nearby star. the alie
 event=talklars,
 optiontext=capture lars,
 ownertype=interaction,
+ending=true,
 }
 // escape
 {
@@ -477,5 +479,6 @@ message=seeing the horror before you makes you so afraid. you take the only esca
 event=talklars,
 optiontext=take the escape pod,
 ownertype=interaction,
+ending=true,
 }
 
