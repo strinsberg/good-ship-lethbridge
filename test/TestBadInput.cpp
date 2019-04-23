@@ -10,7 +10,7 @@
 #include "gtest/gtest.h"
 
 
-TEST(BadInputTests, construct) {
+TEST(BadInputTests, constructor) {
   BadInput b;
   EXPECT_EQ(b.getNoun(), "");
 }

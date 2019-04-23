@@ -1,16 +1,14 @@
-/**
- * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
- */
-
-#ifndef BADINPUT_H
-#define BADINPUT_H
+#ifndef DGSL_BADINPUT_H
+#define DGSL_BADINPUT_H
 
 #include "Command.h"
 #include <string>
 
 /**
-  * An object to resolve invalid input from the player
+  * Deals with invalid input from the player.
+  *
+  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+  * @date 2019-03-05, 2019-04-23
   */
 class BadInput : public Command {
  public:

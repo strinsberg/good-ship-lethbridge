@@ -1,10 +1,5 @@
-/**
- * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
- */
-
-#ifndef CALRISSIEN_2720_ACTION_H
-#define CALRISSIEN_2720_ACTION_H
+#ifndef DGSL_ACTION_H
+#define DGSL_ACTION_H
 
 #include "Command.h"
 #include "Player.h"
@@ -13,6 +8,9 @@
 
 /**
   * Base class for actions the user wants the player to take.
+  *
+  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+  * @date 2019-03-05, 2019-04-23
   */
 class Action : public Command {
  public:
@@ -20,21 +18,23 @@ class Action : public Command {
   virtual ~Action();
 
   /**
-    * @return the player
+    * Returns a pointer to the player. Does not transfer ownership.
+    * @return the player taking the action.
     */
   const Player* getPlayer() const;
 
-  /**
-    * Allows finding an entity in a player and it's current room.
-    * @param player the player
-    * @param name then name of the entity
-    */
-  static Entity* findEntity(Player* player, std::string name);
-
  protected:
-  Player* player;  // does not own the player
+  /**
+    * The player taking the action. Action Does not own this.
+    */
+  Player* player;
 
-  // Calls findEntity with player and Command::noun
+  /**
+    * Returns a pointer to the entity that matches the noun and is accessible
+    * to the player. Does not transfer ownership.
+    * @return a pointer to the entity matching the noun or nullptr if
+    * there isn't one.
+    */
   Entity* getEntity();
 
  private:

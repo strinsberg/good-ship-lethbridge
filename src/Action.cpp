@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-23
  */
 
 #include "Action.h"
@@ -10,28 +9,26 @@
 #include "Exceptions.h"
 #include <string>
 
+
 Action::Action(Player* p) : player(p) {}
+
 Action::~Action() {}
 
 const Player* Action::getPlayer() const {
   return player;
 }
 
-Entity* Action::findEntity(Player* p, std::string n) {
-  if (p == nullptr)
+Entity* Action::getEntity() {
+  if (player == nullptr)
     throw unfinished_object_error("Action has no Player!");
 
-  Entity* e = p->search(n);
+  Entity* e = player->search(noun);
   if (e != nullptr && !e->getState()->getHidden())
     return e;
 
-  e = p->getCurrentRoom()->search(n);
+  e = player->getCurrentRoom()->search(noun);
   if (e != nullptr && !e->getState()->getHidden())
     return e;
 
   return nullptr;
-}
-
-Entity* Action::getEntity() {
-  return findEntity(player, noun);
 }
