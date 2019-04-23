@@ -31,12 +31,11 @@ std::string Container::describe() const {
 
   size_t i = 0;
   for (auto e : inventory) {
-    ss << e.second->describe();
+    ss << e.second->getSpec()->getName() << " -> " << e.second->getSpec()->getDescription();
     if (i < inventory.size() - 1)
       ss << "\n";
     i++;
   }
-
   return ss.str();
 }
 

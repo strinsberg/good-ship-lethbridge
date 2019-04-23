@@ -188,7 +188,7 @@ void EventFactory::makeCondition(ObjectBlueprint* bp) {
     Atmosphere atmosphere = sToAtmos(atmos);
     cond = new Protected(atmosphere);
   } else if (subtype == "hasitem") {
-    cond = new HasItem(bp->getField("item"));
+    cond = new HasItem(bp->getField("itemid"));
   } else {
     throw unfinished_object_error("Error: conditional doens't have valid subtype! ID: " + id + " subtype: " + subtype);
   }

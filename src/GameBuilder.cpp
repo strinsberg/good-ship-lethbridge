@@ -55,7 +55,7 @@ Game* GameBuilder::newGame(std::string name) {
   // make entities
   std::string entityData = getFileData("gameData/entities.data");
   makeBlueprints(entityData, blueprints);
-  makeNpcs(blueprints, rooms);
+  makeEntities(blueprints, rooms);
 
   // make events
   std::string eventData = getFileData("gameData/events.data");

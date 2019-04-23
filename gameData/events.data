@@ -116,4 +116,14 @@ once=true,
 verb=hidden0mf4082,
 subject=infhallpanelsuccess,
 }
+{
+type=transfer,
+id=takefuse,
+itemid=hallfuse,
+other=doorpanel,
+entity=doorpanel,
+totarget=false,
+verb=hidden2j24d802,
+subject=infhallpanelsuccess,
+}
 
