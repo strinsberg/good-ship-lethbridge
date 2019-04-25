@@ -132,9 +132,7 @@ TEST(TestContainer, removeEntity) {
   Container c("id8765");
 
   Entity* e = new Container("id98964");
-  EntitySpec *s = new EntitySpec();
-  s->setName("container");
-  e->setSpec(s);
+  e->getSpec()->setName("container");
 
   c.addEntity(e);
   EXPECT_EQ(e, c.search("container"));
@@ -159,9 +157,6 @@ TEST(TestContainer, container_iterator) {
   Container c("id23947");
 
   Entity* e = new Container("id4820");
-  EntitySpec *s = new EntitySpec();
-  s->setName("container");
-  e->setSpec(s);
 
   c.addEntity(e);
   auto it = c.begin();

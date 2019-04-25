@@ -30,10 +30,7 @@ TEST(PlayerTests, set_room) {
 
 TEST(PlayerTests, describe) {
   Player p("id7193");
-
-  EntitySpec* spec = new EntitySpec();
-  spec->setDescription("That's You!");
-  p.setSpec(spec);
+  p.getSpec()->setDescription("That's You!");
 
   EXPECT_EQ("That's You!", p.describe());
 }

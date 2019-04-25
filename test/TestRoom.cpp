@@ -50,10 +50,8 @@ TEST(RoomTests, enter_custom_event) {
 
 TEST(RoomTests, describe) {
   Room r("id7193");
-  EntitySpec* spec = new EntitySpec();
-  spec->setName("Captain's Room");
-  spec->setDescription("It's your room!");
-  r.setSpec(spec);
+  r.getSpec()->setName("Captain's Room");
+  r.getSpec()->setDescription("It's your room!");
 
   Entity* e = new Entity("id123");
   e->getSpec()->setDescription("something fun");

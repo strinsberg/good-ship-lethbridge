@@ -1,7 +1,6 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-02-20
+ * @date 2019-02-20, 2019-04-25
  */
 
 #include "Entity.h"
@@ -10,7 +9,6 @@
 #include "Event.h"
 #include <string>
 
-EntitySpec::EntitySpec(): name(""), description("") {}
 
 EntitySpec::EntitySpec(std::string i, std::string n, std::string desc)
     : id(i), name(n), description(desc) {}
@@ -42,7 +40,8 @@ void EntitySpec::setDescription(std::string n) {
 }
 
 bool EntitySpec::matches(std::string n) {
-  if (name.find(n) != std::string::npos || description.find(n) != std::string::npos)
+  if (name.find(n) != std::string::npos
+      || description.find(n) != std::string::npos)
     return true;
   else
     return false;

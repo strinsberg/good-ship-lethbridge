@@ -11,7 +11,7 @@
 
 
 Entity::Entity():spec(nullptr), state(nullptr) {
-  spec = new EntitySpec();
+  spec = new EntitySpec("", "", "");
   state = new EntityState();
 }
 

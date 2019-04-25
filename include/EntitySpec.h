@@ -1,65 +1,71 @@
-/**
- * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-05
- */
-
-#ifndef CALRISSIEN_2720_ENTITYSPEC_H
-#define CALRISSIEN_2720_ENTITYSPEC_H
+#ifndef DGSL_ENTITYSPEC_H
+#define DGSL_ENTITYSPEC_H
 
 #include <string>
 
 
 /**
   * Holds information about an entity.
+  *
+  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
+  * @date 2019-03-05, 2019-04-25
   */
 class EntitySpec {
  public:
-  EntitySpec();
-
   /**
     * Create a new EntityState with given values for the states.
-    * @param id a unique string id for the Entity
-    * @param name the name of the Entity
-    * @param description the static description of the Entity
+    * @param id a unique id.
+    * @param name a name.
+    * @param description a description.
     */
   EntitySpec(std::string id, std::string name, std::string description);
 
   virtual ~EntitySpec();
 
   /**
-    * @return the name
+    * Returns the name.
+    * @return the name.
     */
   std::string getName() const;
 
   /**
-    * Set the name
-    * @param n the new name
+    * Sets the name.
+    * @param name the new name.
     */
-  void setName(std::string n);
+  void setName(std::string nname);
 
   /**
-    * @return the id
+    * Returns the id.
+    * @return the id.
     */
   std::string getId() const;
 
   /**
-    * Set the id
-    * @param id the new id
+    * Sets the id.
+    * @param id the new id.
     */
   void setId(std::string id);
 
   /**
-    * @return the description
+    * Returns the description.
+    * @return the description.
     */
   std::string getDescription() const;
 
   /**
-    * set the description
-    * @param d the new description
+    * Sets the description.
+    * @param description the new description.
     */
-  void setDescription(std::string n);
+  void setDescription(std::string description);
 
-  bool matches(std::string name);
+  /**
+    * Checks to see if the given word or phrase is contained in the
+    * name or the description. Will match the noun exactly.
+    * @param noun a word or phrase.
+    * @return true if the word or phrase appears in the name
+    * or the description, false otherwise.
+    */
+  bool matches(std::string noun);
 
  private:
   std::string id;

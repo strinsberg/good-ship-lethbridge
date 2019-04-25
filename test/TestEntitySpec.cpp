@@ -1,5 +1,4 @@
 /**
- * CPSC2720 Group Project Spring 2019
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
  * @date 2019-02-20, 2019-04-20
  */
@@ -9,13 +8,6 @@
 #include "Exceptions.h"
 
 
-TEST(TestEntitySpec, default_constructor) {
-  EntitySpec e;
-  EXPECT_EQ("", e.getId());
-  EXPECT_EQ("", e.getName());
-  EXPECT_EQ("", e.getDescription());
-}
-
 TEST(TestEntitySpec, EntitySpec_constructor) {
   EntitySpec e("player240", "steve", "a smelly old programmer");
   EXPECT_EQ("player240", e.getId());
@@ -24,19 +16,19 @@ TEST(TestEntitySpec, EntitySpec_constructor) {
 }
 
 TEST(TestEntitySpec, set_get_name) {
-  EntitySpec e;
+  EntitySpec e("player240", "steve", "a smelly old programmer");
   e.setName("max");
   EXPECT_EQ("max", e.getName());
 }
 
 TEST(TestEntitySpec, set_get_id) {
-  EntitySpec e;
+  EntitySpec e("player240", "steve", "a smelly old programmer");
   e.setId("123max");
   EXPECT_EQ("123max", e.getId());
 }
 
 TEST(TestEntitySpec, set_get_description) {
-  EntitySpec e;
+  EntitySpec e("player240", "steve", "a smelly old programmer");
   e.setDescription("this is e");
   EXPECT_EQ("this is e", e.getDescription());
 }
