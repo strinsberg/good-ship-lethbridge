@@ -26,8 +26,18 @@ Game* GameBuilder::newGame(std::string name) {
   Game* g = new Game();
   std::vector<ObjectBlueprint*> blueprints;
 
-  // Make a factory that has all these functions that take data and rooms
-  // and create the blueprints and populate the rooms accordingly
+  // When you put all gameData into a single file and use world editor
+  // this function will need to put the Object blueprints into seperate
+  // blueprint vectors for each category. then these vectors can be passed
+  // to each of the factory functions just as they are now and
+  // ensure the proper ordering of the buuild. Then it doesn't matter
+  // as much how things are written to the file as long as everything
+  // comes after whatever it's here field is there should be no problems.
+  // Also if eveything is always printed after what it is contained in
+  // it might be possible to just delay doors until the end and do
+  // everything else in order with just a factory method for an individual
+  // item like the event factory does. Then it could be more fluid for what
+  // could be contained in what like rooms, nps, etc.
 
   // make rooms
   std::map<std::string, Room*>& rooms = g->getRooms();
@@ -226,7 +236,7 @@ void GameBuilder::makeEntities(std::vector<ObjectBlueprint*>& blueprints,
 
     std::string type = bp->getType();
     if (type == "suit")
-      // only do it if the suit has no atmoshpere
+      // only do it if the suit has atmoshpere
       ent = new Suit(sToAtmos(bp->getField("atmosphere")));
     else
       ent = new Entity(bp->getField("id"));
