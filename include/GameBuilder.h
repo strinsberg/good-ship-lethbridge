@@ -10,6 +10,7 @@
 #include "Entity.h"
 #include "Event.h"
 #include "Conditional.h"
+#include "EventGroup.h"
 #include "json.h"
 #include <string>
 
@@ -29,25 +30,16 @@ class GameBuilder {
   Game* newGame(std::string name);
 
  private:
-  std::string getFileData(std::string filename);
-  void makeBlueprints(std::string data, std::vector<ObjectBlueprint*>& blueprints);
-  bool stob(std::string str);
-  void setUpEntity(Entity* entity, ObjectBlueprint* bp);
-  Container* findHere(std::map<std::string, Room*>& rooms, std::string ownerId);
-  Atmosphere sToAtmos(std::string str);
+  bool isEntity(std::string type);
+  bool isEvent(std::string type);
+  bool isContainer(std::string type);
+  bool isGroup(std::string type);
+  bool isCondition(std::string type);
 
-  void makeRooms(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
-  void makeDoors(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
-  void makeContainers(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
-  void makeNpcs(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
-  void makeEntities(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
-
-  Entity* makeEntity(json obj);
-  void setupEntity(Entity* e, json obj);
-  Event* makeEvent(json obj);
-  void setupEvent(Event* e, json obj);
-  Conditional* makeCondition(json obj);
-  void setupCondition(Conditional* c, json obj);
+  void addItems(Container* c, json items);
+  void addEvents(Entity* e, json events);
+  void addEvents(EventGroup* g, json events);
+  void setSubscriptions(Event* e, json subjects);
 
   GameBuilder(const GameBuilder& other);
   GameBuilder& operator=(const GameBuilder& other);
