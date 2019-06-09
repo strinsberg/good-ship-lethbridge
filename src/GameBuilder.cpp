@@ -14,6 +14,8 @@
 #include "ObjectBlueprint.h"
 #include "GameData.h"
 #include "Exceptions.h"
+#include "EntityConnector.h"
+#include "EventConnector.h"
 #include "json.h"
 #include <sstream>
 #include <string>
@@ -65,8 +67,16 @@ Game* GameBuilder::newGame(std::string name) {
     std::string id = obj["id"];
 
     if (isEntity(type)) {
+        Entity* e = entities[id];
+        EntityConnector conn(obj);
+        conn.collect(entities, events);
+        e->accept(conn);
     } else if (isEvent(type)) {
-    } else if (isEvent(type)) {
+        Event* e = events[id];
+        EventConnector conn(obj);
+        conn.collect(events, conditions);
+        e->accept(conn);
+    } else if (isCondition(type)) {
     }
   }
 

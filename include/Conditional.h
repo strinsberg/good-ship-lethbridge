@@ -2,7 +2,7 @@
 #define DGSL_CONDITIONAL_H
 
 #include "Entity.h"
-
+#include "Visitor.h"
 
 /**
   * Base class for a condition that an entity can be tested for.
@@ -22,6 +22,10 @@ class Conditional {
     * @return true if the entity satisfies the condition, otherwise false.
     */
   virtual bool test(Entity* target) const = 0;
+
+  void accept(Visitor& v) {
+    v.visit(this);
+  }
 
  private:
   Conditional(const Conditional&);

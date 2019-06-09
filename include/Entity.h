@@ -5,6 +5,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
+#include "Visitor.h"
 #include <string>
 #include <map>
 
@@ -93,6 +94,8 @@ class Entity : public Serializable {
     * @return true if the entity matches with the noun, false otherwise.
     */
   bool matches(std::string noun);
+
+  void accept(Visitor& v);
 
  protected:
   EntitySpec* spec;  /**< Info for the entity. Owns this. */

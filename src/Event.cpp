@@ -50,3 +50,7 @@ std::string Event::execute(Entity* e) {
     done = true;
   return ss.str();
 }
+
+void Event::accept(Visitor& v) {
+    v.visit(this);
+}

@@ -74,3 +74,7 @@ bool Entity::hasEvent(std::string verb) {
 bool Entity::matches(std::string noun) {
   return spec->matches(noun);
 }
+
+void Entity::accept(Visitor& v) {
+    v.visit(this);
+}
