@@ -106,6 +106,14 @@ class Game {
 
   static bool stob(const std::string& str);
 
+  void setEvents(std::map<std::string, Event*>) {}
+  void setEntities(std::map<std::string, Entity*>) {}
+  void setConditions(std::map<std::string, Conditional*>) {}
+
+  void setName(std::string name) {}
+  void setWelcome(std::string welcome) {}
+  void setVersion(std::string version) {}
+
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
   std::map<std::string, Event*> events; // !!!does not own these!!!

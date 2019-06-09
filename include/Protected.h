@@ -8,7 +8,7 @@ class Protected : public Conditional
 {
   public:
     Protected(std::string id, std::string atmosphere)
-        : Conditional(id) {}
+        : Conditional(id), atmos(atmosphere) {}
     Protected(Atmosphere atmosphere);
     virtual ~Protected();
 
@@ -21,6 +21,7 @@ class Protected : public Conditional
 
   private:
     Atmosphere atmosphere;
+    std::string atmos;
 
     Protected(const Protected& other);
     Protected& operator=(const Protected& other);

@@ -47,9 +47,7 @@ Game* GameBuilder::newGame(std::string name) {
 
   // NEW create all objects
   std::map<std::string, Entity*> entities;
-  //std::map<std::string, Container*> containers;
   std::map<std::string, Event*> events;
-  //std::map<std::string, EventGroup*> groups;
   std::map<std::string, Conditional*> conditions;
 
   std::ifstream in("test.world");  // Error Checking???
@@ -87,12 +85,24 @@ Game* GameBuilder::newGame(std::string name) {
         EventConnector conn(obj);
         conn.collect(events, conditions);
         e->accept(conn);
-    } else if (isCondition(type)) {
+    } else if (type == "player") {
+        Player* p = new Player(id);
+        setupEntity(p, obj);
+        EntityConnector conn(obj);
+        conn.collect(entities, events);
+        p->accept(conn);
+        g->setPlayer(p);
     }
   }
 
   // Add everything to the game
+  g->setEntities(entities);
+  g->setEvents(events);
+  g->setConditions(conditions);
 
+  g->setName(worldBlueprint["name"]);
+  g->setWelcome(worldBlueprint["welcome"]);
+  g->setVersion(worldBlueprint["version"]);
 
   // Return the game
   return g;
@@ -102,7 +112,7 @@ Game* GameBuilder::newGame(std::string name) {
 
 bool GameBuilder::isEntity(std::string type) {
     return type == "entity" || type == "container" || type == "room"
-        || type == "npc" || type == "player";
+        || type == "npc";
 }
 bool GameBuilder::isEvent(std::string type) {
     return type == "inform" || type == "kill" || type == "toggle"
@@ -128,13 +138,16 @@ Entity* GameBuilder::makeEntity(json obj) {
     else
         e = new Entity(id);
 
+    setupEntity(e, obj);
+    return e;
+}
+
+void GameBuilder::setupEntity(Entity* e, json obj) {
     e->getSpec()->setName(obj["name"]);
     e->getSpec()->setDescription(obj["description"]);
     e->getState()->setActive(obj["active"] == 1);
     e->getState()->setObtainable(obj["obtainable"] == 1);
     e->getState()->setHidden(obj["hidden"] == 1);
-
-    return e;
 }
 
 Event* GameBuilder::makeEvent(json obj) {

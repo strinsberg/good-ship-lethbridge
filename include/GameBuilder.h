@@ -35,6 +35,7 @@ class GameBuilder {
   bool isCondition(std::string type);
 
     Entity* makeEntity(json obj);
+    void setupEntity(Entity*, json);
     Event* makeEvent(json obj);
     Conditional* makeCondition(json obj);
 
