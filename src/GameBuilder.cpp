@@ -1,6 +1,6 @@
 /**
  * @author Steven Deutekom <deutekom@uleth.ca>, Max Niu <max.niu@uleth.ca>
- * @date 2019-03-11, 2019-04-20
+ * @date 2019-03-11, 2019-04-20, 2019-06-8
  */
 
 #include "GameBuilder.h"
@@ -12,10 +12,24 @@
 #include "GameData.h"
 #include "Exceptions.h"
 #include "EventFactory.h"
+#include "json.h"
 #include <sstream>
 #include <string>
 #include <fstream>
 #include <iostream>
+
+using json = nlohmann::json;
+
+// Temporary
+bool isEntity(std::string) {
+    return false;
+}
+bool isEvent(std::string) {
+    return false;
+}
+bool isCondition(std::string) {
+    return false;
+}
 
 GameBuilder::GameBuilder() {}
 
@@ -25,6 +39,26 @@ Game* GameBuilder::newGame(std::string name) {
   // Create a game
   Game* g = new Game();
   std::vector<ObjectBlueprint*> blueprints;
+
+  // NEW
+  std::map<std::string, Entity*> allEntities;
+  std::map<std::string, Event*> allEvents;
+  std::map<std::string, Conditional*> allConditions;
+  std::ifstream in("test.world");  // Error Checking???
+  json worldBlueprint;
+  in >> worldBlueprint;
+
+  for (auto& obj : worldBlueprint["objects"]) {
+    std::string type = obj["type"];
+    std::string id = obj["id"];
+    if (type == "entity" || isEntity(type)) {
+        allEntities[id] = makeEntity(obj);
+    } else if (obj["type"] == "event" || isEvent(type)) {
+        allEvents[id] = makeEvent(obj);
+    } else if (type == "condition" || isCondition(type)) {
+        allConditions[id] = makeCondition(obj);
+    }
+  }
 
   // When you put all gameData into a single file and use world editor
   // this function will need to put the Object blueprints into seperate
@@ -244,4 +278,52 @@ void GameBuilder::makeEntities(std::vector<ObjectBlueprint*>& blueprints,
     setUpEntity(ent, bp);
     here->addEntity(ent);
   }
+}
+
+Entity* GameBuilder::makeEntity(json obj) {
+    std::string type = obj["type"];
+    std::string id = obj["id"];
+    Entity* e;
+    if (type == "entity")
+        e = new Entity(id);
+    else if (type == "room")
+        e = new Room(id);
+    else if (type == "container")
+        e = new Container(id);
+    else if (type == "suit")
+        e = new Suit();
+    else
+        throw invalid_parameter_error("Error: Obj not an entity");
+
+    setupEntity(e, obj);
+    return e;
+}
+
+void GameBuilder::setupEntity(Entity* e, json obj) {
+    EntitySpec* spec = e->getSpec();
+    spec->setId(obj["id"]);
+    spec->setName(obj["name"]);
+    spec->setDescription(obj["description"]);
+    EntityState* state = e->getState();
+    state->setActive(obj["active"] == 1);
+    state->setObtainable(obj["obtainable"] == 1);
+    state->setHidden(obj["hidden"] == 1);
+}
+
+Event* GameBuilder::makeEvent(json obj) {
+    Event* e;
+    return e;
+}
+
+void GameBuilder::setupEvent(Event* e, json obj) {
+
+}
+
+Conditional* GameBuilder::makeCondition(json obj) {
+    Conditional* c;
+    return c;
+}
+
+void GameBuilder::setupCondition(Conditional* c, json obj) {
+
 }

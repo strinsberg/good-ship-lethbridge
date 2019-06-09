@@ -7,7 +7,13 @@
 #define GAMEBUILDER_H
 
 #include "Game.h"
+#include "Entity.h"
+#include "Event.h"
+#include "Conditional.h"
+#include "json.h"
 #include <string>
+
+using json = nlohmann::json;
 
 /**
   * Builds a new game in its initial state.
@@ -35,6 +41,13 @@ class GameBuilder {
   void makeContainers(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
   void makeNpcs(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
   void makeEntities(std::vector<ObjectBlueprint*>& blueprints, std::map<std::string, Room*>& rooms);
+
+  Entity* makeEntity(json obj);
+  void setupEntity(Entity* e, json obj);
+  Event* makeEvent(json obj);
+  void setupEvent(Event* e, json obj);
+  Conditional* makeCondition(json obj);
+  void setupCondition(Conditional* c, json obj);
 
   GameBuilder(const GameBuilder& other);
   GameBuilder& operator=(const GameBuilder& other);
