@@ -8,10 +8,15 @@
 #include "Room.h"
 #include "Door.h"
 #include "Npc.h"
+#include "EventGroup.h"
+#include "Event.h"
+#include "Entity.h"
 #include "ObjectBlueprint.h"
 #include "GameData.h"
 #include "Exceptions.h"
 #include "EventFactory.h"
+#include "EntityFactory.h"
+#include "ConditionFactory.h"
 #include "json.h"
 #include <sstream>
 #include <string>
@@ -27,6 +32,15 @@ bool isEntity(std::string) {
 bool isEvent(std::string) {
     return false;
 }
+
+bool isContainer(std::string) {
+    return false;
+}
+
+bool isGroup(std::string) {
+    return false;
+}
+
 bool isCondition(std::string) {
     return false;
 }
@@ -40,25 +54,49 @@ Game* GameBuilder::newGame(std::string name) {
   Game* g = new Game();
   std::vector<ObjectBlueprint*> blueprints;
 
-  // NEW
-  std::map<std::string, Entity*> allEntities;
-  std::map<std::string, Event*> allEvents;
-  std::map<std::string, Conditional*> allConditions;
+  // NEW create all objects
+  std::map<std::string, Entity*> entities;
+  std::map<std::string, Container*> containers;
+  std::map<std::string, Event*> events;
+  std::map<std::string, EventGroup*> groups;
+  std::map<std::string, Conditional*> conditions;
+
   std::ifstream in("test.world");  // Error Checking???
   json worldBlueprint;
   in >> worldBlueprint;
 
+  // Make some factory objects
+  // Use then to create the objects needed
+  EntityFactory entFact;
+  EventFactory evtFact;
+  ConditionFactory condFact;
+
   for (auto& obj : worldBlueprint["objects"]) {
     std::string type = obj["type"];
     std::string id = obj["id"];
-    if (type == "entity" || isEntity(type)) {
-        allEntities[id] = makeEntity(obj);
-    } else if (obj["type"] == "event" || isEvent(type)) {
-        allEvents[id] = makeEvent(obj);
-    } else if (type == "condition" || isCondition(type)) {
-        allConditions[id] = makeCondition(obj);
+
+    if (isEntity(type)) {
+        if (isContainer(type))
+            containers["id"] = entFact.makeContainer(obj);
+        else
+            entities[id] = entFact.makeEntity(obj);
+    } else if (isEvent(type)) {
+        if (isGroup(type))
+            groups[id] = evtFact.makeGroup(obj);
+        else
+            events[id] = evtFact.makeEvent(obj);
+    } else if (isCondition(type)) {
+        conditions[id] = condFact.make(obj);
     }
   }
+
+  // NEW connect all objects
+  // if an object has events find them and add them
+  // if an object has items find them and add them
+  for (auto& obj : worldBlueprint) {
+
+  }
+
 
   // When you put all gameData into a single file and use world editor
   // this function will need to put the Object blueprints into seperate
@@ -102,10 +140,6 @@ Game* GameBuilder::newGame(std::string name) {
   makeEntities(blueprints, rooms);
 
   // make events
-  std::string eventData = getFileData("gameData/events.data");
-  makeBlueprints(eventData, blueprints);
-  EventFactory ef(blueprints, rooms);
-  ef.makeEvents();
 
   // Create player
   // Eventually make this something that comes from a text file as well
@@ -308,6 +342,7 @@ void GameBuilder::setupEntity(Entity* e, json obj) {
     state->setActive(obj["active"] == 1);
     state->setObtainable(obj["obtainable"] == 1);
     state->setHidden(obj["hidden"] == 1);
+    // if obj is of container type???
 }
 
 Event* GameBuilder::makeEvent(json obj) {
