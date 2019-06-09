@@ -9,7 +9,7 @@
 #include "Player.h"
 #include "Entity.h"
 
-Protected::Protected(Atmosphere a) : atmosphere(a) {}
+Protected::Protected(Atmosphere a) : Conditional("none"), atmosphere(a) {}
 
 Protected::~Protected() {}
 

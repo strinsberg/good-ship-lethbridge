@@ -8,7 +8,18 @@
 #include "Room.h"
 #include "Door.h"
 #include "Npc.h"
+#include "Inform.h"
+#include "Kill.h"
+#include "MovePlayer.h"
+#include "ToggleActive.h"
+#include "TransferItem.h"
 #include "EventGroup.h"
+#include "StructuredEvents.h"
+#include "Interaction.h"
+#include "ConditionalEvent.h"
+#include "HasItem.h"
+#include "Question.h"
+#include "Protected.h"
 #include "Event.h"
 #include "Entity.h"
 #include "ObjectBlueprint.h"
@@ -90,24 +101,82 @@ Game* GameBuilder::newGame(std::string name) {
 // Private ///////////////////////////////////////////////////////////////////
 
 bool GameBuilder::isEntity(std::string type) {
-    return false;
+    return type == "entity" || type == "container" || type == "room"
+        || type == "npc" || type == "player";
 }
 bool GameBuilder::isEvent(std::string type) {
-    return false;
+    return type == "inform" || type == "kill" || type == "toggle"
+        || type == "transfer" || type == "move" || type == "group"
+        || type == "ordered" || type == "interaction" || type == "conditional";
 }
 
 bool GameBuilder::isCondition(std::string type) {
-    return false;
+    return type == "hasItem" || type == "question" || type == "protected";
 }
 
 Entity* GameBuilder::makeEntity(json obj) {
+    std::string id = obj["id"];
+    std::string type = obj["type"];
 
+    Entity* e;
+    if (type == "container")
+        e = new Container(id);
+    else if (type == "room")
+        e = new Room(id);
+    else if (type == "suit")
+        e = new Suit(id, obj["atmosphere"]);
+    else
+        e = new Entity(id);
+
+    e->getSpec()->setName(obj["name"]);
+    e->getSpec()->setDescription(obj["description"]);
+    e->getState()->setActive(obj["active"] == 1);
+    e->getState()->setObtainable(obj["obtainable"] == 1);
+    e->getState()->setHidden(obj["hidden"] == 1);
+
+    return e;
 }
 
 Event* GameBuilder::makeEvent(json obj) {
+    std::string id = obj["id"];
+    std::string type = obj["type"];
 
+    Event* e;
+    if (type == "inform")
+        e = new Inform(id, obj["message"]);
+    else if (type == "kill")
+        e = new Kill(id, obj["message"], obj["ending"] == 1);
+    else if (type == "toggle")
+        e = new ToggleActive(id);
+    else if (type == "transfer")
+        e = new TransferItem(id, obj["item"], obj["toTarget"] == 1);
+    else if (type == "move")
+        e = new MovePlayer(id);
+    else if (type == "group")
+        e = new EventGroup(id);
+    else if (type == "ordered")
+        e = new StructuredEvents(id);
+    else if (type == "interaction")
+        e = new Interaction(id);
+    else if (type == "conditional")
+        e = new ConditionalEvent(id);
+
+    e->setOnce(obj["once"]);
+
+    return e;
 }
 
 Conditional* GameBuilder::makeCondition(json obj) {
+    std::string id = obj["id"];
+    std::string type = obj["type"];
 
+    Conditional* c;
+    if (type == "hasItem")
+        c = new HasItem(id, obj["item"]);
+    else if (type == "question")
+        c = new Question(id, obj["question"], obj["answer"]);
+    else if (type == "protected")
+        c = new Protected(id, obj["atmosphere"]);
+
+    return c;
 }

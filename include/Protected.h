@@ -7,6 +7,8 @@
 class Protected : public Conditional
 {
   public:
+    Protected(std::string id, std::string atmosphere)
+        : Conditional(id) {}
     Protected(Atmosphere atmosphere);
     virtual ~Protected();
 

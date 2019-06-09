@@ -15,6 +15,8 @@
 class TransferItem : public Event
 {
   public:
+    TransferItem(std::string id, std::string item, bool to) :
+        Event(id), itemId(item), toTarget(to) {}
     TransferItem(std::string id, Container* other,
                  std::string itemId, bool toTarget=false);
     virtual ~TransferItem();

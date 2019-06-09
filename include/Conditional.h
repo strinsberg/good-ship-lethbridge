@@ -12,7 +12,7 @@
   */
 class Conditional {
  public:
-  Conditional() {}
+  Conditional(std::string ID) : id(ID) {}
   virtual ~Conditional() {}
 
   /**
@@ -27,7 +27,12 @@ class Conditional {
     v.visit(this);
   }
 
+  void setId(std::string ID) {id = ID;}
+  std::string getId() {return id;}
+
  private:
+  std::string id;
+
   Conditional(const Conditional&);
   Conditional& operator=(const Conditional&);
 };

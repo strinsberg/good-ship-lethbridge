@@ -7,7 +7,7 @@
 #include "Entity.h"
 #include "Container.h"
 
-HasItem::HasItem(std::string id) : itemId(id) {}
+HasItem::HasItem(std::string id) : Conditional(id), itemId(id) {}
 
 HasItem::~HasItem() {}
 

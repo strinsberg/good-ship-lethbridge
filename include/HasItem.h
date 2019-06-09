@@ -12,6 +12,8 @@
 class HasItem : public Conditional
 {
   public:
+    HasItem(std::string id, std::string item)
+        : Conditional(id), itemId(item) {}
     HasItem(std::string itemId);
     virtual ~HasItem();
 

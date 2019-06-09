@@ -19,6 +19,8 @@ class Question : public Conditional, public Interactable
       * @param answer the answer
       */
     Question(std::string question, std::string answer);
+    Question(std::string id, std::string q, std::string a)
+        : Conditional(id), question(q), answer(a) {}
     virtual ~Question();
 
     /**

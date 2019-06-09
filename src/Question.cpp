@@ -6,7 +6,7 @@
 #include "Question.h"
 
 Question::Question(std::string q, std::string a)
-    : question(q), answer(a) {}
+    : Conditional("none"), question(q), answer(a) {}
 
 Question::~Question() {}
 

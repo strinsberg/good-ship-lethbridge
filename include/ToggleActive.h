@@ -12,6 +12,7 @@
 class ToggleActive : public Event
 {
   public:
+    ToggleActive(std::string id) : Event(id), target(nullptr) {}
     ToggleActive(std::string id, Entity* target, bool oneTime=true);
     virtual ~ToggleActive();
 
