@@ -14,9 +14,6 @@
 #include "ObjectBlueprint.h"
 #include "GameData.h"
 #include "Exceptions.h"
-#include "EventFactory.h"
-#include "EntityFactory.h"
-#include "ConditionFactory.h"
 #include "json.h"
 #include <sstream>
 #include <string>
@@ -37,37 +34,26 @@ Game* GameBuilder::newGame(std::string name) {
 
   // NEW create all objects
   std::map<std::string, Entity*> entities;
-  std::map<std::string, Container*> containers;
+  //std::map<std::string, Container*> containers;
   std::map<std::string, Event*> events;
-  std::map<std::string, EventGroup*> groups;
+  //std::map<std::string, EventGroup*> groups;
   std::map<std::string, Conditional*> conditions;
 
   std::ifstream in("test.world");  // Error Checking???
   json worldBlueprint;
   in >> worldBlueprint;
 
-  // Make some factory objects
-  // Use then to create the objects needed
-  EntityFactory entFact;
-  EventFactory evtFact;
-  ConditionFactory condFact;
 
   for (auto& obj : worldBlueprint["objects"]) {
     std::string type = obj["type"];
     std::string id = obj["id"];
 
     if (isEntity(type)) {
-        if (isContainer(type))
-            containers["id"] = entFact.makeContainer(obj);
-        else
-            entities[id] = entFact.makeEntity(obj);
+        entities[id] = makeEntity(obj);
     } else if (isEvent(type)) {
-        if (isGroup(type))
-            groups[id] = evtFact.makeGroup(obj);
-        else
-            events[id] = evtFact.makeEvent(obj);
+        events[id] = makeEvent(obj);
     } else if (isCondition(type)) {
-        conditions[id] = condFact.make(obj);
+        conditions[id] = makeCondition(obj);
     }
   }
 
@@ -78,20 +64,9 @@ Game* GameBuilder::newGame(std::string name) {
     std::string type = obj["type"];
     std::string id = obj["id"];
 
-    if (isContainer(type)) {
-        Container* c = containers[id];
-        addItems(c, obj["items"]);
-        addEvents(c, obj["events"]);
-    } else if (isEntity(type)) {
-        Entity* e = entities[id];
-        addEvents(e, obj["events"]);
-    } else if (isGroup(type)) {
-        EventGroup* g = groups[id];
-        addEvents(g, obj["events"]);
-        setSubscriptions(g, obj["subjects"]);
+    if (isEntity(type)) {
     } else if (isEvent(type)) {
-        Event* e = events[id];
-        setSubscriptions(e, obj["subjects"]);
+    } else if (isEvent(type)) {
     }
   }
 
@@ -111,30 +86,18 @@ bool GameBuilder::isEvent(std::string type) {
     return false;
 }
 
-bool GameBuilder::isContainer(std::string type) {
-    return false;
-}
-
-bool GameBuilder::isGroup(std::string type) {
-    return false;
-}
-
 bool GameBuilder::isCondition(std::string type) {
     return false;
 }
 
-void GameBuilder::addItems(Container* c, json items) {
+Entity* GameBuilder::makeEntity(json obj) {
 
 }
 
-void GameBuilder::addEvents(Entity* e, json events) {
+Event* GameBuilder::makeEvent(json obj) {
 
 }
 
-void GameBuilder::addEvents(EventGroup* g, json events) {
-
-}
-
-void GameBuilder::setSubscriptions(Event* e, json subjects) {
+Conditional* GameBuilder::makeCondition(json obj) {
 
 }

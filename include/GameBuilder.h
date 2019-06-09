@@ -32,14 +32,11 @@ class GameBuilder {
  private:
   bool isEntity(std::string type);
   bool isEvent(std::string type);
-  bool isContainer(std::string type);
-  bool isGroup(std::string type);
   bool isCondition(std::string type);
 
-  void addItems(Container* c, json items);
-  void addEvents(Entity* e, json events);
-  void addEvents(EventGroup* g, json events);
-  void setSubscriptions(Event* e, json subjects);
+    Entity* makeEntity(json obj);
+    Event* makeEvent(json obj);
+    Conditional* makeCondition(json obj);
 
   GameBuilder(const GameBuilder& other);
   GameBuilder& operator=(const GameBuilder& other);
