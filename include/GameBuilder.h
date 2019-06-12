@@ -34,10 +34,10 @@ class GameBuilder {
   bool isEvent(std::string type);
   bool isCondition(std::string type);
 
-    Entity* makeEntity(json obj);
-    void setupEntity(Entity*, json);
-    Event* makeEvent(json obj);
-    Conditional* makeCondition(json obj);
+  Entity* makeEntity(json obj);
+  void setupEntity(Entity*, json);
+  Event* makeEvent(json obj);
+  Conditional* makeCondition(json obj);
 
   GameBuilder(const GameBuilder& other);
   GameBuilder& operator=(const GameBuilder& other);

@@ -4,6 +4,7 @@
  */
 
 #include "ToggleActive.h"
+#include "Entity.h"
 
 ToggleActive::ToggleActive(std::string id, Entity* targ, bool oneTime)
     : Event(id), target(targ), once(oneTime) {}

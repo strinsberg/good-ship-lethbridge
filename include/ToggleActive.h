@@ -6,7 +6,7 @@
 #ifndef TOGGLEACTIVE_H
 #define TOGGLEACTIVE_H
 
-#include "OwnedEvent.h"
+#include "Event.h"
 
 
 class ToggleActive : public Event
@@ -17,6 +17,7 @@ class ToggleActive : public Event
     virtual ~ToggleActive();
 
     std::string execute(Entity* affected);
+    void setTarget(Entity* e) {target = e;}
 
   protected:
     Entity* target;

@@ -106,13 +106,13 @@ class Game {
 
   static bool stob(const std::string& str);
 
-  void setEvents(std::map<std::string, Event*>) {}
-  void setEntities(std::map<std::string, Entity*>) {}
-  void setConditions(std::map<std::string, Conditional*>) {}
+  void setEvents(std::map<std::string, Event*> e) {events = e;}
+  void setEntities(std::map<std::string, Entity*> e) {entities = e;}
+  void setConditions(std::map<std::string, Conditional*> c) {conditions = c;}
 
-  void setName(std::string name) {}
-  void setWelcome(std::string welcome) {}
-  void setVersion(std::string version) {}
+  void setName(std::string n) {name = n;}
+  void setWelcome(std::string w) {welcome = w;}
+  void setVersion(std::string v) {version = v;}
 
  private:
   std::map<std::string, Room*> rooms;  // owns rooms
@@ -121,6 +121,12 @@ class Game {
   std::istream& in;
   std::ostream& out;
   bool running;
+
+  std::map<std::string, Entity*> entities;
+  std::map<std::string, Conditional*> conditions;
+  std::string name;
+  std::string welcome;
+  std::string version;
 
   Game(const Game&);
   Game& operator=(const Game&);

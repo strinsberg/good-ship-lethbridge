@@ -40,91 +40,105 @@ GameBuilder::GameBuilder() {}
 
 GameBuilder::~GameBuilder() {}
 
-Game* GameBuilder::newGame(std::string name) {
-  // Create a game
-  Game* g = new Game();
-  std::vector<ObjectBlueprint*> blueprints;
+Game* GameBuilder::newGame(std::string name)
+{
+    // Create a game
+    Game* g = new Game();
 
-  // NEW create all objects
-  std::map<std::string, Entity*> entities;
-  std::map<std::string, Event*> events;
-  std::map<std::string, Conditional*> conditions;
+    // NEW create all objects
+    std::map<std::string, Entity*> entities;
+    std::map<std::string, Event*> events;
+    std::map<std::string, Conditional*> conditions;
 
-  std::ifstream in("test.world");  // Error Checking???
-  json worldBlueprint;
-  in >> worldBlueprint;
+    std::ifstream in("test.world");  // Error Checking???
+    json worldBlueprint;
+    in >> worldBlueprint;
 
 
-  for (auto& obj : worldBlueprint["objects"]) {
-    std::string type = obj["type"];
-    std::string id = obj["id"];
+    for (auto& obj : worldBlueprint["objects"])
+    {
+       std::string type = obj["type"];
+        std::string id = obj["id"];
 
-    if (isEntity(type)) {
-        entities[id] = makeEntity(obj);
-    } else if (isEvent(type)) {
-        events[id] = makeEvent(obj);
-    } else if (isCondition(type)) {
-        conditions[id] = makeCondition(obj);
+        if (isEntity(type))
+        {
+            entities[id] = makeEntity(obj);
+        }
+        else if (isEvent(type))
+        {
+            events[id] = makeEvent(obj);
+        }
+        else if (isCondition(type))
+        {
+            conditions[id] = makeCondition(obj);
+        }
     }
-  }
 
-  // NEW connect all objects
-  // if an object has events find them and add them
-  // if an object has items find them and add them
-  for (auto& obj : worldBlueprint) {
-    std::string type = obj["type"];
-    std::string id = obj["id"];
+    // NEW connect all objects
+    // if an object has events find them and add them
+    // if an object has items find them and add them
+    for (auto& obj : worldBlueprint["objects"])
+    {
+        std::string type = obj["type"];
+        std::string id = obj["id"];
 
-    if (isEntity(type)) {
-        Entity* e = entities[id];
-        EntityConnector conn(obj);
-        conn.collect(entities, events);
-        e->accept(conn);
-    } else if (isEvent(type)) {
-        Event* e = events[id];
-        EventConnector conn(obj);
-        conn.collect(events, conditions);
-        e->accept(conn);
-    } else if (type == "player") {
-        Player* p = new Player(id);
-        setupEntity(p, obj);
-        EntityConnector conn(obj);
-        conn.collect(entities, events);
-        p->accept(conn);
-        g->setPlayer(p);
+        if (isEntity(type))
+        {
+            Entity* e = entities[id];
+            EntityConnector conn(obj, entities, events);
+            e->accept(conn);
+        }
+        else if (isEvent(type))
+        {
+            Event* e = events[id];
+            EventConnector conn(obj, events, conditions, entities);
+            e->accept(conn);
+        }
+        // Add conditions here if we ever make one that needs a pointer
+        else if (type == "player")
+        {
+            Player* p = new Player(id);
+            setupEntity(p, obj);
+            EntityConnector conn(obj, entities, events);
+            p->accept(conn);
+            g->setPlayer(p);
+        }
     }
-  }
 
-  // Add everything to the game
-  g->setEntities(entities);
-  g->setEvents(events);
-  g->setConditions(conditions);
+    // Add everything to the game
+    g->setEntities(entities);
+    g->setEvents(events);
+    g->setConditions(conditions);
 
-  g->setName(worldBlueprint["name"]);
-  g->setWelcome(worldBlueprint["welcome"]);
-  g->setVersion(worldBlueprint["version"]);
+    g->setName(worldBlueprint["name"]);
+    g->setWelcome(worldBlueprint["welcome"]);
+    g->setVersion(to_string(worldBlueprint["version"]));
 
-  // Return the game
-  return g;
+    // Return the game
+    return g;
 }
 
 // Private ///////////////////////////////////////////////////////////////////
 
-bool GameBuilder::isEntity(std::string type) {
+bool GameBuilder::isEntity(std::string type)
+{
     return type == "entity" || type == "container" || type == "room"
-        || type == "npc";
+           || type == "npc";
 }
-bool GameBuilder::isEvent(std::string type) {
+bool GameBuilder::isEvent(std::string type)
+{
     return type == "inform" || type == "kill" || type == "toggle"
-        || type == "transfer" || type == "move" || type == "group"
-        || type == "ordered" || type == "interaction" || type == "conditional";
+           || type == "transfer" || type == "move" || type == "group"
+           || type == "ordered" || type == "interaction" || type == "conditional";
 }
 
-bool GameBuilder::isCondition(std::string type) {
+bool GameBuilder::isCondition(std::string type)
+{
     return type == "hasItem" || type == "question" || type == "protected";
 }
 
-Entity* GameBuilder::makeEntity(json obj) {
+Entity* GameBuilder::makeEntity(json obj)
+{
     std::string id = obj["id"];
     std::string type = obj["type"];
 
@@ -142,7 +156,8 @@ Entity* GameBuilder::makeEntity(json obj) {
     return e;
 }
 
-void GameBuilder::setupEntity(Entity* e, json obj) {
+void GameBuilder::setupEntity(Entity* e, json obj)
+{
     e->getSpec()->setName(obj["name"]);
     e->getSpec()->setDescription(obj["description"]);
     e->getState()->setActive(obj["active"] == 1);
@@ -150,7 +165,8 @@ void GameBuilder::setupEntity(Entity* e, json obj) {
     e->getState()->setHidden(obj["hidden"] == 1);
 }
 
-Event* GameBuilder::makeEvent(json obj) {
+Event* GameBuilder::makeEvent(json obj)
+{
     std::string id = obj["id"];
     std::string type = obj["type"];
 
@@ -174,12 +190,13 @@ Event* GameBuilder::makeEvent(json obj) {
     else if (type == "conditional")
         e = new ConditionalEvent(id);
 
-    e->setOnce(obj["once"]);
+    e->setOnce(obj["once"] == 1);
 
     return e;
 }
 
-Conditional* GameBuilder::makeCondition(json obj) {
+Conditional* GameBuilder::makeCondition(json obj)
+{
     std::string id = obj["id"];
     std::string type = obj["type"];
 

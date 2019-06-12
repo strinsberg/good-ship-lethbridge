@@ -22,6 +22,7 @@ class TransferItem : public Event
     virtual ~TransferItem();
 
     std::string execute(Entity* target);
+    void setOther(Container* c) {other = c;}
 
   private:
     Container* other;  // does not own this

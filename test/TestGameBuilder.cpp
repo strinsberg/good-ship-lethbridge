@@ -12,3 +12,9 @@
 // All these tests run based on the default gameData
 // If the game data is changed for the first couple rooms
 // The tests will need to be altered.
+TEST(GameBuilderTests, newGame) {
+    GameBuilder g;
+    Game* game = g.newGame("Test");
+    // Add some actual tests here
+    delete game;
+}
