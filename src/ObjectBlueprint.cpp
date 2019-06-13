@@ -21,78 +21,80 @@ const char FIELD_SEP = ',';
 ObjectBlueprint::ObjectBlueprint() {}
 
 ObjectBlueprint::ObjectBlueprint(const string& data)
-  : record(map<string, string>()) {
-  if (!data.empty())
-    parse(data);
+    : record(map<string, string>()) {
+    if (!data.empty())
+        parse(data);
 }
 
 ObjectBlueprint::~ObjectBlueprint() {}
 
 string ObjectBlueprint::getType() const {
-  auto it = record.find("type");
-  if (it == record.end())
-    return null();
-  return it->second;
+    auto it = record.find("type");
+    if (it == record.end())
+        return null();
+    return it->second;
 }
 
 string ObjectBlueprint::getField(const string& key) const {
-  auto it = record.find(key);
-  if (it == record.end())
-    return null();
-  return it->second;
+    auto it = record.find(key);
+    if (it == record.end())
+        return null();
+    return it->second;
 }
 
 bool ObjectBlueprint::setField(const string& key, const string& value) {
-  record[key] = value;
+    record[key] = value;
 }
 
 string ObjectBlueprint::toString() const {
-  stringstream ss;
-  ss << '{' << '\n';
-  ss << "type=" << getType() << ",\n";
-  for (auto f : record) {
-    if (f.first != "type")
-      ss << f.first << EQUAL_SEP << f.second << FIELD_SEP << "\n";
-  }
-  ss << '}';
-  return ss.str();
+    stringstream ss;
+    ss << '{' << '\n';
+    ss << "type=" << getType() << ",\n";
+    for (auto f : record) {
+        if (f.first != "type")
+            ss << f.first << EQUAL_SEP << f.second << FIELD_SEP << "\n";
+    }
+    ss << '}';
+    return ss.str();
 }
 
-string ObjectBlueprint::null() {return "null-field";}
+string ObjectBlueprint::null() {
+    return "null-field";
+}
 
 // Private Methods ///////////////////////////////////////////////////
 
 void ObjectBlueprint::parse(const string& data) {
-  size_t start = 0;
-  size_t mid = 0;
-  size_t end = 0;
+    size_t start = 0;
+    size_t mid = 0;
+    size_t end = 0;
 
-  start = skipWhitespace(data, 1);  // ignore '{' and spaces or '\n'
-  mid = data.find(EQUAL_SEP);
-  end = data.find(FIELD_SEP);
+    start = skipWhitespace(data, 1);  // ignore '{' and spaces or '\n'
+    mid = data.find(EQUAL_SEP);
+    end = data.find(FIELD_SEP);
 
-  while (end != string::npos) {
-    record[ toLower(data.substr(start, mid - start)) ]
-      = data.substr(mid + 1, end - (mid + 1));
+    while (end != string::npos) {
+        record[ toLower(data.substr(start, mid - start)) ]
+            = data.substr(mid + 1, end - (mid + 1));
 
-    start = skipWhitespace(data, end + 1);
-    mid = data.find('=', start);
-    end = data.find(',', start);
-  }
+        start = skipWhitespace(data, end + 1);
+        mid = data.find('=', start);
+        end = data.find(',', start);
+    }
 }
 
 size_t ObjectBlueprint::skipWhitespace(const string& str, size_t pos) {
-  for (size_t i = pos; i < str.length(); i++) {
-    char c = str[i];
-    if (!isspace(c))
-      return i;
-  }
-  return string::npos;
+    for (size_t i = pos; i < str.length(); i++) {
+        char c = str[i];
+        if (!isspace(c))
+            return i;
+    }
+    return string::npos;
 }
 
 string ObjectBlueprint::toLower(const string& str) {
-  string lower;
-  for (auto c : str)
-    lower.push_back(tolower(c));
-  return lower;
+    string lower;
+    for (auto c : str)
+        lower.push_back(tolower(c));
+    return lower;
 }

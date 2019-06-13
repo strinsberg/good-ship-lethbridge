@@ -14,11 +14,11 @@
 
 
 TEST(KillTests, kill_entity) {
-  Kill k("id123", "Why would you do that!");
-  Entity* toKill = new Entity();
-  toKill->getSpec()->setName("Ted");
+    Kill k("id123", "Why would you do that!");
+    Entity* toKill = new Entity();
+    toKill->getSpec()->setName("Ted");
 
-  EXPECT_EQ("Why would you do that!\nTed is Dead!", k.execute(toKill));
-  EXPECT_EQ(true, toKill->getState()->getHidden());
-  delete toKill;
+    EXPECT_EQ("Why would you do that!\nTed is Dead!", k.execute(toKill));
+    EXPECT_EQ(true, toKill->getState()->getHidden());
+    delete toKill;
 }

@@ -11,56 +11,56 @@
 #include <vector>
 
 Interaction::Interaction(std::string id)
-  : Event(id), options(std::vector<Option>()), breakOut(false) {}
+    : Event(id), options(std::vector<Option>()), breakOut(false) {}
 
 Interaction::~Interaction() {
-  for (auto o : options)
-    delete o.event;
+    for (auto o : options)
+        delete o.event;
 }
 
 void Interaction::addOption(std::string t, Event* e) {
-  Option o;
-  o.title = t;
-  o.event = e;
-  options.push_back(o);
+    Option o;
+    o.title = t;
+    o.event = e;
+    options.push_back(o);
 }
 
 std::string Interaction::execute(Entity* affected) {
-  while (true) {
-    *out << "Please choose an option number:" << std::endl;
+    while (true) {
+        *out << "Please choose an option number:" << std::endl;
 
-    size_t i;
-    for (i = 0; i < options.size(); i++) {
-      *out << i + 1 << ". ";
-      *out << options[i].title << std::endl;
+        size_t i;
+        for (i = 0; i < options.size(); i++) {
+            *out << i + 1 << ". ";
+            *out << options[i].title << std::endl;
+        }
+        *out << i + 1 << ". Cancel" << std::endl;
+        *out << ">>> ";
+
+        std::string choice;
+
+        getline(*in, choice);
+        try {
+            int ch = std::stoi(choice);
+            if (ch == options.size() + 1)
+                return "Done";
+            else if (ch <= options.size() && ch > 0)
+                *out << options.at(ch - 1).event->execute(affected);
+            else
+                *out << "Not a valid choice!";
+        } catch (const std::invalid_argument& e) {
+            *out << "Please enter a number!";
+        }
+        if (breakOut)
+            return "";
+        *out << std::endl << std::endl;
     }
-    *out << i + 1 << ". Cancel" << std::endl;
-    *out << ">>> ";
-
-    std::string choice;
-
-    getline(*in, choice);
-    try {
-      int ch = std::stoi(choice);
-      if (ch == options.size() + 1)
-        return "Done";
-      else if (ch <= options.size() && ch > 0)
-        *out << options.at(ch - 1).event->execute(affected);
-      else
-        *out << "Not a valid choice!";
-    } catch (const std::invalid_argument& e) {
-      *out << "Please enter a number!";
-    }
-    if (breakOut)
-      return "";
-    *out << std::endl << std::endl;
-  }
 }
 
 void Interaction::setBreakout(bool b) {
-  breakOut = b;
+    breakOut = b;
 }
 
 bool Interaction::getBreakout() {
-  return breakOut;
+    return breakOut;
 }

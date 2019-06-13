@@ -12,15 +12,15 @@ ToggleActive::ToggleActive(std::string id, Entity* targ, bool oneTime)
 ToggleActive::~ToggleActive() {}
 
 std::string ToggleActive::execute(Entity* affected) {
-  if (!done) {
-    bool active = target->getState()->getActive();
-    if (active)
-      target->getState()->setActive(false);
-    else
-      target->getState()->setActive(true);
-    if (once)
-      done = true;
-    return Event::execute(affected);
-  }
-  return "";
+    if (!done) {
+        bool active = target->getState()->getActive();
+        if (active)
+            target->getState()->setActive(false);
+        else
+            target->getState()->setActive(true);
+        if (once)
+            done = true;
+        return Event::execute(affected);
+    }
+    return "";
 }

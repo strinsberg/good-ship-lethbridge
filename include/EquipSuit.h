@@ -10,8 +10,7 @@
 #include "Suit.h"
 #include <string>
 
-class EquipSuit : public Event
-{
+class EquipSuit : public Event {
   public:
     EquipSuit(std::string id, Suit* suit);
     virtual ~EquipSuit();

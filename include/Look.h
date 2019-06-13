@@ -15,14 +15,14 @@
   * Action to inspect a game object.
   */
 class Look : public Action {
- public:
-  Look(Player* p);
-  virtual ~Look();
-  std::string execute();
+  public:
+    Look(Player* p);
+    virtual ~Look();
+    std::string execute();
 
- private:
-  Look(const Look& other);
-  Look& operator=(const Look& other);
+  private:
+    Look(const Look& other);
+    Look& operator=(const Look& other);
 };
 
 #endif // LOOK_H

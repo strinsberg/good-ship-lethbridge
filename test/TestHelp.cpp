@@ -8,8 +8,8 @@
 #include <string>
 #include "gtest/gtest.h"
 TEST(TestHelp, execute) {
-  Help h(nullptr);
-  EXPECT_EQ("available commands are use, get, drop, "
-            "inventory, look, talk, save, load, quit, and exit.",
-            h.execute());
+    Help h(nullptr);
+    EXPECT_EQ("available commands are use, get, drop, "
+              "inventory, look, talk, save, load, quit, and exit.",
+              h.execute());
 }

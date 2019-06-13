@@ -16,37 +16,37 @@
   * holding or composed of other objects that also have blueprints
   */
 class ObjectWithContentsBlueprint : public ObjectBlueprint {
- public:
-  ObjectWithContentsBlueprint();
-  ObjectWithContentsBlueprint(const std::string& data);
-  virtual ~ObjectWithContentsBlueprint();
+  public:
+    ObjectWithContentsBlueprint();
+    ObjectWithContentsBlueprint(const std::string& data);
+    virtual ~ObjectWithContentsBlueprint();
 
-  /**
-    * Add an ObjectBlueprint to the contents. Transfers ownership.
-    * @param obj an ObjectBlueprint
+    /**
+      * Add an ObjectBlueprint to the contents. Transfers ownership.
+      * @param obj an ObjectBlueprint
+      */
+    void addBlueprint(ObjectBlueprint* obj);
+
+    /**
+      * @return an iterator to the beginning of the contents
+      */
+    const std::vector<ObjectBlueprint*>::iterator begin();
+
+    /**
+      * @return an iterator to the end of the contents
+      */
+    const std::vector<ObjectBlueprint*>::iterator end();
+
+    /**
+    * @return a string of object data.
     */
-  void addBlueprint(ObjectBlueprint* obj);
+    std::string toString() const;
 
-  /**
-    * @return an iterator to the beginning of the contents
-    */
-  const std::vector<ObjectBlueprint*>::iterator begin();
+  private:
+    std::vector<ObjectBlueprint*> contents;  // owns these objects
 
-  /**
-    * @return an iterator to the end of the contents
-    */
-  const std::vector<ObjectBlueprint*>::iterator end();
-
-  /**
-  * @return a string of object data.
-  */
-  std::string toString() const;
-
- private:
-  std::vector<ObjectBlueprint*> contents;  // owns these objects
-
-  ObjectWithContentsBlueprint(const ObjectWithContentsBlueprint&);
-  ObjectWithContentsBlueprint& operator=(const ObjectWithContentsBlueprint&);
+    ObjectWithContentsBlueprint(const ObjectWithContentsBlueprint&);
+    ObjectWithContentsBlueprint& operator=(const ObjectWithContentsBlueprint&);
 };
 
 #endif // OBJECTWITHCONTENTSBLUEPRINT_H

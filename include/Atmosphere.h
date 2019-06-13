@@ -10,9 +10,9 @@
   * @date 2019-03-05
   */
 enum Atmosphere {
-  OXYGEN,
-  SPACE,
-  RADIATION,
+    OXYGEN,
+    SPACE,
+    RADIATION,
 };
 
 #endif // ATMOSPHERE_H

@@ -11,10 +11,10 @@ Question::Question(std::string q, std::string a)
 Question::~Question() {}
 
 bool Question::test(Entity* target) const {
-  *out << question << std::endl;
-  std::string input;
-  *out << ">>> ";
-  *in >> input;
+    *out << question << std::endl;
+    std::string input;
+    *out << ">>> ";
+    *in >> input;
 
-  return input == answer;
+    return input == answer;
 }

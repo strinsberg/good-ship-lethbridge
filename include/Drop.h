@@ -14,14 +14,14 @@
   * @date 2019-03-05
   */
 class Drop : public Action {
- public:
-  Drop(Player* p);
-  virtual ~Drop();
-  std::string execute();
+  public:
+    Drop(Player* p);
+    virtual ~Drop();
+    std::string execute();
 
- private:
-  Drop(const Drop&);
-  Drop& operator=(const Drop&);
+  private:
+    Drop(const Drop&);
+    Drop& operator=(const Drop&);
 };
 
 #endif // DROP_H

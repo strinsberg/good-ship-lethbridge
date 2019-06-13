@@ -12,5 +12,5 @@ BadInput::BadInput() {}
 BadInput::~BadInput() {}
 
 std::string BadInput::execute() {
-  return "You can't " + noun + "!";
+    return "You can't " + noun + "!";
 }

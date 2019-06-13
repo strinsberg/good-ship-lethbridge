@@ -12,41 +12,41 @@
 #include <sstream>
 
 ObjectWithContentsBlueprint::ObjectWithContentsBlueprint()
-  : contents(std::vector<ObjectBlueprint*>()) {}
+    : contents(std::vector<ObjectBlueprint*>()) {}
 
 ObjectWithContentsBlueprint::ObjectWithContentsBlueprint(
-  const std::string& data)
-  : ObjectBlueprint(data), contents(std::vector<ObjectBlueprint*>()) {}
+    const std::string& data)
+    : ObjectBlueprint(data), contents(std::vector<ObjectBlueprint*>()) {}
 
 ObjectWithContentsBlueprint::~ObjectWithContentsBlueprint() {
-  for (auto o : contents)
-    delete o;
+    for (auto o : contents)
+        delete o;
 }
 
 
 void ObjectWithContentsBlueprint::addBlueprint(ObjectBlueprint* obj) {
-  contents.push_back(obj);
+    contents.push_back(obj);
 }
 
 const std::vector<ObjectBlueprint*>::iterator
 ObjectWithContentsBlueprint::begin() {
-  return contents.begin();
+    return contents.begin();
 }
 
 
 const std::vector<ObjectBlueprint*>::iterator
 ObjectWithContentsBlueprint::end() {
-  return contents.end();
+    return contents.end();
 }
 
 std::string ObjectWithContentsBlueprint::toString() const {
-  std::stringstream ss;
-  ss << ObjectBlueprint::toString() << std::endl;
+    std::stringstream ss;
+    ss << ObjectBlueprint::toString() << std::endl;
 
-  for (size_t i = 0; i < contents.size(); i++) {
-    ss << contents[i]->toString();
-    if (i != contents.size() - 1)
-      ss << std::endl;
-  }
-  return ss.str();
+    for (size_t i = 0; i < contents.size(); i++) {
+        ss << contents[i]->toString();
+        if (i != contents.size() - 1)
+            ss << std::endl;
+    }
+    return ss.str();
 }

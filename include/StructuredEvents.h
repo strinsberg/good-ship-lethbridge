@@ -21,17 +21,17 @@
   * executed.
   */
 class StructuredEvents : public EventGroup {
- public:
-  StructuredEvents(std::string id, bool repeats=false);
-  virtual ~StructuredEvents();
-  std::string execute(Entity* affected);
+  public:
+    StructuredEvents(std::string id, bool repeats=false);
+    virtual ~StructuredEvents();
+    std::string execute(Entity* affected);
 
- private:
-  int currentEvent;
-  bool repeats;
+  private:
+    int currentEvent;
+    bool repeats;
 
-  StructuredEvents(const StructuredEvents& other);
-  StructuredEvents& operator=(const StructuredEvents& other);
+    StructuredEvents(const StructuredEvents& other);
+    StructuredEvents& operator=(const StructuredEvents& other);
 };
 
 #endif // STRUCTUREDEVENTS_H

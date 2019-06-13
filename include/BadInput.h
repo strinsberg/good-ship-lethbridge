@@ -11,14 +11,14 @@
   * @date 2019-03-05, 2019-04-23
   */
 class BadInput : public Command {
- public:
-  BadInput();
-  virtual ~BadInput();
-  std::string execute();
+  public:
+    BadInput();
+    virtual ~BadInput();
+    std::string execute();
 
- private:
-  BadInput(const BadInput&);
-  BadInput& operator=(const BadInput&);
+  private:
+    BadInput(const BadInput&);
+    BadInput& operator=(const BadInput&);
 };
 
 #endif // BADINPUT_H

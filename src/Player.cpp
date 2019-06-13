@@ -14,34 +14,34 @@
 Player::Player(std::string id) : Container(id), currentRoom(nullptr), suit(nullptr) {}
 
 Player::~Player() {
-  if (suit != nullptr)
-      delete suit;
+    if (suit != nullptr)
+        delete suit;
 }
 
 std::string Player::describe() const {
-  return spec->getDescription();
+    return spec->getDescription();
 }
 
 Room* Player::getCurrentRoom() const {
-  return currentRoom;
+    return currentRoom;
 }
 
 void Player::setCurrentRoom(Room* r) {
-  currentRoom = r;
+    currentRoom = r;
 }
 
 void Player::wearSuit(Suit* s) {
-  removeSuit();
-  suit = s;
+    removeSuit();
+    suit = s;
 }
 
 Suit* Player::getSuit() {
-  return suit;
+    return suit;
 }
 
 void Player::removeSuit() {
-  if (suit != nullptr) {
-    addEntity(suit);
-    suit = nullptr;
-  }
+    if (suit != nullptr) {
+        addEntity(suit);
+        suit = nullptr;
+    }
 }

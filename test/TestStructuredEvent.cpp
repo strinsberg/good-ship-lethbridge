@@ -14,27 +14,27 @@
 
 
 TEST(StructuredEventsTests, execute_one_no_repeat) {
-  StructuredEvents s("id123");
+    StructuredEvents s("id123");
 
-  Event* i = new Inform("id456", "You can't use that!");
-  s.addEvent(i);
+    Event* i = new Inform("id456", "You can't use that!");
+    s.addEvent(i);
 
-  Entity* p;
-  EXPECT_EQ(s.execute(p), "You can't use that!");
-  EXPECT_EQ(s.execute(p), "You can't use that!");
+    Entity* p;
+    EXPECT_EQ(s.execute(p), "You can't use that!");
+    EXPECT_EQ(s.execute(p), "You can't use that!");
 }
 
 TEST(StructuredEventsTests, execute_many_repeat) {
-  StructuredEvents s("id123", true);
+    StructuredEvents s("id123", true);
 
-  Event* i = new Inform("id456", "You can't use that!");
-  s.addEvent(i);
+    Event* i = new Inform("id456", "You can't use that!");
+    s.addEvent(i);
 
-  Event* i2 = new Inform("id789", "You have died!");
-  s.addEvent(i2);
+    Event* i2 = new Inform("id789", "You have died!");
+    s.addEvent(i2);
 
-  Entity* p;
-  EXPECT_EQ(s.execute(p), "You can't use that!");
-  EXPECT_EQ(s.execute(p), "You have died!");
-  EXPECT_EQ(s.execute(p), "You can't use that!");
+    Entity* p;
+    EXPECT_EQ(s.execute(p), "You can't use that!");
+    EXPECT_EQ(s.execute(p), "You have died!");
+    EXPECT_EQ(s.execute(p), "You can't use that!");
 }

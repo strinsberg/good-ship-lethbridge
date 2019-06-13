@@ -16,33 +16,33 @@ EntitySpec::EntitySpec(std::string i, std::string n, std::string desc)
 EntitySpec::~EntitySpec() {}
 
 std::string EntitySpec::getName() const {
-  return name;
+    return name;
 }
 
 void EntitySpec::setName(std::string n) {
-  name = n;
+    name = n;
 }
 
 std::string EntitySpec::getId() const {
-  return id;
+    return id;
 }
 
 void EntitySpec::setId(std::string i) {
-  id = i;
+    id = i;
 }
 
 std::string EntitySpec::getDescription()const {
-  return description;
+    return description;
 }
 
 void EntitySpec::setDescription(std::string n) {
-  description = n;
+    description = n;
 }
 
 bool EntitySpec::matches(std::string n) {
-  if (name.find(n) != std::string::npos
-      || description.find(n) != std::string::npos)
-    return true;
-  else
-    return false;
+    if (name.find(n) != std::string::npos
+            || description.find(n) != std::string::npos)
+        return true;
+    else
+        return false;
 }

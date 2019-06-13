@@ -4,8 +4,7 @@
 #include "Conditional.h"
 #include "Atmosphere.h"
 
-class Protected : public Conditional
-{
+class Protected : public Conditional {
   public:
     Protected(std::string id, std::string atmosphere)
         : Conditional(id), atmos(atmosphere) {}

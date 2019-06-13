@@ -14,28 +14,28 @@
 #include <vector>
 
 EventGroup::EventGroup(std::string id)
-  : Event(id), events(std::vector<Event*>()) {}
+    : Event(id), events(std::vector<Event*>()) {}
 
 EventGroup::~EventGroup() {
-  for (auto e : events) {
-    if (e != nullptr)
-      delete e;
-  }
+    for (auto e : events) {
+        if (e != nullptr)
+            delete e;
+    }
 }
 
 void EventGroup::addEvent(Event* e) {
-  events.push_back(e);
+    events.push_back(e);
 }
 
 std::string EventGroup::execute(Entity* affected) {
-  std::stringstream ss;
+    std::stringstream ss;
 
-  for (size_t i = 0; i < events.size(); i++) {
-    std::string end = i < events.size() - 1 ? "\n" : "";
-    std::string result = events[i]->execute(affected);
-    if (!result.empty())
-      ss << result << end;
-  }
+    for (size_t i = 0; i < events.size(); i++) {
+        std::string end = i < events.size() - 1 ? "\n" : "";
+        std::string result = events[i]->execute(affected);
+        if (!result.empty())
+            ss << result << end;
+    }
 
-  return ss.str();
+    return ss.str();
 }

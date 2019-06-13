@@ -11,8 +11,7 @@
 #include <string>
 
 
-class OwnedEvent : public Event
-{
+class OwnedEvent : public Event {
   public:
     OwnedEvent(std::string id, Entity* owner);
     virtual ~OwnedEvent();

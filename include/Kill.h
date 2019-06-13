@@ -13,16 +13,16 @@
   * An event to kill an entity. Sets the entities hidden value to true.
   */
 class Kill : public Inform {
- public:
-  Kill(std::string id, std::string message, bool isEnd=false);
-  virtual ~Kill();
-  std::string execute(Entity* affected);
+  public:
+    Kill(std::string id, std::string message, bool isEnd=false);
+    virtual ~Kill();
+    std::string execute(Entity* affected);
 
- private:
-  bool ending;
+  private:
+    bool ending;
 
-  Kill(const Kill& other);
-  Kill& operator=(const Kill& other);
+    Kill(const Kill& other);
+    Kill& operator=(const Kill& other);
 };
 
 #endif // KILL_H

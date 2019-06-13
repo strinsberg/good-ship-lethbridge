@@ -13,33 +13,33 @@
   * @date 2019-03-05, 2019-04-23
   */
 class Action : public Command {
- public:
-  Action(Player* p);
-  virtual ~Action();
+  public:
+    Action(Player* p);
+    virtual ~Action();
 
-  /**
-    * Returns a pointer to the player. Does not transfer ownership.
-    * @return the player taking the action.
-    */
-  const Player* getPlayer() const;
+    /**
+      * Returns a pointer to the player. Does not transfer ownership.
+      * @return the player taking the action.
+      */
+    const Player* getPlayer() const;
 
- protected:
-  /**
-    * The player taking the action. Action Does not own this.
-    */
-  Player* player;
+  protected:
+    /**
+      * The player taking the action. Action Does not own this.
+      */
+    Player* player;
 
-  /**
-    * Returns a pointer to the entity that matches the noun and is accessible
-    * to the player. Does not transfer ownership.
-    * @return a pointer to the entity matching the noun or nullptr if
-    * there isn't one.
-    */
-  Entity* getEntity();
+    /**
+      * Returns a pointer to the entity that matches the noun and is accessible
+      * to the player. Does not transfer ownership.
+      * @return a pointer to the entity matching the noun or nullptr if
+      * there isn't one.
+      */
+    Entity* getEntity();
 
- private:
-  Action(const Action&);
-  Action& operator=(const Action&);
+  private:
+    Action(const Action&);
+    Action& operator=(const Action&);
 };
 
 #endif // ACTION_H

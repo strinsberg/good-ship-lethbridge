@@ -9,20 +9,27 @@
 #include <iostream>
 
 class Interactable {
- public:
-   Interactable() {in = &std::cin; out = &std::cout;}
-   virtual ~Interactable() {}
+  public:
+    Interactable() {
+        in = &std::cin;
+        out = &std::cout;
+    }
+    virtual ~Interactable() {}
 
-   void setIn(std::istream& is) {in = &is;}
-   void setOut(std::ostream& os) {out = &os;}
+    void setIn(std::istream& is) {
+        in = &is;
+    }
+    void setOut(std::ostream& os) {
+        out = &os;
+    }
 
- protected:
+  protected:
     std::istream* in;
     std::ostream* out;
 
- private:
-  Interactable(const Interactable&);
-  Interactable& operator=(const Interactable& other);
+  private:
+    Interactable(const Interactable&);
+    Interactable& operator=(const Interactable& other);
 };
 
 #endif // INTERACTABLE_H_INCLUDED

@@ -14,6 +14,6 @@ Quit::Quit(Game* g) : GameCommand(g) {}
 Quit::~Quit() {}
 
 std::string Quit::execute() {
-  game->stop();
-  return "Thanks for playing!";
+    game->stop();
+    return "Thanks for playing!";
 }

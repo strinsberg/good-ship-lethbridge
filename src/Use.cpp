@@ -14,16 +14,16 @@ Use::Use(Player* p) : Action(p) {}
 Use::~Use() {}
 
 std::string Use::execute() {
-  Entity* e = getEntity();
+    Entity* e = getEntity();
 
-  if (e != nullptr) {
-    if (e->getState()->getActive())
-      return e->runEvent("use", player);
-    else
-      return "For some reason you can't";
-      // should be different if it is inactive and does not
-      // have a use event
-  }
+    if (e != nullptr) {
+        if (e->getState()->getActive())
+            return e->runEvent("use", player);
+        else
+            return "For some reason you can't";
+        // should be different if it is inactive and does not
+        // have a use event
+    }
 
-  return "There is no " + noun;
+    return "There is no " + noun;
 }

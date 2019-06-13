@@ -16,14 +16,14 @@
   * or a file starting with the name that is given to the command.
   */
 class Load : public GameCommand {
- public:
-  Load(Game* g);
-  virtual ~Load();
-  std::string execute();
+  public:
+    Load(Game* g);
+    virtual ~Load();
+    std::string execute();
 
- private:
-  Load(const Load& other);
-  Load& operator=(const Load& other);
+  private:
+    Load(const Load& other);
+    Load& operator=(const Load& other);
 };
 
 #endif // LOAD_H

@@ -9,26 +9,26 @@
 
 
 TEST(TestEntitySpec, EntitySpec_constructor) {
-  EntitySpec e("player240", "steve", "a smelly old programmer");
-  EXPECT_EQ("player240", e.getId());
-  EXPECT_EQ("steve", e.getName());
-  EXPECT_EQ("a smelly old programmer", e.getDescription());
+    EntitySpec e("player240", "steve", "a smelly old programmer");
+    EXPECT_EQ("player240", e.getId());
+    EXPECT_EQ("steve", e.getName());
+    EXPECT_EQ("a smelly old programmer", e.getDescription());
 }
 
 TEST(TestEntitySpec, set_get_name) {
-  EntitySpec e("player240", "steve", "a smelly old programmer");
-  e.setName("max");
-  EXPECT_EQ("max", e.getName());
+    EntitySpec e("player240", "steve", "a smelly old programmer");
+    e.setName("max");
+    EXPECT_EQ("max", e.getName());
 }
 
 TEST(TestEntitySpec, set_get_id) {
-  EntitySpec e("player240", "steve", "a smelly old programmer");
-  e.setId("123max");
-  EXPECT_EQ("123max", e.getId());
+    EntitySpec e("player240", "steve", "a smelly old programmer");
+    e.setId("123max");
+    EXPECT_EQ("123max", e.getId());
 }
 
 TEST(TestEntitySpec, set_get_description) {
-  EntitySpec e("player240", "steve", "a smelly old programmer");
-  e.setDescription("this is e");
-  EXPECT_EQ("this is e", e.getDescription());
+    EntitySpec e("player240", "steve", "a smelly old programmer");
+    e.setDescription("this is e");
+    EXPECT_EQ("this is e", e.getDescription());
 }

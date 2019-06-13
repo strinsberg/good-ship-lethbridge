@@ -15,10 +15,10 @@ Kill::Kill(std::string id, std::string message, bool isEnd) : Inform(id, message
 Kill::~Kill() {}
 
 std::string Kill::execute(Entity* affected) {
-  std::stringstream ss;
-  affected->getState()->setHidden(true);
-  ss << message;
-  if (!ending)
-    ss << std::endl << affected->getSpec()->getName() << " is Dead!";
-  return ss.str();
+    std::stringstream ss;
+    affected->getState()->setHidden(true);
+    ss << message;
+    if (!ending)
+        ss << std::endl << affected->getSpec()->getName() << " is Dead!";
+    return ss.str();
 }

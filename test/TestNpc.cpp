@@ -8,12 +8,12 @@
 #include "gtest/gtest.h"
 
 TEST(TestNpc, describe) {
-  Npc Max("npc123");
-  Max.getSpec()->setDescription("this is max from your class");
-  EXPECT_EQ("this is max from your class", Max.describe());
+    Npc Max("npc123");
+    Max.getSpec()->setDescription("this is max from your class");
+    EXPECT_EQ("this is max from your class", Max.describe());
 }
 
 TEST(TestNpc, default_talk) {
-  Npc steve("npc123");
-  EXPECT_EQ("They don't have anything to say!", steve.runEvent("talk", nullptr));
+    Npc steve("npc123");
+    EXPECT_EQ("They don't have anything to say!", steve.runEvent("talk", nullptr));
 }

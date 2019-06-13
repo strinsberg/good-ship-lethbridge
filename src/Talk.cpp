@@ -14,13 +14,13 @@ Talk::Talk(Player* p) : Action(p) {}
 Talk::~Talk() {}
 
 std::string Talk::execute() {
-  Entity* e = getEntity();
-  if (e != nullptr){
-    if (e->getState()->getActive())
-      return e->runEvent("talk", player);
-    else
-      return noun + " can't talk right now";
-  } else {
-    return "There is no " + noun + "!";
-  }
+    Entity* e = getEntity();
+    if (e != nullptr) {
+        if (e->getState()->getActive())
+            return e->runEvent("talk", player);
+        else
+            return noun + " can't talk right now";
+    } else {
+        return "There is no " + noun + "!";
+    }
 }

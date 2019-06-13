@@ -4,17 +4,16 @@
 #include "Visitor.h"
 
 
-class ConditionConnector : public Visitor
-{
-    public:
-        ConditionConnector();
-        virtual ~ConditionConnector();
-        ConditionConnector(const ConditionConnector& other);
-        ConditionConnector& operator=(const ConditionConnector& other);
+class ConditionConnector : public Visitor {
+  public:
+    ConditionConnector();
+    virtual ~ConditionConnector();
+    ConditionConnector(const ConditionConnector& other);
+    ConditionConnector& operator=(const ConditionConnector& other);
 
-    protected:
+  protected:
 
-    private:
+  private:
 };
 
 #endif // CONDITIONCONNECTOR_H

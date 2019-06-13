@@ -17,38 +17,38 @@ Event::Event(std::string ID) : id(ID), done(false), once(false), observers(std::
 Event::~Event() {}
 
 std::string Event::getId() const {
-  return id;
+    return id;
 }
 
 bool Event::isDone() const {
-  return done;
+    return done;
 }
 
 void Event::setDone(bool d) {
-  done = d;
+    done = d;
 }
 
 void Event::setOnce(bool o) {
-  once = o;
+    once = o;
 }
 
 void Event::subscribe(Event* e) {
-  observers.push_back(e);
+    observers.push_back(e);
 }
 
 std::string Event::execute(Entity* e) {
-  std::stringstream ss;
-  for (auto it = observers.begin(); it != observers.end(); ++it) {
-    std::string result = (*it)->execute(e);
-    if (!result.empty()) {
-      ss << result;
-      if (it + 1 != observers.end())
-        ss << "\n";
+    std::stringstream ss;
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        std::string result = (*it)->execute(e);
+        if (!result.empty()) {
+            ss << result;
+            if (it + 1 != observers.end())
+                ss << "\n";
+        }
     }
-  }
-  if (once)
-    done = true;
-  return ss.str();
+    if (once)
+        done = true;
+    return ss.str();
 }
 
 void Event::accept(Visitor& v) {

@@ -11,13 +11,12 @@
 /**
   * An interface for game components that need to save information.
   */
-class Serializable
-{
-    public:
-      Serializable() {}
-      virtual ~Serializable() {}
+class Serializable {
+  public:
+    Serializable() {}
+    virtual ~Serializable() {}
 
-      virtual void serialize(std::ostream&) = 0;
+    virtual void serialize(std::ostream&) = 0;
 };
 
 #endif // SERIALIZABLE_H

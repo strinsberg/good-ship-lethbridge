@@ -16,24 +16,24 @@ TEST(EventGroupTests, constructor_get) {
 }
 
 TEST(EventGroupTests, constructor_add_event_execute) {
-  EventGroup e("id123");
+    EventGroup e("id123");
 
-  Event* i = new Inform("i123", "You can't use that!");
-  e.addEvent(i);
+    Event* i = new Inform("i123", "You can't use that!");
+    e.addEvent(i);
 
-  Entity* p;
-  EXPECT_EQ(e.execute(p), "You can't use that!");
+    Entity* p;
+    EXPECT_EQ(e.execute(p), "You can't use that!");
 }
 
 TEST(EventGroupTests, constructor_execute_group) {
-  EventGroup e("id123");
+    EventGroup e("id123");
 
-  Event* i = new Inform("i123", "You can't use that!");
-  e.addEvent(i);
+    Event* i = new Inform("i123", "You can't use that!");
+    e.addEvent(i);
 
-  Event* i2 = new Inform("i456", "You have died!");
-  e.addEvent(i2);
+    Event* i2 = new Inform("i456", "You have died!");
+    e.addEvent(i2);
 
-  Entity* p;
-  EXPECT_EQ(e.execute(p), "You can't use that!\nYou have died!");
+    Entity* p;
+    EXPECT_EQ(e.execute(p), "You can't use that!\nYou have died!");
 }

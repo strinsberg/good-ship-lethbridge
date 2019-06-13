@@ -18,40 +18,42 @@ class Entity;
   * Base class for all game events
   */
 class Event : public Serializable {
- public:
-  /**
-    * Creates an event with a given ID.
-    * @param id a unique string id
-    */
-  Event(std::string id);
-  virtual ~Event();
+  public:
+    /**
+      * Creates an event with a given ID.
+      * @param id a unique string id
+      */
+    Event(std::string id);
+    virtual ~Event();
 
-  /**
-    * Execute the event on the given entity. Does not transfer ownership of the entities.
-    * @param affected the entity affected by the event
-    * @return a description of the results.
-    */
-  virtual std::string execute(Entity* affected);
+    /**
+      * Execute the event on the given entity. Does not transfer ownership of the entities.
+      * @param affected the entity affected by the event
+      * @return a description of the results.
+      */
+    virtual std::string execute(Entity* affected);
 
-  void serialize(std::ostream& out) {out << "temp";}
+    void serialize(std::ostream& out) {
+        out << "temp";
+    }
 
-  std::string getId() const;
-  bool isDone() const;
-  void setDone(bool done);
-  void setOnce(bool oneTime);
-  void subscribe(Event*);
+    std::string getId() const;
+    bool isDone() const;
+    void setDone(bool done);
+    void setOnce(bool oneTime);
+    void subscribe(Event*);
 
-  void accept(Visitor& v);
+    void accept(Visitor& v);
 
- protected:
-  std::string id;
-  bool done;
-  bool once;
-  std::vector<Event*> observers;  // does not own these
+  protected:
+    std::string id;
+    bool done;
+    bool once;
+    std::vector<Event*> observers;  // does not own these
 
- private:
-  Event(const Event&);
-  Event& operator=(const Event&);
+  private:
+    Event(const Event&);
+    Event& operator=(const Event&);
 };
 
 #endif // EVENT_H

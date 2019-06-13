@@ -13,8 +13,8 @@
   * A non player character in the game.
   */
 class Npc : public Container {
- public:
-  Npc(std::string id);
-  ~Npc();
+  public:
+    Npc(std::string id);
+    ~Npc();
 };
 #endif //NPC_H

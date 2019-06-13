@@ -10,7 +10,7 @@
 #include <string>
 
 Npc::Npc(std::string id) : Container(id) {
-  addEvent("talk", new Inform("hidden02925327", "They don't have anything to say!"));
+    addEvent("talk", new Inform("hidden02925327", "They don't have anything to say!"));
 }
 
 Npc::~Npc() {}

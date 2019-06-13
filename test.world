@@ -1,0 +1,325 @@
+{
+  "name": "test",
+  "objects": {
+    "012b0fdc-28f9-4d74-b152-38e3a6fb5fe4": {
+      "active": 1,
+      "description": "A place for the crew to relax",
+      "events": [
+        {
+          "id": "f9553df3-7eb6-42bc-8b65-439c387b1320",
+          "name": "enter",
+          "verb": "enter"
+        }
+      ],
+      "hidden": 0,
+      "id": "012b0fdc-28f9-4d74-b152-38e3a6fb5fe4",
+      "items": [
+        {
+          "id": "7140beb8-4282-4e4b-b7da-43399a840e38",
+          "name": "comfy chair"
+        },
+        {
+          "id": "ce3f362b-82ab-41e8-8e42-d11efb871b53",
+          "name": "door lock"
+        },
+        {
+          "id": "4d7b6277-5a69-48e1-a2d7-71ffe37420fa",
+          "name": "door to captain's room"
+        },
+        {
+          "id": "15587e96-1660-4a78-b6ca-9a9a86d048f3",
+          "name": "note"
+        }
+      ],
+      "name": "common room",
+      "obtainable": 0,
+      "type": "room"
+    },
+    "02568f16-07a8-431c-bd59-53b0b2586bbc": {
+      "id": "02568f16-07a8-431c-bd59-53b0b2586bbc",
+      "message": "Access Denied!!!",
+      "name": "denied",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": null
+    },
+    "15587e96-1660-4a78-b6ca-9a9a86d048f3": {
+      "active": 1,
+      "description": "a primitive peice of paper",
+      "events": [
+        {
+          "id": "b884b4db-0ff8-434c-bc24-539b48727039",
+          "name": "read",
+          "verb": "read"
+        }
+      ],
+      "hidden": 0,
+      "id": "15587e96-1660-4a78-b6ca-9a9a86d048f3",
+      "items": [],
+      "name": "note",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "250aa5ce-ba27-47dc-ae10-66a38d1285a9": {
+      "condition": {
+        "id": "b3d28f19-9386-4f3b-8469-354b8ac89c9e",
+        "name": "combo"
+      },
+      "failure": {
+        "id": "02568f16-07a8-431c-bd59-53b0b2586bbc",
+        "name": "denied",
+        "verb": null
+      },
+      "id": "250aa5ce-ba27-47dc-ae10-66a38d1285a9",
+      "name": "enter combo",
+      "once": 0,
+      "subjects": [],
+      "success": {
+        "id": "f5863802-97b0-4096-973f-a5aa24c78f92",
+        "name": "open sesame",
+        "verb": null
+      },
+      "type": "conditional",
+      "verb": "use"
+    },
+    "3205848c-0911-4128-a775-3bb9bdde2a44": {
+      "active": 1,
+      "description": "It is very beautiful",
+      "events": [],
+      "hidden": 0,
+      "id": "3205848c-0911-4128-a775-3bb9bdde2a44",
+      "items": [],
+      "name": "ring",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "4d7b6277-5a69-48e1-a2d7-71ffe37420fa": {
+      "active": 0,
+      "description": "a normal ships door",
+      "events": [
+        {
+          "id": "8aaa1b01-9792-4228-abee-85cf4ec20291",
+          "name": "unlock",
+          "verb": "hidden1234"
+        }
+      ],
+      "hidden": 0,
+      "id": "4d7b6277-5a69-48e1-a2d7-71ffe37420fa",
+      "items": [],
+      "name": "door to captain's room",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "7140beb8-4282-4e4b-b7da-43399a840e38": {
+      "active": 1,
+      "description": "a very good place to relax",
+      "events": [
+        {
+          "id": "cbee3ea1-79b0-4cdd-9f2b-2af391548874",
+          "name": "bad captain",
+          "verb": "use"
+        }
+      ],
+      "hidden": 0,
+      "id": "7140beb8-4282-4e4b-b7da-43399a840e38",
+      "items": [],
+      "name": "comfy chair",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "71be5c86-5e2a-421f-84dc-a26d76c3c296": {
+      "id": "71be5c86-5e2a-421f-84dc-a26d76c3c296",
+      "message": "Why come back here?",
+      "name": "enter",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": "enter"
+    },
+    "7b6ebee3-2b61-4171-9f0f-626c50c7bb49": {
+      "id": "7b6ebee3-2b61-4171-9f0f-626c50c7bb49",
+      "message": "",
+      "name": "hi",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": null
+    },
+    "83f7f9d1-b338-41b2-b1e3-c7d8f10a01b7": {
+      "active": 1,
+      "description": "The best room on the ship",
+      "events": [
+        {
+          "id": "71be5c86-5e2a-421f-84dc-a26d76c3c296",
+          "name": "enter",
+          "verb": "enter"
+        }
+      ],
+      "hidden": 0,
+      "id": "83f7f9d1-b338-41b2-b1e3-c7d8f10a01b7",
+      "items": [
+        {
+          "id": "d23ce9f9-5583-480d-bd1f-11b5f83cfd69",
+          "name": "box"
+        },
+        {
+          "id": "de1614c6-30f9-45a7-8320-840a459a4b34",
+          "name": "computer"
+        },
+        {
+          "id": "86455baf-a338-44d9-9e4d-f44043ab3dd6",
+          "name": "door to common room"
+        }
+      ],
+      "name": "captains room",
+      "obtainable": 0,
+      "type": "room"
+    },
+    "86455baf-a338-44d9-9e4d-f44043ab3dd6": {
+      "active": 1,
+      "description": "a normal ships door",
+      "events": [],
+      "hidden": 0,
+      "id": "86455baf-a338-44d9-9e4d-f44043ab3dd6",
+      "items": [],
+      "name": "door to common room",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "8aaa1b01-9792-4228-abee-85cf4ec20291": {
+      "id": "8aaa1b01-9792-4228-abee-85cf4ec20291",
+      "name": "unlock",
+      "once": 1,
+      "subjects": [
+        {
+          "id": "250aa5ce-ba27-47dc-ae10-66a38d1285a9",
+          "name": "enter combo",
+          "verb": "use"
+        }
+      ],
+      "target": {
+        "id": "86455baf-a338-44d9-9e4d-f44043ab3dd6",
+        "name": "door to common room"
+      },
+      "type": "toggle",
+      "verb": "hidden1234"
+    },
+    "b3d28f19-9386-4f3b-8469-354b8ac89c9e": {
+      "answer": "1234",
+      "id": "b3d28f19-9386-4f3b-8469-354b8ac89c9e",
+      "name": "combo",
+      "question": "enter combo",
+      "type": "question"
+    },
+    "b884b4db-0ff8-434c-bc24-539b48727039": {
+      "id": "b884b4db-0ff8-434c-bc24-539b48727039",
+      "message": "the combo is 1234. Don't tell anyone!",
+      "name": "read",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": "read"
+    },
+    "cbee3ea1-79b0-4cdd-9f2b-2af391548874": {
+      "id": "cbee3ea1-79b0-4cdd-9f2b-2af391548874",
+      "message": "this is soooo comfortable! Your a bad captain!",
+      "name": "bad captain",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": "use"
+    },
+    "ce3f362b-82ab-41e8-8e42-d11efb871b53": {
+      "active": 1,
+      "description": "a simple combination lock",
+      "events": [
+        {
+          "id": "250aa5ce-ba27-47dc-ae10-66a38d1285a9",
+          "name": "enter combo",
+          "verb": "use"
+        }
+      ],
+      "hidden": 0,
+      "id": "ce3f362b-82ab-41e8-8e42-d11efb871b53",
+      "items": [],
+      "name": "door lock",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "d0421f1c-a5d7-4ad5-9df4-c63323eb8800": {
+      "id": "d0421f1c-a5d7-4ad5-9df4-c63323eb8800",
+      "message": "Ship Status critical!!!\\nGo do something about it!",
+      "name": "status",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": "use"
+    },
+    "d23ce9f9-5583-480d-bd1f-11b5f83cfd69": {
+      "active": 1,
+      "description": "a small shiny box",
+      "events": [],
+      "hidden": 0,
+      "id": "d23ce9f9-5583-480d-bd1f-11b5f83cfd69",
+      "items": [
+        {
+          "id": "3205848c-0911-4128-a775-3bb9bdde2a44",
+          "name": "ring"
+        }
+      ],
+      "name": "box",
+      "obtainable": 1,
+      "type": "container"
+    },
+    "de1614c6-30f9-45a7-8320-840a459a4b34": {
+      "active": 1,
+      "description": "a computer terminal",
+      "events": [
+        {
+          "id": "d0421f1c-a5d7-4ad5-9df4-c63323eb8800",
+          "name": "status",
+          "verb": "use"
+        }
+      ],
+      "hidden": 0,
+      "id": "de1614c6-30f9-45a7-8320-840a459a4b34",
+      "items": [],
+      "name": "computer",
+      "obtainable": 1,
+      "type": "entity"
+    },
+    "f5863802-97b0-4096-973f-a5aa24c78f92": {
+      "id": "f5863802-97b0-4096-973f-a5aa24c78f92",
+      "message": "That is correct! Door now open!",
+      "name": "open sesame",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": null
+    },
+    "f9553df3-7eb6-42bc-8b65-439c387b1320": {
+      "id": "f9553df3-7eb6-42bc-8b65-439c387b1320",
+      "message": "you hear a creaking noise",
+      "name": "enter",
+      "once": 0,
+      "subjects": [],
+      "type": "inform",
+      "verb": "enter"
+    },
+    "player": {
+      "description": "a hero of course",
+      "id": "player",
+      "items": [],
+      "name": "player",
+      "start": {
+        "id": "83f7f9d1-b338-41b2-b1e3-c7d8f10a01b7",
+        "name": "captains room"
+      },
+      "type": "player"
+    }
+  },
+  "player": "player",
+  "version": 0.0,
+  "welcome": "fun is waiting!"
+}

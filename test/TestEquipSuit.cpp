@@ -11,36 +11,36 @@
 #include "gtest/gtest.h"
 
 TEST(EquipSuitTests, execute) {
-  Suit* suit = new Suit();
-  suit->getSpec()->setName("hazmat suit");
-  EquipSuit es("equip123", suit);
+    Suit* suit = new Suit();
+    suit->getSpec()->setName("hazmat suit");
+    EquipSuit es("equip123", suit);
 
-  Player* p = new Player("player123");
-  p->addEntity(suit);
+    Player* p = new Player("player123");
+    p->addEntity(suit);
 
-  EXPECT_EQ("You are now wearing the hazmat suit", es.execute(p));
-  delete p;
+    EXPECT_EQ("You are now wearing the hazmat suit", es.execute(p));
+    delete p;
 }
 
 TEST(EquipSuitTests, execute_not_carrying_suit) {
-  Suit* suit = new Suit();
-  suit->getSpec()->setName("hazmat suit");
-  EquipSuit es("equip123", suit);
+    Suit* suit = new Suit();
+    suit->getSpec()->setName("hazmat suit");
+    EquipSuit es("equip123", suit);
 
-  Player* p = new Player("player123");
+    Player* p = new Player("player123");
 
-  EXPECT_EQ("You need to be carrying a suit to equip it!", es.execute(p));
-  delete p;
+    EXPECT_EQ("You need to be carrying a suit to equip it!", es.execute(p));
+    delete p;
 }
 
 TEST(EquipSuitTests, execute_not_a_player) {
-  Suit* suit = new Suit();
-  suit->getSpec()->setName("hazmat suit");
-  EquipSuit es("equip123", suit);
+    Suit* suit = new Suit();
+    suit->getSpec()->setName("hazmat suit");
+    EquipSuit es("equip123", suit);
 
-  Container* p = new Container("player123");
-  p->addEntity(suit);
+    Container* p = new Container("player123");
+    p->addEntity(suit);
 
-  EXPECT_EQ("That can't wear a suit!", es.execute(p));
-  delete p;
+    EXPECT_EQ("That can't wear a suit!", es.execute(p));
+    delete p;
 }

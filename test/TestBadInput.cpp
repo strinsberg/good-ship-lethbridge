@@ -11,13 +11,13 @@
 
 
 TEST(BadInputTests, constructor) {
-  BadInput b;
-  EXPECT_EQ(b.getNoun(), "");
+    BadInput b;
+    EXPECT_EQ(b.getNoun(), "");
 }
 
 TEST(BadInputTests, execute) {
-  BadInput b;
-  b.setNoun("fly");
-  EXPECT_EQ(b.getNoun(), "fly");
-  EXPECT_EQ(b.execute(), "You can't fly!");
+    BadInput b;
+    b.setNoun("fly");
+    EXPECT_EQ(b.getNoun(), "fly");
+    EXPECT_EQ(b.execute(), "You can't fly!");
 }

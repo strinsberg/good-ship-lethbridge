@@ -9,15 +9,16 @@
 #include "Event.h"
 
 
-class ToggleActive : public Event
-{
+class ToggleActive : public Event {
   public:
     ToggleActive(std::string id) : Event(id), target(nullptr) {}
     ToggleActive(std::string id, Entity* target, bool oneTime=true);
     virtual ~ToggleActive();
 
     std::string execute(Entity* affected);
-    void setTarget(Entity* e) {target = e;}
+    void setTarget(Entity* e) {
+        target = e;
+    }
 
   protected:
     Entity* target;

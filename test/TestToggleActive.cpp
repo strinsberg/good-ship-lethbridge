@@ -8,39 +8,39 @@
 #include "gtest/gtest.h"
 
 TEST(ToggleActiveEventTests, execute_active) {
-  Player* p = new Player("id7193");
-  ToggleActive* tog = new ToggleActive("toggle123", p);
+    Player* p = new Player("id7193");
+    ToggleActive* tog = new ToggleActive("toggle123", p);
 
-  EXPECT_EQ("", tog->execute(p));
-  EXPECT_FALSE(p->getState()->getActive());
+    EXPECT_EQ("", tog->execute(p));
+    EXPECT_FALSE(p->getState()->getActive());
 
-  EXPECT_TRUE(tog->isDone());
+    EXPECT_TRUE(tog->isDone());
 
-  delete p;
+    delete p;
 }
 
 TEST(ToggleActiveEventTests, execute_inactive) {
-  Player* p = new Player("id7193");
-  p->getState()->setActive(false);
-  ToggleActive* tog = new ToggleActive("toggle123", p);
+    Player* p = new Player("id7193");
+    p->getState()->setActive(false);
+    ToggleActive* tog = new ToggleActive("toggle123", p);
 
-  tog->execute(p);
-  EXPECT_TRUE(p->getState()->getActive());
+    tog->execute(p);
+    EXPECT_TRUE(p->getState()->getActive());
 
-  delete p;
+    delete p;
 }
 
 TEST(ToggleActiveEventTests, execute_toggle) {
-  Player* p = new Player("id7193");
-  ToggleActive* tog = new ToggleActive("toggle123", p, false);
+    Player* p = new Player("id7193");
+    ToggleActive* tog = new ToggleActive("toggle123", p, false);
 
-  tog->execute(p);
-  EXPECT_FALSE(p->getState()->getActive());
+    tog->execute(p);
+    EXPECT_FALSE(p->getState()->getActive());
 
-  tog->execute(p);
-  EXPECT_TRUE(p->getState()->getActive());
+    tog->execute(p);
+    EXPECT_TRUE(p->getState()->getActive());
 
-  EXPECT_FALSE(tog->isDone());
+    EXPECT_FALSE(tog->isDone());
 
-  delete p;
+    delete p;
 }

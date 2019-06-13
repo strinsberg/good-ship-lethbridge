@@ -13,26 +13,26 @@ Inventory::Inventory(Player* p) :Action(p) {}
 Inventory::~Inventory() {}
 
 std::string Inventory::execute() {
-  if (player->begin() == player->end())
-    return "You don't have anything!";
+    if (player->begin() == player->end())
+        return "You don't have anything!";
 
-  if (noun == "") {
-    std::stringstream ss;
-    ss << "You have:" << std::endl;
+    if (noun == "") {
+        std::stringstream ss;
+        ss << "You have:" << std::endl;
 
-    for (auto it = player->begin(); it != player->end(); it++) {
-      ss << it->second->getSpec()->getName() << " -> " << it->second->getSpec()->getDescription();
+        for (auto it = player->begin(); it != player->end(); it++) {
+            ss << it->second->getSpec()->getName() << " -> " << it->second->getSpec()->getDescription();
 
-      it++;
-      if (it != player->end())
-        ss << std::endl;
-      it--;  // This is gross
+            it++;
+            if (it != player->end())
+                ss << std::endl;
+            it--;  // This is gross
+        }
+        return ss.str();
     }
-    return ss.str();
-  }
 
-  if (player->search(noun) != nullptr)
-    return "You have that";
+    if (player->search(noun) != nullptr)
+        return "You have that";
 
-  return "You don't have that";
+    return "You don't have that";
 }

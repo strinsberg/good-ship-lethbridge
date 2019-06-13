@@ -15,14 +15,14 @@
   * Action to obtain a game object.
   */
 class Get : public Action {
- public:
-  Get(Player* p);
-  virtual ~Get();
-  std::string execute();
+  public:
+    Get(Player* p);
+    virtual ~Get();
+    std::string execute();
 
- private:
-  Get(const Get& other);
-  Get& operator=(const Get& other);
+  private:
+    Get(const Get& other);
+    Get& operator=(const Get& other);
 };
 
 #endif // GET_H

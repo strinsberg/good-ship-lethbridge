@@ -9,36 +9,36 @@
 #include "Exceptions.h"
 
 TEST(TestEntityState, EntityState_default) {
-  EntityState e;
-  EXPECT_EQ(true, e.getActive());
-  EXPECT_EQ(true, e.getObtainable());
-  EXPECT_EQ(false, e.getHidden());
+    EntityState e;
+    EXPECT_EQ(true, e.getActive());
+    EXPECT_EQ(true, e.getObtainable());
+    EXPECT_EQ(false, e.getHidden());
 }
 
 TEST(TestEntityState, EntityState_constructor) {
-  EntityState e(false, false, true);
-  EXPECT_EQ(false, e.getActive());
-  EXPECT_EQ(false, e.getObtainable());
-  EXPECT_EQ(true, e.getHidden());
+    EntityState e(false, false, true);
+    EXPECT_EQ(false, e.getActive());
+    EXPECT_EQ(false, e.getObtainable());
+    EXPECT_EQ(true, e.getHidden());
 }
 
 TEST(TestEntityState, set_get_obtainable) {
-  EntityState e;
-  e.setObtainable(false);
+    EntityState e;
+    e.setObtainable(false);
 
-  EXPECT_EQ(false, e.getObtainable());
+    EXPECT_EQ(false, e.getObtainable());
 }
 
 TEST(TestEntityState, set_get_active) {
-  EntityState e;
-  e.setActive(false);
+    EntityState e;
+    e.setActive(false);
 
-  EXPECT_EQ(false, e.getActive());
+    EXPECT_EQ(false, e.getActive());
 }
 
 TEST(TestEntityState, set_get_hidden) {
-  EntityState e;
-  e.setHidden(true);
+    EntityState e;
+    e.setHidden(true);
 
-  EXPECT_EQ(true, e.getHidden());
+    EXPECT_EQ(true, e.getHidden());
 }

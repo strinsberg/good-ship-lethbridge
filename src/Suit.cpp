@@ -11,19 +11,19 @@
 #include <string>
 
 Suit::Suit(Atmosphere atmos) : atmosphere(atmos) {
-  addEvent("use", new EquipSuit("hidden45824987", this));
+    addEvent("use", new EquipSuit("hidden45824987", this));
 }
 
 Suit::~Suit() {}
 
 std::string Suit::describe() const {
-  return spec->getDescription();
+    return spec->getDescription();
 }
 
 Atmosphere Suit::getAtmosphere() {
-  return atmosphere;
+    return atmosphere;
 }
 
 void Suit::setAtmosphere(Atmosphere a) {
-  atmosphere = a;
+    atmosphere = a;
 }

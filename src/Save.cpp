@@ -16,16 +16,16 @@ Save::Save(Game* g) :GameCommand(g) {}
 Save::~Save() {}
 
 std::string Save::execute() {
-  return "Game saved!!!";
+    return "Game saved!!!";
 }
 
 
 std::string hash_name(const std::string& name) {
-  int hash = 0;
-  for (auto c : name) {
-    hash += c;
-  }
-  std::stringstream ss;
-  ss << hash;
-  return ss.str();
+    int hash = 0;
+    for (auto c : name) {
+        hash += c;
+    }
+    std::stringstream ss;
+    ss << hash;
+    return ss.str();
 }

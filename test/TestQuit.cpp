@@ -10,25 +10,25 @@
 #include "gtest/gtest.h"
 
 TEST(QuitTests, constructor_get) {
-  Quit q(nullptr);
-  EXPECT_EQ("", q.getNoun());
-  EXPECT_EQ(nullptr, q.getGame());
+    Quit q(nullptr);
+    EXPECT_EQ("", q.getNoun());
+    EXPECT_EQ(nullptr, q.getGame());
 }
 
 TEST(QuitTests, set_game) {
-  Quit q(nullptr);
-  Game* g = new Game();
-  q.setGame(g);
-  EXPECT_EQ(g, q.getGame());
-  delete g;
+    Quit q(nullptr);
+    Game* g = new Game();
+    q.setGame(g);
+    EXPECT_EQ(g, q.getGame());
+    delete g;
 }
 
 TEST(QuitTests, execute) {
-  Quit q(nullptr);
+    Quit q(nullptr);
 
-  Game* g = new Game();
-  q.setGame(g);
-  EXPECT_EQ("Thanks for playing!", q.execute());
-  EXPECT_EQ(false, g->isRunning());
-  delete g;
+    Game* g = new Game();
+    q.setGame(g);
+    EXPECT_EQ("Thanks for playing!", q.execute());
+    EXPECT_EQ(false, g->isRunning());
+    delete g;
 }

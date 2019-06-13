@@ -6,8 +6,7 @@
 #include <string>
 
 
-class MovePlayer : public Event
-{
+class MovePlayer : public Event {
   public:
     MovePlayer(std::string id) : Event(id) {}
     MovePlayer(std::string id, Door* mover);

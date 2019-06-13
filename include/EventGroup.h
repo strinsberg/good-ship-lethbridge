@@ -17,24 +17,24 @@
   * in the order they were added.
   */
 class EventGroup : public Event {
- public:
-  EventGroup(std::string id);
-  virtual ~EventGroup();
-  virtual std::string execute(Entity* affected);
+  public:
+    EventGroup(std::string id);
+    virtual ~EventGroup();
+    virtual std::string execute(Entity* affected);
 
-  /**
-    * Add an event to the back of the group.
-    * Transfers ownership to the EventGroup.
-    * @param e an event
-    */
-  void addEvent(Event* e);
+    /**
+      * Add an event to the back of the group.
+      * Transfers ownership to the EventGroup.
+      * @param e an event
+      */
+    void addEvent(Event* e);
 
- protected:
-  std::vector<Event*> events;  // Owns these events
+  protected:
+    std::vector<Event*> events;  // Owns these events
 
- private:
-  EventGroup(const EventGroup& other);
-  EventGroup& operator=(const EventGroup& other);
+  private:
+    EventGroup(const EventGroup& other);
+    EventGroup& operator=(const EventGroup& other);
 };
 
 #endif // EVENTGROUP_H

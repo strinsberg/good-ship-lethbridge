@@ -11,8 +11,8 @@
 using json = nlohmann::json;
 
 EventConnector::EventConnector(
-        json obj, std::map<std::string, Event*> evts, std::map<std::string, Conditional*> conds, std::map<std::string, Entity*> ents)
-        : object(obj), events(evts), conditions(conds), entities(ents) {}
+    json obj, std::map<std::string, Event*> evts, std::map<std::string, Conditional*> conds, std::map<std::string, Entity*> ents)
+    : object(obj), events(evts), conditions(conds), entities(ents) {}
 
 EventConnector::~EventConnector() {}
 

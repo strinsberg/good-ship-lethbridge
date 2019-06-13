@@ -17,60 +17,60 @@
   * All Blueprints must have a type.
   */
 class ObjectBlueprint {
- public:
-  ObjectBlueprint();
+  public:
+    ObjectBlueprint();
 
-  /**
-    * Create a blueprint from a textual representation of an object.
-    * @param data a std::string of object data
-    * @throw TBD if the object does not have a type.
-    */
-  ObjectBlueprint(const std::string& data);
-  virtual ~ObjectBlueprint();
+    /**
+      * Create a blueprint from a textual representation of an object.
+      * @param data a std::string of object data
+      * @throw TBD if the object does not have a type.
+      */
+    ObjectBlueprint(const std::string& data);
+    virtual ~ObjectBlueprint();
 
-  /**
-    * @return the type of the object, ObjectBlueprint::null if no type
-    */
-  std::string getType() const;
+    /**
+      * @return the type of the object, ObjectBlueprint::null if no type
+      */
+    std::string getType() const;
 
-  /**
-    * @param key the name of the field to find.
-    * @return the value of the field, or ObjectBlueprint::null.
-    */
-  std::string getField(const std::string& key) const;
+    /**
+      * @param key the name of the field to find.
+      * @return the value of the field, or ObjectBlueprint::null.
+      */
+    std::string getField(const std::string& key) const;
 
-  /**
-    * @param key the name of the field.
-    * @param value the value of the field.
-    * @return true if the pair is added, false if the key is already set.
-    */
-  bool setField(const std::string& key, const std::string& value);
+    /**
+      * @param key the name of the field.
+      * @param value the value of the field.
+      * @return true if the pair is added, false if the key is already set.
+      */
+    bool setField(const std::string& key, const std::string& value);
 
-  /**
-    * @return a string of object data.
-    * @throw TBD if the object does not have a type
-    */
-  virtual std::string toString() const;
+    /**
+      * @return a string of object data.
+      * @throw TBD if the object does not have a type
+      */
+    virtual std::string toString() const;
 
-  /**
-    * A constant to return for non existent fields
-    */
-  static std::string null();
+    /**
+      * A constant to return for non existent fields
+      */
+    static std::string null();
 
- private:
-  std::map<std::string, std::string> record;
+  private:
+    std::map<std::string, std::string> record;
 
-  /**
-    * Parse a string of object data and add it's key, value pairs to record.
-    * @param data a string of object data.
-    */
-  void parse(const std::string& data);
+    /**
+      * Parse a string of object data and add it's key, value pairs to record.
+      * @param data a string of object data.
+      */
+    void parse(const std::string& data);
 
-  size_t skipWhitespace(const std::string& str, size_t pos);
-  std::string toLower(const std::string& str);
+    size_t skipWhitespace(const std::string& str, size_t pos);
+    std::string toLower(const std::string& str);
 
-  ObjectBlueprint(const ObjectBlueprint&);
-  ObjectBlueprint& operator=(const ObjectBlueprint&);
+    ObjectBlueprint(const ObjectBlueprint&);
+    ObjectBlueprint& operator=(const ObjectBlueprint&);
 };
 
 #endif // OBJECTBLUEPRINT_H

@@ -12,17 +12,17 @@
 #include <vector>
 
 StructuredEvents::StructuredEvents(std::string id, bool re)
-  : EventGroup(id), currentEvent(0), repeats(re) {}
+    : EventGroup(id), currentEvent(0), repeats(re) {}
 
 StructuredEvents::~StructuredEvents() {}
 
 std::string StructuredEvents::execute(Entity* affected) {
-  if (currentEvent == events.size()) {
-    if (repeats)
-      currentEvent = 0;
-    else
-      return events[events.size()-1]->execute(affected);
-  }
+    if (currentEvent == events.size()) {
+        if (repeats)
+            currentEvent = 0;
+        else
+            return events[events.size()-1]->execute(affected);
+    }
 
-  return events[currentEvent++]->execute(affected);
+    return events[currentEvent++]->execute(affected);
 }

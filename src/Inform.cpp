@@ -15,8 +15,8 @@ Inform::Inform(std::string id, std::string msg) : Event(id), message(msg) {}
 Inform::~Inform() {}
 
 std::string Inform::execute(Entity* affected) {
-  std::string result = Event::execute(affected);
-  if (!result.empty())
-    return result + "\n" + message;
-  return message;
+    std::string result = Event::execute(affected);
+    if (!result.empty())
+        return result + "\n" + message;
+    return message;
 }

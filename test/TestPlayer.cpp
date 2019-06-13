@@ -14,45 +14,45 @@
 #include "Suit.h"
 
 TEST(PlayerTests, constructor_get) {
-  Player p("id7193");
-  EXPECT_EQ(nullptr, p.getCurrentRoom());
+    Player p("id7193");
+    EXPECT_EQ(nullptr, p.getCurrentRoom());
 }
 
 TEST(PlayerTests, set_room) {
-  Player p("id7193");
+    Player p("id7193");
 
-  Room* r = new Room("id6t9");
-  p.setCurrentRoom(r);
+    Room* r = new Room("id6t9");
+    p.setCurrentRoom(r);
 
-  EXPECT_EQ(r, p.getCurrentRoom());
-  delete r;
+    EXPECT_EQ(r, p.getCurrentRoom());
+    delete r;
 }
 
 TEST(PlayerTests, describe) {
-  Player p("id7193");
-  p.getSpec()->setDescription("That's You!");
+    Player p("id7193");
+    p.getSpec()->setDescription("That's You!");
 
-  EXPECT_EQ("That's You!", p.describe());
+    EXPECT_EQ("That's You!", p.describe());
 }
 
 TEST(PlayerTests, wear_suit_none_equipped) {
-  Player p("id7193");
-  Suit* s = new Suit();
+    Player p("id7193");
+    Suit* s = new Suit();
 
-  p.wearSuit(s);
+    p.wearSuit(s);
 
-  EXPECT_EQ(s, p.getSuit());
+    EXPECT_EQ(s, p.getSuit());
 }
 
 TEST(PlayerTests, wear_suit_already_wearing_one) {
-  Player p("player123");
-  Suit* s = new Suit();
-  s->getSpec()->setId("suit123");
-  p.wearSuit(s);
+    Player p("player123");
+    Suit* s = new Suit();
+    s->getSpec()->setId("suit123");
+    p.wearSuit(s);
 
-  Suit* s2 = new Suit();
-  p.wearSuit(s2);
+    Suit* s2 = new Suit();
+    p.wearSuit(s2);
 
-  EXPECT_EQ(s2, p.getSuit());
-  EXPECT_EQ(s, p.searchById("suit123"));
+    EXPECT_EQ(s2, p.getSuit());
+    EXPECT_EQ(s, p.searchById("suit123"));
 }

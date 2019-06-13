@@ -12,9 +12,9 @@ GameCommand::GameCommand(Game* g) : game(g) {}
 GameCommand::~GameCommand() {}
 
 Game* GameCommand::getGame() {
-  return game;
+    return game;
 }
 
 void GameCommand::setGame(Game* g) {
-  game = g;
+    game = g;
 }

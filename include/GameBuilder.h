@@ -20,27 +20,27 @@ using json = nlohmann::json;
   * Builds a new game in its initial state.
   */
 class GameBuilder {
- public:
-  GameBuilder();
-  virtual ~GameBuilder();
+  public:
+    GameBuilder();
+    virtual ~GameBuilder();
 
-  /**
-    * Create a new game and return it. Transfers ownership to the caller.
-    */
-  Game* newGame(std::string name);
+    /**
+      * Create a new game and return it. Transfers ownership to the caller.
+      */
+    Game* newGame(std::string name);
 
- private:
-  bool isEntity(std::string type);
-  bool isEvent(std::string type);
-  bool isCondition(std::string type);
+  private:
+    bool isEntity(std::string type);
+    bool isEvent(std::string type);
+    bool isCondition(std::string type);
 
-  Entity* makeEntity(json obj);
-  void setupEntity(Entity*, json);
-  Event* makeEvent(json obj);
-  Conditional* makeCondition(json obj);
+    Entity* makeEntity(json obj);
+    void setupEntity(Entity*, json);
+    Event* makeEvent(json obj);
+    Conditional* makeCondition(json obj);
 
-  GameBuilder(const GameBuilder& other);
-  GameBuilder& operator=(const GameBuilder& other);
+    GameBuilder(const GameBuilder& other);
+    GameBuilder& operator=(const GameBuilder& other);
 };
 
 #endif // GAMEBUILDER_H

@@ -10,8 +10,7 @@
 #include "Interactable.h"
 
 
-class Question : public Conditional, public Interactable
-{
+class Question : public Conditional, public Interactable {
   public:
     /**
       * Create a question conditional with a question and answer.

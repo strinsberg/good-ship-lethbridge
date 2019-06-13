@@ -20,27 +20,27 @@ Room::Room(std::string id) : Container(id), atmosphere(Atmosphere::OXYGEN) {}
 Room::~Room() {}
 
 std::string Room::describe() const {
-  std::stringstream ss;
-  ss << "Location: " << spec->getName() << std::endl;
-  ss << Container::describe();
-  return ss.str();
+    std::stringstream ss;
+    ss << "Location: " << spec->getName() << std::endl;
+    ss << Container::describe();
+    return ss.str();
 }
 
 std::string Room::enter(Entity* entity) {
-  if (events.find("enter") == events.end()) {
-    std::stringstream ss;
-    ss << spec->getName() << std::endl;
-    ss << spec->getDescription();
-    return ss.str();
-  } else {
-    return runEvent("enter", entity);
-  }
+    if (events.find("enter") == events.end()) {
+        std::stringstream ss;
+        ss << spec->getName() << std::endl;
+        ss << spec->getDescription();
+        return ss.str();
+    } else {
+        return runEvent("enter", entity);
+    }
 }
 
 Atmosphere Room::getAtmosphere() {
-  return atmosphere;
+    return atmosphere;
 }
 
 void Room::setAtmosphere(Atmosphere a) {
-  atmosphere = a;
+    atmosphere = a;
 }

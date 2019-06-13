@@ -9,8 +9,7 @@
 #include "Conditional.h"
 
 
-class HasItem : public Conditional
-{
+class HasItem : public Conditional {
   public:
     HasItem(std::string id, std::string item)
         : Conditional(id), itemId(item) {}

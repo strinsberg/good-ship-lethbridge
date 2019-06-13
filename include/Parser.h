@@ -15,32 +15,32 @@ class Game;
   * Object responsible for parsing user inputs
   */
 class Parser {
- public:
-  /**
-    * Create a new parser object to parse given input
-    * @param in the input to parse
-    * @param g The game object
-    */
-  Parser(std::string in, Game* g);
-  virtual ~Parser();
+  public:
+    /**
+      * Create a new parser object to parse given input
+      * @param in the input to parse
+      * @param g The game object
+      */
+    Parser(std::string in, Game* g);
+    virtual ~Parser();
 
-  /**
-    * Parse the input. Transfers ownership of command to the caller.
-    * @return a command object for a user input command
-    */
-  Command* parse() const;
+    /**
+      * Parse the input. Transfers ownership of command to the caller.
+      * @return a command object for a user input command
+      */
+    Command* parse() const;
 
-  /**
-    * @return the input
-    */
-  const std::string& getInput() const;
+    /**
+      * @return the input
+      */
+    const std::string& getInput() const;
 
- private:
-  std::string input;
-  Game* game;  // does not own this
+  private:
+    std::string input;
+    Game* game;  // does not own this
 
-  Parser(const Parser&);
-  Parser& operator=(const Parser&);
+    Parser(const Parser&);
+    Parser& operator=(const Parser&);
 };
 
 #endif // PARSER_H

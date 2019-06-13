@@ -17,35 +17,35 @@
   * Base class for all areas of the game
   */
 class Room : public Container {
- public:
-  Room(std::string id);
-  virtual ~Room();
-  virtual std::string describe() const;
+  public:
+    Room(std::string id);
+    virtual ~Room();
+    virtual std::string describe() const;
 
-  /**
-    * Take action when an entity enters the room. Does not transfer ownership to Room.
-    * @param entity the entity entering the room
-    */
-  virtual std::string enter(Entity* entity);
+    /**
+      * Take action when an entity enters the room. Does not transfer ownership to Room.
+      * @param entity the entity entering the room
+      */
+    virtual std::string enter(Entity* entity);
 
-  /**
-    * Return the atmosphere of the room.
-    * @return the atmosphere of the room
-    */
-  Atmosphere getAtmosphere();
+    /**
+      * Return the atmosphere of the room.
+      * @return the atmosphere of the room
+      */
+    Atmosphere getAtmosphere();
 
-  /**
-    * Set the atmosphere of the room.
-    * @param a the new value of the rooms atmosphere.
-    */
-  void setAtmosphere(Atmosphere a);
+    /**
+      * Set the atmosphere of the room.
+      * @param a the new value of the rooms atmosphere.
+      */
+    void setAtmosphere(Atmosphere a);
 
- protected:
-  Atmosphere atmosphere;
+  protected:
+    Atmosphere atmosphere;
 
- private:
-  Room(const Room&);
-  Room& operator=(const Room&);
+  private:
+    Room(const Room&);
+    Room& operator=(const Room&);
 };
 
 #endif // ROOM_H

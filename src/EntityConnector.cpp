@@ -6,8 +6,8 @@
 using json = nlohmann::json;
 
 EntityConnector::EntityConnector(
-        json obj, std::map<std::string, Entity*>& ents, std::map<std::string, Event*>& evts)
-        : object(obj), entities(ents), events(evts) {}
+    json obj, std::map<std::string, Entity*>& ents, std::map<std::string, Event*>& evts)
+    : object(obj), entities(ents), events(evts) {}
 
 EntityConnector::~EntityConnector() {}
 
@@ -21,7 +21,7 @@ void EntityConnector::visit(Container* c) {
         std::string id = entity["id"];
         if (entities.find(id) != entities.end())
             c->addEntity(entities[id]);
-            std::cout << id << entity["name"] << std::endl;
+        std::cout << id << entity["name"] << std::endl;
     }
 }
 
