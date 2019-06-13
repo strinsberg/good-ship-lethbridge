@@ -20,159 +20,182 @@ using std::string;
 
 Game::Game(std::istream& is, std::ostream& os) : rooms(map<string, Room*>()),
     player(nullptr), in(is), out(os), running(true) {
-  player = new Player("blankstartingplayer1230u90egidf");
-  player->getSpec()->setName("None");
-  player->getSpec()->setDescription("None");
+    player = new Player("blankstartingplayer1230u90egidf");
+    player->getSpec()->setName("None");
+    player->getSpec()->setDescription("None");
 }
 
 Game::~Game() {
-  delete player;
-  for (auto r : rooms)
-    delete r.second;
+    delete player;
+    for (auto r : rooms)
+        delete r.second;
 }
 
 Player* Game::getPlayer() const {
-  return player;
+    return player;
 }
 
 void Game::setPlayer(Player* p) {
-  delete player;
-  player = p;
+    delete player;
+    player = p;
 }
 
 Room* Game::getRoom(const std::string& id) {
-  auto it = rooms.find(toLower(id));
-  if (it == rooms.end())
-    return nullptr;
-  return it->second;
+    auto it = rooms.find(toLower(id));
+    if (it == rooms.end())
+        return nullptr;
+    return it->second;
 }
 
 void Game::addRoom(const string& id, Room* room) {
-  if (rooms.find(toLower(id)) != rooms.end())
-    throw invalid_parameter_error("There is a room with that id already!");
-  rooms[toLower(id)] = room;
+    if (rooms.find(toLower(id)) != rooms.end())
+        throw invalid_parameter_error("There is a room with that id already!");
+    rooms[toLower(id)] = room;
 }
 
 int Game::numRooms() {
-  return rooms.size();
+    return rooms.size();
 }
 
 bool Game::isRunning() {
-  return running;
+    return running;
 }
 
 void Game::stop() {
-  running = false;
+    running = false;
 }
 
 void Game::run() {
-  while (running) {
-    std::string input;
-    out << "> ";
-    std::getline(in, input);
+    while (running) {
+        std::string input;
+        out << "> ";
+        std::getline(in, input);
 
-    input = toLower(input);
+        input = toLower(input);
 
-    if (input != "") {
-      Command* c;
-      Parser p(input, this);
-      c = p.parse();
-      std::cout << std::endl << "----------------------" << std::endl;
-      out << c->execute() << std::endl;
-      delete c;
+        if (input != "") {
+            Command* c;
+            Parser p(input, this);
+            c = p.parse();
+            std::cout << std::endl << "----------------------" << std::endl;
+            out << c->execute() << std::endl;
+            delete c;
+        }
+
+
+        if (player->getState()->getHidden()) {
+            out << std::endl << "Game Over!" << std::endl;
+            out << "Thanks for playing!" << std::endl;
+            running = false;
+        }
     }
-
-
-    if (player->getState()->getHidden()) {
-      out << std::endl << "Game Over!" << std::endl;
-      out << "Thanks for playing!" << std::endl;
-      running = false;
-    }
-  }
-}
-Event* Game::getEvent(const std::string& name) {
-  auto it = events.find(toLower(name));
-  if (it == events.end())
-    return nullptr;
-  return it->second;
 }
 
-void Game::addEvent(const string& name, Event* event) {
-  events[ toLower(name) ] = event;
+Event* Game::getEvent(const std::string& id) {
+    auto it = events.find(id);
+    if (it == events.end())
+        return nullptr;
+    return it->second;
+}
+
+void Game::addEvent(const string& id, Event* event) {
+    events[id] = event;
+}
+
+Entity* Game::getEntity(const std::string& id) {
+    auto it = entities.find(id);
+    if (it == entities.end())
+        return nullptr;
+    return it->second;
+}
+
+void Game::addEntity(const string& id, Entity* entity) {
+    entities[id] = entity;
+}
+
+Conditional* Game::getConditional(const std::string& id) {
+    auto it = conditions.find(id);
+    if (it == conditions.end())
+        return nullptr;
+    return it->second;
+}
+
+void Game::addConditional(const string& id, Conditional* condition) {
+    conditions[id] = condition;
 }
 
 string Game::toLower(const string& str) {
-  string lower;
-  for (auto c : str)
-    lower.push_back(tolower(c));
-  return lower;
+    string lower;
+    for (auto c : str)
+        lower.push_back(tolower(c));
+    return lower;
 }
 
 std::map<std::string, Room*>& Game::getRooms() {
-  return rooms;
+    return rooms;
 }
 
 void Game::updateInteraction(ObjectBlueprint* bp) {
-/*  Event* e = getEvent(bp->getField("name"));
-  if (e != nullptr) {
-    StructuredEvents* event = static_cast<StructuredEvents*>(e);
-    event->getSpec()->setDone(stob(bp->getField("done")));
-    event->setCurrentIndex(std::stoi(bp->getField("index")));
-  }*/
+    /*  Event* e = getEvent(bp->getField("name"));
+      if (e != nullptr) {
+        StructuredEvents* event = static_cast<StructuredEvents*>(e);
+        event->getSpec()->setDone(stob(bp->getField("done")));
+        event->setCurrentIndex(std::stoi(bp->getField("index")));
+      }*/
 }
 
 void Game::updateEntity(ObjectBlueprint* bp) {
-/*  for (auto rPair : getRooms()) {
-    Entity* ent = rPair.second->search(bp->getField("name"));
-    if (ent != nullptr) {
-      moveEntity(ent, bp->getField("owner"));
-      ent->getState()->setActive(stob(bp->getField("active")));
-      ent->getState()->setObtainable(stob(bp->getField("obtainable")));
-      ent->getState()->setHidden(stob(bp->getField("hidden")));
+    /*  for (auto rPair : getRooms()) {
+        Entity* ent = rPair.second->search(bp->getField("name"));
+        if (ent != nullptr) {
+          moveEntity(ent, bp->getField("owner"));
+          ent->getState()->setActive(stob(bp->getField("active")));
+          ent->getState()->setObtainable(stob(bp->getField("obtainable")));
+          ent->getState()->setHidden(stob(bp->getField("hidden")));
 
-      return;
-    }
-  }*/
+          return;
+        }
+      }*/
 }
 
 void Game::updateEvent(ObjectBlueprint* bp) {
- /* Event* event = getEvent(bp->getField("name"));
-  if (event != nullptr) {
-    event->getSpec()->setDone(stob(bp->getField("done")));
-  }*/
+    /* Event* event = getEvent(bp->getField("name"));
+     if (event != nullptr) {
+       event->getSpec()->setDone(stob(bp->getField("done")));
+     }*/
 }
 
 void Game::moveEntity(Entity* entity, std::string newOwner) {
-  std::string itemName = entity->getSpec()->getName();
-/*
-  for (auto rPair : getRooms()) {
-    Entity* owner = rPair.second->findOwner(itemName);
-
-    if (owner != nullptr && owner->getSpec()->getName() != newOwner) {
-      MoveEntitys moveEntity(owner, itemName);
-      moveEntity.setGive(true);
-
-      Entity* giveTo = nullptr;
+    std::string itemName = entity->getSpec()->getName();
+    /*
       for (auto rPair : getRooms()) {
-        if (rPair.second->getSpec()->getName() == newOwner) {
-          std::cout << rPair.second->getSpec()->getName();
-          std::cout << " - " << itemName << " - ";
-          std::cout << owner->getSpec()->getName() <<std::endl;
-          giveTo = rPair.second;
-          moveEntity.execute(giveTo);
-          return;
-        } else {
-          giveTo = rPair.second->search(newOwner);
-          if (giveTo != nullptr) {
-            moveEntity.execute(giveTo);
-            return;
+        Entity* owner = rPair.second->findOwner(itemName);
+
+        if (owner != nullptr && owner->getSpec()->getName() != newOwner) {
+          MoveEntitys moveEntity(owner, itemName);
+          moveEntity.setGive(true);
+
+          Entity* giveTo = nullptr;
+          for (auto rPair : getRooms()) {
+            if (rPair.second->getSpec()->getName() == newOwner) {
+              std::cout << rPair.second->getSpec()->getName();
+              std::cout << " - " << itemName << " - ";
+              std::cout << owner->getSpec()->getName() <<std::endl;
+              giveTo = rPair.second;
+              moveEntity.execute(giveTo);
+              return;
+            } else {
+              giveTo = rPair.second->search(newOwner);
+              if (giveTo != nullptr) {
+                moveEntity.execute(giveTo);
+                return;
+              }
+            }
           }
         }
-      }
-    }
-  }*/
+      }*/
 }
 
 bool Game::stob(const std::string& str) {
-  return str == "true";
+    return str == "true";
 }
