@@ -8,24 +8,27 @@
 #include "Entity.h"
 #include "Exceptions.h"
 #include <string>
+#include <iostream>
 
 Look::Look(Player* p) : Action(p) {}
 
 Look::~Look() {}
 
 std::string Look::execute() {
-  if (noun == "")
-    return player->getCurrentRoom()->describe();
 
-  Entity* e = getEntity();
+    if (noun == "")
+        return player->getCurrentRoom()->describe();
 
-  std::string str("You see ");
-  if (e != nullptr) {
-    if (e->hasEvent("look"))
-      return e->runEvent("look", player);
-    else
-      return str + e->describe();
-  }
+    std::cout << "here" << std::endl;
+    Entity* e = getEntity();
 
-  return "There is no " + noun;
+    std::string str("You see ");
+    if (e != nullptr) {
+        if (e->hasEvent("look"))
+            return e->runEvent("look", player);
+        else
+            return str + e->describe();
+    }
+
+    return "There is no " + noun;
 }

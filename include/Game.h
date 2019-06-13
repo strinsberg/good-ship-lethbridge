@@ -141,6 +141,7 @@ class Game {
     std::ostream& out;
     bool running;
 
+    // Eventually all things here will be owned by the game
     std::map<std::string, Entity*> entities;
     std::map<std::string, Conditional*> conditions;
     std::string name;

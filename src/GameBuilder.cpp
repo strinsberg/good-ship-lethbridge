@@ -88,6 +88,8 @@ Game* GameBuilder::newGame(std::string name) {
             Player* p = new Player(id);
             setupEntity(p, obj);
             EntityConnector conn(obj, entities, events);
+            std::string startRoom = obj["start"]["id"];
+            p->setCurrentRoom(static_cast<Room*>(entities[startRoom]));
             p->accept(conn);
             g->setPlayer(p);
         }
