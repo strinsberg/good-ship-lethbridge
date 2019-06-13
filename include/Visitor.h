@@ -3,6 +3,7 @@
 
 class Entity;
 class Event;
+class Container;
 class Conditional;
 
 class Visitor {
@@ -11,6 +12,7 @@ class Visitor {
         virtual ~Visitor() {}
 
         virtual void visit(Entity*) {}
+        virtual void visit(Container*) {}
         virtual void visit(Event*) {}
         virtual void visit(Conditional*) {}
 

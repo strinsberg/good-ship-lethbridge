@@ -21,6 +21,7 @@ void EntityConnector::visit(Container* c) {
         std::string id = entity["id"];
         if (entities.find(id) != entities.end())
             c->addEntity(entities[id]);
+            std::cout << id << entity["name"] << std::endl;
     }
 }
 
@@ -29,5 +30,6 @@ void EntityConnector::connectEvents(Entity* e) {
         std::string id = event["id"];
         if (events.find(id) != events.end())
             e->addEvent(event["verb"], events[id]);
+
     }
 }

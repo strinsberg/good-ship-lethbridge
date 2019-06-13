@@ -2,6 +2,7 @@
 #define DGSL_CONTAINER_H
 
 #include "Entity.h"
+#include "Visitor.h"
 #include <utility>
 #include <string>
 #include <map>
@@ -79,6 +80,8 @@ class Container: public Entity {
     * @return a map iterator to end of the containers inventory.
     */
   std::map<std::string, Entity*>::iterator end();
+
+  virtual void accept(Visitor& v);
 
  protected:
   /**

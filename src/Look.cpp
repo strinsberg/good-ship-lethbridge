@@ -15,11 +15,9 @@ Look::Look(Player* p) : Action(p) {}
 Look::~Look() {}
 
 std::string Look::execute() {
-
     if (noun == "")
         return player->getCurrentRoom()->describe();
 
-    std::cout << "here" << std::endl;
     Entity* e = getEntity();
 
     std::string str("You see ");

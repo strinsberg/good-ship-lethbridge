@@ -95,7 +95,7 @@ class Entity : public Serializable {
     */
   bool matches(std::string noun);
 
-  void accept(Visitor& v);
+  virtual void accept(Visitor& v);
 
  protected:
   EntitySpec* spec;  /**< Info for the entity. Owns this. */
