@@ -5,7 +5,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
-#include "Visitor.h"
+#include "EntityVisitor.h"
 #include <string>
 #include <map>
 
@@ -97,7 +97,7 @@ class Entity : public Serializable {
       */
     bool matches(std::string noun);
 
-    virtual void accept(Visitor& v);
+    virtual void accept(EntityVisitor& v);
 
   protected:
     EntitySpec* spec;  /**< Info for the entity. Owns this. */

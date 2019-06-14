@@ -8,7 +8,7 @@
 
 #include "Serializable.h"
 #include "ObjectBlueprint.h"
-#include "Visitor.h"
+#include "EventVisitor.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -43,7 +43,9 @@ class Event : public Serializable {
     void setOnce(bool oneTime);
     void subscribe(Event*);
 
-    void accept(Visitor& v);
+    virtual void accept(EventVisitor& v) {
+        v.visit(this);
+    }
 
   protected:
     std::string id;

@@ -7,6 +7,7 @@
 #define NPC_H
 
 #include "Container.h"
+#include "EntityVisitor.h"
 #include <string>
 
 /**
@@ -16,5 +17,7 @@ class Npc : public Container {
   public:
     Npc(std::string id);
     ~Npc();
+
+    virtual void accept(EntityVisitor& v);
 };
 #endif //NPC_H

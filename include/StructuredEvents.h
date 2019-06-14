@@ -9,6 +9,7 @@
 #include "EventGroup.h"
 #include "ObjectBlueprint.h"
 #include "Entity.h"
+#include "EventVisitor.h"
 #include <string>
 #include <vector>
 
@@ -26,6 +27,9 @@ class StructuredEvents : public EventGroup {
     virtual ~StructuredEvents();
     std::string execute(Entity* affected);
 
+    void accept(EventVisitor& v) {
+        v.visit(this);
+    }
   private:
     int currentEvent;
     bool repeats;

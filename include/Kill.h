@@ -7,6 +7,7 @@
 #define KILL_H
 
 #include "Inform.h"
+#include "EventVisitor.h"
 #include <string>
 
 /**
@@ -17,6 +18,8 @@ class Kill : public Inform {
     Kill(std::string id, std::string message, bool isEnd=false);
     virtual ~Kill();
     std::string execute(Entity* affected);
+
+    virtual void accept(EventVisitor& v);
 
   private:
     bool ending;

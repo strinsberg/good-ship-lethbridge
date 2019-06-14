@@ -8,6 +8,7 @@
 #define SUIT_H
 
 #include"Atmosphere.h"
+#include "EntityVisitor.h"
 #include"Entity.h"
 #include <string>
 
@@ -34,6 +35,8 @@ class Suit :public Entity {
       * @param a the new value of the atmosphere.
       */
     void setAtmosphere(Atmosphere a);
+
+    virtual void accept(EntityVisitor& v);
 
   private:
     Atmosphere atmosphere;

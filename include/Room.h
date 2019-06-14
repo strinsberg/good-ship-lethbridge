@@ -9,6 +9,7 @@
 #include "Entity.h"
 #include "Container.h"
 #include "Atmosphere.h"
+#include "EntityVisitor.h"
 #include "Event.h"
 #include <string>
 
@@ -39,6 +40,8 @@ class Room : public Container {
       * @param a the new value of the rooms atmosphere.
       */
     void setAtmosphere(Atmosphere a);
+
+    virtual void accept(EntityVisitor& v);
 
   protected:
     Atmosphere atmosphere;

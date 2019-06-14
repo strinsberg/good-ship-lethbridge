@@ -7,7 +7,7 @@
 #include "Entity.h"
 #include "Game.h"  // eventually move toLower to a library
 #include "Npc.h"
-#include "Visitor.h"
+#include "EntityVisitor.h"
 #include <utility>
 #include <string>
 #include <sstream>
@@ -100,7 +100,7 @@ std::map<std::string, Entity*>::iterator Container::end() {
     return inventory.end();
 }
 
-void Container::accept(Visitor& v) {
+void Container::accept(EntityVisitor& v) {
     v.visit(this);
 }
 

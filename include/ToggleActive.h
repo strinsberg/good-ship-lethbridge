@@ -7,6 +7,7 @@
 #define TOGGLEACTIVE_H
 
 #include "Event.h"
+#include "EventVisitor.h"
 
 
 class ToggleActive : public Event {
@@ -18,6 +19,10 @@ class ToggleActive : public Event {
     std::string execute(Entity* affected);
     void setTarget(Entity* e) {
         target = e;
+    }
+
+    void accept(EventVisitor& v) {
+        v.visit(this);
     }
 
   protected:

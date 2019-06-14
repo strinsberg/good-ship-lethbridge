@@ -9,6 +9,7 @@
 #include "Event.h"
 #include "Interactable.h"
 #include "Entity.h"
+#include "EventVisitor.h"
 #include <string>
 #include <vector>
 
@@ -46,6 +47,10 @@ class Interaction : public Event, public Interactable {
       * @param b the new value for breakout
       */
     void setBreakout(bool b);
+
+    void accept(EventVisitor& v) {
+        v.visit(this);
+    }
 
   private:
     /**

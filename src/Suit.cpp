@@ -7,6 +7,7 @@
 #include"Player.h"
 #include "Atmosphere.h"
 #include "EquipSuit.h"
+#include "EntityVisitor.h"
 #include <typeinfo>
 #include <string>
 
@@ -26,4 +27,8 @@ Atmosphere Suit::getAtmosphere() {
 
 void Suit::setAtmosphere(Atmosphere a) {
     atmosphere = a;
+}
+
+void Suit::accept(EntityVisitor& v) {
+    v.visit(this);
 }

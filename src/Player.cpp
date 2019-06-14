@@ -8,6 +8,7 @@
 #include "Container.h"
 #include "Atmosphere.h"
 #include "Event.h"
+#include "EntityVisitor.h"
 #include <string>
 
 
@@ -44,4 +45,8 @@ void Player::removeSuit() {
         addEntity(suit);
         suit = nullptr;
     }
+}
+
+void Player::accept(EntityVisitor& v) {
+    v.visit(this);
 }

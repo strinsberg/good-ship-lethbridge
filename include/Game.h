@@ -9,6 +9,7 @@
 #include "Room.h"
 #include "Player.h"
 #include "Event.h"
+#include "Conditional.h"
 #include <string>
 #include <map>
 #include <iostream>

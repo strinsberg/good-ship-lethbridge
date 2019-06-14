@@ -12,6 +12,7 @@
 #include "ObjectBlueprint.h"
 #include "ObjectWithContentsBlueprint.h"
 #include "Exceptions.h"
+#include "EntityVisitor.h"
 #include <string>
 #include <sstream>
 
@@ -43,4 +44,8 @@ Atmosphere Room::getAtmosphere() {
 
 void Room::setAtmosphere(Atmosphere a) {
     atmosphere = a;
+}
+
+void Room::accept(EntityVisitor& v) {
+    v.visit(this);
 }

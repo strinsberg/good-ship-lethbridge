@@ -8,6 +8,7 @@
 
 #include "Container.h"
 #include "Room.h"
+#include "EntityVisitor.h"
 #include "ObjectBlueprint.h"
 #include "Suit.h"
 #include <string>
@@ -54,6 +55,8 @@ class Player : public Container {
       * the players inventory.
       */
     void removeSuit();
+
+    virtual void accept(EntityVisitor& v);
 
   private:
     Room* currentRoom;  // does not own the room

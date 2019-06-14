@@ -2,7 +2,7 @@
 #define DGSL_CONTAINER_H
 
 #include "Entity.h"
-#include "Visitor.h"
+#include "EntityVisitor.h"
 #include <utility>
 #include <string>
 #include <map>
@@ -81,7 +81,7 @@ class Container: public Entity {
       */
     std::map<std::string, Entity*>::iterator end();
 
-    virtual void accept(Visitor& v);
+    virtual void accept(EntityVisitor& v);
 
   protected:
     /**

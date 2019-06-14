@@ -7,6 +7,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
+#include "EntityVisitor.h"
 #include <string>
 
 
@@ -75,6 +76,6 @@ bool Entity::matches(std::string noun) {
     return spec->matches(noun);
 }
 
-void Entity::accept(Visitor& v) {
+void Entity::accept(EntityVisitor& v) {
     v.visit(this);
 }

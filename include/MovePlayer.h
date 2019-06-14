@@ -2,6 +2,7 @@
 #define MOVEPLAYER_H
 
 #include "Event.h"
+#include "EventVisitor.h"
 #include "Door.h"
 #include <string>
 
@@ -13,6 +14,10 @@ class MovePlayer : public Event {
     virtual ~MovePlayer();
 
     std::string execute(Entity* target);
+
+    void accept(EventVisitor& v) {
+        v.visit(this);
+    }
 
   protected:
     Door* door;

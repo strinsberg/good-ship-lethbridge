@@ -9,6 +9,7 @@
 #include "Event.h"
 #include "Container.h"
 #include "Entity.h"
+#include "EventVisitor.h"
 #include <string>
 
 
@@ -25,6 +26,9 @@ class TransferItem : public Event {
         other = c;
     }
 
+    void accept(EventVisitor& v) {
+        v.visit(this);
+    }
   private:
     Container* other;  // does not own this
     std::string itemId;

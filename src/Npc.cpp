@@ -7,6 +7,7 @@
 #include "Npc.h"
 #include "Container.h"
 #include "Inform.h"
+#include "EntityVisitor.h"
 #include <string>
 
 Npc::Npc(std::string id) : Container(id) {
@@ -14,3 +15,7 @@ Npc::Npc(std::string id) : Container(id) {
 }
 
 Npc::~Npc() {}
+
+void Npc::accept(EntityVisitor& v) {
+    v.visit(this);
+}

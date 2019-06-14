@@ -27,6 +27,10 @@ class Inform : public Event {
     virtual ~Inform();
     std::string execute(Entity* affected);
 
+    virtual void accept(EventVisitor& v) {
+        v.visit(this);
+    }
+
   protected:
     std::string message;
 

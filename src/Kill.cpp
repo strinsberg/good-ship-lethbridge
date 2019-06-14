@@ -22,3 +22,7 @@ std::string Kill::execute(Entity* affected) {
         ss << std::endl << affected->getSpec()->getName() << " is Dead!";
     return ss.str();
 }
+
+void Kill::accept(EventVisitor& v) {
+    v.visit(this);
+}
