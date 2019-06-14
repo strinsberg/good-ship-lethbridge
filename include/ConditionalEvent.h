@@ -3,6 +3,7 @@
 
 #include "Event.h"
 #include "Conditional.h"
+#include "EventVisitor.h"
 #include <string>
 
 
@@ -45,6 +46,10 @@ class ConditionalEvent : public Event {
     void setFailure(Event* failure);
 
     std::string execute(Entity* affected);
+
+    virtual void accept(EventVisitor& v) {
+        v.visit(this);
+    }
 
   private:
     Conditional* condition;  //owns this

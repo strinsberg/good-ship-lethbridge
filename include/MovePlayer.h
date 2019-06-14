@@ -9,11 +9,14 @@
 
 class MovePlayer : public Event {
   public:
-    MovePlayer(std::string id) : Event(id) {}
+    MovePlayer(std::string id)
+        : Event(id), door(nullptr), destination(nullptr) {}
     MovePlayer(std::string id, Door* mover);
     virtual ~MovePlayer();
 
     std::string execute(Entity* target);
+
+    void setDestination(Room* d) {destination = d;}
 
     void accept(EventVisitor& v) {
         v.visit(this);
@@ -21,6 +24,7 @@ class MovePlayer : public Event {
 
   protected:
     Door* door;
+    Room* destination;
 
   private:
     MovePlayer(const MovePlayer& other);

@@ -5,6 +5,7 @@
 
 #include "ConditionalEvent.h"
 #include <string>
+#include <iostream>
 
 ConditionalEvent::ConditionalEvent(std::string id)
     : Event(id), condition(nullptr), success(nullptr), failure(nullptr) {}

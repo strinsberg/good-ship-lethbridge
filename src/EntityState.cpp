@@ -8,6 +8,7 @@
 #include "EntitySpec.h"
 #include "EntityState.h"
 #include "Event.h"
+#include <iostream>
 
 EntityState::EntityState() : active(true), obtainable(true), hidden(false) {}
 

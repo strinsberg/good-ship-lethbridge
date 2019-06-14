@@ -61,6 +61,18 @@
       "obtainable": 1,
       "type": "entity"
     },
+    "1afbd195-8fb7-4c0c-a936-0fc6f2237413": {
+      "destination": {
+        "id": "012b0fdc-28f9-4d74-b152-38e3a6fb5fe4",
+        "name": "common room"
+      },
+      "id": "1afbd195-8fb7-4c0c-a936-0fc6f2237413",
+      "name": "to common",
+      "once": 0,
+      "subjects": [],
+      "type": "move",
+      "verb": "use"
+    },
     "250aa5ce-ba27-47dc-ae10-66a38d1285a9": {
       "condition": {
         "id": "b3d28f19-9386-4f3b-8469-354b8ac89c9e",
@@ -108,7 +120,7 @@
       "id": "4d7b6277-5a69-48e1-a2d7-71ffe37420fa",
       "items": [],
       "name": "door to captain's room",
-      "obtainable": 1,
+      "obtainable": 0,
       "type": "entity"
     },
     "7140beb8-4282-4e4b-b7da-43399a840e38": {
@@ -125,7 +137,7 @@
       "id": "7140beb8-4282-4e4b-b7da-43399a840e38",
       "items": [],
       "name": "comfy chair",
-      "obtainable": 1,
+      "obtainable": 0,
       "type": "entity"
     },
     "71be5c86-5e2a-421f-84dc-a26d76c3c296": {
@@ -179,12 +191,18 @@
     "86455baf-a338-44d9-9e4d-f44043ab3dd6": {
       "active": 1,
       "description": "a normal ships door",
-      "events": [],
+      "events": [
+        {
+          "id": "1afbd195-8fb7-4c0c-a936-0fc6f2237413",
+          "name": "to common",
+          "verb": "use"
+        }
+      ],
       "hidden": 0,
       "id": "86455baf-a338-44d9-9e4d-f44043ab3dd6",
       "items": [],
       "name": "door to common room",
-      "obtainable": 1,
+      "obtainable": 0,
       "type": "entity"
     },
     "8aaa1b01-9792-4228-abee-85cf4ec20291": {
@@ -193,14 +211,14 @@
       "once": 1,
       "subjects": [
         {
-          "id": "250aa5ce-ba27-47dc-ae10-66a38d1285a9",
-          "name": "enter combo",
+          "id": "f5863802-97b0-4096-973f-a5aa24c78f92",
+          "name": "open sesame",
           "verb": "use"
         }
       ],
       "target": {
-        "id": "86455baf-a338-44d9-9e4d-f44043ab3dd6",
-        "name": "door to common room"
+        "id": "4d7b6277-5a69-48e1-a2d7-71ffe37420fa",
+        "name": "door to captain's room"
       },
       "type": "toggle",
       "verb": "hidden1234"
@@ -244,7 +262,7 @@
       "id": "ce3f362b-82ab-41e8-8e42-d11efb871b53",
       "items": [],
       "name": "door lock",
-      "obtainable": 1,
+      "obtainable": 0,
       "type": "entity"
     },
     "d0421f1c-a5d7-4ad5-9df4-c63323eb8800": {
@@ -286,7 +304,7 @@
       "id": "de1614c6-30f9-45a7-8320-840a459a4b34",
       "items": [],
       "name": "computer",
-      "obtainable": 1,
+      "obtainable": 0,
       "type": "entity"
     },
     "f5863802-97b0-4096-973f-a5aa24c78f92": {

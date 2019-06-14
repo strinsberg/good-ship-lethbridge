@@ -42,7 +42,7 @@ class Event : public Serializable {
     void setDone(bool done);
     void setOnce(bool oneTime);
     void subscribe(Event*);
-
+    void notify() {};
     virtual void accept(EventVisitor& v) {
         v.visit(this);
     }

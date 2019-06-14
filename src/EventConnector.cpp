@@ -6,7 +6,9 @@
 #include "EventGroup.h"
 #include "ConditionalEvent.h"
 #include "Interaction.h"
+#include "MovePlayer.h"
 #include "json.h"
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -26,6 +28,9 @@ void EventConnector::visit(Kill* k) {
 
 void EventConnector::visit(MovePlayer* m) {
     connectSubjects((Event*)m);
+    std::string destId = object["destination"]["id"];
+    if (entities.find(destId) != entities.end())
+        m->setDestination((Room*)entities[destId]);
 }
 
 void EventConnector::visit(ToggleActive* t) {
