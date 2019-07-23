@@ -1,15 +1,19 @@
 # Disaster on the Good Ship Lethbridge
 
-2720 group project
-spring 2019
+University of Lethbridge CPSC2720 group project
+Spring 2019
 Max Niu and Steven Deutekom
+
+**This project is here for posterity only. A new project, The DGSL Text**
+**Adventure Engine, has been inspired by it. This project is being maintained at**
+https://github.com/strinsberg/dgsl-text-adventure-engine
 
 # Overview
 
 This is a simple text based adventure game  
 Following are instructions for compilation and then some sections of the user  
 manual that will help get you going. For full game info and even a walk through  
-please see the user manual in docs/user/userManual.pdf
+please see the user manual in docs/UserManual.pdf
 
 # Compilation
 
@@ -20,6 +24,13 @@ $ make adventureGame
 $./adventureGame
 ```  
 This will build the game and then allow you to run it in your terminal
+
+#### Note
+
+As the system we built this game on had various tools and libraries for testing
+and other task there are more targets in the Makefile. It is not recommended
+that you run these. We have left them in only to show that they were part of the
+projects.
 
 # How to play
 
@@ -152,4 +163,4 @@ capitalizing names and such. Type it how you want to. If it is spelled
 correctly it will work.  
 
 6. All actions except for Load can be entered with just the first letter   
-of the action. eg) get or g will work to get something.  
+of the action. eg) get or g will work to get something.

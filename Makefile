@@ -1,5 +1,6 @@
 CXX=g++
 CXXFLAGS= -std=c++11 -g -fprofile-arcs -ftest-coverage
+GAMEFLAGS = -std=c++11
 
 LINKFLAGS= -lgtest
 
@@ -44,7 +45,7 @@ $(PROGRAM_TEST): $(TEST_DIR) $(SRC_DIR)
 	$(TEST_DIR)/*.cpp $(SRC_DIR)/*.cpp $(LINKFLAGS)
 
 $(PROGRAM): $(SRC_DIR) $(GAME_SRC_DIR)
-	$(CXX) -o $(PROGRAM) $(INCLUDE) \
+	$(CXX) -o $(PROGRAM) $(INCLUDE) $(GAMEFLAGS) \
 	$(SRC_DIR)/*.cpp $(GAME_SRC_DIR)/*.cpp
 
 tests: $(PROGRAM_TEST)
