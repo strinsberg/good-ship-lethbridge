@@ -5,7 +5,7 @@ Spring 2019
 Max Niu and Steven Deutekom
 
 **This project is here for posterity only. A new project, The DGSL Text**
-**Adventure Engine, has been inspired by it. This project is being maintained at**
+**Adventure Engine, has been inspired by it. The new project is being maintained at**
 https://github.com/strinsberg/dgsl-text-adventure-engine
 
 # Overview
